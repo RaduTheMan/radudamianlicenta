@@ -1,0 +1,23 @@
+1.You want to know what actors acted in movies in the decade starting with the year 1990. First write a query to retrieve all actors that
+ acted in movies during the 1990s, where you return the released date, the movie title, and the collected actor names for the movie.
+ For now do not worry about duplication.
+
+
+Correct answer alternative:
+MATCH (p:Person)-[r:ACTED_IN]->(m:Movie)
+WITH collect(p.name) AS actors, m
+WHERE 1990 <= m.released < 2000
+RETURN actors, m.title AS movie, m.released AS released
+
+Official answer:
+MATCH (a:Person)-[:ACTED_IN]->(m:Movie)
+WHERE m.released >= 1990 AND m.released < 2000
+RETURN m.released, m.title, collect(a.name)
+
+
+2.The results returned from the previous query include multiple rows for a movie released value. Next, modify the query so that the released 
+date records returned are not duplicated. To implement this, you must add the collection of the movie titles to the results returned.
+
+MATCH (p:Person)-[r:ACTED_IN]->(m:Movie)
+WHERE 1990 <= m.released < 2000
+RETURN collect(p.name) AS actors, collect(m.title) AS movies,  m.released AS released

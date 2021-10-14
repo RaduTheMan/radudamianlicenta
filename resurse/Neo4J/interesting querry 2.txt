@@ -1,0 +1,17 @@
+Write a Cypher query that retrieves all movies that Gene Hackman has acted in, along with the directors of the movies.
+ In addition, retrieve the actors that acted in the same movies as Gene Hackman. Return the name of the movie, the name of the
+ director, and the names of actors that worked with Gene Hackman.
+
+
+(alternative answer)
+MATCH (gene:Person)-[:ACTED_IN]->(m:Movie)<-[:ACTED_IN]-(other:Person)
+MATCH (d:Person)-[:DIRECTED]->(m)
+WHERE gene.name = 'Gene Hackman'
+RETURN m.title AS movie, d.name AS director, other.name AS actor
+
+Official answer:
+
+MATCH (a:Person)-[:ACTED_IN]->(m:Movie)<-[:DIRECTED]-(d:Person),
+      (a2:Person)-[:ACTED_IN]->(m)
+WHERE a.name = 'Gene Hackman'
+RETURN m.title as movie, d.name AS director , a2.name AS `co-actors`

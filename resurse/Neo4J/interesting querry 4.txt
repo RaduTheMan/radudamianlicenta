@@ -1,0 +1,16 @@
+Add the roles property to the three ACTED_IN relationships that you just created to the movie, Forrest Gump using this information: Tom Hanks
+ played the role, Forrest Gump. Robin Wright played the role, Jenny Curran. Gary Sinise played the role, Lieutenant Dan Taylor.
+
+Hint: You can set each relationship using separate MATCH clauses. You can also use a CASE clause to set the values. Look up in the documentation
+ for how to use the CASE clause. (haha, I used the map data structure :p)
+
+
+
+
+MATCH (p:Person)-[rel:ACTED_IN]-(m:Movie {title: 'Forrest Gump'})
+WITH {`Tom Hanks`:'Forrest Gump',
+      `Robin Wright`:'Jenny Curran',
+      `Gary Sinise`:'Lieutenant Dan Taylor'} AS rolesData, p, rel, m
+WHERE p.name IN KEYS(rolesData)
+SET rel.roles = [rolesData[p.name]]
+RETURN p, rel, m

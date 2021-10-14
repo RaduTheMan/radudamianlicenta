@@ -1,0 +1,6 @@
+https://www.reddit.com/r/learnmachinelearning/comments/8waw03/learning_to_build_recommender_engines/
+
+https://en.wikipedia.org/wiki/Collaborative_filtering
+
+
+Recommendation systems: Principles, methods and evaluation - https://www.sciencedirect.com/science/article/pii/S1110866515000341

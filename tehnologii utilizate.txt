@@ -1,0 +1,15 @@
+Limbaj: Java(11)
+Back-end: Spring Boot
+Baza de date(?): Neo4j(baza de date nerelationala)(aspect de retea sociala al aplicatiei), MySQL, PostgreSQL
+Front-end(?): utilizarea unui template engine(de ex: FreeMarker, Velocity, Thymeleaf)
+              html, css, javascript (posibil si un framework precum React)
+              Angular
+Hostare: local, deploy(ideal)(heroku?)
+
+De considerat: JFreeChart, JGraphT, Apache Batik(pentru diverse moduri de reprezentare a retelei sociale)
+
+De studiat:
+
+Sisteme de recomandari - algoritmi colaborativi, bazati pe continut etc.
+Formalizarea preferintelor jucatorilor sub forma unor argumente care sa sustina/atace anumite aspecte ale jocurilor si intrarea in zona sistemelor
+de argumentare https://en.wikipedia.org/wiki/Argumentation_framework

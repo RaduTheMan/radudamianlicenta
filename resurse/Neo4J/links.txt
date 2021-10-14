@@ -1,0 +1,6 @@
+https://neo4j.com/docs/cypher-manual/4.0/
+https://neo4j.com/docs/cypher-refcard/current/
+https://neo4j.com/docs/cypher-manual/current/styleguide/
+https://neo4j.com/labs/apoc/4.1/
+https://neo4j.com/docs/
+https://community.neo4j.com/c/general/online-training/116?_gl=1*9q65sk*_ga*MTUxMjcwMTg5My4xNjI2NDY0MjQ2*_ga_DL38Q8KGQC*MTYyNjY4ODU3Ny4zLjEuMTYyNjY4ODgyMC4w&_ga=2.98355423.1142298963.1626680294-1512701893.1626464246

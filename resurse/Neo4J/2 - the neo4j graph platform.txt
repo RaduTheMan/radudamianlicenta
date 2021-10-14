@@ -1,0 +1,24 @@
+ACID transactions - Atomicity, Consistency, Isolation, Durability
+
+Transaction in databases - an indivisible unit of work
+
+Atomic - All changes to the data must be performed successfully or not at all
+Consistent - Data must be in a consistent state before and after the transaction
+Isolated - No other process can change the data while the transaction is running
+Durable - The changes made by a transaction must persist
+
+
+https://neo4j.com/labs/
+https://install.graphapp.io/   - graph applications
+https://neo4j.com/product/bloom/
+
+https://neo4j.com/cloud/aura/
+https://sandbox.neo4j.com/
+https://neo4j.com/download/  -desktop app
+
+https://neo4j.com/download-center/#drivers
+
+Forum - https://community.neo4j.com/
+stackoverflow - https://stackoverflow.com/questions/tagged/neo4j
+github - https://github.com/neo4j-contrib
+discord invitation - http://neo4j.com/slack
