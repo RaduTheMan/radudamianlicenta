@@ -17,3 +17,13 @@ sau modificata dupa bunul plac)
 Admini/Moderatori trebuie sa verifice continutul partajat de utilizatori(sa nu se adreseze injurii grave etc.).
 In eventualitatea in care se intampla acest lucru, utilizatorii pot fi avertizati/banati in functie de gravitatea situatiei.
 
+Actori: utilizator(anonim sau logat)
+	-actiuni: sa aiba un profil personalizat(date personale, jocuri video preferate, postari pe pagina proprie)
+                  trimiterea de mesaje altor utilizatori
+		  urmarirea unui utilizator(follow)
+                  sa primeasca recomandari de alte jocuri in functie de preferintele actuale
+alt tip de recomandare: cei care s-au jucat jocul acesta s-au jucat si ...
+administrator - adaugarea/scoaterea de jocuri din baza de date; (?...)
+admini/moderatori - aprobarea recenziilor, postarilor unui utilizator, stergerea acestora, avertizarea/banarea
+unui utilizator, in plus fata de ceea ce poate si un utilizator obisnuit
+
