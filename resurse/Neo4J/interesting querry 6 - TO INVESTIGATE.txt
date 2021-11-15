@@ -1,0 +1,29 @@
+MATCH (origin:Airport)<-[:ORIGINATES_FROM]-(flight:Flight)-[:LANDS_IN]->(destination:Airport)
+WITH origin.code + ' ' + flight.date AS airportDayIdOrigin, destination.code + ' ' + flight.date AS airportDayIdDestination, origin, flight, destination
+MERGE (airportDay1:AirportDay {airportDayId: airportDayIdOrigin})
+ON CREATE SET airportDay1.date = flight.date
+MERGE (airportDay2:AirportDay {airportDayId: airportDayIdDestination})
+ON CREATE SET airportDay2.date = flight.date
+MERGE (origin)-[:HAS_DAY]->(airportDay1)<-[:ORIGINATES_FROM]-(flight)
+MERGE (destination)-[:HAS_DAY]->(airportDay2)<-[:LANDS_IN]-(flight)
+
+(this one is wrong)
+255 labels, created 255 nodes, set 510 properties, created 40000 relationships, completed after 11561 ms.
+
+Original:
+
+MATCH (origin:Airport)<-[:ORIGINATES_FROM]-(flight:Flight)-
+       [:LANDS_IN]->(destination:Airport)
+MERGE (originAirportDay:AirportDay
+      {airportDayId: origin.code + '_' + flight.date})
+SET originAirportDay.date = flight.date
+MERGE (destinationAirportDay:AirportDay
+       {airportDayId: destination.code + '_' + flight.date})
+SET destinationAirportDay.date = flight.date
+MERGE (origin)-[:HAS_DAY]->(originAirportDay)
+MERGE (flight)-[:ORIGINATES_FROM]->(originAirportDay)
+MERGE (flight)-[:LANDS_IN]->(destinationAirportDay)
+MERGE (destination)-[:HAS_DAY]->(destinationAirportDay)
+
+(this one is correct)
+255 labels, created 255 nodes, set 20255 properties, created 20255 relationships, completed after 1057 ms.

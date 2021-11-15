@@ -1,0 +1,5 @@
+MATCH (flight:Flight)
+WHERE flight.airline = 'WN' AND flight.number = '1016'
+WITH split(flight.flightId, '_') AS flightIdElements, flight
+WITH size(flightIdElements) AS nrElements, flightIdElements, flight
+RETURN flightIdElements[nrElements-2], flightIdElements[nrElements-1], flight.flightId, flight.date, flight.departure, flight.arrival
