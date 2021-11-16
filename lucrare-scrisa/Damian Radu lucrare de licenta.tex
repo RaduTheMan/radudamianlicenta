@@ -1,6 +1,29 @@
 \documentclass[12pt,a4paper]{report}
+
 \usepackage{graphicx}
+\usepackage{ragged2e}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{comment}
+
+\geometry{
+ a4paper,
+ total={170mm,257mm},
+ left=25mm,
+ right=25mm,
+ top=20mm,
+ }
+
+\newcommand\myrepeat[2]{%
+  \begingroup
+  \lccode`m=`#2\relax
+  \lowercase\expandafter{\romannumeral#1000}%
+  \endgroup
+}
+\linespread{1.213}
 \begin{document}
+\begin{comment}Copertă 
+\end{comment}
 \begin{titlepage}
 	\centering
 	{\scshape\large \textbf{UNIVERSITATEA "ALEXANDRU IOAN CUZA" DIN IAȘI} \par}
@@ -23,6 +46,8 @@
 	{\Large\itshape\textbf {Lect.dr. Cristian Frăsinaru}\par}
 \end{titlepage}
 
+\begin{comment}Prima pagină
+\end{comment} 
 \begin{titlepage}
 	\centering
 	{\scshape\large \textbf{UNIVERSITATEA "ALEXANDRU IOAN CUZA" DIN IAȘI} \par}
@@ -40,6 +65,91 @@
 	{\normalsize \textbf{Coordonator științific}\par}
 	\vspace{0.5cm}
 	{\Large\itshape\textbf {Lect.dr. Cristian Frăsinaru}\par}
+\end{titlepage}
+
+\begin{comment}Declarație standard privind originalitatea lucrării
+\end{comment}
+\begin{titlepage} 
+
+
+	\begin{FlushRight}Avizat,\end{FlushRight}
+	\begin{FlushRight}Îndrumător Lucrare de Licență				\end{FlushRight}
+	\begin{FlushRight}Titlul, Numele și Prenume \hspace{2em}	\rule{5cm}{0.15mm}
+	\end{FlushRight}
+
+	\begin{FlushRight}Data \rule{2cm}{0.15mm} \hspace{2em} 	Semnătura \rule{2cm}{0.15mm} \end{FlushRight}
+
+	\hfill \break
+
+	\begin{center}
+	\textbf{DECLARAȚIE privind originalitatea conținutului 	lucrării de licență}
+	\end{center}
+	
+	
+	\justifying
+	\hspace{1em} Subsemnatul(a) \hspace{1em} \myrepeat{90}{.} \newline
+	domiciliul în \myrepeat{90}{.} \newline
+	născut(ă) la data de \myrepeat{30}{.},\hspace{1em} identificat prin CNP 
+\myrepeat{40}{.},
+	absolvent(a) al(a) Universității "Alexandru Ioan Cuza" din Iași, \newline
+	 Facultatea de \myrepeat{30}{.} \hspace{1em} specializarea \hspace{1em} \myrepeat{55}{.},
+	 promoția \hspace{1em} \myrepeat{30}{.}, declar pe propria
+	 răspundere, cunoscând consecințele \newline falsului în
+	 declarații în sensul art. 326 din Noul Cod Penal și 
+	 dispozițiile Legii Educației Naționale nr. 1/2011
+	 art.143 al. 4 si 5 referitoare la plagiat, că lucrarea de
+	 licență cu titlul: \rule{16cm}{0.15mm} \newline
+	 \rule{16cm}{0.15mm} \newline
+	 elaborată sub îndrumarea dl. / d-na \rule{9.3cm}{0.15mm}
+	 \newline pe care urmează să o susțină în fața
+	 comisiei este originală, îmi aparține și îmi asum 				 conținutul său în întregime. 
+	 
+	 \hspace{1em} De asemenea, declar că sunt de acord ca
+	 lucrarea mea de licență să fie verificată prin orice
+	 modalitate legală pentru confirmarea originalității,
+	 consimțind inclusiv la introducerea conținutului său
+	 într-o bază de date în acest scop.
+	 
+	 \hspace{1em} Am luat la cunoștință despre faptul că este interzisă
+	 comercializarea de lucrări științifice în vederea
+	 facilitării falsificării de către cumpărător a calității
+	 de autor al unei lucrări de licență, de diplomă sau de
+	 disertație în acest sens, declar pe proprie răspundere
+	 că lucrarea de față nu a fost copiată ci reprezintă rodul 
+	 cercetării i pe care am întreprins-o.
+	 
+	 \hfill \break
+	 
+	 \hspace{1em} Dată azi, \myrepeat{30}{.}
+	 \hspace{5em} Semnătură student \myrepeat{30}{.}
+	 
+\end{titlepage}
+
+\begin{comment}Declarație standard privind drepturile de utilizare a lucrării și a codului sursă
+\end{comment}
+\begin{titlepage}
+	\hfill \break
+	\begin{center}
+	DECLARAȚIE DE CONSIMȚĂMÂNT
+	\end{center}
+	
+	\hfill \break
+	\justifying
+	Prin prezenta declar că sunt de acord ca Lucrarea de
+	licență cu titlul \emph{"Titlul complet al lucrării"},
+	codul sursă al programelor și celelalte conținuturi
+	(grafice, multimedia, date de test etc.) care însoțesc
+	această lucrare să fie utilizate în cadrul Facultății
+	de Informatică.
+	
+	De asemenea, sunt de acord ca Facultatea de Informatică
+	de la Universitatea "Alexandru Ioan Cuza" din Iași,
+	să utilizeze, modifice, reproducă și să distribuie în
+	scopuri necomerciale programele-calculator, format
+	executabil și sursă, realizate de mine în cadrul prezentei
+	lucrări de licență.
+	
+	
 \end{titlepage}
 
 

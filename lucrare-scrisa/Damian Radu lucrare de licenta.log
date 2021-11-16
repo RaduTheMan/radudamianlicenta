@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.10.3)  13 OCT 2021 19:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.10.3)  16 NOV 2021 14:02
 entering extended mode
 **"./Damian Radu lucrare de licenta.tex"
 ("Damian Radu lucrare de licenta.tex"
@@ -46,96 +46,231 @@ File: pdftex.def 2020/08/26 v1.2 Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen135
 \Gin@req@width=\dimen136
+) (C:\Users\Radu\AppData\Local\Programs\MiKTeX\tex/latex/ragged2e\ragged2e.sty
+Package: ragged2e 2019/07/28 v2.2 ragged2e Package (MS)
+(C:\Users\Radu\AppData\Local\Programs\MiKTeX\tex/latex/ms\everysel.sty
+Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
 )
+\CenteringLeftskip=\skip49
+\RaggedLeftLeftskip=\skip50
+\RaggedRightLeftskip=\skip51
+\CenteringRightskip=\skip52
+\RaggedLeftRightskip=\skip53
+\RaggedRightRightskip=\skip54
+\CenteringParfillskip=\skip55
+\RaggedLeftParfillskip=\skip56
+\RaggedRightParfillskip=\skip57
+\JustifyingParfillskip=\skip58
+\CenteringParindent=\skip59
+\RaggedLeftParindent=\skip60
+\RaggedRightParindent=\skip61
+\JustifyingParindent=\skip62
+)
+(C:\Users\Radu\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(C:\Users\Radu\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(C:\Users\Radu\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
+\Gm@cnth=\count177
+\Gm@cntv=\count178
+\c@Gm@tempcnt=\count179
+\Gm@bindingoffset=\dimen137
+\Gm@wd@mp=\dimen138
+\Gm@odd@mp=\dimen139
+\Gm@even@mp=\dimen140
+\Gm@layoutwidth=\dimen141
+\Gm@layoutheight=\dimen142
+\Gm@layouthoffset=\dimen143
+\Gm@layoutvoffset=\dimen144
+\Gm@dimlist=\toks16
+
+(C:\Users\Radu\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\Radu\AppData\Local\Programs\MiKTeX\tex/latex/setspace\setspace.sty
+Package: setspace 2011/12/19 v6.7a set line spacing
+)
+(C:\Users\Radu\AppData\Local\Programs\MiKTeX\tex/latex/comment\comment.sty
+\CommentStream=\write3
+
+Excluding comment 'comment')
+
+Package geometry Warning: Over-specification in `h'-direction.
+    `width' (483.69684pt) is ignored.
+
+
 (C:\Users\Radu\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdft
 ex.def
 File: l3backend-pdftex.def 2020-09-01 L3 backend support: PDF output (pdfTeX)
-\l__kernel_color_stack_int=\count177
+\l__kernel_color_stack_int=\count180
 \l__pdf_internal_box=\box45
 ) ("Damian Radu lucrare de licenta.aux")
 \openout1 = `"Damian Radu lucrare de licenta.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
+LaTeX Font Info:    ... okay on input line 24.
 
 (C:\Users\Radu\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mki
 i
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count178
-\scratchdimen=\dimen137
+\scratchcounter=\count181
+\scratchdimen=\dimen145
 \scratchbox=\box46
-\nofMPsegments=\count179
-\nofMParguments=\count180
-\everyMPshowfont=\toks16
-\MPscratchCnt=\count181
-\MPscratchDim=\dimen138
-\MPnumerator=\count182
-\makeMPintoPDFobject=\count183
-\everyMPtoPDFconversion=\toks17
+\nofMPsegments=\count182
+\nofMParguments=\count183
+\everyMPshowfont=\toks17
+\MPscratchCnt=\count184
+\MPscratchDim=\dimen146
+\MPnumerator=\count185
+\makeMPintoPDFobject=\count186
+\everyMPtoPDFconversion=\toks18
 )
 (C:\Users\Radu\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-ba
 se.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
-)
+) ABD: EverySelectfont initializing macros
+LaTeX Info: Redefining \selectfont on input line 24.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
+* v-part:(T,H,B)=(56.9055pt, 731.23582pt, 56.90552pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=455.24411pt
+* \textheight=731.23582pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-52.36449pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=35.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Excluding 'comment' comment.
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
-(Font)              using `OT1/cmr/bx/n' instead on input line 6.
+(Font)              using `OT1/cmr/bx/n' instead on input line 29.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 6.
+(Font)              <14.4> on input line 29.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 6.
+(Font)              <7> on input line 29.
 <logo-fii.png, id=1, 148.3944pt x 144.2991pt>
 File: logo-fii.png Graphic file (type png)
 <use logo-fii.png>
-Package pdftex.def Info: logo-fii.png  used on input line 10.
-(pdftex.def)             Requested size: 58.49762pt x 56.88411pt.
+Package pdftex.def Info: logo-fii.png  used on input line 33.
+(pdftex.def)             Requested size: 68.28383pt x 66.40039pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 11.
+(Font)              <12> on input line 34.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 11.
+(Font)              <8> on input line 34.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 11.
+(Font)              <6> on input line 34.
 [1
 
 {C:/Users/Radu/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./logo-fii.png>]
- [1] ("Damian Radu lucrare de licenta.aux")
+ Excluding 'comment' comment. [1] Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 75--75
+ []\OT1/cmr/m/n/12 Avizat,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 76--76
+ [][]\OT1/cmr/m/n/12 Indrumator Lu-crare de Licen[]a
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 77--78
+ []\OT1/cmr/m/n/12 Titlul, Nu-mele []i Prenume   []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--80
+ []\OT1/cmr/m/n/12 Data []   Semnatura []
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 82--83
+
+ []
+
+
+Overfull \hbox (2.17763pt too wide) in paragraph at lines 90--106
+\OT1/cmr/m/n/12 nascut(a) la data de ..............................,  iden-ti
+-fi-cat prin CNP ........................................,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--122
+
+ []
+
+[1] Excluding 'comment' comment.
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
+
+ []
+
+[1] ("Damian Radu lucrare de licenta.aux")
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 1214 strings out of 481161
- 18404 string characters out of 2904379
- 254500 words of memory out of 3000000
- 16868 multiletter control sequences out of 15000+200000
+ 1889 strings out of 481161
+ 29211 string characters out of 2904379
+ 277313 words of memory out of 3000000
+ 17514 multiletter control sequences out of 15000+200000
  543442 words of font info for 56 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 36i,6n,33p,227b,179s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 36i,6n,33p,232b,179s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Radu/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
 mbx12.pfb><C:/Users/Radu/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
 nts/cm/cmbx6.pfb><C:/Users/Radu/AppData/Local/Programs/MiKTeX/fonts/type1/publi
 c/amsfonts/cm/cmbx7.pfb><C:/Users/Radu/AppData/Local/Programs/MiKTeX/fonts/type
 1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Radu/AppData/Local/Programs/MiKTeX/
 fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Radu/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on "Damian Radu lucrare de licenta.pdf" (2 pages, 85762 bytes).
+s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Radu/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Radu/AppData/
+Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on "Damian Radu lucrare de licenta.pdf" (4 pages, 116856 bytes).
+
 PDF statistics:
- 36 PDF objects out of 1000 (max. 8388607)
+ 50 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
