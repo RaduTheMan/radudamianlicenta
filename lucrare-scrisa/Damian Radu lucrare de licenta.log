@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.10.3)  16 NOV 2021 14:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.10.3)  18 NOV 2021 00:18
 entering extended mode
 **"./Damian Radu lucrare de licenta.tex"
 ("Damian Radu lucrare de licenta.tex"
@@ -245,32 +245,178 @@ Underfull \hbox (badness 10000) in paragraph at lines 131--132
 
  []
 
-[1] ("Damian Radu lucrare de licenta.aux")
+
+Underfull \hbox (badness 10000) in paragraph at lines 152--158
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 152--158
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 152--158
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 152--158
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--164
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--164
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--164
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--164
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 159--164
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 164--164
+ []\OT1/cmr/m/n/12 Absolvent \OT1/cmr/m/it/12 Radu Damian
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--165
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 166--166
+ []\OT1/cmr/m/n/12 (semnatura ^n orig-i-nal)
+ []
+
+[1]
+Underfull \hbox (badness 10000) in paragraph at lines 173--174
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--208
+
+ []
+
+
+Overfull \hbox (11.77466pt too wide) in paragraph at lines 178--208
+\OT1/cmr/m/n/12 Facultatea de In-for-matica este de acord ca drep-turile de au
+-tor asupra programelor-calculator,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--208
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 178--208
+
+ []
+
+[1] [1] ("Damian Radu lucrare de licenta.toc")
+\tf@toc=\write4
+\openout4 = `"Damian Radu lucrare de licenta.toc"'.
+
+ [1
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 225--226
+
+ []
+
+[2]
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <17.28> on input line 232.
+ [3] ("Damian Radu lucrare de licenta.aux")
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 1889 strings out of 481161
- 29211 string characters out of 2904379
+ 1900 strings out of 481161
+ 29454 string characters out of 2904379
  277313 words of memory out of 3000000
- 17514 multiletter control sequences out of 15000+200000
- 543442 words of font info for 56 fonts, out of 3000000 for 9000
+ 17521 multiletter control sequences out of 15000+200000
+ 544365 words of font info for 59 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  36i,6n,33p,232b,179s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/Radu/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
-mbx12.pfb><C:/Users/Radu/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmbx6.pfb><C:/Users/Radu/AppData/Local/Programs/MiKTeX/fonts/type1/publi
-c/amsfonts/cm/cmbx7.pfb><C:/Users/Radu/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Radu/AppData/Local/Programs/MiKTeX/
-fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Radu/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Radu/AppData/Local/
-Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Radu/AppData/
-Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
-Output written on "Damian Radu lucrare de licenta.pdf" (4 pages, 116856 bytes).
+mbx10.pfb><C:/Users/Radu/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmbx12.pfb><C:/Users/Radu/AppData/Local/Programs/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmbx6.pfb><C:/Users/Radu/AppData/Local/Programs/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmbx7.pfb><C:/Users/Radu/AppData/Local/Programs/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/Radu/AppData/Local/Programs
+/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Radu/AppData/Local
+/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Radu/AppDat
+a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/Radu/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on "Damian Radu lucrare de licenta.pdf" (9 pages, 131945 bytes).
 
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
+ 71 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
