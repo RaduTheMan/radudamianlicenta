@@ -1,3 +1,0 @@
-1. modelare baza de date in neo4j
-2. modelare back end spring boot
-3. modelare front end angular
