@@ -1,17 +1,16 @@
 Descriere: O aplicatie Web ce reprezinta o retea sociala care sa permita utilizatorilor sa indice ce jocuri video s-au
-jucat, sa primeasca recomandari de alte jocuri in functie de preferintele lor actuale, sa partajeze anumite resurse(de exemplu screenshot-uri)
-prin intermediul unor postari(like-uri, comment-uri), sa ofere recenzii jocurilor, sa comunice intre ei(asemanator ca la email)
+jucat, sa primeasca recomandari de alte jocuri in functie de preferintele lor actuale, sa ofere recenzii/ratinguri jocurilor, sa interactioneze cu recenziile
+celorlalti utilizatori,sa comunice intre ei(asemanator ca la email)
 
 Idei(brainstorming):
 
-Fiecare joc video poate avea o pagina proprie in care sunt evidentiate(by default) cele mai populare recenzii, screenshot-uri sau alte tipuri de
-resurse. Se pot filtra aceste resurse prin mai multe criterii(de ex. cele mai noi, cele mai "proaste" review-uri). Jocurile de asemenea ar putea fi
+Fiecare joc video poate avea o pagina proprie in care sunt evidentiate(by default) cele mai populare recenzii si ratingul mediu. Acestea se pot filtra prin mai multe criterii(de ex. cele mai noi, cele mai "proaste" review-uri, cele mai apreciate reviewuri de catre utilizatori). Jocurile de asemenea ar putea fi
 filtrate in mod asemanator(de ex. dupa nota medie in urma review-urilor de pe site sau in functie de note de pe alte platforme: Steam, IGN,
 Metacritic etc. ).
 
 Fiecare utilizator va avea profilul lui in care se vor afisa informatii esentiale(+ce doreste acesta sa arate in plus, eventual, de exemplu
 redirectare catre profiluri din Steam, EpicGames sau username-uri prin care poate fi adaugat in diverse jocuri), un feed in care se vor arata
-contributiile acestuia in reteaua sociala(screenshot-uri, review-uri, comment-uri adaugate etc.), o lista de jocuri/genuri favorite(by default
+contributiile acestuia in reteaua sociala(review-uri), o lista de jocuri/genuri favorite(by default
 sau modificata dupa bunul plac) 
 
 Admini/Moderatori trebuie sa verifice continutul partajat de utilizatori(sa nu se adreseze injurii grave etc.).
@@ -24,6 +23,6 @@ Actori: utilizator(anonim sau logat)
                   sa primeasca recomandari de alte jocuri in functie de preferintele actuale
 alt tip de recomandare: cei care s-au jucat jocul acesta s-au jucat si ...
 administrator - adaugarea/scoaterea de jocuri din baza de date; (?...)
-admini/moderatori - aprobarea recenziilor, postarilor unui utilizator, stergerea acestora, avertizarea/banarea
+admini/moderatori - aprobarea recenziilor unui utilizator, stergerea acestora, avertizarea/banarea
 unui utilizator, in plus fata de ceea ce poate si un utilizator obisnuit
 
