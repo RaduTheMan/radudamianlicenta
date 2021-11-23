@@ -1,0 +1,8 @@
+Similarity algorithms:
+
+Similarity algorithms are used to find similar nodes in a network based on graph topology or their properties.
+This approach is used in applications such as personalized recommendations and developing categorical hierarchies. 
+The most common algorithms in this category are Jaccard Similarity and Cosine Similarity algorithms. They can
+also be used to infer a monopartite projection of a bipartite graph.
+
+About graph topology: https://en.wikipedia.org/wiki/Topological_graph#:~:text=In%20mathematics%2C%20a%20topological%20graph,the%20corresponding%20pairs%20of%20points.&text=A%20topological%20graph%20is%20also%20called%20a%20drawing%20of%20a%20graph.

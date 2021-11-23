@@ -1,0 +1,27 @@
+link: https://www.sciencedirect.com/science/article/pii/S1110866515000341
+
+Approaches for building recommendation systems: collaborative filtering,
+content based filtering, hybrid filtering
+
+1.collaborative filtering: recommends items by identifying other users with similar taste;
+it uses their opinion to recommend items to the active user.
+
+2.content based filtering: match content resources to user characteristics. Content-based filtering techniques normally 
+base their predictions on user’s information, and they ignore contributions from other users as with the case
+ of collaborative techniques.
+
+3. Hybrid filtering, which combines two or more filtering techniques in different ways in order to increase
+ the accuracy and performance of recommender systems has been proposed. These techniques combine
+ two or more filtering approaches in order to harness their strengths while leveling out their corresponding
+ weaknesses [21]. They can be classified based on their operations into weighted hybrid, mixed hybrid, switching
+ hybrid, feature-combination hybrid, cascade hybrid, feature-augmented hybrid and meta-level hybrid
+
+Content based filtering approaches: Vector Space Model such as Term Frequency/ Inverse Document Frequency
+(TF/IDF), Naive Bayes Classifier, Decision Trees, Neural Networks. Statistical analysis or machine learning
+techniques. The major disadvantage of CBF is the need to have an in-depth knowledge and description
+ of the features of the items in the profile.
+
+Collaborative filtering is a domain-independent prediction technique for content that cannot easily
+ and adequately be described by metadata such as movies and music. Collaborative filtering technique works
+ by building a database (user-item matrix) of preferences for items by users. It then matches users with
+ relevant interest and preferences by calculating similarities between their profiles to make recommendations

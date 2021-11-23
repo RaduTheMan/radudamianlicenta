@@ -1,0 +1,1 @@
+to read from: 4.2.1. Memory based techniques
