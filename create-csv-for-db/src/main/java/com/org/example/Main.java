@@ -18,9 +18,7 @@ public class Main {
             User user = new User(username, email, password);
             users.add(user);
         }
-        for(User user: users){
-            System.out.println(user.getUsername() + ' ' + user.getHashedPassword());
-        }
+        DataProvider provider = new DataProvider(users);
     }
 }
 
