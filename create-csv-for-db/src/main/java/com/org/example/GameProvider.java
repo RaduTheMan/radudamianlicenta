@@ -49,10 +49,10 @@ public class GameProvider {
     }
 
     public void getGames(){
-        APICalypse apicalypse = new APICalypse().search("The Witcher").fields("*");
+        APICalypse apicalypse = new APICalypse().fields("name,summary");
         try {
-            List<Search> searchResult = ProtoRequestKt.search(this.wrapper, apicalypse);
-            System.out.println(searchResult);
+            List<Game> games = ProtoRequestKt.games(this.wrapper, apicalypse);
+            System.out.println(games);
         } catch (RequestException e) {
             e.printStackTrace();
             System.out.println(e.getStatusCode());

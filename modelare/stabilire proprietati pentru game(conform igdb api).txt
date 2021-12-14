@@ -1,0 +1,19 @@
+Proprietati game
+
+Game:
+id: uuid (in game)
+title: string (name) (in game)
+genres: [string] (in game)
+
+aggregated_rating (in average)
+
+platforms (in details)
+first_release_date/release_dates (in details)
+game_modes (in details)
+involved_companies (in details)
+
+screenshots (in visuals)
+summary (in visuals)
+storyiline (in visuals)
+cover (in visuals)
+
