@@ -7,13 +7,13 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
-public class DataProvider {
+public class UsersProvider {
     private List<User> users;
     private String fileNameOriginal = "users_original.csv";
     private String fileNameHashed = "users_hashed.csv";
     private final static String[] HEADERS = {"id", "username", "email", "password"};
 
-    DataProvider(List<User> users) {
+    UsersProvider(List<User> users) {
         this.users = users;
         try {
             this.createCSVFile(fileNameHashed, true);
