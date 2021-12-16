@@ -10,11 +10,13 @@ import com.api.igdb.request.TwitchAuthenticator;
 import com.api.igdb.utils.TwitchToken;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import proto.Game;
+import proto.Genre;
 import proto.Search;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class GameProvider {
 
@@ -23,6 +25,8 @@ public class GameProvider {
     private TwitchAuthenticator tAuth;
     private TwitchToken token;
     private IGDBWrapper wrapper;
+    private final String FIELDS = "name,genres.name,aggregated_rating,platforms.name,release_dates.human,game_modes.name," +
+            "involved_companies.company.name,screenshots.url,summary,storyline,cover.url,follows";
 
 
     GameProvider(String fileNameConfig){
@@ -49,10 +53,13 @@ public class GameProvider {
     }
 
     public void getGames(){
-        APICalypse apicalypse = new APICalypse().fields("name,summary");
+        APICalypse apicalypse = new APICalypse().fields(this.FIELDS).limit(300).sort("follows", Sort.DESCENDING).where("follows != null");
         try {
             List<Game> games = ProtoRequestKt.games(this.wrapper, apicalypse);
             System.out.println(games);
+//            for(var game: games){
+//                var genres = this.getGenresOfGame(game);
+//            }
         } catch (RequestException e) {
             e.printStackTrace();
             System.out.println(e.getStatusCode());
