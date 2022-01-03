@@ -7,7 +7,6 @@ public class Main {
 //        var users = generator.generate();
 //        UsersProvider usersProvider = new UsersProvider(users);
         GameProvider gameProvider = new GameProvider("/igdb-api-config.json");
-        gameProvider.getGames();
     }
 }
 
