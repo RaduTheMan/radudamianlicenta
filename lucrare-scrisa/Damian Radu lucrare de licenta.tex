@@ -5,6 +5,8 @@
 \usepackage{geometry}
 \usepackage{setspace}
 \usepackage{comment}
+\usepackage{biblatex}
+\addbibresource{sample.bib}
 
 \geometry{
  a4paper,
@@ -33,7 +35,7 @@
 	\includegraphics[width=0.15\textwidth]{logo-fii}\par\vspace{1cm}
 	{\scshape\normalsize LUCRARE DE LICENȚĂ\par}
 	\vspace{1cm}
-	{\huge\bfseries Titlu\par}
+	{\huge\bfseries Gemixque\par}
 	\vspace{1.5cm}
 	{\normalsize \textbf{propusă de}\par}
 	\vspace{1cm}
@@ -56,7 +58,7 @@
 	\vspace{5cm}
 
 
-	{\huge\bfseries Titlu\par}
+	{\huge\bfseries Gemixque\par}
 	\vspace{3cm}
 	{\Large\itshape\textbf {Radu Damian}\par}
 	\vspace{2cm}
@@ -136,7 +138,7 @@
 	\hfill \break
 	\justifying
 	Prin prezenta declar că sunt de acord ca Lucrarea de
-	licență cu titlul \emph{"Titlul complet al lucrării"},
+	licență cu titlul \emph{"Gemixque"},
 	codul sursă al programelor și celelalte conținuturi
 	(grafice, multimedia, date de test etc.) care însoțesc
 	această lucrare să fie utilizate în cadrul Facultății
@@ -211,13 +213,6 @@
 
 \end{titlepage}
 
-\begin{titlepage}
-
-	\hfill \break
-	\centering
-	{\scshape\large \textbf{Rezumat} \par}
-\end{titlepage}
-
 \renewcommand*{\contentsname}{Cuprins}
 \tableofcontents
 \newpage
@@ -226,18 +221,44 @@
 	\begin{center}
 	{\scshape\large \textbf{Introducere} \par}
 	\end{center}
+	
+	Această aplicație web constă într-un sistem de recomandări de jocuri video încorporat într-o rețea socială.
+	
+	-punere în cunoștință de cauză a cititorului
+	
+	-plasarea tematicii în context
+	
+	-prezentarea clară a scopului și modului de realizare(soluția teoretică/tehnologică oferită)
+	
+	-punctarea celor mai interesante aspecte + contribuții personale
+	
+	-prezentarea structurii lucrării( capitolul X se referă...)
+	
+	-mulțumirile aduse
+	
 	\newpage
 	
+    
+	
 \renewcommand\thesection{\arabic{section}}
-\section{Contribuții}
-\section{capitol 2}
-\section{capitol 3}
-\section{capitol 4}
-\subsection{subcapitol 2}
-\subsection{subcapitol 3}
-\section{capitol 5}
-\section{capitol 6}
-\subsection{subcapitol 4}
+\section{Descrierea problemei}
+\section{Scopuri și cerințe ale aplicației}
+\section{Analiză și proiectare}
+\subsection{Baza de date}
+\section{Implementare}
+\section{Manual de utilizare}
+\section{Concluzii}
 
+\renewcommand\bibname{Bibliografie}
+\begin{thebibliography}{9}
+
+\bibitem{lamport94}
+  Leslie Lamport,
+  \textit{\LaTeX: a document preparation system},
+  Addison Wesley, Massachusetts,
+  2nd edition,
+  1994.
+
+\end{thebibliography}
 
 \end{document}
