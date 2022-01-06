@@ -17,10 +17,7 @@ import org.apache.commons.csv.CSVPrinter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class GameProvider {
@@ -38,6 +35,8 @@ public class GameProvider {
     private final String fileNameVisuals = "visuals.csv";
     private final String fileNameAverage = "average.csv";
 
+    private List<String> gamesId = new LinkedList<>();
+
     GameProvider(String fileNameConfig){
         this.fileNameConfig = fileNameConfig;
         this.loadCredentials();
@@ -48,6 +47,10 @@ public class GameProvider {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public List<String> getGamesId() {
+        return gamesId;
     }
 
     private Map<String, Object> getBasics(Game game){
@@ -123,6 +126,8 @@ public class GameProvider {
 
                 average.put("id", basics.get("id"));
                 averagePrinter.printRecord(average.values());
+
+                this.gamesId.add(basics.get("id").toString());
             }
         }
     }

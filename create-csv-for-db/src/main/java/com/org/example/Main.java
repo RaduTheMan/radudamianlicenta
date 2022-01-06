@@ -15,8 +15,12 @@ public class Main {
             e.printStackTrace();
         }
 
-
-//        GameProvider gameProvider = new GameProvider("/igdb-api-config.json");
+       GameProvider gameProvider = new GameProvider("/igdb-api-config.json");
+        try {
+            PlaysProvider playsProvider = new PlaysProvider(users, gameProvider.getGamesId());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 
