@@ -10,9 +10,11 @@ public class Main {
         UsersProvider usersProvider = new UsersProvider(users);
         try {
             var followsProvider = new FollowsProvider(users);
+            var messagesProvider = new MessagesProvider(users);
         } catch (IOException e) {
             e.printStackTrace();
         }
+
 
 //        GameProvider gameProvider = new GameProvider("/igdb-api-config.json");
     }
