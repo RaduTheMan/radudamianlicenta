@@ -15,9 +15,20 @@ public class Main {
             e.printStackTrace();
         }
 
+        testStoreGamesUtil();
        GameProvider gameProvider = new GameProvider("/igdb-api-config.json");
         try {
-            PlaysProvider playsProvider = new PlaysProvider(users, gameProvider.getGamesId());
+            PlaysProvider playsProvider = new PlaysProvider(users, gameProvider.getGamePrototypes());
+            ReviewProvider reviewProvider = new ReviewProvider(users);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void testStoreGamesUtil() {
+        try {
+            StoreGamesUtil.storeSteamGames();
         } catch (IOException e) {
             e.printStackTrace();
         }

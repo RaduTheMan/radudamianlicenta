@@ -35,7 +35,7 @@ public class GameProvider {
     private final String fileNameVisuals = "visuals.csv";
     private final String fileNameAverage = "average.csv";
 
-    private List<String> gamesId = new LinkedList<>();
+    private List<GamePrototype> gamePrototypes = new LinkedList<>();
 
     GameProvider(String fileNameConfig){
         this.fileNameConfig = fileNameConfig;
@@ -49,8 +49,8 @@ public class GameProvider {
         }
     }
 
-    public List<String> getGamesId() {
-        return gamesId;
+    public List<GamePrototype> getGamePrototypes() {
+        return gamePrototypes;
     }
 
     private Map<String, Object> getBasics(Game game){
@@ -127,7 +127,7 @@ public class GameProvider {
                 average.put("id", basics.get("id"));
                 averagePrinter.printRecord(average.values());
 
-                this.gamesId.add(basics.get("id").toString());
+                this.gamePrototypes.add(new GamePrototype(basics.get("id").toString(), basics.get("title").toString()));
             }
         }
     }

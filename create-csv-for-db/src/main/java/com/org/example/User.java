@@ -1,5 +1,7 @@
 package com.org.example;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 public class User {
@@ -8,6 +10,7 @@ public class User {
     private String originalPassword;
     private String hashedPassword;
     private String id;
+    private List<GamePrototype> playedGames;
 
     @Override
     public boolean equals(Object o) {
@@ -30,6 +33,14 @@ public class User {
         this.originalPassword = original_password;
         this.hashedPassword = PasswordUtil.generateHashedPassword(this.originalPassword);
         this.id = UUID.randomUUID().toString();
+    }
+
+    public List<GamePrototype> getPlayedGames() {
+        return playedGames;
+    }
+
+    public void setPlayedGames(List<GamePrototype> playedGames) {
+        this.playedGames = playedGames;
     }
 
     public String getId() {
