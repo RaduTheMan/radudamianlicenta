@@ -1,9 +1,10 @@
 package com.org.example;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import proto.Game;
 
 @JsonIgnoreProperties
-public class GamePrototype {
+public class GamePrototype{
     private String appid;
     private String name;
 
@@ -26,4 +27,5 @@ public class GamePrototype {
     public String getName() {
         return name;
     }
+
 }

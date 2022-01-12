@@ -13,11 +13,14 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 public class ReviewProvider {
 
     private final String STEAM_GAMES_FILE_NAME = "steam-games.json";
     private List<SteamGame> steamGames;
+    private Map<SteamGame, JsonNode> reviewsRegistry = new HashMap<>();
+    private Set<SteamGame> visited = new HashSet<>();
 
     ReviewProvider(List<User> users) throws IOException {
         this.readSteamGames();
@@ -29,31 +32,27 @@ public class ReviewProvider {
                 var playedGames = user.getPlayedGames();
                 var reviewedGames = RandomUtil.pickNRandomUsers(playedGames, 5, ThreadLocalRandom.current());
                 for (var reviewedGame : reviewedGames) {
-                    var maybeSteamGame = steamGames.stream().filter(steamGame -> steamGame.getName().startsWith(reviewedGame.getName())).findFirst();
-                    String review = null;
-                    int score = 0;
+                    var maybeSteamGame = steamGames.stream().filter(steamGame -> steamGame.getName().startsWith(reviewedGame.getName())).sorted().findFirst();
+                    String review = "";
+                    int score = ThreadLocalRandom.current().nextInt(1, 11);
                     String time = faker.date().past(faker.random().nextInt(1, 1000), TimeUnit.DAYS).toString();
-                    if (maybeSteamGame.isPresent()) {
-                        var response = this.getSteamReview(maybeSteamGame.get().getAppid());
-                        if(Objects.nonNull(response)) {
-                            review = response.get("review");
-                            if (response.get("votedUp").equals("true")) {
-                                score = ThreadLocalRandom.current().nextInt(6, 11);
-                            } else {
-                                score = ThreadLocalRandom.current().nextInt(0, 6);
-                            }
-                        }
-                        else{
-                            review = randomReviewsIterator.next().get("user_review");
-                            score = ThreadLocalRandom.current().nextInt(0, 11);
+                    boolean takeRandom = true;
+                    if(maybeSteamGame.isPresent()){
+                        var steamGame = maybeSteamGame.get();
+                        this.updateReviewsRegistry(steamGame);
+                        if(!reviewsRegistry.containsKey(steamGame)){
+                            takeRandom = true;
+                        } else {
+                            review = takeSteamReview(steamGame);
+                            takeRandom = false;
                         }
                     }
-                    else{
-                        review = randomReviewsIterator.next().get("user_review");
-                        score = ThreadLocalRandom.current().nextInt(0, 11);
+                    if(takeRandom){
+                        var record = randomReviewsIterator.next();
+                        review = record.get("user_review");
                     }
+//                    System.out.println(review);
                     printer.printRecord(user.getId(), score, review, time, reviewedGame.getId());
-
                 }
             }
         }
@@ -64,6 +63,26 @@ public class ReviewProvider {
         this.steamGames = Arrays.asList(mapper.readValue(Paths.get(STEAM_GAMES_FILE_NAME).toFile(), SteamGame[].class));
     }
 
+    private void updateReviewsRegistry(SteamGame steamGame) {
+        if(visited.contains(steamGame)){
+            return;
+        }
+        visited.add(steamGame);
+        if(!reviewsRegistry.containsKey(steamGame)){
+            var reviewsWrapper = this.getSteamReviews(steamGame.getAppid());
+            if(Objects.nonNull(reviewsWrapper) && !reviewsWrapper.isEmpty()){
+                reviewsRegistry.put(steamGame, reviewsWrapper);
+            }
+        }
+    }
+
+    private String takeSteamReview(SteamGame steamGame){
+        var reviewsWrapper = reviewsRegistry.get(steamGame);
+        var reviews = reviewsWrapper.findValues("review");
+        var review = reviews.get(ThreadLocalRandom.current().nextInt(0, reviews.size()));
+        return review.toString();
+    }
+
     private Iterator<CSVRecord> getIteratorFromRandomReviewsFile() throws IOException {
         FileInputStream fileNameInput = new FileInputStream("random_reviews.csv");
         InputStreamReader input = new InputStreamReader(fileNameInput);
@@ -71,22 +90,13 @@ public class ReviewProvider {
         return csvParser.iterator();
     }
 
-    private Map<String, String> getSteamReview(int appid){
+    private JsonNode getSteamReviews(int appid){
         String url = String.format("https://store.steampowered.com/appreviews/%1$s?json=1&num_per_page=100&language=english", appid);
         try {
             var response = MakeRequestUtil.makeGETRequest(url);
             ObjectMapper mapper = new ObjectMapper();
             JsonNode jsonNode = mapper.readTree(response);
-            var reviews = jsonNode.get("reviews");
-            var reviewWrapper = reviews.get(ThreadLocalRandom.current().nextInt(0, 100));
-            if(Objects.nonNull(reviewWrapper)){
-                var review = reviewWrapper.get("review");
-                var votedUp = reviewWrapper.get("voted_up");
-                var map = new HashMap<String, String>();
-                map.put("review", review.asText());
-                map.put("votedUp", votedUp.asText());
-                return map;
-            }
+            return jsonNode.get("reviews");
         } catch (IOException e) {
             e.printStackTrace();
         }
