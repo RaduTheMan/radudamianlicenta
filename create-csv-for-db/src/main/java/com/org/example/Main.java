@@ -20,6 +20,7 @@ public class Main {
         try {
             PlaysProvider playsProvider = new PlaysProvider(users, gameProvider.getGamePrototypes());
             ReviewProvider reviewProvider = new ReviewProvider(users);
+            LikesProvider likesProvider = new LikesProvider(users, reviewProvider.getAllReviews());
         } catch (IOException e) {
             e.printStackTrace();
         }

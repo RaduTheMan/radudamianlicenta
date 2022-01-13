@@ -13,7 +13,6 @@ import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
 
 public class ReviewProvider {
 
@@ -21,11 +20,12 @@ public class ReviewProvider {
     private List<SteamGame> steamGames;
     private Map<SteamGame, JsonNode> reviewsRegistry = new HashMap<>();
     private Set<SteamGame> visited = new HashSet<>();
+    private List<Review> allReviews = new ArrayList<>();
 
     ReviewProvider(List<User> users) throws IOException {
         this.readSteamGames();
         FileWriter out = new FileWriter("reviews.csv");
-        try (CSVPrinter printer = new CSVPrinter(out, CSVFormat.DEFAULT.withHeader("id_user", "score", "content", "time", "id_game"))) {
+        try (CSVPrinter printer = new CSVPrinter(out, CSVFormat.DEFAULT.withHeader("id_review","id_user", "score", "content", "time", "id_game"))) {
             Faker faker = new Faker();
             var randomReviewsIterator = this.getIteratorFromRandomReviewsFile();
             for (var user : users) {
@@ -40,9 +40,7 @@ public class ReviewProvider {
                     if(maybeSteamGame.isPresent()){
                         var steamGame = maybeSteamGame.get();
                         this.updateReviewsRegistry(steamGame);
-                        if(!reviewsRegistry.containsKey(steamGame)){
-                            takeRandom = true;
-                        } else {
+                        if(reviewsRegistry.containsKey(steamGame)){
                             review = takeSteamReview(steamGame);
                             takeRandom = false;
                         }
@@ -51,11 +49,16 @@ public class ReviewProvider {
                         var record = randomReviewsIterator.next();
                         review = record.get("user_review");
                     }
-//                    System.out.println(review);
-                    printer.printRecord(user.getId(), score, review, time, reviewedGame.getId());
+                    String idReview = UUID.randomUUID().toString();
+                    printer.printRecord(idReview, user.getId(), score, review, time, reviewedGame.getId());
+                    allReviews.add(new Review(idReview, score, review, time));
                 }
             }
         }
+    }
+
+    public List<Review> getAllReviews() {
+        return allReviews;
     }
 
     private void readSteamGames() throws IOException {
