@@ -21,6 +21,7 @@ public class Main {
             PlaysProvider playsProvider = new PlaysProvider(users, gameProvider.getGamePrototypes());
             ReviewProvider reviewProvider = new ReviewProvider(users);
             LikesProvider likesProvider = new LikesProvider(users, reviewProvider.getAllReviews());
+            CommentsProvider commentsProvider = new CommentsProvider(users, reviewProvider.getAllReviews());
         } catch (IOException e) {
             e.printStackTrace();
         }

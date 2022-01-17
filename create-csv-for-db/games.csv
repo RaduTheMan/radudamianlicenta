@@ -1,301 +1,301 @@
 genres,id,title
-"[Shooter, Adventure]",5a667fcb-4b3c-4405-80bc-83fb8d3dde03,Grand Theft Auto V
-"[Role-playing (RPG), Adventure]",47e2ef15-5555-43b0-b2f7-0f8dded588c4,The Witcher 3: Wild Hunt
-"[Role-playing (RPG), Adventure]",7404c430-0b96-4760-b994-6a6cbd077ad4,The Elder Scrolls V: Skyrim
-"[Shooter, Racing, Adventure]",1ff96625-0de7-4944-b7ac-9e64f5cdee6d,Grand Theft Auto: San Andreas
-[Role-playing (RPG)],3e37ca6c-c6fa-445d-9850-6b262228c897,Cyberpunk 2077
-"[Shooter, Platform, Puzzle, Adventure]",69cdf606-71d7-41f4-b87b-b7e509753faf,Portal 2
-[Shooter],c0a13b4e-e56e-47d8-b67a-3ad2d77255b3,Half-Life 2
-"[Shooter, Platform, Puzzle]",adee30ea-573b-4f42-b71d-a98f2843d273,Portal
-"[Shooter, Adventure]",539c5fa0-b727-44b4-b1d8-a54c78682b38,The Last of Us
-"[Shooter, Role-playing (RPG), Simulator]",31ead423-85a7-40e9-a196-6d8946ded3ae,Mass Effect 2
-"[Shooter, Puzzle, Adventure]",9df76d83-d8f3-4231-a27b-6cd9ffd6f4f6,Half-Life
-"[Platform, Adventure]",f146222b-8ae9-405a-abc7-1dd47721e18a,Assassin's Creed II
-"[Shooter, Racing, Adventure]",600428a1-a32a-4fd0-bf6a-fa2952c4dffc,Grand Theft Auto: Vice City
-"[Shooter, Role-playing (RPG), Adventure]",06f959e3-0fef-422e-a97a-440aa7caf839,Red Dead Redemption 2
-"[Shooter, Role-playing (RPG)]",0a18e932-7374-4f46-bcba-7fd5e762be7e,BioShock
-"[Shooter, Role-playing (RPG)]",3314494a-d7c0-43ad-b7fe-fe708e5e8177,Mass Effect
-"[Role-playing (RPG), Adventure]",20961b00-dac6-4472-849c-3ae7435c32e8,The Legend of Zelda: Breath of the Wild
-"[Hack and slash/Beat 'em up, Adventure]",e30ebe5d-44e7-4881-863c-4d1d86a2ef4a,Batman: Arkham Asylum
-"[Shooter, Adventure]",2b2c7b3d-aac2-45f5-bf10-c4e0b3ff1b5b,Far Cry 3
-"[Shooter, Adventure]",50a1389f-ba11-488b-be83-180ada9abd08,Bioshock Infinite
-"[Shooter, Platform, Puzzle, Adventure]",84fa0c5b-a12c-4933-8ce8-df81b17b76b4,Tomb Raider
-"[Adventure, Arcade]",a899eb6a-5907-4b5c-96a4-4fc1ffdc679f,Minecraft
-"[Shooter, Role-playing (RPG)]",148b4c18-f45d-4d4f-9a7b-11aef295f5df,Horizon Zero Dawn
-"[Shooter, Adventure]",0d2d6694-9305-4af4-b928-ce9b311efaf3,Uncharted 4: A Thief's End
-"[Platform, Puzzle, Role-playing (RPG), Adventure]",a34e2e25-0483-4f01-af9f-0489edaa296f,The Legend of Zelda: Ocarina of Time
-"[Hack and slash/Beat 'em up, Adventure]",b0526e22-c55e-4aaf-ae09-b281383719ea,Batman: Arkham City
-"[Shooter, Role-playing (RPG), Adventure]",3e41d380-6e0f-4e7d-a0ae-9a1bc3df8033,Red Dead Redemption
-"[Shooter, Role-playing (RPG), Adventure]",7d1c9ef0-47c3-464e-92cc-a049104a91dc,Mass Effect 3
-"[Shooter, Adventure]",b9c8ce8e-7a58-4dd1-8e00-3ddd2a937d1a,The Last of Us Part II
-"[Shooter, Platform, Adventure]",05d4f9a1-f0a5-467f-91ae-f6d406f2f114,Uncharted 2: Among Thieves
-"[Platform, Adventure]",7f071eb8-d818-4b51-8465-dd1e1c240e46,Super Mario World
-"[Shooter, Role-playing (RPG)]",a975201f-634c-4e2a-85e8-8d51c8d2476d,Fallout 3
-"[Shooter, Role-playing (RPG)]",e7c941fc-e1e6-4dbe-b1b1-b42e70bc8931,Fallout: New Vegas
-"[Shooter, Adventure]",5d5da63e-741e-4cb2-b7ab-c9ae6a4219ae,Watch Dogs 2
-"[Role-playing (RPG), Adventure]",0e766c1d-c3c6-4567-93e7-931077718077,Life is Strange
-"[Point-and-click, Adventure]",4795839c-6163-4771-a8de-18a81ce6a467,The Walking Dead: Season One
-"[Hack and slash/Beat 'em up, Adventure]",eb3d2a05-0690-4ad6-a6fb-45505808cd48,God of War
-"[Shooter, Role-playing (RPG)]",073dea8c-fc60-4297-b3cc-169fdf453988,Fallout 4
-[Shooter],3680e0d9-630a-4f86-8c80-91531ec62472,Max Payne
-[Platform],4fd083f1-5562-42c6-8522-94cdcac4bc22,Super Mario 64
-[Adventure],8446dc17-d71e-4e92-977e-6417ed2a9776,Assassin's Creed: Brotherhood
-"[Role-playing (RPG), Adventure]",028d8c28-7a7d-439b-b27e-fc4aefdadfc1,The Elder Scrolls IV: Oblivion
-"[Shooter, Adventure]",67e03269-cc1d-4d84-8f73-5ad984ea9e34,The Last of Us Remastered
-"[Shooter, Role-playing (RPG)]",9e1ddcce-da80-45a0-b5ad-c96c0e1127db,Borderlands 2
-"[Shooter, Simulator]",9b6a1b29-10e0-4483-8e61-035d9dca29e1,Call of Duty 4: Modern Warfare
-"[Platform, Adventure]",638e4fcd-9593-4ecf-ac11-d8604866cbe9,Super Mario Bros. 3
-"[Shooter, Racing, Adventure]",b792d65f-788d-4922-8314-408b561f8a13,Grand Theft Auto IV
-"[Shooter, Role-playing (RPG), Tactical, Adventure]",a7e89fe7-4c41-499e-9e8b-a67bf8b3e2a9,Destiny 2
-"[Role-playing (RPG), Adventure]",e26bc085-4824-42b2-9239-025e4b7ee4ba,The Legend of Zelda: A Link to the Past
-[Shooter],d484a34e-76a2-4174-83c8-8a983f3bde2f,Call of Duty: WWII
-"[Platform, Adventure]",fdd196f4-4254-4baf-9f03-3589af07e7d0,Assassin's Creed IV: Black Flag
-"[Shooter, Strategy]",669d1408-1a52-417d-bc70-0b1cd818a5fb,Overwatch
-[Role-playing (RPG)],1627021e-5fb4-40aa-b4f4-12e9c693ec1a,Dragon Age: Origins
-"[Hack and slash/Beat 'em up, Adventure]",4996a658-d0f3-4977-892c-9757cf3b11e3,Batman: Arkham Knight
-"[Role-playing (RPG), Adventure]",37ad508b-5d6e-44b8-8d0f-ece53a101b59,The Witcher 2: Assassins of Kings
-"[Shooter, Tactical]",a44f4886-5f31-4b48-8daf-537163c43082,Counter-Strike: Global Offensive
-"[Role-playing (RPG), Adventure]",89ca0933-30b6-47b1-a830-845bf1a9fee4,Assassin's Creed: Origins
-"[Simulator, Strategy, Indie]",4ec14693-a5d0-41b3-89c2-acbcfafa4b05,Totally Accurate Battle Simulator
-"[Fighting, Shooter, Platform, Indie]",3af55d24-3943-4c6e-91d2-e688094b7d41,Superfighters Deluxe
-"[Strategy, Adventure]",b5126131-556f-4125-9c83-cc71ad0903e2,Metal Gear Solid
-"[Role-playing (RPG), Adventure]",1f3c4f8f-7f30-47c7-8c5d-356deb0b51c3,Final Fantasy VII
-[Adventure],2e405ba0-5a0f-4e94-8c1a-63331e27e906,Dishonored
-"[Role-playing (RPG), Adventure]",52d886d0-376d-40c6-aba9-254cf3bb75b1,Final Fantasy VII Remake
-"[Shooter, Platform, Adventure]",fb84c5a5-b063-49e2-8fba-8c9a2f8eab7e,Uncharted 3: Drake's Deception
-[Shooter],c9151278-0223-4eb5-8dfe-ad44deae84d4,DOOM
-"[Role-playing (RPG), Adventure]",c490cfb3-b512-46a6-a96c-163fed4d1af4,Bloodborne
-"[Real Time Strategy (RTS), Strategy]",4fb82292-1927-492c-97a7-b59a6fb1a6f6,Warcraft III: Reign of Chaos
-"[Role-playing (RPG), Adventure]",72b03558-df1b-4946-8441-aedd04c7ff40,Star Wars: Knights of the Old Republic
-[Shooter],47f52916-6325-4242-955f-2f74c56d447b,Resident Evil 4
-"[Shooter, Puzzle]",1186dd59-883d-46ce-9271-8128a45ae28b,Half-Life 2: Episode Two
-"[Role-playing (RPG), Hack and slash/Beat 'em up, Adventure]",e29c59c2-bc5a-4969-80d9-8880f9b6c7a6,Middle-earth: Shadow of Mordor
-[Role-playing (RPG)],d170c096-d05c-42d6-860b-d6d42cc30856,Chrono Trigger
-"[Simulator, Strategy, Turn-based strategy (TBS)]",585afc55-9182-4b9b-af1c-d9ffcefa5365,Sid Meier's Civilization V
-"[Shooter, Adventure]",63641950-f0c9-4443-b382-eb83c4ae8a31,Far Cry 5
-"[Shooter, Role-playing (RPG), Strategy, Tactical, Adventure]",a01f7473-424a-46ac-b8da-9f08410c0d73,Tom Clancy's The Division
-"[Shooter, Role-playing (RPG), Adventure]",efcbde19-e969-45f6-baac-66eba751f562,Mass Effect: Andromeda
-"[Shooter, Role-playing (RPG), Simulator, Adventure, Indie]",46b52a78-5dfb-4ed5-b0a7-fb4818b32ca5,Star Citizen
-"[Role-playing (RPG), Hack and slash/Beat 'em up, Adventure]",60b197de-ff4c-459b-b26d-d2e168ba0d79,Dark Souls
-"[Shooter, Adventure]",fc756563-0785-4c83-81ad-5391b23f31a4,Rise of the Tomb Raider
-"[Platform, Adventure]",bf1d14cd-4402-43c8-88d9-3c91956dd32e,Super Mario Bros.
-"[Puzzle, Role-playing (RPG), Strategy, Adventure, Indie]",6bb7ba84-a424-48ca-ba40-a719ca80866b,Hello Neighbor
-"[Shooter, Racing, Simulator, Adventure]",e145ac92-a6e2-44c7-86ef-6d3cca593338,Grand Theft Auto III
-"[Platform, Puzzle, Adventure]",a5eb1141-c3f2-4ced-9768-f5c5302b5ef6,Shadow of the Colossus
-"[Platform, Adventure]",78771eaf-fbad-4532-b084-ffbca49c868b,Super Mario Odyssey
-"[Role-playing (RPG), Adventure]",5a9fbbbc-8dca-48f8-9a80-d7bea5ccf810,Monster Hunter: World
-"[Role-playing (RPG), Strategy, Adventure]",9d43c644-00f1-40f8-8b1a-cbfc7a329b7f,South Park: The Stick of Truth
-"[Role-playing (RPG), Turn-based strategy (TBS), Adventure, Indie]",16603a36-e116-4665-9c74-380afe2baaec,Undertale
-"[Shooter, Tactical, Adventure]",c82e38c1-71a4-44b3-8c07-2948783f152a,Metal Gear Solid V: The Phantom Pain
-"[Platform, Adventure, Indie, Arcade]",0b491527-38bf-46ad-b697-9110700cf2ed,Cuphead
-"[Platform, Adventure]",c2744af3-e421-4124-9897-7ff571fb510d,Assassin's Creed
-"[Role-playing (RPG), Adventure]",64e55353-1894-461d-b408-2e7052cfd70f,Kingdom Come: Deliverance
-[Shooter],264d6795-b97a-4737-ad4d-6ccbcf4e3fc8,Dead Space
-"[Hack and slash/Beat 'em up, Adventure]",dce5ba53-9b47-428a-998e-3fa785451546,Marvel's Spider-Man
-"[Shooter, Indie]",6675b95a-8d27-4edf-91c8-58612441a0e6,Hotline Miami
-"[Platform, Puzzle, Adventure, Indie]",980efe70-8e1c-4a7f-ae30-f3057b27cd9f,Limbo
-[Shooter],5ec4666e-8290-4d75-951e-8940b3db0630,DOOM
-"[Fighting, Shooter, Racing, Adventure]",b3575daf-cca5-4104-a34f-239256275b8f,Mafia
-"[Role-playing (RPG), Hack and slash/Beat 'em up]",5a05b412-0642-465a-91e6-2c1cc985dc63,Diablo II
-"[Role-playing (RPG), Tactical, Adventure]",c713e17e-b439-4d62-9e2c-53966fa74cfd,Dragon Age: Inquisition
-[Strategy],a6a90e0c-ba00-46c7-bf40-e9ddb7ffc84b,Dead by Daylight
-[Shooter],6d3ab873-388d-4046-8169-ffcbafd6e453,Quake II
-"[Shooter, Adventure]",9a66db9d-03c2-46c6-bc7f-08bc198c053b,Wolfenstein: The New Order
-"[Shooter, Role-playing (RPG)]",16a8a2af-95b1-4b4a-88ab-ed8cf74634b7,Deus Ex: Human Revolution
-"[Role-playing (RPG), Adventure]",23cfeee3-cdf3-48c3-b944-bc3cc362df18,Dark Souls III
-"[Shooter, Tactical, Adventure]",9e430f4c-e7e9-401a-b126-5972e9bf7318,Far Cry 4
-"[Puzzle, Adventure]",4a75150f-fc36-40cc-bbc9-960230e67a5a,Detroit: Become Human
-"[Real Time Strategy (RTS), Strategy]",e08e4423-ce3d-414a-a206-69cef2125a7d,StarCraft
-"[Strategy, Adventure]",7806752c-1501-4871-b27b-22482e118aae,Assassin's Creed III
-"[Role-playing (RPG), Hack and slash/Beat 'em up]",5248c259-d36c-43b2-8834-eb0b1512d38f,NieR: Automata
-"[Role-playing (RPG), Adventure]",0c06f404-ce8a-41af-b576-398a3b381948,The Elder Scrolls III: Morrowind
-"[Platform, Puzzle, Adventure, Indie]",4515a4ae-14ed-45ae-a5c2-9223edccb2cf,INSIDE
-"[Shooter, Role-playing (RPG), Strategy]",706b6451-349d-4184-964a-4f3df602b29b,Fortnite
-"[Shooter, Role-playing (RPG), Simulator, Adventure, Indie]",82b235d6-6bcc-4f14-bb33-f0bf8b896a2c,No Man's Sky
-[Shooter],aa2b1368-80dc-4aff-be6f-9256aa308db4,Call of Duty: Modern Warfare 2
-"[Shooter, Tactical, Adventure]",feb5e79c-19c5-465e-ad68-765129fadbf5,Metal Gear Solid 3: Snake Eater
-"[Real Time Strategy (RTS), Strategy]",9cfe4c63-8bce-48e4-88b5-fd4d5d409f8a,Age of Empires II: The Age of Kings
-"[Platform, Puzzle, Adventure, Indie]",8bfcec78-dc3b-405c-a6bc-f24aa22ae567,Ori and the Blind Forest
-"[Point-and-click, Adventure]",2a55aca8-0bc2-413c-a125-bec714ded462,The Wolf Among Us
-"[Adventure, Indie]",f813e6a7-cc42-43b5-a5b6-7e7aaf719d61,The Stanley Parable
-[Shooter],e68ebbae-3306-45b1-b907-a309d49fd8b5,Battlefield 1
-"[Shooter, Adventure]",aaca3639-be65-4a24-bcf6-2082d27d956a,Days Gone
-"[Strategy, Hack and slash/Beat 'em up, Adventure]",c1aef07b-b7da-4217-910f-d3cd4c7c0077,God of War
-"[Platform, Adventure, Indie]",64c1dc29-e2f8-4dc0-85ab-cdb3aaef9534,Journey
-"[Shooter, Role-playing (RPG)]",d712c76e-128e-4edb-b367-4d0b0d6a9978,Deus Ex
-[Adventure],2f960ca5-5be1-4841-8fd1-9e6c5e156258,Assassin's Creed: Revelations
-[Shooter],74df8215-cfc0-4651-ba74-bfc29f6fdde5,Call of Duty 2
-"[Racing, Sport, Indie]",46b9c29a-fea4-46fe-99d5-8702e0bdea8f,Rocket League
-"[Platform, Sport, Adventure, Indie]",4c8ed728-b9e3-4f99-abf7-f51ede2d0982,Fall Guys: Ultimate Knockout
-"[Puzzle, Adventure]",464c5c05-0f7d-4efc-9433-6f1ecd632498,Silent Hill 2
-"[Strategy, Adventure]",fab5b084-c7e0-4849-8f92-ccf8113cfea2,L.A. Noire
-"[Platform, Puzzle, Role-playing (RPG), Adventure]",87cb88bc-41af-487d-b304-ca9874cee3d4,The Legend of Zelda: The Wind Waker
-"[Shooter, Racing, Adventure]",5e16fb50-18e4-49cb-a2a0-fde98f476307,Mafia II
-"[Adventure, Indie]",bfadf06c-3207-4bc9-aa8b-342ccfce0756,Firewatch
-"[Shooter, Adventure]",f255e05a-1f65-4570-973c-71c1016125a9,Resident Evil 7 biohazard
-"[Shooter, Role-playing (RPG), Adventure]",1021ba03-a582-428b-9e01-a3aa1a4a89e3,Anthem
-"[Shooter, Platform, Adventure]",81a14642-5cc0-4922-bbca-8e1391e4492b,Uncharted: Drake's Fortune
-"[Shooter, Role-playing (RPG), Adventure]",02efe293-9f54-4b47-8f08-001f296a3a7f,BioShock 2
-"[Puzzle, Strategy, Arcade]",f880e6ba-fb78-4ab8-a9d4-4f78c40d5819,Tetris
-[Shooter],00073e80-ef51-4c4f-b7b4-619d89fd2848,Battlefield 3
-"[Role-playing (RPG), Adventure]",53f69314-a66a-4f9d-9a7e-986ecc35259a,Middle-earth: Shadow of War
-"[Shooter, Adventure]",28ebdfdf-2d1b-4d31-a51c-535b63b50126,Watch_Dogs
-"[Shooter, Adventure]",982578f8-cd51-4dda-8844-5d236cfe057d,Alan Wake
-[Shooter],62181084-c0e9-4041-bfa3-b07d8b4f626c,Max Payne 3
-[Adventure],549951ff-ee7c-45bc-91f8-d532a4ddc034,Heavy Rain
-"[Role-playing (RPG), Adventure]",50782b16-0e40-45b5-ac8d-d4dacf4bc614,Final Fantasy XV
-"[Platform, Adventure, Indie]",2a6a2115-261f-46b4-93c8-802023c724c1,Super Meat Boy
-"[Shooter, Role-playing (RPG), Adventure]",2d4108f2-feb6-4146-8c8a-ce57de9b77cb,Dishonored 2
-"[Shooter, Platform, Adventure]",96013441-b428-475d-8eef-08a78f16542c,Super Metroid
-"[Shooter, Puzzle, Tactical, Indie]",e98b2d87-bf6c-4e51-b054-f88097bb4790,SUPERHOT
-"[Shooter, Adventure]",7f85335f-c49c-4543-a411-c411958403c4,Death Stranding
-"[Role-playing (RPG), Adventure]",f351854b-e4b8-4bcb-b64d-2c6f055a683a,The Legend of Zelda: Twilight Princess
-[Shooter],94c784c4-7bca-4b2d-a12b-973eb11f6b96,Left 4 Dead 2
-"[Real Time Strategy (RTS), Strategy]",50487e70-bb6b-468f-b4e1-3680f3350fc5,StarCraft II: Wings of Liberty
-"[Shooter, Adventure]",010263ea-8b84-46b4-8b9c-5475950cdece,Prey
-"[Shooter, Platform, Adventure]",6ce077cc-f97d-4145-b9d9-7d46b180a5e4,Mirror's Edge
-[Racing],345906fe-9d2f-4ff1-be54-db08fac71eaf,Need for Speed: Most Wanted
-[Shooter],41223e27-4899-4cbf-bf5f-f9ec754f6863,Max Payne 2: The Fall of Max Payne
-"[Role-playing (RPG), Adventure]",dee50054-a4c3-4e71-bde3-f793f6da1c1f,Vampyr
-"[Shooter, Adventure]",7c604434-0b10-4a55-9a4f-fefa61953eda,Dead Space 2
-"[Role-playing (RPG), Turn-based strategy (TBS), Adventure]",49af3ac5-aee4-4c8e-af7e-2ccd3f6917c1,Persona 5
-"[Shooter, Platform, Adventure]",1df6e65d-65c5-42b2-b035-7f711f2ad567,Metroid Prime
-"[Role-playing (RPG), Adventure]",982fdd0a-afaf-4b06-9c02-5612de7e59fc,World of Warcraft
-"[Shooter, Role-playing (RPG), Adventure]",17a076ff-a784-4a11-8dd9-a35470664681,Dying Light
-[Shooter],833dbda1-90bc-4ce8-b14d-1f2810f0bbdc,Half-Life 2: Episode One
-"[Real Time Strategy (RTS), Simulator, Strategy, Adventure]",87ac0f18-2329-4cb9-b459-ac3f0de61c5c,Age of Empires
-"[Shooter, Role-playing (RPG)]",776366a2-7d70-4fe2-902f-dbbeb4e0a281,Borderlands
-"[Role-playing (RPG), Turn-based strategy (TBS), Adventure]",b80bd81a-0e81-4a71-a8bd-719b07546e1d,Final Fantasy IX
-[Shooter],ae7d244c-8420-417e-8973-85c9063bbac6,Battlefield 4
-"[Role-playing (RPG), Simulator, Indie]",1f44a9ed-3848-4b18-a32a-02f78c605160,Stardew Valley
-"[Role-playing (RPG), Adventure]",68551e19-2e86-4830-b97d-a01abd9fc3b0,Final Fantasy X
-[Shooter],ffb68270-889c-4ec3-af8b-b9cae0ea918a,S.T.A.L.K.E.R.: Anomaly
-"[Simulator, Strategy]",e647c9e7-bbcf-4ce6-8d83-1952a082635b,Cities: Skylines
-[Adventure],1b67501b-a9a5-4058-908b-22b5f0bcf9e6,Assassin's Creed: Syndicate
-[Adventure],c977ddbf-bff6-4bef-be97-455ea46548b5,Assassin's Creed: Unity
-"[Role-playing (RPG), Hack and slash/Beat 'em up, Adventure]",e5897332-81d1-4350-82e1-dbe9eb7d2f8c,Diablo III
-"[Role-playing (RPG), Turn-based strategy (TBS)]",a80f292b-7b97-472c-b228-7b4318432fa2,Fallout 2
-"[Point-and-click, Puzzle, Adventure]",bba4f97c-c4d1-44ff-8f37-bac8a70c12b2,The Walking Dead: Season Two
-"[Strategy, Turn-based strategy (TBS), Card & Board Game]",08a1ea7e-ed81-47d8-8051-e54bbd0bcc8b,Hearthstone
-"[Platform, Hack and slash/Beat 'em up, Adventure]",633d3e14-408d-4d6c-8009-ef24b09e6b79,God of War II
-"[Shooter, Adventure]",d603d804-e97f-4ba7-8b40-d2a00b3a45dc,Metro Exodus
-"[Platform, Adventure]",6c531caa-ac3a-4bf7-b903-53c647ec0cc0,Super Mario Galaxy 2
-"[Role-playing (RPG), Strategy, Adventure]",573087e8-8860-4c83-a7a5-d44ea48e4f7f,South Park: The Fractured But Whole
-"[Shooter, Adventure]",b1d7b5ad-bea9-4d1b-bb24-08ff4050f65d,Star Wars: Battlefront II
-"[Shooter, Adventure, Indie]",66f6843b-361e-425f-8b64-727557bb3a32,PUBG: BATTLEGROUNDS
-[Shooter],3541c128-3961-47d9-9dce-86f0b44f0aa5,Call of Duty: Black Ops
-"[Hack and slash/Beat 'em up, Adventure, Indie]",86766c40-3479-4855-9fac-e5a4b1293e79,Hellblade: Senua's Sacrifice
-[Shooter],e4952c19-e473-418a-8f14-198182cff685,Quake III Arena
-"[Role-playing (RPG), Strategy, Adventure]",c675406f-8a42-49bb-b608-e83b3c2c24f5,Star Wars: Knights of the Old Republic II - The Sith Lords
-"[Platform, Adventure]",85ee56db-79a8-4871-9e74-14793e6e101d,Rayman Legends
-[Adventure],ca982031-9a5d-4132-908d-9cf7034b3ddc,Alien: Isolation
-[MOBA],2d948574-e415-4e13-b0f2-0d2f71890e93,League of Legends
-"[Shooter, Adventure]",ff1f048a-3e89-4692-bd36-3a3d9218ee70,Spec Ops: The Line
-"[Platform, Adventure]",9472e313-add6-4b15-912c-ecf8e4bdb113,Super Mario Galaxy
-"[Shooter, Role-playing (RPG)]",0499357d-4f9e-40f7-9449-a9d1e047af78,Metro 2033
-"[Platform, Puzzle, Adventure]",e066565b-3873-4058-9e84-7d8fbacd649e,Shadow of the Colossus
-"[Shooter, Tactical]",d903e2da-2e62-4a50-9166-db79387c8a33,Hitman: Absolution
-[Adventure],a6536318-789e-44e5-bad3-1271824bced8,Sea of Thieves
-"[Platform, Puzzle, Adventure]",379eeb04-d472-4778-9f46-1cdcb174296c,The Last Guardian
-"[Role-playing (RPG), Hack and slash/Beat 'em up, Adventure]",3db41417-7e33-472a-8792-24f22264cec9,Kingdom Hearts III
-[Shooter],d6a98a1b-8ead-42c7-958b-a3e99008b2d8,Team Fortress 2
-[Shooter],3ad12f63-258e-4579-93e8-fd1ebcd1c5da,Metro: Last Light
-"[Role-playing (RPG), Adventure]",5225d21f-7089-4cd5-940c-d9290611459e,Final Fantasy VI
-[Role-playing (RPG)],705f3273-9054-49fb-a578-114b34a3356b,The Witcher
-[Adventure],5fac8f4e-a754-4053-8f61-080690dd0f57,Metal Gear Solid 2: Sons of Liberty
-"[Shooter, Tactical, Adventure]",0b879239-9587-4189-911a-b553c789191d,Metal Gear Solid 4: Guns of the Patriots
-"[Role-playing (RPG), Adventure]",4d976582-0f38-428c-b49a-8e477f27dbbb,Dark Souls II
-"[Puzzle, Role-playing (RPG), Adventure]",8c0d5af1-8229-4ca2-b823-e60f60db89b0,The Legend of Zelda: A Link Between Worlds
-"[Puzzle, Adventure, Indie]",3d9ceb33-33a1-4158-ad79-77593339f131,Brothers: A Tale of Two Sons
-"[Fighting, Adventure]",9ba3dffb-aa03-40fc-9faf-3faf810e5af5,Mirror's Edge Catalyst
-[Adventure],1ca7fc96-bb3c-4b92-b5b7-78dc84b23a8f,The Legend of Zelda
-[Shooter],b858eae9-cfdc-4763-b670-2311a7425733,Halo: Combat Evolved
-"[Fighting, Hack and slash/Beat 'em up, Adventure]",52622397-002c-42b2-9997-63c4e2e71bcf,Batman: Arkham Origins
-"[Shooter, Adventure]",d6d75bd5-4ebf-4bce-a86c-370ac730c533,Wolfenstein II: The New Colossus
-"[Strategy, MOBA]",fc9a8761-8655-4071-963b-012ba465eabb,Dota 2
-"[Role-playing (RPG), Turn-based strategy (TBS)]",cab1e5a7-3d14-4bee-8a71-33e4b8da0394,Fallout
-"[Platform, Adventure]",d4bffb10-8ebd-4a4d-bad2-dcbc388f8925,Prince of Persia: The Sands of Time
-"[Role-playing (RPG), Adventure, Indie]",54aa3de9-82b8-454e-886c-79ba4e83d996,Bastion
-"[Shooter, Tactical]",39c825cc-9416-4aec-8e0f-37b1282e9793,Tom Clancy's Rainbow Six Siege
-"[Role-playing (RPG), Adventure]",e08275ba-0718-4d79-90a4-6d67f920a86b,The Witcher 3: Wild Hunt - Game of the Year Edition
-"[Point-and-click, Puzzle, Adventure]",eb25e2cb-3f6b-4f2a-98ef-c580b65b7f96,The Secret of Monkey Island
-"[Shooter, Racing, Adventure]",b628a9c7-bf19-435f-80b4-f14a35cc1e82,Mafia III
-"[Racing, Simulator]",e9510efc-d86c-4bc8-9c42-6acfb0eafc00,Need for Speed: Underground 2
-[Shooter],234694c8-e5f1-4aa3-ae1d-3b564bc27354,Halo 3
-"[Racing, Simulator]",32450d1b-d324-455b-adde-719780e2068a,Need for Speed: Underground
-"[Shooter, Adventure]",4966b1e0-4c0b-49b7-80a5-1442209570d1,Shadow of the Tomb Raider
-"[Shooter, Adventure]",37d37c20-f7ef-4124-909f-162c1082f070,Star Wars Battlefront II
-[Adventure],5cb95773-1326-4d46-84fa-a3fbf533f538,Until Dawn
-"[Role-playing (RPG), Strategy, Turn-based strategy (TBS), Tactical]",1044bace-8e37-43cd-8bba-9a9836610c76,XCOM: Enemy Unknown
-"[Shooter, Role-playing (RPG), Adventure]",a98be626-c9e6-4593-b9cb-54080bd7b8a4,Deus Ex: Mankind Divided
-"[Platform, Puzzle, Strategy, Adventure, Indie]",108859d5-cd76-4b5b-b6f3-1f527d758c03,Braid
-[Adventure],a2e4e30e-74a5-4d26-a66f-fb9a27814af5,The Legend of Zelda: Majora's Mask
-"[Shooter, Adventure]",71cb9190-a82a-4258-b2be-84295db40c35,Crysis
-"[Real Time Strategy (RTS), Strategy]",273b92b4-4f73-4982-b489-6a2456fb288c,Warcraft III: The Frozen Throne
-[Adventure],69451519-3757-46df-ab06-244afc97122b,Tales from the Borderlands
-[Shooter],3cc76dee-685a-4bf2-aa5a-c73917d142f0,Call of Duty
-"[Puzzle, Adventure, Indie]",ef5c5b18-43c7-4d88-b36d-49d4ad514499,What Remains of Edith Finch
-"[Shooter, Role-playing (RPG)]",7d0c26f8-a724-4bbb-9ec4-4e61a48f3245,Fallout 76
-"[Hack and slash/Beat 'em up, Adventure]",da784878-ed0a-47d2-a455-935e0f802199,God of War III
-"[Shooter, Strategy, Adventure]",7809aa67-c8b4-4176-b0a5-fcc2500d077e,Star Wars Battlefront
-"[Fighting, Platform, Hack and slash/Beat 'em up]",58542508-39bc-4b4d-847f-90a092e34ec0,Super Smash Bros. Melee
-"[Shooter, Racing, Adventure]",50bc20f7-7df8-459b-a833-6dfc9aaf2020,Mad Max
-"[Shooter, Adventure]",9e00b828-2804-43ce-90ef-d536d33fc8d3,Sleeping Dogs
-"[Role-playing (RPG), Adventure]",a1f89ca9-fe63-4ad9-8046-a37068b43a53,The Witcher 3: Wild Hunt - Hearts of Stone
-"[Shooter, Tactical, Adventure]",4125d42f-886d-4b48-b794-4adb18abec26,Call of Duty: Modern Warfare 3
-"[Puzzle, Adventure, Indie]",00d633b3-a0be-40b0-ad8f-0a325c63d4e3,The Witness
-"[Role-playing (RPG), Adventure]",19e3ecc7-4f76-48df-ba55-2a844e285899,Kingdom Hearts II
-[Shooter],927462c0-5ed9-4aa0-9312-b04742b3ec49,Call of Duty: Black Ops II
-[Adventure],9c71574d-4f76-4158-be64-1b746f738e51,Just Cause 3
-[Adventure],4053b9ad-1c08-418a-a5b5-bbef8bbd2c19,Beyond: Two Souls
-"[Platform, Hack and slash/Beat 'em up, Adventure, Indie]",ed7d4bc4-aea7-458d-8e77-f76dbc8ba2a5,Hollow Knight
-[Platform],cdfce461-86f9-4c15-b18f-0a44315a4372,Super Mario World 2: Yoshi's Island
-"[Shooter, Tactical, Adventure]",88359db0-2bca-4723-b5ec-3c939c659be9,HITMAN
-"[Shooter, Racing, Adventure]",c49e3ddc-5bc2-4253-958a-6845d32f95e4,Saints Row: The Third
-"[Platform, Adventure, Indie]",9d3faf58-b141-43c7-80e7-3714c999091d,Shovel Knight
-"[Shooter, Simulator, Strategy, Adventure]",cfad4a87-9992-40fe-b0c3-c82fd6346034,Battlefield: Bad Company 2
-"[Puzzle, Adventure, Indie]",50800cde-9b21-4682-97aa-14802feab7fe,Amnesia: The Dark Descent
-"[Point-and-click, Puzzle, Adventure]",3901c3a6-c49c-4fd0-a0c6-dadf4e30ac66,Monkey Island 2: LeChuck's Revenge
-"[Shooter, Role-playing (RPG)]",76ea2574-82e9-4d7b-98fa-01344bb69762,Destiny
-"[Shooter, Adventure]",45a64369-c40f-4bb7-8e7c-2e07dc86bd4d,Uncharted: The Lost Legacy
-"[Role-playing (RPG), Simulator, Adventure]",458fe128-68eb-4794-bfac-aaef3383cf26,The Sims 4
-"[Role-playing (RPG), Hack and slash/Beat 'em up]",55e9e51a-aca0-4938-9f20-c8344e916f75,Diablo II: Lord of Destruction
-"[Role-playing (RPG), Strategy, Turn-based strategy (TBS)]",ef812a61-9cae-4e87-9385-dd33cd56a7f9,Heroes of Might and Magic III: The Restoration of Erathia
-"[Platform, Puzzle, Adventure]",b22c0c4b-0d75-4b09-9987-24c721168576,Little Nightmares
-[Role-playing (RPG)],7669f8c6-e175-40f7-be09-c962b804c858,Vampire: The Masquerade - Bloodlines
-[Shooter],0550c698-5706-454a-b2cc-41939ac9e5b4,Quake
-"[Point-and-click, Puzzle, Adventure]",b80a2ba3-b0a3-4eca-abe2-f34f182260a9,Grim Fandango
-"[Shooter, Adventure]",1b651bd4-cad8-419a-8d1d-fce2a4becb84,Titanfall 2
-"[Shooter, Adventure]",befd2584-00ca-4d52-84e1-c24f4f245992,Call of Duty: World at War
-"[Shooter, Role-playing (RPG), Hack and slash/Beat 'em up]",fcb973cf-0a79-4d4a-b83d-3e09d785f971,Dead Island 2
-"[Shooter, Adventure]",84fc8eb9-f2d0-490e-b169-3434049b24cf,Call of Duty: Black Ops III
-"[Role-playing (RPG), Hack and slash/Beat 'em up, Adventure]",388eae43-747f-47bd-a722-5e8bb743d393,Diablo III: Reaper of Souls
-"[Platform, Role-playing (RPG), Simulator, Strategy, Adventure, Indie]",54c550cb-42ba-440f-a621-0956558dc49e,Terraria
-[Adventure],3ed7538f-6222-408c-b7c3-0c3857b4d0bf,Ghost of Tsushima
-"[Platform, Adventure]",cb3013e7-94b6-4fb4-9858-ba7012c3954a,Sonic the Hedgehog 2
-[Racing],61095e4f-c4f6-4f6a-ab1a-ff3bc27dacf3,Mario Kart 8
-"[Adventure, Indie]",0a13af49-645e-452f-837e-0ad4461b7e6c,A Way Out
-[Shooter],8f999e03-040a-4c8e-a7c9-6b922ba82625,Left 4 Dead
-[Shooter],8cc97458-2c86-450f-83ca-e08256f04e48,DOOM Eternal
-[Adventure],401aca85-6edd-4418-aaf8-adb511503eb6,Life is Strange: Before the Storm
-[Role-playing (RPG)],7ab9f6c1-d3b4-4aed-a8f6-cdcb303f56a6,Baldur's Gate II: Shadows of Amn
-[Shooter],b9e5bf0e-25e2-4cf9-9443-62d759a7e2f1,Hitman: Blood Money
-"[Role-playing (RPG), Strategy]",6c6e2476-e696-43c6-9d6f-56de159ed699,Diablo
-"[Role-playing (RPG), Adventure]",e652f33d-e5f0-48a1-af19-da87df83b6a9,Assassin's Creed: Odyssey
-"[Shooter, Role-playing (RPG), Simulator, Adventure, Indie]",94da28c8-3a94-4eca-9dc1-3aca17f41b4a,Ark: Survival Evolved
-"[Indie, Arcade]",a8d9a1e5-f8b1-4865-841f-3c3fedf202c7,TagPro
-"[Shooter, Adventure]",64b79f4a-5796-4fef-88de-9582d3fbf03d,Beyond Good & Evil
-"[Shooter, Platform, Adventure]",56f65bb0-a892-445f-bf0e-0dfd973bae6f,Uncharted: The Nathan Drake Collection
-"[Hack and slash/Beat 'em up, Adventure]",cc4b9c82-71f7-4f41-875b-00c623be502e,Bayonetta
-[Shooter],b7981e89-d805-4b57-b1d0-5e3bfab6f60f,Halo 2
-"[Shooter, Adventure]",5461ed03-f32e-4bd9-ba5f-ce02f4b43dd1,Crysis 2
-[Shooter],555d030a-50a7-44c0-8c31-193295004298,DOOM II: Hell on Earth
-[Adventure],1d0d7eac-f241-4ad1-938b-0663c645f27e,Assassin's Creed: Rogue
-"[Point-and-click, Puzzle, Role-playing (RPG), Simulator, Indie]",33fa2f1b-a8e7-4787-b433-5dfc280baf0c,"Papers, Please"
-"[Fighting, Platform, Adventure]",044a8070-aab2-458d-81ce-d005512981ea,Prince of Persia: Warrior Within
-"[Shooter, Racing]",ac06072f-29b6-4056-ae33-2c75229f2e7d,Grand Theft Auto 2
-"[Role-playing (RPG), Strategy, Turn-based strategy (TBS), Tactical]",4df09938-d564-4d64-a0c6-d31bfea85df4,XCOM 2
-[Role-playing (RPG)],1fc73224-7617-4b42-84e7-0cacd50575d5,The Witcher 3: Wild Hunt - Blood and Wine
-"[Adventure, Indie]",42c0b19c-51e4-4532-9c22-90b13e4d4141,SOMA
-[Adventure],a339703b-d05d-4bb3-b005-34adb2f2e1ad,Beyond Good & Evil 2
-"[Point-and-click, Adventure, Indie]",dd622d0a-c3e2-439e-9b19-283af1a1e783,Gone Home
+"[Shooter, Adventure]",84ad7e8e-8d92-41b2-a849-dce071d4cf6c,Grand Theft Auto V
+"[Role-playing (RPG), Adventure]",f3a6085e-9151-4f24-a533-569c37e81a2a,The Witcher 3: Wild Hunt
+"[Role-playing (RPG), Adventure]",ea73ddcb-00c5-4625-9081-bc7b4ce02f27,The Elder Scrolls V: Skyrim
+"[Shooter, Racing, Adventure]",205afd4b-5238-4800-a930-cf06cfe38b8a,Grand Theft Auto: San Andreas
+[Role-playing (RPG)],cb74bb7a-bf3b-4ec8-abbf-d66f573a3466,Cyberpunk 2077
+"[Shooter, Platform, Puzzle, Adventure]",644a8f2b-901e-4da2-8c6f-936cb0fa870a,Portal 2
+[Shooter],2b2a4842-7698-4438-9c6a-2dd03dce80f8,Half-Life 2
+"[Shooter, Platform, Puzzle]",057b8320-526e-4d02-9d4c-183031361f4f,Portal
+"[Shooter, Adventure]",cc72193c-e325-478f-bc31-fc598f7080e8,The Last of Us
+"[Shooter, Role-playing (RPG), Simulator]",bf39e15f-ca6e-431e-ad57-de3e7cb3d2fd,Mass Effect 2
+"[Shooter, Puzzle, Adventure]",4ff40eeb-34b0-4e3d-a314-6d8343d8175d,Half-Life
+"[Platform, Adventure]",e67de8de-c504-4443-ab42-d7b8e8a3518c,Assassin's Creed II
+"[Shooter, Racing, Adventure]",b835d341-3a9f-44ec-8e3f-a5891de98758,Grand Theft Auto: Vice City
+"[Shooter, Role-playing (RPG), Adventure]",ade7fa16-7495-48f3-933b-6073c20ae86b,Red Dead Redemption 2
+"[Shooter, Role-playing (RPG)]",d1d749b5-0441-4c78-8665-7057c56b59dc,BioShock
+"[Shooter, Role-playing (RPG)]",dac94b13-38ac-4cba-8c2f-ac57a7c3c0bd,Mass Effect
+"[Role-playing (RPG), Adventure]",5b0791c8-3684-431e-94b4-0d7f4561d41d,The Legend of Zelda: Breath of the Wild
+"[Hack and slash/Beat 'em up, Adventure]",d28edb7b-fa1e-4347-a839-250e7a6051f6,Batman: Arkham Asylum
+"[Shooter, Adventure]",961d9c49-4e0a-40ed-9ef2-18c780f86f1a,Far Cry 3
+"[Shooter, Adventure]",e4438cb9-521e-42a8-88d5-7aaf82a6f5b1,Bioshock Infinite
+"[Shooter, Platform, Puzzle, Adventure]",74bc7fce-2cc5-49f2-9dd6-68573fae2cb7,Tomb Raider
+"[Adventure, Arcade]",c67caf07-a433-4967-9ebf-36fc396b0c6b,Minecraft
+"[Shooter, Role-playing (RPG)]",c69f78d3-43d9-415f-beef-482d2b66376f,Horizon Zero Dawn
+"[Shooter, Adventure]",e63b2411-51d4-4e84-b4e0-c141475699e7,Uncharted 4: A Thief's End
+"[Platform, Puzzle, Role-playing (RPG), Adventure]",c66b0fd4-ad39-434d-8fba-3ce70242e739,The Legend of Zelda: Ocarina of Time
+"[Hack and slash/Beat 'em up, Adventure]",911b616e-b203-4123-83f4-09e430ecdc11,Batman: Arkham City
+"[Shooter, Role-playing (RPG), Adventure]",f781d12b-185d-430d-8165-c378bdba027a,Red Dead Redemption
+"[Shooter, Role-playing (RPG), Adventure]",bb21747a-c1f5-4067-bd9a-633d93a1742e,Mass Effect 3
+"[Shooter, Adventure]",f9b9afbb-54f9-4817-860e-255b9d3b3938,The Last of Us Part II
+"[Shooter, Platform, Adventure]",9d8bddcc-a2c1-4a17-b759-665e036bba75,Uncharted 2: Among Thieves
+"[Platform, Adventure]",662c9372-5ee7-4697-9787-3538754f49f7,Super Mario World
+"[Shooter, Role-playing (RPG)]",82795850-cf1d-49ca-91ba-93cde8b52997,Fallout 3
+"[Shooter, Role-playing (RPG)]",2b609686-ed7c-4196-be5e-de3450cda484,Fallout: New Vegas
+"[Shooter, Adventure]",557ecac7-3a39-45c4-a8c9-22d35834e195,Watch Dogs 2
+"[Role-playing (RPG), Adventure]",bff7db84-3ad9-49a8-a177-e5a40ed23a4b,Life is Strange
+"[Point-and-click, Adventure]",945f73e3-d545-4125-95a7-10c6d5c18f80,The Walking Dead: Season One
+"[Hack and slash/Beat 'em up, Adventure]",cfb2445e-a05e-47fa-be52-b686c9d3d9bf,God of War
+"[Shooter, Role-playing (RPG)]",4a57c4e5-f246-4135-8ab3-7dbe7b7fb35b,Fallout 4
+[Shooter],5ed8f092-0a37-4de7-afff-00caec4567e1,Max Payne
+[Platform],c9a555c7-2cca-4217-81bf-6e7c3495fe47,Super Mario 64
+[Adventure],d8ae842e-9acd-45d7-b79c-a51214fc1894,Assassin's Creed: Brotherhood
+"[Role-playing (RPG), Adventure]",2d8d4517-ba0b-4ef1-b014-c9bf2e848eed,The Elder Scrolls IV: Oblivion
+"[Shooter, Adventure]",6389d695-2ddc-4602-b0e1-005df5e7c2c7,The Last of Us Remastered
+"[Shooter, Role-playing (RPG)]",82953d08-cef8-458a-9fef-8a989f657545,Borderlands 2
+"[Shooter, Simulator]",abe0b1e8-ef6c-4b78-970d-9d334590392d,Call of Duty 4: Modern Warfare
+"[Platform, Adventure]",c920b9c9-236a-4044-bcdc-2adc84231a2c,Super Mario Bros. 3
+"[Shooter, Racing, Adventure]",50263088-7b22-4092-87fb-642bed468fef,Grand Theft Auto IV
+"[Shooter, Role-playing (RPG), Tactical, Adventure]",57a80f36-b70a-44d8-abff-42d5b31fd3ef,Destiny 2
+"[Role-playing (RPG), Adventure]",3c1c7a78-69b3-42cb-99b7-076fdf67e884,The Legend of Zelda: A Link to the Past
+[Shooter],d8cb5fca-1ba5-4840-b468-94ff8f9c03f3,Call of Duty: WWII
+"[Platform, Adventure]",872107ec-522e-4de5-a718-6cb314380fc5,Assassin's Creed IV: Black Flag
+"[Shooter, Strategy]",bdc95657-c924-4754-9286-2bff96929923,Overwatch
+[Role-playing (RPG)],23b0516b-2a4a-4051-b827-df8558aaba7a,Dragon Age: Origins
+"[Hack and slash/Beat 'em up, Adventure]",d781f2ab-7941-47bb-8a56-20d51f5591d3,Batman: Arkham Knight
+"[Role-playing (RPG), Adventure]",54db1243-c310-418b-aed7-5f4e20bd0d7c,The Witcher 2: Assassins of Kings
+"[Shooter, Tactical]",fe9fabba-f6e0-447e-beee-20986d2ff145,Counter-Strike: Global Offensive
+"[Role-playing (RPG), Adventure]",846d1ade-7c96-431b-b9a0-b7bd54900cb0,Assassin's Creed: Origins
+"[Simulator, Strategy, Indie]",73d024bf-7574-4ce4-be50-012086084a9f,Totally Accurate Battle Simulator
+"[Fighting, Shooter, Platform, Indie]",a6630713-84a3-45ac-9c7a-6513b799d84f,Superfighters Deluxe
+"[Strategy, Adventure]",ea644644-8382-42ae-b202-5dc9ed866172,Metal Gear Solid
+"[Role-playing (RPG), Adventure]",81eeffd4-a1b6-482a-811b-8d6a987f4e72,Final Fantasy VII
+[Adventure],96a3fc69-7dcd-46b4-b2f8-730d15630ed4,Dishonored
+"[Role-playing (RPG), Adventure]",2ef39480-dbee-4a08-8851-469e573a2b7d,Final Fantasy VII Remake
+"[Shooter, Platform, Adventure]",de36e477-3479-408f-a4ff-09575fb416d2,Uncharted 3: Drake's Deception
+[Shooter],b77d4c29-b162-4352-ad21-e6829ce10c27,DOOM
+"[Role-playing (RPG), Adventure]",e8377741-f704-4083-8285-b80fbc9455e5,Bloodborne
+"[Real Time Strategy (RTS), Strategy]",677eb88c-ef9d-4913-aa02-30688bb36560,Warcraft III: Reign of Chaos
+"[Role-playing (RPG), Adventure]",1a018ec7-2e0c-45a7-91ae-6449f9918028,Star Wars: Knights of the Old Republic
+[Shooter],959f1350-1487-4956-8d43-2cb38321630f,Resident Evil 4
+"[Shooter, Puzzle]",c6b49943-191e-473a-8828-597a5e9cc269,Half-Life 2: Episode Two
+"[Role-playing (RPG), Hack and slash/Beat 'em up, Adventure]",ae822b45-6b75-4de3-a41b-ffdff2c76d48,Middle-earth: Shadow of Mordor
+[Role-playing (RPG)],c2c2affb-ead9-402a-a875-9b2336656d50,Chrono Trigger
+"[Simulator, Strategy, Turn-based strategy (TBS)]",8cb57df0-0d91-417f-91f6-54d3c89ddd71,Sid Meier's Civilization V
+"[Shooter, Adventure]",f36ec2aa-512e-4961-b5d4-2f1abae623ac,Far Cry 5
+"[Shooter, Role-playing (RPG), Strategy, Tactical, Adventure]",13e72d60-1153-41d7-8a92-c4146e1065bb,Tom Clancy's The Division
+"[Shooter, Role-playing (RPG), Adventure]",0db90452-fdf7-46bf-84cb-74df28acb84e,Mass Effect: Andromeda
+"[Shooter, Role-playing (RPG), Simulator, Adventure, Indie]",48895fbf-6956-4f45-bb61-541020449463,Star Citizen
+"[Role-playing (RPG), Hack and slash/Beat 'em up, Adventure]",f4c8640e-a750-4b86-ba8e-4a2fc05538cc,Dark Souls
+"[Shooter, Adventure]",e64e77bb-7463-4aa5-a864-36764ab86a12,Rise of the Tomb Raider
+"[Platform, Adventure]",a14c03c5-b434-4279-b4dd-87675ffc0270,Super Mario Bros.
+"[Puzzle, Role-playing (RPG), Strategy, Adventure, Indie]",c9990f18-2e2f-469a-9e61-97e00d788e9a,Hello Neighbor
+"[Shooter, Racing, Simulator, Adventure]",044a9c4a-9915-4ce2-9b5f-1210eb1e6a1a,Grand Theft Auto III
+"[Platform, Puzzle, Adventure]",ba910f48-9242-4236-b7d9-fd0e051e79d1,Shadow of the Colossus
+"[Platform, Adventure]",2af24715-ca97-4caf-9c47-1aa2578376a2,Super Mario Odyssey
+"[Role-playing (RPG), Adventure]",cb5e968c-fe67-4986-b703-f961729a80cb,Monster Hunter: World
+"[Role-playing (RPG), Strategy, Adventure]",9ed0e073-d84b-45a6-a3b1-a0edb18ea53b,South Park: The Stick of Truth
+"[Role-playing (RPG), Turn-based strategy (TBS), Adventure, Indie]",0a1d056f-a01e-4767-8b33-cc801e8db59c,Undertale
+"[Shooter, Tactical, Adventure]",04231891-2498-4284-bd9b-6eadf4fa6edd,Metal Gear Solid V: The Phantom Pain
+"[Platform, Adventure, Indie, Arcade]",ee9604e4-2329-4593-9188-7236f26ba529,Cuphead
+"[Platform, Adventure]",538c0a45-8edd-45cb-bbbc-7fbeafc16678,Assassin's Creed
+"[Role-playing (RPG), Adventure]",899eafcb-3b82-4b83-9263-bf9c3872d263,Kingdom Come: Deliverance
+[Shooter],c20f8aa5-7cee-485a-9593-fe3b7acf5037,Dead Space
+"[Hack and slash/Beat 'em up, Adventure]",6a7b59fb-6c11-4ad8-acc2-9aac8cd2155e,Marvel's Spider-Man
+"[Shooter, Indie]",a3ef8b0e-8703-477a-a00d-13c2f01206ef,Hotline Miami
+"[Platform, Puzzle, Adventure, Indie]",6c60e4ec-f0bc-4f0b-93eb-a974f6683d01,Limbo
+[Shooter],e5cf3ee0-1b40-426c-97be-4b05587f019a,DOOM
+"[Fighting, Shooter, Racing, Adventure]",4cbd4cdf-77aa-4013-ad8c-043db32886be,Mafia
+"[Role-playing (RPG), Hack and slash/Beat 'em up]",cab65c19-c8e7-4075-a355-b5623d6648b4,Diablo II
+"[Role-playing (RPG), Tactical, Adventure]",ae57a67c-202b-4b23-83f6-90a85e975dda,Dragon Age: Inquisition
+[Strategy],16c54f00-1cb1-4c8d-9cc7-38895a645882,Dead by Daylight
+[Shooter],897d9ef2-e96b-45b8-9770-2cb20075065c,Quake II
+"[Shooter, Adventure]",ae96d2e3-8427-4f60-b8b4-492bf1a8ec0a,Wolfenstein: The New Order
+"[Shooter, Role-playing (RPG)]",9880c50d-ffda-4cad-8311-0ab8fc5844f6,Deus Ex: Human Revolution
+"[Role-playing (RPG), Adventure]",a8d2f31b-d4cd-4c24-8841-a3e963d487d7,Dark Souls III
+"[Shooter, Tactical, Adventure]",4e00cb34-eb20-4df0-919c-e3dd63819262,Far Cry 4
+"[Puzzle, Adventure]",732d107d-7ff2-48aa-be8c-652cf75b3a2c,Detroit: Become Human
+"[Real Time Strategy (RTS), Strategy]",770b7aa8-2916-4470-b765-887e233ce361,StarCraft
+"[Strategy, Adventure]",7637dea4-0359-4a29-908e-0b69246eba5f,Assassin's Creed III
+"[Role-playing (RPG), Hack and slash/Beat 'em up]",5d60a60c-fa79-4075-9bbe-d90b3ff87d9b,NieR: Automata
+"[Role-playing (RPG), Adventure]",0a2fe89e-93e3-4a66-8f5e-13f9c98ea0e4,The Elder Scrolls III: Morrowind
+"[Platform, Puzzle, Adventure, Indie]",d881c9d4-17dc-44f0-beff-5a42afefb9e7,INSIDE
+"[Shooter, Role-playing (RPG), Strategy]",847fbed2-fcb6-493e-892d-0f59e4cf1799,Fortnite
+"[Shooter, Role-playing (RPG), Simulator, Adventure, Indie]",2e587f9a-c0ce-4caf-b392-1d388dc1fd30,No Man's Sky
+[Shooter],f6ea1aee-f83c-4079-916d-49ed06d1f7b8,Call of Duty: Modern Warfare 2
+"[Shooter, Tactical, Adventure]",48a85163-bd7f-4135-86f5-1d4a6d2097b2,Metal Gear Solid 3: Snake Eater
+"[Real Time Strategy (RTS), Strategy]",17915879-3692-423c-a125-688d8fe1d04b,Age of Empires II: The Age of Kings
+"[Platform, Puzzle, Adventure, Indie]",08882cec-ca3a-45f9-994a-1957ff4d4fdb,Ori and the Blind Forest
+"[Point-and-click, Adventure]",198612cf-3fe4-4538-bec1-32648fbeab92,The Wolf Among Us
+"[Adventure, Indie]",9c9bcfb8-9dcf-45e7-9274-a5d55c130a33,The Stanley Parable
+[Shooter],346dfcd0-bfd8-414b-8f07-6db8e268e461,Battlefield 1
+"[Shooter, Adventure]",11955be2-4c04-4575-8f5b-46eea095f7e7,Days Gone
+"[Strategy, Hack and slash/Beat 'em up, Adventure]",59f36fe7-c145-44e3-bfa6-12bb0045e354,God of War
+"[Platform, Adventure, Indie]",ab980cc3-9ea8-4ef9-b43c-d3702ae30ae4,Journey
+"[Shooter, Role-playing (RPG)]",e0f748f9-144f-4f65-9652-cdc58a7016e8,Deus Ex
+[Adventure],30008b21-8ae1-4ab5-9866-dfb97e9fd31d,Assassin's Creed: Revelations
+[Shooter],0c3e00a2-60fe-469b-b462-0f8e1ad89e44,Call of Duty 2
+"[Racing, Sport, Indie]",a3ceea22-d883-4856-a327-eabd938e4b65,Rocket League
+"[Platform, Sport, Adventure, Indie]",0c55f0bf-07c4-4c4d-97df-47278488e86b,Fall Guys: Ultimate Knockout
+"[Puzzle, Adventure]",36632203-f738-4537-9a19-0a723bfe371a,Silent Hill 2
+"[Strategy, Adventure]",87f6cc66-34b9-4393-a322-7334f0c8f7b9,L.A. Noire
+"[Platform, Puzzle, Role-playing (RPG), Adventure]",9d704998-b115-4f9c-838f-0a826f3d43b5,The Legend of Zelda: The Wind Waker
+"[Shooter, Racing, Adventure]",18e8d18c-009a-4237-bbe0-0875b774fdd7,Mafia II
+"[Adventure, Indie]",fb2534e4-3a2a-486f-8f86-2c6b869a3bcf,Firewatch
+"[Shooter, Adventure]",95a1d758-827b-43c0-92da-a19400075627,Resident Evil 7 biohazard
+"[Shooter, Role-playing (RPG), Adventure]",ab62b591-89f0-442e-96bb-083f03f56120,Anthem
+"[Shooter, Platform, Adventure]",69ae2c7c-0aa7-43eb-bb36-601336b0526e,Uncharted: Drake's Fortune
+"[Shooter, Role-playing (RPG), Adventure]",1a601a0e-afde-4df6-aef1-c0a6947164fe,BioShock 2
+"[Puzzle, Strategy, Arcade]",be1d4d18-e3a0-4b7c-b855-29dfaf842d73,Tetris
+[Shooter],fd0424fe-d373-4105-9256-b2bb92ee048f,Battlefield 3
+"[Role-playing (RPG), Adventure]",883c8aa5-0888-451b-9e35-c773ec60d849,Middle-earth: Shadow of War
+"[Shooter, Adventure]",5de94514-d286-4826-8415-873f5a7d4bc7,Watch_Dogs
+"[Shooter, Adventure]",c6e4ca58-970a-4746-9d69-4f212aefb605,Alan Wake
+[Shooter],6f03ff22-2ef5-48e1-ae0e-ba51eb89d8f3,Max Payne 3
+[Adventure],9d60ea9d-0d08-4e17-bd00-b5d431e398b0,Heavy Rain
+"[Role-playing (RPG), Adventure]",90725569-e228-43ee-9d84-e27fa8945a44,Final Fantasy XV
+"[Platform, Adventure, Indie]",8b870f9d-3a52-4259-8960-e9780438ad51,Super Meat Boy
+"[Shooter, Role-playing (RPG), Adventure]",f7cfe235-537f-4d54-bbf8-91fb22d44676,Dishonored 2
+"[Shooter, Platform, Adventure]",decf2697-0540-466d-8b1a-52c17637b315,Super Metroid
+"[Shooter, Puzzle, Tactical, Indie]",9dc62b41-dcbb-40e4-b233-3d1ebb585976,SUPERHOT
+"[Shooter, Adventure]",4143548b-cfd4-4d7f-97a2-40544897649a,Death Stranding
+"[Role-playing (RPG), Adventure]",64bad41b-ce85-4129-a038-4d08dd24fce2,The Legend of Zelda: Twilight Princess
+[Shooter],649b836a-070b-4919-8cb6-0be6773d86e5,Left 4 Dead 2
+"[Real Time Strategy (RTS), Strategy]",31c8966f-87e3-4b4b-9ce7-b82f62aeba48,StarCraft II: Wings of Liberty
+"[Shooter, Adventure]",337c82b9-119c-41a2-87aa-81cce5615133,Prey
+"[Shooter, Platform, Adventure]",14bd3844-92b1-4501-bf20-214030b0ccc1,Mirror's Edge
+[Racing],09bd8a11-0d78-4657-8cad-72c11447d305,Need for Speed: Most Wanted
+[Shooter],7c76fd98-e885-4490-9b3f-b48230fa6a2a,Max Payne 2: The Fall of Max Payne
+"[Role-playing (RPG), Adventure]",5a1cb844-8193-4b5f-bdc3-71c912e05a2c,Vampyr
+"[Shooter, Adventure]",d5c846de-bc0c-4812-a760-38aaa3a7e7c5,Dead Space 2
+"[Role-playing (RPG), Turn-based strategy (TBS), Adventure]",f99555f4-0783-4320-b15f-5dfc0d6eee85,Persona 5
+"[Shooter, Platform, Adventure]",506f7444-c27e-4ffa-8de8-5a0e1d29328b,Metroid Prime
+"[Role-playing (RPG), Adventure]",0ae31919-ca57-4d34-9a96-11ac175f9c81,World of Warcraft
+"[Shooter, Role-playing (RPG), Adventure]",1f5cd5fc-98be-4038-8f1a-11600ae58b3a,Dying Light
+[Shooter],9980eefa-2bf8-4f45-a9f5-a642a1d5c34c,Half-Life 2: Episode One
+"[Real Time Strategy (RTS), Simulator, Strategy, Adventure]",e6dfb97e-d347-48b2-8064-5bc8254c430a,Age of Empires
+"[Shooter, Role-playing (RPG)]",5c3110f1-367f-4bfc-b9cd-80b1b73397ef,Borderlands
+"[Role-playing (RPG), Turn-based strategy (TBS), Adventure]",6fc80b42-77d8-45cc-99f4-996dc92050ba,Final Fantasy IX
+[Shooter],a3a18f7a-643d-4c9e-b046-feba6804e093,Battlefield 4
+"[Role-playing (RPG), Simulator, Indie]",b7a2fa60-28e7-4d74-8bc5-29f9808ac77a,Stardew Valley
+"[Role-playing (RPG), Adventure]",85f5032a-8a97-42f3-9311-ba9dc3431c90,Final Fantasy X
+[Shooter],977bca82-845e-463c-b94b-7c2a4d0cf672,S.T.A.L.K.E.R.: Anomaly
+"[Simulator, Strategy]",6030b5a2-0162-4550-b918-cc7f19798aa7,Cities: Skylines
+[Adventure],36c2a15f-fe3c-4d2f-be53-5507ea7c92ac,Assassin's Creed: Syndicate
+[Adventure],4a702207-33ee-4a1f-bc63-ce144dfb27fc,Assassin's Creed: Unity
+"[Role-playing (RPG), Hack and slash/Beat 'em up, Adventure]",5eb1d89f-5442-45c5-a32d-dde546634d54,Diablo III
+"[Role-playing (RPG), Turn-based strategy (TBS)]",0c60717a-ed0c-48bb-8f16-ac71184b6114,Fallout 2
+"[Point-and-click, Puzzle, Adventure]",f27f4024-0ba7-4bc5-b0a1-7ebeb84d7443,The Walking Dead: Season Two
+"[Strategy, Turn-based strategy (TBS), Card & Board Game]",4396ccbf-301c-4d5d-92f5-db1de373b848,Hearthstone
+"[Shooter, Adventure]",cab0a392-d0d4-47f8-9280-26e40bc17a7a,Metro Exodus
+"[Platform, Hack and slash/Beat 'em up, Adventure]",53ad53d5-ae59-4f11-a06f-d7a527edb644,God of War II
+"[Platform, Adventure]",2b7d0b70-a4da-4638-9637-556a63fcaef9,Super Mario Galaxy 2
+"[Role-playing (RPG), Strategy, Adventure]",aab05daa-1402-4ed3-95c1-c962d6a9d479,South Park: The Fractured But Whole
+"[Shooter, Adventure]",c0276251-cf25-4680-b4eb-253e686789eb,Star Wars: Battlefront II
+"[Shooter, Adventure, Indie]",b5e37328-190c-44ce-acfe-a0b1d0c67e93,PUBG: BATTLEGROUNDS
+[Shooter],a87834ff-f872-4f71-a054-46fdb37fae06,Call of Duty: Black Ops
+"[Hack and slash/Beat 'em up, Adventure, Indie]",787a3b64-5d43-4332-86b5-ba8e9ccf1efd,Hellblade: Senua's Sacrifice
+[Shooter],2db20240-e183-48fe-8796-473aea101195,Quake III Arena
+"[Role-playing (RPG), Strategy, Adventure]",16d0bea9-1921-49d7-89d3-db889e0c56fe,Star Wars: Knights of the Old Republic II - The Sith Lords
+"[Platform, Adventure]",5c40f909-0474-443d-8494-113c9fe571cc,Rayman Legends
+[Adventure],29c2575e-891d-42d9-b390-ed55ef91a52d,Alien: Isolation
+[MOBA],061405b5-7095-47f8-91e9-cbc7d8e397e0,League of Legends
+"[Shooter, Adventure]",1e809af5-bd71-4286-9d2f-1a44a8dd0ce1,Spec Ops: The Line
+"[Platform, Adventure]",87e2bab9-91c7-4aac-a407-2a24b0e9789e,Super Mario Galaxy
+"[Shooter, Role-playing (RPG)]",10ba27e9-c7e8-450b-9331-0d132e6d27de,Metro 2033
+"[Platform, Puzzle, Adventure]",338ccaf9-91f1-49d0-98cd-2023035563d8,Shadow of the Colossus
+"[Shooter, Tactical]",d5c07d72-251b-4bc0-b674-553872943bd3,Hitman: Absolution
+[Adventure],47cb5a03-adf7-4cbf-bd38-6793cd1f8f36,Sea of Thieves
+"[Platform, Puzzle, Adventure]",361ed768-92c5-4ef7-9502-3251882370ca,The Last Guardian
+[Shooter],2329ca06-a8a4-4a22-be85-365a5d2e148b,Metro: Last Light
+"[Role-playing (RPG), Hack and slash/Beat 'em up, Adventure]",998d1498-bf23-4965-8331-2b7e42b69171,Kingdom Hearts III
+[Shooter],a3c3e1b4-4818-44b2-8d58-562b167c333b,Team Fortress 2
+"[Role-playing (RPG), Adventure]",80cb188a-f4cf-4271-a1fa-f36b3750295f,Final Fantasy VI
+[Role-playing (RPG)],1649d6d5-3e55-4d16-8ecd-d42b57c2092f,The Witcher
+[Adventure],2cbd9347-e98e-4a52-897e-61b6685dfe97,Metal Gear Solid 2: Sons of Liberty
+"[Shooter, Tactical, Adventure]",d450f244-5f46-424c-b4c3-b175570560f2,Metal Gear Solid 4: Guns of the Patriots
+"[Role-playing (RPG), Adventure]",c74106c8-0068-4371-a75c-6fb0fc1af46d,Dark Souls II
+"[Puzzle, Role-playing (RPG), Adventure]",b6b58a09-7725-4915-ad1b-ef20077cc558,The Legend of Zelda: A Link Between Worlds
+"[Puzzle, Adventure, Indie]",60f99521-7d06-4938-8584-192a98b9b2eb,Brothers: A Tale of Two Sons
+"[Fighting, Adventure]",d839c339-34bf-45e6-b3f1-1ec670e092e1,Mirror's Edge Catalyst
+[Adventure],56116f9c-c3bb-48ae-a783-fd86fee69fab,The Legend of Zelda
+[Shooter],786129e6-e91c-4e56-b175-971b1dfbbcab,Halo: Combat Evolved
+"[Fighting, Hack and slash/Beat 'em up, Adventure]",084630f1-bfbe-4d64-b98b-0c9736da1ec7,Batman: Arkham Origins
+"[Shooter, Adventure]",224cfe48-2759-42df-a10e-43839a5f9cdd,Wolfenstein II: The New Colossus
+"[Strategy, MOBA]",94edbb0a-1a49-4636-a7ba-dac5c6718980,Dota 2
+"[Role-playing (RPG), Turn-based strategy (TBS)]",b65cd8a8-8744-49bf-ae08-da448e9183e0,Fallout
+"[Platform, Adventure]",580f5481-24c3-4b5e-8b16-b02b062b3e72,Prince of Persia: The Sands of Time
+"[Role-playing (RPG), Adventure, Indie]",c70ccb25-127d-4dfe-920c-87a3cabd01b4,Bastion
+"[Shooter, Tactical]",f1611da9-6eb7-4acc-9736-643df8734907,Tom Clancy's Rainbow Six Siege
+"[Role-playing (RPG), Adventure]",38872761-cdec-4c42-bb68-d12dff463d43,The Witcher 3: Wild Hunt - Game of the Year Edition
+"[Point-and-click, Puzzle, Adventure]",e7197808-07a6-47d4-a42c-40c661968f37,The Secret of Monkey Island
+"[Shooter, Racing, Adventure]",b6dbb45a-5697-40da-8cd0-e1148bee702b,Mafia III
+"[Racing, Simulator]",84d1b7cd-0282-4efd-bdde-3e3b54fe8a28,Need for Speed: Underground 2
+[Shooter],86dc7732-2493-4f5c-ae71-067ac39f0184,Halo 3
+"[Racing, Simulator]",625eb296-dfbe-44e5-89e1-941d1c2cc089,Need for Speed: Underground
+"[Shooter, Adventure]",4e5716bc-aaf0-48db-8ef4-627580632f6c,Shadow of the Tomb Raider
+"[Shooter, Adventure]",13b9ff8c-a144-440b-9caa-dfa0a7d19ebb,Star Wars Battlefront II
+[Adventure],dc4453ab-804d-40e4-b63c-3643ed91a36f,Until Dawn
+"[Role-playing (RPG), Strategy, Turn-based strategy (TBS), Tactical]",bed4dc07-8c08-4262-9062-6ad97dc7ccfe,XCOM: Enemy Unknown
+"[Shooter, Role-playing (RPG), Adventure]",ff1fb1f5-1fb5-462d-8b1e-20a37512df75,Deus Ex: Mankind Divided
+"[Platform, Puzzle, Strategy, Adventure, Indie]",1f27d78e-20b5-4156-bc5f-af48bf5ae90c,Braid
+[Adventure],f5702e5f-1d82-47dd-bc32-324b3e549628,The Legend of Zelda: Majora's Mask
+"[Shooter, Adventure]",ec9b0544-4931-401b-9ba8-5d41924b2da9,Crysis
+"[Real Time Strategy (RTS), Strategy]",4cca2195-b751-4440-9e76-cdd5f6c48fc6,Warcraft III: The Frozen Throne
+[Adventure],0a6433d9-62b3-4dab-9f11-3f70087152ee,Tales from the Borderlands
+[Shooter],ab260d12-8ca8-472e-8066-d4dbbcf9c52d,Call of Duty
+"[Puzzle, Adventure, Indie]",7b0d4898-a690-4a91-97ef-39df103527ac,What Remains of Edith Finch
+"[Shooter, Role-playing (RPG)]",acf47c47-f08e-4f45-92ec-bb919e7e88b4,Fallout 76
+"[Hack and slash/Beat 'em up, Adventure]",90e1908f-764e-4e9c-992c-3d66e4053918,God of War III
+"[Shooter, Strategy, Adventure]",691720a6-bf76-4ef5-a2fb-d5c5de02d923,Star Wars Battlefront
+"[Fighting, Platform, Hack and slash/Beat 'em up]",92475726-2a76-437b-bb9d-cfe4f93e2254,Super Smash Bros. Melee
+"[Shooter, Racing, Adventure]",0f402a90-f85a-4ff5-8db0-231865b905ee,Mad Max
+"[Shooter, Adventure]",c2f7edfd-5eb6-484f-8545-bd8c4491e01c,Sleeping Dogs
+"[Role-playing (RPG), Adventure]",d7cf7d67-047b-48fe-8aca-0085ea35945e,The Witcher 3: Wild Hunt - Hearts of Stone
+"[Shooter, Tactical, Adventure]",7c03292c-d8fa-46ba-838f-00f8d8cbd17c,Call of Duty: Modern Warfare 3
+"[Puzzle, Adventure, Indie]",d1dea697-372d-4854-a3d6-d86a4b563e37,The Witness
+"[Role-playing (RPG), Adventure]",9b9f9673-62c2-4093-b5b7-4304cf380239,Kingdom Hearts II
+[Shooter],d2389f17-f826-49ae-adff-9447964d3d03,Call of Duty: Black Ops II
+[Adventure],e5fee7da-30de-49df-9fe3-2dc4df2e8455,Just Cause 3
+[Adventure],8ea58b1f-e249-4ad0-b40d-53519f41e355,Beyond: Two Souls
+"[Platform, Hack and slash/Beat 'em up, Adventure, Indie]",17abb89a-b2a9-4c7d-854f-fe42a76d484c,Hollow Knight
+[Platform],df9b141a-2620-4db1-a4c7-843033602894,Super Mario World 2: Yoshi's Island
+"[Shooter, Tactical, Adventure]",f2d8c678-3a23-4a0d-933d-2da84990d49c,HITMAN
+"[Shooter, Racing, Adventure]",d400ff28-853d-433d-91da-1d0fd24873f0,Saints Row: The Third
+"[Platform, Adventure, Indie]",e2aaf956-fd22-4d72-8ce4-59aafe9c0580,Shovel Knight
+"[Shooter, Simulator, Strategy, Adventure]",6df4faee-1552-4052-bfc6-8fe3d1cad400,Battlefield: Bad Company 2
+"[Puzzle, Adventure, Indie]",f16b2ad0-ac45-4d0e-9e2c-b0d3d4b71d01,Amnesia: The Dark Descent
+"[Point-and-click, Puzzle, Adventure]",fdc968bb-f85e-4e08-9432-6a017e6ec329,Monkey Island 2: LeChuck's Revenge
+"[Shooter, Role-playing (RPG)]",5d13600b-dc8f-471d-bea4-1c44af045107,Destiny
+"[Shooter, Adventure]",5378061a-b4fe-452f-a3d4-f8c966cdc207,Uncharted: The Lost Legacy
+"[Role-playing (RPG), Simulator, Adventure]",d4775dff-cf59-45b3-b8db-213751dab875,The Sims 4
+"[Role-playing (RPG), Hack and slash/Beat 'em up]",edf1fa23-4590-4fa5-82a4-41526d351637,Diablo II: Lord of Destruction
+"[Role-playing (RPG), Strategy, Turn-based strategy (TBS)]",e11dea96-e132-46ec-a39c-1bb4223faa55,Heroes of Might and Magic III: The Restoration of Erathia
+"[Platform, Puzzle, Adventure]",a01e825a-03e7-4e45-b1b1-6edb4d84ef31,Little Nightmares
+[Role-playing (RPG)],f30b6504-99d3-495d-8c60-f79809182b81,Vampire: The Masquerade - Bloodlines
+[Shooter],5ab8fecc-11db-49bc-9b43-5dbd224f7287,Quake
+"[Point-and-click, Puzzle, Adventure]",d2224b45-c21e-47eb-aa67-4b2eef941f34,Grim Fandango
+"[Shooter, Adventure]",afa9d621-e4d9-4e05-a799-77772d6dd149,Titanfall 2
+"[Shooter, Adventure]",b65ff653-db16-47f8-87de-6fc9d5f3736a,Call of Duty: World at War
+"[Shooter, Role-playing (RPG), Hack and slash/Beat 'em up]",c17b756c-2198-44db-a1c5-fa8230e6bc1f,Dead Island 2
+"[Shooter, Adventure]",43c1ff69-879d-467d-bcfa-3acf40d7ea73,Call of Duty: Black Ops III
+"[Role-playing (RPG), Hack and slash/Beat 'em up, Adventure]",705e124e-7dda-4450-9103-c0e6cbd91234,Diablo III: Reaper of Souls
+"[Platform, Role-playing (RPG), Simulator, Strategy, Adventure, Indie]",3cb319dd-75ca-4fb0-8c8e-293f940782a9,Terraria
+[Adventure],65c948d5-7dc5-4579-885d-7f9b15665692,Ghost of Tsushima
+"[Platform, Adventure]",fc196f94-b366-4378-815a-62b874de0ec2,Sonic the Hedgehog 2
+[Racing],03723732-5ea1-410a-b062-9a1f2a237e0a,Mario Kart 8
+"[Adventure, Indie]",0b3fb749-7922-4105-a94c-fd7ac84f8b0f,A Way Out
+[Shooter],58bfbbab-b1fe-4165-89f4-27c0a89c60df,Left 4 Dead
+[Shooter],1833a64d-6b79-49e9-819d-26421fa5f10c,DOOM Eternal
+[Adventure],5ee1509e-8751-447f-8262-af0000db9f6f,Life is Strange: Before the Storm
+[Role-playing (RPG)],ee72fbd0-53ba-4599-a71b-57a98ba189a6,Baldur's Gate II: Shadows of Amn
+[Shooter],4b387b81-bbb0-41d4-aadb-554100de859e,Hitman: Blood Money
+"[Role-playing (RPG), Strategy]",b4d5b2b5-2447-4410-8159-3f5abe7fa884,Diablo
+"[Role-playing (RPG), Adventure]",0e6fb5c5-811d-4d46-a11c-897fc2bdd525,Assassin's Creed: Odyssey
+"[Shooter, Role-playing (RPG), Simulator, Adventure, Indie]",c80e4de8-e5b2-4667-b229-9d9eb22503a6,Ark: Survival Evolved
+"[Indie, Arcade]",9868baf4-b778-41a9-be99-31d44e10eb39,TagPro
+"[Shooter, Adventure]",d5103bc4-d338-4c4c-99f7-cf02fa0eb79b,Beyond Good & Evil
+"[Shooter, Platform, Adventure]",c9f38097-4377-434e-9a5c-ab463301f22a,Uncharted: The Nathan Drake Collection
+"[Hack and slash/Beat 'em up, Adventure]",d012fbfe-d0e7-4027-bd73-aade6779d2d6,Bayonetta
+[Shooter],370e4b72-4a15-422f-8166-7ef00745275e,Halo 2
+"[Shooter, Adventure]",7242ca6c-fce1-4f8a-a582-8e7dcdee29ae,Crysis 2
+[Shooter],75e61f8f-60b6-445c-8f57-ceaf9bc46722,DOOM II: Hell on Earth
+[Adventure],d4bed164-2c21-4b96-8ec0-4e0f77b5bbe8,Assassin's Creed: Rogue
+"[Point-and-click, Puzzle, Role-playing (RPG), Simulator, Indie]",20b55fea-d741-4cd0-926b-96f03b56cf58,"Papers, Please"
+"[Fighting, Platform, Adventure]",f5f733c5-5708-42a1-a1f3-aadf15eb201d,Prince of Persia: Warrior Within
+"[Shooter, Racing]",14ada9a7-e426-4eb4-9b49-2076b726e73e,Grand Theft Auto 2
+"[Role-playing (RPG), Strategy, Turn-based strategy (TBS), Tactical]",9bc3b534-03b4-4da3-bdd3-c257ffa520a5,XCOM 2
+[Role-playing (RPG)],405f551c-a750-4769-a761-6393b204f5f5,The Witcher 3: Wild Hunt - Blood and Wine
+"[Adventure, Indie]",6e911c68-ca23-4618-9069-7ef8bf8e242d,SOMA
+[Adventure],600563ae-2e65-4c76-8645-3e5b86cb9cc8,Beyond Good & Evil 2
+"[Point-and-click, Adventure, Indie]",8757de1b-1634-4be8-a617-a9d3ccf58f0f,Gone Home
