@@ -42,6 +42,7 @@ public class ReviewProvider {
                         this.updateReviewsRegistry(steamGame);
                         if(reviewsRegistry.containsKey(steamGame)){
                             review = takeSteamReview(steamGame);
+                            review = this.cleanReview(review);
                             takeRandom = false;
                         }
                     }
@@ -59,6 +60,12 @@ public class ReviewProvider {
 
     public List<Review> getAllReviews() {
         return allReviews;
+    }
+
+    private String cleanReview(String review) {
+        review = review.substring(1, review.length() - 2);
+        review = review.replace("\\", "");
+        return review;
     }
 
     private void readSteamGames() throws IOException {
