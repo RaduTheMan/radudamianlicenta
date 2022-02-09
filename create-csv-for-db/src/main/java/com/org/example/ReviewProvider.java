@@ -3,11 +3,12 @@ package com.org.example;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.javafaker.Faker;
-import jdk.swing.interop.SwingInterOpUtils;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVPrinter;
 import org.apache.commons.csv.CSVRecord;
+import org.apache.commons.lang3.tuple.ImmutablePair;
+import org.apache.commons.lang3.tuple.Pair;
 
 import java.io.*;
 import java.nio.file.Paths;
@@ -42,7 +43,13 @@ public class ReviewProvider {
                         var steamGame = maybeSteamGame.get();
                         this.updateReviewsRegistry(steamGame);
                         if(reviewsRegistry.containsKey(steamGame)){
-                            review = takeSteamReview(steamGame);
+                            var response = takeSteamReview(steamGame);
+                            review = response.getLeft();
+                            boolean votedUp = response.getRight();
+                            if(votedUp)
+                                score = ThreadLocalRandom.current().nextInt(7, 11);
+                            else
+                                score = ThreadLocalRandom.current().nextInt(1, 7);
                             review = this.cleanReview(review);
                             takeRandom = false;
                         }
@@ -87,11 +94,14 @@ public class ReviewProvider {
         }
     }
 
-    private String takeSteamReview(SteamGame steamGame){
+    private Pair<String, Boolean> takeSteamReview(SteamGame steamGame){
         var reviewsWrapper = reviewsRegistry.get(steamGame);
+        var votes = reviewsWrapper.findValues("voted_up");
         var reviews = reviewsWrapper.findValues("review");
-        var review = reviews.get(ThreadLocalRandom.current().nextInt(0, reviews.size()));
-        return review.toString();
+        int index = ThreadLocalRandom.current().nextInt(0, reviews.size());
+        var review = reviews.get(index);
+        var vote = votes.get(index);
+        return new ImmutablePair<>(review.toString(), vote.asBoolean());
     }
 
     private Iterator<CSVRecord> getIteratorFromRandomReviewsFile() throws IOException {
