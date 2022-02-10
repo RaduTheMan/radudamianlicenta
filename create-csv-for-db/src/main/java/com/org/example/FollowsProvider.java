@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class FollowsProvider {
 
-    FollowsProvider(List<User> users) throws IOException{
+    public static void generateFollowsFile(List<User> users) throws IOException {
         FileWriter out = new FileWriter("follows.csv");
         try (CSVPrinter printer = new CSVPrinter(out, CSVFormat.DEFAULT.withHeader("id", "following"))) {
             List<User> copyUsers = new LinkedList<>(users);
@@ -23,7 +23,6 @@ public class FollowsProvider {
                 copyUsers.add(i, currentUser);
             }
         }
-
     }
 
 }

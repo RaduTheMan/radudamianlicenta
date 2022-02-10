@@ -6,14 +6,13 @@ import org.apache.commons.csv.CSVPrinter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
 public class PlaysProvider {
 
-    PlaysProvider(List<User> users, List<GamePrototype> gamePrototypes) throws IOException {
+    public static void generatePlaysFile(List<User> users, List<GamePrototype> gamePrototypes) throws IOException{
         FileWriter out = new FileWriter("plays.csv");
         try (CSVPrinter printer = new CSVPrinter(out, CSVFormat.DEFAULT.withHeader("id", "id_games_played"))) {
             for(var user: users) {
@@ -23,4 +22,5 @@ public class PlaysProvider {
             }
         }
     }
+
 }

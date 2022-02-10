@@ -1,7 +1,6 @@
 package com.org.example;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import proto.Game;
 
 @JsonIgnoreProperties
 public class GamePrototype{

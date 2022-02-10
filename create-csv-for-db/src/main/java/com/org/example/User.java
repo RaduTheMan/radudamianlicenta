@@ -1,14 +1,13 @@
 package com.org.example;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 public class User {
     private String username;
     private String email;
-    private String originalPassword;
-    private String hashedPassword;
+    private final String originalPassword;
+    private final String hashedPassword;
     private String id;
     private List<GamePrototype> playedGames;
 
@@ -75,8 +74,4 @@ public class User {
         return this.hashedPassword;
     }
 
-    public void setOriginalPasswordPassword(String originalPassword) {
-        this.originalPassword = originalPassword;
-        this.hashedPassword = PasswordUtil.generateHashedPassword(this.originalPassword);
-    }
 }

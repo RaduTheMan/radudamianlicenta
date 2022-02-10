@@ -2,10 +2,10 @@ package com.org.example;
 
 public class Review {
 
-    private String id;
-    private int score;
-    private String review;
-    private String time;
+    private final String id;
+    private final int score;
+    private final String review;
+    private final String time;
 
     public Review(String id, int score, String review, String time) {
         this.id = id;

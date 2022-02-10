@@ -10,7 +10,6 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
@@ -19,10 +18,11 @@ import java.util.concurrent.TimeUnit;
 public class MessagesProvider {
 
     public final int MESSAGES_LIMIT = 11_000;
+    private final List<User> users;
+    private final Faker faker = new Faker();
+    private final List<String> messages;
 
-    MessagesProvider(List<User> users) throws IOException {
-        Faker faker = new Faker();
-        var messages = this.extractMessages();
+    public void generateMessagesFile() throws IOException {
         FileWriter out = new FileWriter("messages.csv");
         try (CSVPrinter printer = new CSVPrinter(out, CSVFormat.DEFAULT.withHeader("id_sender", "id_receiver", "content", "time"))) {
             List<User> copyUsers = new LinkedList<>(users);
@@ -37,7 +37,11 @@ public class MessagesProvider {
                 copyUsers.add(i, currentUser);
             }
         }
+    }
 
+    MessagesProvider(List<User> users) throws IOException {
+        this.users = users;
+        messages = this.extractMessages();
     }
 
     private List<String> extractMessages(){

@@ -10,7 +10,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class LikesProvider {
 
-    LikesProvider(List<User> users, List<Review> reviews) throws IOException {
+    public static void generateLikesFile(List<User> users, List<Review> reviews) throws IOException {
         FileWriter out = new FileWriter("likes.csv");
         try (CSVPrinter printer = new CSVPrinter(out, CSVFormat.DEFAULT.withHeader("id_user","id_reviews"))) {
             for (var user : users) {
@@ -21,4 +21,5 @@ public class LikesProvider {
             }
         }
     }
+
 }

@@ -24,28 +24,21 @@ public class GameProvider {
 
     private final String fileNameConfig;
     private GameCredentials credentials;
-    private TwitchAuthenticator tAuth;
-    private TwitchToken token;
     private IGDBWrapper wrapper;
-    private final String FIELDS = "name,genres.name,aggregated_rating,platforms.name,release_dates.human,game_modes.name," +
-            "involved_companies.company.name,screenshots.url,summary,storyline,cover.url,follows";
 
-    private final String fileNameGames = "games.csv";
-    private final String fileNameDetails = "details.csv";
-    private final String fileNameVisuals = "visuals.csv";
-    private final String fileNameAverage = "average.csv";
-
-    private List<GamePrototype> gamePrototypes = new LinkedList<>();
+    private final List<GamePrototype> gamePrototypes = new LinkedList<>();
 
     GameProvider(String fileNameConfig){
         this.fileNameConfig = fileNameConfig;
         this.loadCredentials();
         this.makeAuthentication();
         var games = this.getGames();
-        try {
-            this.createCSVFiles(games);
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(Objects.nonNull(games)){
+            try {
+                this.createCSVFiles(games);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -89,9 +82,13 @@ public class GameProvider {
     }
 
     private void createCSVFiles(List<Game> games) throws IOException{
+        String fileNameGames = "games.csv";
         FileWriter basicsOut = new FileWriter(fileNameGames);
+        String fileNameVisuals = "visuals.csv";
         FileWriter visualsOut = new FileWriter(fileNameVisuals);
+        String fileNameDetails = "details.csv";
         FileWriter detailsOut = new FileWriter(fileNameDetails);
+        String fileNameAverage = "average.csv";
         FileWriter averageOut = new FileWriter(fileNameAverage);
 
         var firstBasics = this.getBasics(games.get(0));
@@ -143,17 +140,19 @@ public class GameProvider {
     }
 
     private void makeAuthentication(){
-        this.tAuth = TwitchAuthenticator.INSTANCE;
-        this.token = this.tAuth.requestTwitchToken(this.credentials.getClientId(), this.credentials.getClientSecret());
+        TwitchAuthenticator tAuth = TwitchAuthenticator.INSTANCE;
+        TwitchToken token = tAuth.requestTwitchToken(this.credentials.getClientId(), this.credentials.getClientSecret());
         this.wrapper = IGDBWrapper.INSTANCE;
-        wrapper.setCredentials(this.credentials.getClientId(), this.token.getAccess_token());
+        assert token != null;
+        wrapper.setCredentials(this.credentials.getClientId(), token.getAccess_token());
     }
 
     private List<Game> getGames(){
-        APICalypse apicalypse = new APICalypse().fields(this.FIELDS).limit(300).sort("follows", Sort.DESCENDING).where("follows != null");
+        String FIELDS = "name,genres.name,aggregated_rating,platforms.name,release_dates.human,game_modes.name," +
+                "involved_companies.company.name,screenshots.url,summary,storyline,cover.url,follows";
+        APICalypse apicalypse = new APICalypse().fields(FIELDS).limit(300).sort("follows", Sort.DESCENDING).where("follows != null");
         try {
-            List<Game> games = ProtoRequestKt.games(this.wrapper, apicalypse);
-            return games;
+            return ProtoRequestKt.games(this.wrapper, apicalypse);
         } catch (RequestException e) {
             e.printStackTrace();
             System.out.println(e.getStatusCode());

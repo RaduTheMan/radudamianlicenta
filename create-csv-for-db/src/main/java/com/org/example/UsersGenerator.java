@@ -8,7 +8,7 @@ import java.util.List;
 public class UsersGenerator {
 
     public final static int NR_USERS = 500;
-    private Faker faker;
+    private final Faker faker;
 
     UsersGenerator(){
         this.faker = new Faker();

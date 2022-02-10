@@ -18,7 +18,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class CommentsProvider {
 
-    CommentsProvider(List<User> users, List<Review> reviews) throws IOException {
+    public static void generateCommentsFile(List<User> users, List<Review> reviews) throws IOException {
         FileWriter out = new FileWriter("comments.csv");
 
         FileInputStream fileNameInput = new FileInputStream("comments_mocked.csv");
@@ -44,4 +44,5 @@ public class CommentsProvider {
             e.printStackTrace();
         }
     }
+
 }

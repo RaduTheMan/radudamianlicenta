@@ -18,11 +18,10 @@ import java.util.concurrent.TimeUnit;
 
 public class ReviewProvider {
 
-    private final String STEAM_GAMES_FILE_NAME = "steam-games.json";
     private List<SteamGame> steamGames;
-    private Map<SteamGame, JsonNode> reviewsRegistry = new HashMap<>();
-    private Set<SteamGame> visited = new HashSet<>();
-    private List<Review> allReviews = new ArrayList<>();
+    private final Map<SteamGame, JsonNode> reviewsRegistry = new HashMap<>();
+    private final Set<SteamGame> visited = new HashSet<>();
+    private final List<Review> allReviews = new ArrayList<>();
 
     ReviewProvider(List<User> users) throws IOException {
         this.readSteamGames();
@@ -78,6 +77,7 @@ public class ReviewProvider {
 
     private void readSteamGames() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
+        String STEAM_GAMES_FILE_NAME = "steam-games.json";
         this.steamGames = Arrays.asList(mapper.readValue(Paths.get(STEAM_GAMES_FILE_NAME).toFile(), SteamGame[].class));
     }
 

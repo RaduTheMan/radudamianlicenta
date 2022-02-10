@@ -1,7 +1,6 @@
 package com.org.example;
 
 import java.io.IOException;
-import java.util.HashSet;
 
 public class Main {
 
@@ -10,18 +9,20 @@ public class Main {
         var users = generator.generate();
         UsersProvider usersProvider = new UsersProvider(users);
         try {
-            var followsProvider = new FollowsProvider(users);
+            usersProvider.generateUsersFiles();
+            FollowsProvider.generateFollowsFile(users);
             var messagesProvider = new MessagesProvider(users);
+            messagesProvider.generateMessagesFile();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
        GameProvider gameProvider = new GameProvider("/igdb-api-config.json");
         try {
-            PlaysProvider playsProvider = new PlaysProvider(users, gameProvider.getGamePrototypes());
+            PlaysProvider.generatePlaysFile(users, gameProvider.getGamePrototypes());
             ReviewProvider reviewProvider = new ReviewProvider(users);
-            LikesProvider likesProvider = new LikesProvider(users, reviewProvider.getAllReviews());
-            CommentsProvider commentsProvider = new CommentsProvider(users, reviewProvider.getAllReviews());
+            LikesProvider.generateLikesFile(users, reviewProvider.getAllReviews());
+            CommentsProvider.generateCommentsFile(users, reviewProvider.getAllReviews());
         } catch (IOException e) {
             e.printStackTrace();
         }
