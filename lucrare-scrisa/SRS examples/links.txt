@@ -1,0 +1,3 @@
+http://se.inf.ethz.ch/courses/2011a_spring/soft_arch/exercises/02/Requirements_Specification.pdf
+
+http://se.inf.ethz.ch/courses/2011a_spring/soft_arch/
