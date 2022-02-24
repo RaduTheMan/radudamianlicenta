@@ -246,13 +246,60 @@
 \subsection{Introducere}
 \subsubsection{Scopul documentului}
 Scopul acestui document este de a ilustra modul în care funcționează un sistem de recomandări de jocuri video sub forma unei rețele sociale.
-\subsubsection{Abrevieri}
 \subsubsection{Publicul țintă}
-Acest document este destinat atât cititorilor avizați(e.g. profesori universitari) pentru a afla de exemplu soluțiile utilizate în cadrul capitolului 4 \textbf{Analiză și proiectare} , sau modul de implementare a aplicației în capitolul 5 \textbf{Implementare}, cât și cititorilor neavizați(utilizatori obișnuiți), care se pot informa în legătură cu modul în care pot interacționa cu situl în capitolul 6 \textbf{Manual de utilizare}.
-\subsubsection{Scopul proiectului}
-Scopul acestui proiect este de a oferi o soluție în a contracara cantitatea masivă de informații ce se regăsește pe internet \cite{1} în ceea ce privește multitudinea de jocuri video, prin a dezvolta un sistem de recomandări care să faciliteze decizia unui utilizator legat de ce joc să aleagă.  
+Acest document este destinat atât cititorilor avizați(e.g. profesori universitari) pentru a afla de exemplu soluțiile utilizate în cadrul capitolului 4 \textbf{Analiză și proiectare} , sau modul de implementare a aplicației în capitolul 5 \textbf{Implementare}, cât și cititorilor neavizați(utilizatori obișnuiți), care se pot informa în legătură cu modul în care pot interacționa cu site-ul în capitolul 6 \textbf{Manual de utilizare}.
+\subsubsection{Scopul aplicației}
+Scopul acestei aplicații este de a oferi o soluție în a contracara cantitatea masivă de informații ce se regăsește pe internet \cite{1} în ceea ce privește multitudinea de jocuri video, prin a dezvolta un sistem de recomandări care să faciliteze decizia unui utilizator legat de ce joc să aleagă.  
+
+
+
+
 \section{Analiză și proiectare}
 \subsection{Baza de date}
+
+Tipul de stocare ales este cel oferit de Neo4j, în care se prezintă o abordare NoSQL de tip graf.  Comparativ cu o bază de date relațională, în care datele sunt stocate prin intermediul unor înregistrări(tuple) în tabele, în Neo4j datele sunt stocate prin intermediul nodurilor și muchiilor.
+
+În exemplul următor, vor fi ilustrate caracteristicile nodurilor și muchiilor în stocarea efectivă a datelor:
+
+
+\includegraphics[scale=0.5]{exemplu_1_neo4j}
+\hfill \break
+\hfill \break
+\hfill \break
+
+Un nod în neo4j are următoarele caracteristici \cite{2}: reprezintă entități/obiecte, pot fi etichetate și pot avea proprietăți.
+
+Observăm din figură cele trei entități: două noduri etichate cu 'Actor' și un nod etichetat cu 'Movie'. De asemenea, ambele noduri 'Actor' au proprietatea 'name', însă doar unul din ele are și proprietatea 'age'. Așadar, nu trebuie neapărat ca două noduri cu aceeași etichetă să aibă aceleași proprietăți.
+
+Încă un lucru important de menționat este faptul că un nod poate avea mai multe etichete, așa cum se poate vedea din următorul exemplu:
+
+\hfill \break
+\hfill \break
+\hfill \break
+\includegraphics[scale=0.5]{exemplu_2_neo4j}
+\hfill \break
+\hfill \break
+\hfill \break
+
+Practic, din această figură se observă faptul că se poate modela cu ușurință situația în care un regizor joacă în propriul său film.
+
+O altă noțiune importantă într-o bază de date de tip graf este cea de relație, care este asociată unei muchii. 
+O relație trebuie să aibă un tip, un sens, și poate avea proprietăți.
+Din figurile anterioare s-au putut observa relațiile \texttt{ACTS\_IN}, \texttt{DIRECTS\_IN} sau \texttt{IS\_FRIEND}.
+
+Un alt aspect important de precizat este faptul că între două entități pot exista mai multe relații, așa cum s-a putut vedea în figura anterioară. Așadar, se modelează practic un multigraf orientat.
+
+\subsection{De ce NoSQL și nu SQL?}
+
+Având în vedere faptul că în această aplicație este prezentă o rețea socială în care mai mulți utilizatori pot interacționa între ei și pot oferi recenzii jocurilor video, o bază de date de tip graf este o alegere inspirată.
+
+!!De comparat o interogare(de exemplu: prietenii prietenului unui utilizator) în limbajele SQL și Cypher.
+
+
+
+
+
+
 \section{Implementare}
 \section{Manual de utilizare}
 \section{Concluzii}
@@ -267,6 +314,12 @@ Scopul acestui proiect este de a oferi o soluție în a contracara cantitatea ma
   2015.
   
   \url{https://www.sciencedirect.com/science/article/pii/S1110866515000341}
+  
+  \bibitem{graphDatabase}
+  
+  \textit{What is a graph database?}
+  
+  \url{https://neo4j.com/developer/graph-database/}
 
 \end{thebibliography}
 

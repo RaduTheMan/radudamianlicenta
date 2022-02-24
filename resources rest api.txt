@@ -1,0 +1,11 @@
+Resources(entities) for the Gemixque REST API: User, Game, Review, Comment, Message
+
+Example:
+
+Games:
+
+GET /games  Gets all games
+GET /games/id Gets the game
+POST /games Create new game
+PUT /games/id Updates the game
+DELETE /games/id Deletes the game
