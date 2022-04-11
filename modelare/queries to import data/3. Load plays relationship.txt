@@ -1,0 +1,9 @@
+//3.Load plays relationship
+LOAD CSV WITH HEADERS
+FROM 'file:///plays.csv'
+AS line
+MATCH (user:User {id: line.id})
+WITH user, split(substring(line.id_games_played, 1, size(line.id_games_played) - 2), ', ') as idGames
+UNWIND idGames as idGame
+MATCH (game:Game {id: idGame})
+MERGE (user)-[:PLAYS]->(game)

@@ -1,0 +1,11 @@
+//9.Load reviews
+LOAD CSV WITH HEADERS
+FROM 'file:///reviews.csv'
+AS line
+MATCH(u:User {id: line.id_user})
+MATCH(g:Game {id: line.id_game})
+MERGE(r:Review {id: line.id_review})
+    ON CREATE SET r.score = line.score,
+                  r.content = line.content,
+                  r.time = line.time
+MERGE (u)-[:MAKES]->(r)-[:ON]->(g)

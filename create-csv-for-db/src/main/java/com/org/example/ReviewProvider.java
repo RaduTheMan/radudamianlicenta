@@ -70,7 +70,9 @@ public class ReviewProvider {
     }
 
     private String cleanReview(String review) {
-        review = review.substring(1, review.length() - 2);
+        if(review.length() > 2) {
+            review = review.substring(1, review.length() - 2);
+        }
         review = review.replace("\\", "");
         return review;
     }

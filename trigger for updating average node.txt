@@ -1,9 +1,0 @@
-CALL apoc.trigger.add('updateAverage', '
-     UNWIND $createdRelationships AS r 
-    MATCH (review:Review)-[r:ON]->(game:Game)
-    MATCH (game)-[:HAS]->(average:Average)
-    SET average.value = toFloat(average.nr_reviews * average.value + toInteger(review.score)) / (average.nr_reviews + 1),
-	average.nr_reviews = average.nr_reviews + 1
-        
-', {phase:'afterAsync'})
-

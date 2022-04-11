@@ -1,0 +1,7 @@
+//8.Initialize average
+LOAD CSV WITH HEADERS
+FROM 'file:///average.csv'
+AS line
+MATCH (g:Game {id: line.id})
+CREATE (a: Average {value:0, aggregated_rating: line.aggregated_rating, nr_reviews: 0})
+CREATE (g)-[:HAS]->(a)

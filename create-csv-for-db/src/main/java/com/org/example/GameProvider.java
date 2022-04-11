@@ -152,6 +152,7 @@ public class GameProvider {
                 "involved_companies.company.name,screenshots.url,summary,storyline,cover.url,follows";
         APICalypse apicalypse = new APICalypse().fields(FIELDS).limit(300).sort("follows", Sort.DESCENDING).where("follows != null");
         try {
+            System.out.println(ProtoRequestKt.games(this.wrapper, apicalypse));
             return ProtoRequestKt.games(this.wrapper, apicalypse);
         } catch (RequestException e) {
             e.printStackTrace();

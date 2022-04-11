@@ -1,0 +1,8 @@
+//999.Load comments
+LOAD CSV WITH HEADERS
+FROM 'file:///COMMENTS.csv'
+AS line
+MATCH(u:User {id: line.id_user})
+MATCH(r:Review {id: line.id_review})
+MERGE(c:Comment {content: line.content, time: line.time})
+MERGE (u)-[:MAKES]->(c)-[:ON]->(r)

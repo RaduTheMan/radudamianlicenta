@@ -5,3 +5,4 @@ steam-games.json
 archive.zip
 random_reviews.csv
 comments_mocked.csv
+*.csv

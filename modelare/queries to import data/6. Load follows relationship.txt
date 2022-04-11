@@ -1,0 +1,9 @@
+//6.Load follows relationship
+LOAD CSV WITH HEADERS
+FROM 'file:///follows.csv'
+AS line
+MATCH (follower:User {id: line.id})
+WITH follower, split(substring(line.following, 1, size(line.following) - 2), ', ') as idFollowers
+UNWIND idFollowers as followedId
+MATCH (followed:User {id: followedId})
+MERGE (follower)-[:FOLLOWS]->(followed)

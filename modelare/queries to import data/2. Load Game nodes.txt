@@ -1,0 +1,8 @@
+//2.Load Game nodes
+LOAD CSV WITH HEADERS
+FROM 'file:///games.csv'
+AS line
+MERGE (g:Game {id: line.id})
+    ON CREATE SET
+          g.title = line.title,
+          g.genres = split(substring(line.genres, 1, size(line.genres) - 2), ', ')

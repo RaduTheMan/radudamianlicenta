@@ -1,0 +1,11 @@
+//4.Load Details nodes
+LOAD CSV WITH HEADERS
+FROM 'file:///details.csv'
+AS line
+MATCH (g:Game {id: line.id})
+MERGE (g)-[:HAS]->(d:Details)
+    ON CREATE SET
+          d.platforms = split(substring(line.platforms, 1, size(line.platforms) - 2), ', '),
+          d.release_dates = split(substring(line.release_dates, 1, size(line.release_dates) - 2), ', '),
+          d.game_modes = split(substring(line.game_modes, 1, size(line.game_modes) - 2), ', '),
+          d.involved_companies = split(substring(line.involded_companies, 1, size(line.involved_companies) - 2), ', ')
