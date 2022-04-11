@@ -56,11 +56,13 @@ public class GameProvider {
 
     private Map<String, Object> getDetails(Game game){
         var registry = new HashMap<String, Object>();
+        var customReleaseDates = game.getReleaseDatesList().stream().map(releaseDate -> new CustomReleaseDate(releaseDate.getPlatform().getName(), releaseDate.getHuman())).collect(Collectors.toList());
         registry.put("id", "0");
         registry.put("platforms", game.getPlatformsList().stream().map(Platform::getName).collect(Collectors.toList()));
-        registry.put("release_dates", game.getReleaseDatesList().stream().map(ReleaseDate::getHuman).collect(Collectors.toList()));
+        registry.put("release_dates", customReleaseDates);
         registry.put("game_modes", game.getGameModesList().stream().map(GameMode::getName).collect(Collectors.toList()));
         registry.put("involved_companies", game.getInvolvedCompaniesList().stream().map(involvedCompany -> involvedCompany.getCompany().getName()).collect(Collectors.toList()));
+        registry.put("first_release_date", customReleaseDates.stream().sorted().map(CustomReleaseDate::getHumanDate).findFirst().orElse("Jan 01, 1970"));
         return registry;
     }
 
@@ -148,11 +150,10 @@ public class GameProvider {
     }
 
     private List<Game> getGames(){
-        String FIELDS = "name,genres.name,aggregated_rating,platforms.name,release_dates.human,game_modes.name," +
+        String FIELDS = "name,genres.name,aggregated_rating,platforms.name,release_dates.human,release_dates.platform.name,game_modes.name," +
                 "involved_companies.company.name,screenshots.url,summary,storyline,cover.url,follows";
         APICalypse apicalypse = new APICalypse().fields(FIELDS).limit(300).sort("follows", Sort.DESCENDING).where("follows != null");
         try {
-            System.out.println(ProtoRequestKt.games(this.wrapper, apicalypse));
             return ProtoRequestKt.games(this.wrapper, apicalypse);
         } catch (RequestException e) {
             e.printStackTrace();
