@@ -1,0 +1,3 @@
+CREATE CONSTRAINT commentTimeExists FOR (c:Comment) REQUIRE c.time IS NOT NULL
+
+CREATE CONSTRAINT commentContentExists FOR (c:Comment) REQUIRE c.content IS NOT NULL

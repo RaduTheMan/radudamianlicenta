@@ -1,8 +1,0 @@
-//7.Load messages
-LOAD CSV WITH HEADERS
-FROM 'file:///messages.csv'
-AS line
-MATCH (sender:User {id: line.id_sender})
-MATCH (receiver:User {id: line.id_receiver})
-MERGE (m: Message {content: line.content, time: line.time})
-MERGE (sender)-[:SENT]->(m)-[:TO]->(receiver)

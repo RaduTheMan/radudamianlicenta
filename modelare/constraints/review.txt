@@ -1,0 +1,5 @@
+CREATE CONSTRAINT reviewIdKey FOR (r:Review) REQUIRE r.id IS NODE KEY
+
+CREATE CONSTRAINT reviewScoreExists FOR (r:Review) REQUIRE r.score IS NOT NULL
+
+CREATE CONSTRAINT reviewTimeExists FOR (r:Review) REQUIRE r.time IS NOT NULL

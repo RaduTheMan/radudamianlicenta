@@ -1,0 +1,12 @@
+CREATE CONSTRAINT gameIdKey FOR (g:Game) REQUIRE g.id IS NODE KEY
+
+CREATE CONSTRAINT gameTitleExists FOR (g:Game) REQUIRE g.title IS NOT NULL
+
+CREATE CONSTRAINT gameGenresExists FOR (g:Game) REQUIRE g.genres IS NOT NULL
+
+CREATE CONSTRAINT gameFirstReleaseYearExists FOR (g:Game) REQUIRE g.first_release_year IS NOT NULL
+
+CREATE CONSTRAINT gameTitleFirstReleaseYearUnique FOR (g:Game) REQUIRE (g.title, g.first_release_year) IS UNIQUE
+
+
+

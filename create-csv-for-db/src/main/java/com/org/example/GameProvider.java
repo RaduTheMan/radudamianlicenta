@@ -48,9 +48,11 @@ public class GameProvider {
 
     private Map<String, Object> getBasics(Game game){
         var registry = new HashMap<String, Object>();
+        var customReleaseDates = game.getReleaseDatesList().stream().map(releaseDate -> new CustomReleaseDate(releaseDate.getPlatform().getName(), releaseDate.getHuman())).collect(Collectors.toList());
         registry.put("id", UUID.randomUUID().toString());
         registry.put("title", game.getName());
         registry.put("genres", game.getGenresList().stream().map(Genre::getName).collect(Collectors.toList()));
+        registry.put("first_release_year", customReleaseDates.stream().sorted().findFirst().map(CustomReleaseDate::getYear).orElse("1970"));
         return registry;
     }
 
@@ -62,7 +64,6 @@ public class GameProvider {
         registry.put("release_dates", customReleaseDates);
         registry.put("game_modes", game.getGameModesList().stream().map(GameMode::getName).collect(Collectors.toList()));
         registry.put("involved_companies", game.getInvolvedCompaniesList().stream().map(involvedCompany -> involvedCompany.getCompany().getName()).collect(Collectors.toList()));
-        registry.put("first_release_date", customReleaseDates.stream().sorted().map(CustomReleaseDate::getHumanDate).findFirst().orElse("Jan 01, 1970"));
         return registry;
     }
 

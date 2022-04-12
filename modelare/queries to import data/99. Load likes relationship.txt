@@ -1,9 +1,0 @@
-//99.Load likes relationship
-LOAD CSV WITH HEADERS
-FROM 'file:///likes.csv'
-AS line
-MATCH (user:User {id: line.id_user})
-WITH user, split(substring(line.id_reviews, 1, size(line.id_reviews) - 2), ', ') as idReviews
-UNWIND idReviews as idReview
-MATCH (review:Review {id: idReview})
-MERGE (user)-[:LIKES]->(review)

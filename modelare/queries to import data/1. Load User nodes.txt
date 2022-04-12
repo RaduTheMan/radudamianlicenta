@@ -1,9 +1,0 @@
-//1.Load User nodes
-LOAD CSV WITH HEADERS
-FROM 'file:///users_hashed.csv'
-AS line
-MERGE (u:User {id: line.id})
-    ON CREATE SET
-          u.username = line.username,
-          u.email = line.email,
-          u.password = line.password

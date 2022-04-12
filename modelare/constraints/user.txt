@@ -1,0 +1,14 @@
+CREATE CONSTRAINT userIdKey FOR (u:User) REQUIRE u.id IS NODE KEY
+
+CREATE CONSTRAINT userUsernameExists FOR (u:User) REQUIRE u.username IS NOT NULL
+
+CREATE CONSTRAINT userUsernameUnique FOR (u:User) REQUIRE u.username IS UNIQUE
+
+CREATE CONSTRAINT userEmailExists FOR (u:User) REQUIRE u.email IS NOT NULL
+
+CREATE CONSTRAINT userEmailUnique FOR (u:User) REQUIRE u.email IS UNIQUE
+
+CREATE CONSTRAINT userPasswordExists FOR (u:User) REQUIRE u.password IS NOT NULL
+
+
+

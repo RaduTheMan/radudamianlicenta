@@ -26,6 +26,14 @@ public class CustomReleaseDate implements Comparable<CustomReleaseDate> {
         return humanDate;
     }
 
+    public String getYear() {
+        String[] parts = humanDate.split(" ");
+        if (parts.length > 1){
+            return parts[parts.length - 1];
+        }
+        return "2023";
+    }
+
     public Date getDate() {
         Date date = null;
         try {
