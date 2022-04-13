@@ -1,0 +1,5 @@
+CALL apoc.uuid.install('Review', {uuidProperty: 'id'}) yield label, installed, properties RETURN label, installed, properties
+
+CALL apoc.uuid.install('User', {uuidProperty: 'id'}) yield label, installed, properties RETURN label, installed, properties
+
+CALL apoc.uuid.install('Game', {uuidProperty: 'id'}) yield label, installed, properties RETURN label, installed, properties
