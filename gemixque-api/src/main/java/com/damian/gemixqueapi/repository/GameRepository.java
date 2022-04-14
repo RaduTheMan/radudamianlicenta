@@ -1,6 +1,6 @@
 package com.damian.gemixqueapi.repository;
 
-import com.damian.gemixqueapi.entity.GameEntity;
+import com.damian.gemixqueapi.entity.game.GameEntity;
 import com.damian.gemixqueapi.projection.GameInterfaceProjection;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 

@@ -19,7 +19,7 @@ public class CustomReleaseDate implements Comparable<CustomReleaseDate> {
         return "{" +
                 "platformName='" + platformName + '\'' +
                 ", humanDate='" + humanDate + '\'' +
-                '}';
+                "}*";
     }
 
     public String getHumanDate() {

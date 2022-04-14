@@ -1,9 +1,7 @@
-package com.damian.gemixqueapi.entity;
+package com.damian.gemixqueapi.entity.game;
 
-import org.springframework.data.neo4j.core.schema.GeneratedValue;
-import org.springframework.data.neo4j.core.schema.Id;
-import org.springframework.data.neo4j.core.schema.Node;
-import org.springframework.data.neo4j.core.schema.Property;
+
+import org.springframework.data.neo4j.core.schema.*;
 import org.springframework.data.neo4j.core.support.UUIDStringGenerator;
 
 import java.util.List;
@@ -25,10 +23,21 @@ public class GameEntity {
     @Property("first_release_year")
     private final String firstReleaseYear;
 
+    @Relationship(type = "HAS", direction = Relationship.Direction.OUTGOING)
+    private VisualsEntity visuals;
+
+    @Relationship(type = "HAS", direction = Relationship.Direction.OUTGOING)
+    private DetailsEntity details;
+
+
     public GameEntity(String title, List<String> genres, String firstReleaseYear) {
         this.title = title;
         this.genres = genres;
         this.firstReleaseYear = firstReleaseYear;
+    }
+
+    public VisualsEntity getVisuals() {
+        return visuals;
     }
 
     public String getUuid() {
