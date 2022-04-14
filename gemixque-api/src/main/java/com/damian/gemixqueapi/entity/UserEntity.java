@@ -10,7 +10,8 @@ import org.springframework.data.neo4j.core.support.UUIDStringGenerator;
 public class UserEntity {
 
     @Id @GeneratedValue(UUIDStringGenerator.class)
-    private String id;
+    @Property("id")
+    private String uuid;
 
     @Property
     private final String username;
@@ -27,8 +28,8 @@ public class UserEntity {
         this.password = password;
     }
 
-    public String getId() {
-        return id;
+    public String getUuid() {
+        return uuid;
     }
 
     public String getUsername() {

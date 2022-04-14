@@ -2,6 +2,7 @@ package com.damian.gemixqueapi.controller;
 
 import com.damian.gemixqueapi.entity.UserEntity;
 import com.damian.gemixqueapi.exception.ResourceNotFoundException;
+import com.damian.gemixqueapi.projection.UserInterfaceProjection;
 import com.damian.gemixqueapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,13 +19,14 @@ public class UserController {
     private UserRepository userRepository;
 
     @RequestMapping("/users")
-    public List<UserEntity> getAllUsers(){
-        return userRepository.findAll();
+    public List<UserInterfaceProjection> getAllUsers(){
+        return userRepository.findAllProjectedBy();
     }
 
     @RequestMapping("/users/{id}")
-    public UserEntity getUser(@PathVariable String id){
-        return userRepository.findById(id).orElseThrow(ResourceNotFoundException::new);
+    public UserInterfaceProjection getUser(@PathVariable String id){
+        return userRepository.findByUuid(id).orElseThrow(ResourceNotFoundException::new);
     }
+
 
 }
