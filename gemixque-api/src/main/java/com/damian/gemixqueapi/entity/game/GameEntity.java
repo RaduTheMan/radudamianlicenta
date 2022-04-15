@@ -29,6 +29,9 @@ public class GameEntity {
     @Relationship(type = "HAS", direction = Relationship.Direction.OUTGOING)
     private DetailsEntity details;
 
+    @Relationship(type = "HAS", direction = Relationship.Direction.OUTGOING)
+    private AverageEntity average;
+
 
     public GameEntity(String title, List<String> genres, String firstReleaseYear) {
         this.title = title;
@@ -38,6 +41,14 @@ public class GameEntity {
 
     public VisualsEntity getVisuals() {
         return visuals;
+    }
+
+    public DetailsEntity getDetails() {
+        return details;
+    }
+
+    public AverageEntity getAverage() {
+        return average;
     }
 
     public String getUuid() {

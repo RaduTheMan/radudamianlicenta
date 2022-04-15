@@ -1,8 +1,11 @@
 package com.damian.gemixqueapi.controller;
 
+import com.damian.gemixqueapi.entity.game.GameEntity;
 import com.damian.gemixqueapi.exception.ResourceNotFoundException;
 import com.damian.gemixqueapi.projection.GameInterfaceProjection;
+import com.damian.gemixqueapi.projection.GamesPlayedInterfaceProjection;
 import com.damian.gemixqueapi.repository.GameRepository;
+import com.damian.gemixqueapi.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,15 +17,20 @@ import java.util.List;
 public class GameController {
 
     @Autowired
-    private GameRepository gameRepository;
+    private GameService gameService;
 
     @RequestMapping("/games")
     public List<GameInterfaceProjection> getAllGames(){
-        return gameRepository.findAllProjectedBy();
+        return gameService.getAllGames();
     }
 
     @RequestMapping("/games/{id}")
     public GameInterfaceProjection getGame(@PathVariable String id){
-        return gameRepository.findByUuid(id).orElseThrow(ResourceNotFoundException::new);
+        return gameService.getGameById(id).orElseThrow(ResourceNotFoundException::new);
+    }
+
+    @RequestMapping("/users/{userId}/games")
+    public GamesPlayedInterfaceProjection getGamesFromUser(@PathVariable String userId){
+        return gameService.getGamesFromUserId(userId).orElseThrow(ResourceNotFoundException::new);
     }
 }

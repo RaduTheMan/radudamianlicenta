@@ -9,4 +9,5 @@ public interface GameInterfaceProjection {
     List<String> getGenres();
     VisualsInterfaceProjection getVisuals();
     DetailsInterfaceProjection getDetails();
+    AverageInterfaceProjection getAverage();
 }

@@ -1,10 +1,11 @@
 package com.damian.gemixqueapi.entity;
 
-import org.springframework.data.neo4j.core.schema.GeneratedValue;
-import org.springframework.data.neo4j.core.schema.Id;
-import org.springframework.data.neo4j.core.schema.Node;
-import org.springframework.data.neo4j.core.schema.Property;
+import com.damian.gemixqueapi.entity.game.GameEntity;
+import com.damian.gemixqueapi.projection.GameInterfaceProjection;
+import org.springframework.data.neo4j.core.schema.*;
 import org.springframework.data.neo4j.core.support.UUIDStringGenerator;
+
+import java.util.List;
 
 @Node("User")
 public class UserEntity {
@@ -22,10 +23,17 @@ public class UserEntity {
     @Property
     private final String password;
 
+    @Relationship(type = "PLAYS", direction = Relationship.Direction.OUTGOING)
+    private List<GameEntity> gamesPlayed;
+
     public UserEntity(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
+    }
+
+    public List<GameEntity> getGamesPlayed() {
+        return gamesPlayed;
     }
 
     public String getUuid() {
