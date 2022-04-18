@@ -8,6 +8,7 @@ import com.damian.gemixqueapi.projection.review.GetReviewsMadeOnGameInterfacePro
 import com.damian.gemixqueapi.repository.ReviewRepository;
 import com.damian.gemixqueapi.repository.ReviewsMadeByUserRepository;
 import com.damian.gemixqueapi.repository.ReviewsMadeOnGameRepository;
+import com.damian.gemixqueapi.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,31 +20,25 @@ import java.util.List;
 public class ReviewController {
 
     @Autowired
-    private ReviewRepository reviewRepository;
-
-    @Autowired
-    private ReviewsMadeByUserRepository reviewsMadeByUserRepository;
-
-    @Autowired
-    private ReviewsMadeOnGameRepository reviewsMadeOnGameRepository;
+    private ReviewService reviewService;
 
     @RequestMapping("/reviews")
     public List<FullReviewInterfaceProjection> getAllReviews(){
-        return reviewRepository.findAllProjectedBy();
+        return reviewService.getAllReviews();
     }
 
     @RequestMapping("/reviews/{id}")
     public FullReviewInterfaceProjection getReview(@PathVariable String id){
-        return reviewRepository.findByUuid(id).orElseThrow(ResourceNotFoundException::new);
+        return reviewService.getReviewById(id).orElseThrow(ResourceNotFoundException::new);
     }
 
     @RequestMapping("/users/{userId}/reviews")
     public GetReviewsMadeFromUserInterfaceProjection getReviewsFromUser(@PathVariable String userId){
-        return reviewsMadeByUserRepository.findByUuid(userId).orElseThrow(ResourceNotFoundException::new);
+        return reviewService.getReviewsMadeByUser(userId).orElseThrow(ResourceNotFoundException::new);
     }
 
     @RequestMapping("/games/{gameId}/reviews")
     public GetReviewsMadeOnGameInterfaceProjection getReviewsOnGame(@PathVariable String gameId){
-        return reviewsMadeOnGameRepository.findByUuid(gameId).orElseThrow(ResourceNotFoundException::new);
+        return reviewService.getReviewsMadeOnGame(gameId).orElseThrow(ResourceNotFoundException::new);
     }
 }
