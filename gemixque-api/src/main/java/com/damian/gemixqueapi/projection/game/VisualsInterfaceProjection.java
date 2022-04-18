@@ -1,4 +1,4 @@
-package com.damian.gemixqueapi.projection;
+package com.damian.gemixqueapi.projection.game;
 
 import java.util.List;
 

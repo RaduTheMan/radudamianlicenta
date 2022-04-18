@@ -1,10 +1,10 @@
 package com.damian.gemixqueapi.entity;
 
-import org.springframework.data.neo4j.core.schema.GeneratedValue;
-import org.springframework.data.neo4j.core.schema.Id;
-import org.springframework.data.neo4j.core.schema.Node;
-import org.springframework.data.neo4j.core.schema.Property;
+import com.damian.gemixqueapi.entity.game.GameEntity;
+import org.springframework.data.neo4j.core.schema.*;
 import org.springframework.data.neo4j.core.support.UUIDStringGenerator;
+
+import javax.management.relation.Relation;
 
 @Node("Review")
 public class ReviewEntity {
@@ -23,10 +23,24 @@ public class ReviewEntity {
     @Property
     private final String time;
 
+    @Relationship(type = "MAKES", direction = Relationship.Direction.INCOMING)
+    private UserEntity userEntity;
+
+    @Relationship(type = "ON", direction = Relationship.Direction.OUTGOING)
+    private GameEntity gameEntity;
+
     public ReviewEntity(String content, String score, String time) {
         this.content = content;
         this.score = score;
         this.time = time;
+    }
+
+    public UserEntity getUserEntity() {
+        return userEntity;
+    }
+
+    public GameEntity getGameEntity() {
+        return gameEntity;
     }
 
     public String getUuid() {

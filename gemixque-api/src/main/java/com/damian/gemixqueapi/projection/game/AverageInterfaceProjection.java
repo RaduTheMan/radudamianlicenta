@@ -1,4 +1,4 @@
-package com.damian.gemixqueapi.projection;
+package com.damian.gemixqueapi.projection.game;
 
 public interface AverageInterfaceProjection {
     String getAggregatedRating();

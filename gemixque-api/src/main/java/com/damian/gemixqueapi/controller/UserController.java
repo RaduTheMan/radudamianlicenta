@@ -1,8 +1,7 @@
 package com.damian.gemixqueapi.controller;
 
-import com.damian.gemixqueapi.entity.UserEntity;
 import com.damian.gemixqueapi.exception.ResourceNotFoundException;
-import com.damian.gemixqueapi.projection.UserInterfaceProjection;
+import com.damian.gemixqueapi.projection.user.UserInterfaceProjection;
 import com.damian.gemixqueapi.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;

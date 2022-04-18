@@ -1,4 +1,4 @@
-package com.damian.gemixqueapi.projection;
+package com.damian.gemixqueapi.projection.user;
 
 import com.damian.gemixqueapi.entity.game.GameEntity;
 

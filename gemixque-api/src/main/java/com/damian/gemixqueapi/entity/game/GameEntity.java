@@ -1,6 +1,7 @@
 package com.damian.gemixqueapi.entity.game;
 
 
+import com.damian.gemixqueapi.entity.ReviewEntity;
 import org.springframework.data.neo4j.core.schema.*;
 import org.springframework.data.neo4j.core.support.UUIDStringGenerator;
 
@@ -31,6 +32,9 @@ public class GameEntity {
 
     @Relationship(type = "HAS", direction = Relationship.Direction.OUTGOING)
     private AverageEntity average;
+
+    @Relationship(type = "ON", direction = Relationship.Direction.INCOMING)
+    private List<ReviewEntity> reviewsMade;
 
 
     public GameEntity(String title, List<String> genres, String firstReleaseYear) {

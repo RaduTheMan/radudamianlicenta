@@ -1,8 +1,7 @@
 package com.damian.gemixqueapi.service;
 
-import com.damian.gemixqueapi.entity.game.GameEntity;
-import com.damian.gemixqueapi.projection.GameInterfaceProjection;
-import com.damian.gemixqueapi.projection.GamesPlayedInterfaceProjection;
+import com.damian.gemixqueapi.projection.game.GameInterfaceProjection;
+import com.damian.gemixqueapi.projection.user.GamesPlayedInterfaceProjection;
 import com.damian.gemixqueapi.repository.GameRepository;
 import com.damian.gemixqueapi.repository.GamesPlayedByUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
