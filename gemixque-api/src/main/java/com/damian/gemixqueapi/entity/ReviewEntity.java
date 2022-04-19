@@ -5,6 +5,7 @@ import org.springframework.data.neo4j.core.schema.*;
 import org.springframework.data.neo4j.core.support.UUIDStringGenerator;
 
 import javax.management.relation.Relation;
+import java.util.List;
 
 @Node("Review")
 public class ReviewEntity {
@@ -29,10 +30,17 @@ public class ReviewEntity {
     @Relationship(type = "ON", direction = Relationship.Direction.OUTGOING)
     private GameEntity gameEntity;
 
+    @Relationship(type = "ON", direction = Relationship.Direction.INCOMING)
+    private List<CommentEntity> comments;
+
     public ReviewEntity(String content, String score, String time) {
         this.content = content;
         this.score = score;
         this.time = time;
+    }
+
+    public List<CommentEntity> getComments() {
+        return comments;
     }
 
     public UserEntity getUserEntity() {

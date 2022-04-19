@@ -1,9 +1,6 @@
 package com.damian.gemixqueapi.entity;
 
-import org.springframework.data.neo4j.core.schema.GeneratedValue;
-import org.springframework.data.neo4j.core.schema.Id;
-import org.springframework.data.neo4j.core.schema.Node;
-import org.springframework.data.neo4j.core.schema.Property;
+import org.springframework.data.neo4j.core.schema.*;
 
 @Node("Comment")
 public class CommentEntity {
@@ -18,9 +15,23 @@ public class CommentEntity {
     @Property
     private final String time;
 
+    @Relationship(type = "MAKES", direction = Relationship.Direction.INCOMING)
+    private UserEntity userEntity;
+
+    @Relationship(type = "ON", direction = Relationship.Direction.OUTGOING)
+    private ReviewEntity reviewEntity;
+
     public CommentEntity(String content, String time) {
         this.content = content;
         this.time = time;
+    }
+
+    public UserEntity getUserEntity() {
+        return userEntity;
+    }
+
+    public ReviewEntity getReviewEntity() {
+        return reviewEntity;
     }
 
     public Long getId() {
