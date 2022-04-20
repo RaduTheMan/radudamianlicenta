@@ -1,7 +1,7 @@
 package com.damian.gemixqueapi.repository;
 
 import com.damian.gemixqueapi.entity.game.GameEntity;
-import com.damian.gemixqueapi.projection.review.GetReviewsMadeOnGameInterfaceProjection;
+import com.damian.gemixqueapi.projection.game.GetReviewsMadeOnGameInterfaceProjection;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 
 import java.util.Optional;

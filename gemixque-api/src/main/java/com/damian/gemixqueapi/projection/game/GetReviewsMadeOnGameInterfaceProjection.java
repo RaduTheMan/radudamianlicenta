@@ -1,4 +1,6 @@
-package com.damian.gemixqueapi.projection.review;
+package com.damian.gemixqueapi.projection.game;
+
+import com.damian.gemixqueapi.projection.review.ReviewsMadeOnGameInterfaceProjection;
 
 import java.util.List;
 

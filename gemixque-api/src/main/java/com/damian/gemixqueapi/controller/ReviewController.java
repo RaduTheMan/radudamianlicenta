@@ -1,13 +1,9 @@
 package com.damian.gemixqueapi.controller;
 
-import com.damian.gemixqueapi.entity.ReviewEntity;
 import com.damian.gemixqueapi.exception.ResourceNotFoundException;
 import com.damian.gemixqueapi.projection.review.FullReviewInterfaceProjection;
-import com.damian.gemixqueapi.projection.review.GetReviewsMadeFromUserInterfaceProjection;
-import com.damian.gemixqueapi.projection.review.GetReviewsMadeOnGameInterfaceProjection;
-import com.damian.gemixqueapi.repository.ReviewRepository;
-import com.damian.gemixqueapi.repository.ReviewsMadeByUserRepository;
-import com.damian.gemixqueapi.repository.ReviewsMadeOnGameRepository;
+import com.damian.gemixqueapi.projection.user.GetReviewsMadeFromUserInterfaceProjection;
+import com.damian.gemixqueapi.projection.game.GetReviewsMadeOnGameInterfaceProjection;
 import com.damian.gemixqueapi.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;

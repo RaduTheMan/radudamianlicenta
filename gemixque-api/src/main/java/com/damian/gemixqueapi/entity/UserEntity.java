@@ -28,6 +28,12 @@ public class UserEntity {
     @Relationship(type = "MAKES", direction = Relationship.Direction.OUTGOING)
     private List<ReviewEntity> reviewsMade;
 
+    @Relationship(type = "SENT", direction = Relationship.Direction.OUTGOING)
+    private List<MessageEntity> sentMessages;
+
+    @Relationship(type = "TO", direction = Relationship.Direction.INCOMING)
+    private List<MessageEntity> receivedMessages;
+
     public UserEntity(String username, String email, String password) {
         this.username = username;
         this.email = email;
@@ -40,6 +46,14 @@ public class UserEntity {
 
     public List<ReviewEntity> getReviewsMade(){
         return reviewsMade;
+    }
+
+    public List<MessageEntity> getSentMessages() {
+        return sentMessages;
+    }
+
+    public List<MessageEntity> getReceivedMessages() {
+        return receivedMessages;
     }
 
     public String getUuid() {

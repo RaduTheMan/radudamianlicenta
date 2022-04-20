@@ -1,4 +1,6 @@
-package com.damian.gemixqueapi.projection.review;
+package com.damian.gemixqueapi.projection.user;
+
+import com.damian.gemixqueapi.projection.review.ReviewsMadeByUserInterfaceProjection;
 
 import java.util.List;
 

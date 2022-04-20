@@ -1,8 +1,8 @@
 package com.damian.gemixqueapi.service;
 
 import com.damian.gemixqueapi.projection.review.FullReviewInterfaceProjection;
-import com.damian.gemixqueapi.projection.review.GetReviewsMadeFromUserInterfaceProjection;
-import com.damian.gemixqueapi.projection.review.GetReviewsMadeOnGameInterfaceProjection;
+import com.damian.gemixqueapi.projection.user.GetReviewsMadeFromUserInterfaceProjection;
+import com.damian.gemixqueapi.projection.game.GetReviewsMadeOnGameInterfaceProjection;
 import com.damian.gemixqueapi.repository.ReviewRepository;
 import com.damian.gemixqueapi.repository.ReviewsMadeByUserRepository;
 import com.damian.gemixqueapi.repository.ReviewsMadeOnGameRepository;
