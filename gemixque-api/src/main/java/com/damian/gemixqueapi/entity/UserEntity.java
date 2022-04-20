@@ -34,10 +34,24 @@ public class UserEntity {
     @Relationship(type = "TO", direction = Relationship.Direction.INCOMING)
     private List<MessageEntity> receivedMessages;
 
+    @Relationship(type = "FOLLOWS", direction = Relationship.Direction.INCOMING)
+    private List<UserEntity> followers;
+
+    @Relationship(type = "FOLLOWS", direction = Relationship.Direction.OUTGOING)
+    private List<UserEntity> following;
+
     public UserEntity(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
+    }
+
+    public List<UserEntity> getFollowers() {
+        return followers;
+    }
+
+    public List<UserEntity> getFollowing() {
+        return following;
     }
 
     public List<GameEntity> getGamesPlayed() {
