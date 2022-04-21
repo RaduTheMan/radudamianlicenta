@@ -7,8 +7,8 @@ import com.damian.gemixqueapi.projection.user.GetReviewsMadeFromUserInterfacePro
 import com.damian.gemixqueapi.projection.game.GetReviewsMadeOnGameInterfaceProjection;
 import com.damian.gemixqueapi.service.ReviewService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -19,27 +19,27 @@ public class ReviewController {
     @Autowired
     private ReviewService reviewService;
 
-    @RequestMapping("/reviews")
+    @GetMapping("/reviews")
     public List<FullReviewInterfaceProjection> getAllReviews(){
         return reviewService.getAllReviews();
     }
 
-    @RequestMapping("/reviews/{id}")
+    @GetMapping("/reviews/{id}")
     public FullReviewInterfaceProjection getReview(@PathVariable String id){
         return reviewService.getReviewById(id).orElseThrow(ResourceNotFoundException::new);
     }
 
-    @RequestMapping("/users/{userId}/reviews")
+    @GetMapping("/users/{userId}/reviews")
     public GetReviewsMadeFromUserInterfaceProjection getReviewsFromUser(@PathVariable String userId){
         return reviewService.getReviewsMadeByUser(userId).orElseThrow(ResourceNotFoundException::new);
     }
 
-    @RequestMapping("/games/{gameId}/reviews")
+    @GetMapping("/games/{gameId}/reviews")
     public GetReviewsMadeOnGameInterfaceProjection getReviewsOnGame(@PathVariable String gameId){
         return reviewService.getReviewsMadeOnGame(gameId).orElseThrow(ResourceNotFoundException::new);
     }
 
-    @RequestMapping("/reviews/{reviewId}/likes")
+    @GetMapping("/reviews/{reviewId}/likes")
     public GetUsersLikedInterfaceProjection getUsersLikedOnReview(@PathVariable String reviewId){
         return reviewService.getUsersLikedOnReview(reviewId).orElseThrow(ResourceNotFoundException::new);
     }

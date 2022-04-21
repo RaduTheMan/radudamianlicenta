@@ -5,8 +5,8 @@ import com.damian.gemixqueapi.projection.game.GameInterfaceProjection;
 import com.damian.gemixqueapi.projection.user.GamesPlayedInterfaceProjection;
 import com.damian.gemixqueapi.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -17,17 +17,17 @@ public class GameController {
     @Autowired
     private GameService gameService;
 
-    @RequestMapping("/games")
+    @GetMapping("/games")
     public List<GameInterfaceProjection> getAllGames(){
         return gameService.getAllGames();
     }
 
-    @RequestMapping("/games/{id}")
+    @GetMapping("/games/{id}")
     public GameInterfaceProjection getGame(@PathVariable String id){
         return gameService.getGameById(id).orElseThrow(ResourceNotFoundException::new);
     }
 
-    @RequestMapping("/users/{userId}/games")
+    @GetMapping("/users/{userId}/games")
     public GamesPlayedInterfaceProjection getGamesFromUser(@PathVariable String userId){
         return gameService.getGamesFromUserId(userId).orElseThrow(ResourceNotFoundException::new);
     }
