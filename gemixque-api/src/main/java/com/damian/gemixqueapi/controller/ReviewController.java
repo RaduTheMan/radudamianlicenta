@@ -2,6 +2,7 @@ package com.damian.gemixqueapi.controller;
 
 import com.damian.gemixqueapi.exception.ResourceNotFoundException;
 import com.damian.gemixqueapi.projection.review.FullReviewInterfaceProjection;
+import com.damian.gemixqueapi.projection.review.GetUsersLikedInterfaceProjection;
 import com.damian.gemixqueapi.projection.user.GetReviewsMadeFromUserInterfaceProjection;
 import com.damian.gemixqueapi.projection.game.GetReviewsMadeOnGameInterfaceProjection;
 import com.damian.gemixqueapi.service.ReviewService;
@@ -36,5 +37,10 @@ public class ReviewController {
     @RequestMapping("/games/{gameId}/reviews")
     public GetReviewsMadeOnGameInterfaceProjection getReviewsOnGame(@PathVariable String gameId){
         return reviewService.getReviewsMadeOnGame(gameId).orElseThrow(ResourceNotFoundException::new);
+    }
+
+    @RequestMapping("/reviews/{reviewId}/likes")
+    public GetUsersLikedInterfaceProjection getUsersLikedOnReview(@PathVariable String reviewId){
+        return reviewService.getUsersLikedOnReview(reviewId).orElseThrow(ResourceNotFoundException::new);
     }
 }

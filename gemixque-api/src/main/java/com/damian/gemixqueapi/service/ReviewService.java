@@ -1,11 +1,13 @@
 package com.damian.gemixqueapi.service;
 
 import com.damian.gemixqueapi.projection.review.FullReviewInterfaceProjection;
+import com.damian.gemixqueapi.projection.review.GetUsersLikedInterfaceProjection;
 import com.damian.gemixqueapi.projection.user.GetReviewsMadeFromUserInterfaceProjection;
 import com.damian.gemixqueapi.projection.game.GetReviewsMadeOnGameInterfaceProjection;
 import com.damian.gemixqueapi.repository.ReviewRepository;
 import com.damian.gemixqueapi.repository.ReviewsMadeByUserRepository;
 import com.damian.gemixqueapi.repository.ReviewsMadeOnGameRepository;
+import com.damian.gemixqueapi.repository.UsersLikedRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,9 @@ public class ReviewService {
     @Autowired
     private ReviewsMadeOnGameRepository reviewsMadeOnGameRepository;
 
+    @Autowired
+    private UsersLikedRepository usersLikedRepository;
+
     public List<FullReviewInterfaceProjection> getAllReviews() {
         return reviewRepository.findAllProjectedBy();
     }
@@ -38,5 +43,9 @@ public class ReviewService {
 
     public Optional<GetReviewsMadeOnGameInterfaceProjection> getReviewsMadeOnGame(String gameId){
         return reviewsMadeOnGameRepository.findByUuid(gameId);
+    }
+
+    public Optional<GetUsersLikedInterfaceProjection> getUsersLikedOnReview(String reviewId){
+        return usersLikedRepository.findByUuid(reviewId);
     }
 }

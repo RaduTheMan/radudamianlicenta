@@ -33,6 +33,9 @@ public class ReviewEntity {
     @Relationship(type = "ON", direction = Relationship.Direction.INCOMING)
     private List<CommentEntity> comments;
 
+    @Relationship(type = "LIKES", direction = Relationship.Direction.INCOMING)
+    private List<UserEntity> usersLiked;
+
     public ReviewEntity(String content, String score, String time) {
         this.content = content;
         this.score = score;
@@ -41,6 +44,10 @@ public class ReviewEntity {
 
     public List<CommentEntity> getComments() {
         return comments;
+    }
+
+    public List<UserEntity> getUsersLiked() {
+        return usersLiked;
     }
 
     public UserEntity getUserEntity() {
