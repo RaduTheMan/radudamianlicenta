@@ -1,16 +1,18 @@
 package com.damian.gemixqueapi.controller;
 
+import com.damian.gemixqueapi.dto.UserRequest;
+import com.damian.gemixqueapi.entity.UserEntity;
 import com.damian.gemixqueapi.exception.ResourceNotFoundException;
 import com.damian.gemixqueapi.projection.user.GetFollowersInterfaceProjection;
 import com.damian.gemixqueapi.projection.user.GetFollowingInterfaceProjection;
 import com.damian.gemixqueapi.projection.user.UserInterfaceProjection;
 import com.damian.gemixqueapi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -37,5 +39,10 @@ public class UserController {
     @GetMapping("/users/{id}/following")
     public GetFollowingInterfaceProjection getFollowingOfUser(@PathVariable String id){
         return userService.getFollowingOfUser(id).orElseThrow(ResourceNotFoundException::new);
+    }
+
+    @PostMapping("/users")
+    public void createUser(@RequestBody @Valid UserRequest userRequest){
+        System.out.println(userRequest);
     }
 }
