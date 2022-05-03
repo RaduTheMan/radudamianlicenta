@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { UntilDestroy } from '@ngneat/until-destroy';
+import { handleControl } from 'src/app/shared/helpers/control';
 import { passwordPattern, usernamePattern } from 'src/app/shared/validators';
 
 @UntilDestroy()
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
-  styleUrls: ['./sign-up.component.scss']
+  styleUrls: ['./sign-up.component.css']
 })
 export class SignUpComponent {
 
@@ -17,8 +18,14 @@ export class SignUpComponent {
   reEnterPasswordInfo = "Re-enter your password";
   emailInfo = "Your email address";
 
-  get password(): AbstractControl | null {
-    return this.formGroup?.get('password');
+  get password(): AbstractControl {
+    const control = this.formGroup?.get('password');
+    return handleControl(control);
+  }
+
+  get repeatedPassword(): AbstractControl {
+    const control = this.formGroup?.get('repeatedPassword');
+    return handleControl(control);
   }
 
   get controls() {
@@ -43,6 +50,16 @@ export class SignUpComponent {
       return { 'notMatch': true };
     }
     return null;
+  }
+
+  getErrorObjFromControl(control: AbstractControl): {
+    notMatch?: boolean
+  } {
+    const errors = control.errors;
+    if (errors !== null){
+      return errors;
+    }
+    return {};
   }
 
 }

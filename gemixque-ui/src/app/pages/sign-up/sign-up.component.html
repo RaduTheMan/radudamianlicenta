@@ -1,37 +1,39 @@
 <body>
   <form [formGroup]="formGroup">
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline" class="field">
       <mat-label>Username</mat-label>
       <input matInput formControlName="username">
       <mat-icon matSuffix aria-label="Info icon" [matTooltip]="usernameInfo">info</mat-icon>
     </mat-form-field>
   
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline" class="field">
       <mat-label>Email</mat-label>
       <input matInput formControlName="email" type="email">
       <mat-icon matSuffix aria-label="Info icon" [matTooltip]="emailInfo">info</mat-icon>
     </mat-form-field>
     
     
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline" class="field">
       <mat-label>Password</mat-label>
       <input matInput formControlName="password" type="password">
       <mat-icon matSuffix aria-label="Info icon" [matTooltip]="passwordInfo">info</mat-icon>
     </mat-form-field>
     
     
-    <mat-form-field appearance="fill">
+    <mat-form-field appearance="outline" class="field">
       <mat-label>Confirm password</mat-label>
       <input matInput formControlName="repeatedPassword" type="password">
       <mat-icon matSuffix aria-label="Info icon" [matTooltip]="reEnterPasswordInfo">info</mat-icon>
-      <div *ngIf="controls['password'].touched && controls['repeatedPassword'].invalid" class="alert alert-danger">
-        <div>Password and Confirm Password must match</div>
-      </div>
     </mat-form-field>
+
+    <div *ngIf="controls['password'].touched && 
+          controls['repeatedPassword'].invalid &&
+          getErrorObjFromControl(this.repeatedPassword)['notMatch']" class="field alert alert-danger">
+          Passwords must match!
+    </div>
     
-    <button mat-raised-button color="primary" [disabled]="!formGroup.valid" (click)="signUp()">Create account</button>
+    <button class="field" mat-raised-button color="primary" [disabled]="!formGroup.valid" (click)="signUp()">Create account</button>
   </form>
-  
 </body>
 
 
