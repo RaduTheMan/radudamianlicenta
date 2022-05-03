@@ -3,25 +3,35 @@
     <mat-form-field appearance="fill">
       <mat-label>Username</mat-label>
       <input matInput formControlName="username">
+      <mat-icon matSuffix aria-label="Info icon" [matTooltip]="usernameInfo">info</mat-icon>
     </mat-form-field>
   
     <mat-form-field appearance="fill">
       <mat-label>Email</mat-label>
       <input matInput formControlName="email" type="email">
+      <mat-icon matSuffix aria-label="Info icon" [matTooltip]="emailInfo">info</mat-icon>
     </mat-form-field>
+    
     
     <mat-form-field appearance="fill">
       <mat-label>Password</mat-label>
       <input matInput formControlName="password" type="password">
+      <mat-icon matSuffix aria-label="Info icon" [matTooltip]="passwordInfo">info</mat-icon>
     </mat-form-field>
+    
     
     <mat-form-field appearance="fill">
       <mat-label>Confirm password</mat-label>
       <input matInput formControlName="repeatedPassword" type="password">
+      <mat-icon matSuffix aria-label="Info icon" [matTooltip]="reEnterPasswordInfo">info</mat-icon>
+      <div *ngIf="controls['password'].touched && controls['repeatedPassword'].invalid" class="alert alert-danger">
+        <div>Password and Confirm Password must match</div>
+      </div>
     </mat-form-field>
-  
+    
     <button mat-raised-button color="primary" [disabled]="!formGroup.valid" (click)="signUp()">Create account</button>
   </form>
+  
 </body>
 
 
