@@ -1,1 +1,3 @@
-export * from './sign-up/sign-up.component';
+export * from './sign-up';
+export * from './home';
+export * from './profile';

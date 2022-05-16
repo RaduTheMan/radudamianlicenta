@@ -13,7 +13,7 @@ const materials = [
   MatInputModule,
   MatIconModule,
   MatTooltipModule
-]
+];
 @NgModule({
   imports: materials,
   exports: materials

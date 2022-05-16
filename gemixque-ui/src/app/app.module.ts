@@ -4,21 +4,27 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material/material.module';
-import { SignUpComponent } from './pages';
+import { HomeComponent, ProfileComponent, SignUpComponent } from './pages';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './shared/shared.module';
+
+const pages = [
+  SignUpComponent,
+  HomeComponent,
+  ProfileComponent
+];
 
 @NgModule({
   declarations: [
     AppComponent,
-    SignUpComponent
+    ...pages
   ],
   imports: [
     BrowserModule,
     ReactiveFormsModule, 
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
