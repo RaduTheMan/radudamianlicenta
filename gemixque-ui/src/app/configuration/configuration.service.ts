@@ -19,7 +19,7 @@ getEndpoint(key: string, id: string | null = null): string | undefined {
     if (id !== null) {
       endpoint.replace('$', id);
     }
-    return `${this.apiUrl}${endpoint}`;
+    return `/api${endpoint}`;
   }
   return undefined;
 }

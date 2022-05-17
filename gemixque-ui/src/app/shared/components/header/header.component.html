@@ -18,22 +18,15 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <form class="d-flex">
-        <input
-          class="form-control me-2"
-          type="search"
-          placeholder="Search games"
-          aria-label="Search"
-        />
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 justify-content-end me-md-5">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-md-5">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="games">View Games</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" routerLink="">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="profile" *ngIf="authService.isLoggedIn">Profile</a>
+        <li class="nav-item" *ngIf="authService.isLoggedIn">
+          <a class="nav-link" routerLink="profile">Profile</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link" routerLink="sign-up">Sign up</a>
@@ -41,9 +34,9 @@
         <li class="nav-item dropdown">
           <app-login-dropdown></app-login-dropdown>
         </li>
-        <!-- <li class="nav-item" *ngIf="isAuthenticated">
-          <a class="nav-link" (click)="onLogout()">Logout</a>
-        </li> -->
+        <li class="nav-item" *ngIf="authService.isLoggedIn">
+          <a class="nav-link">Logout</a>
+        </li>
         <div class="me-lg-5"></div>
       </ul>
     </div>

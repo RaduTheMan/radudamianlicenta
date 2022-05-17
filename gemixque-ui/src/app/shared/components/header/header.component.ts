@@ -7,5 +7,5 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  constructor(private readonly authService: AuthService) { }
+  constructor(readonly authService: AuthService) { }
 }

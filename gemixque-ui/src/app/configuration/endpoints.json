@@ -2,6 +2,7 @@
     "allUsers": "/users",
     "userById": "/users/$",
     "allGames": "/games",
+    "gamesPaginated": "/games/paginated",
     "gameById": "/games/$",
     "reviews": "/reviews",
     "reviewById": "/reviews/$",

@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent, ProfileComponent, SignUpComponent } from './pages';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 
 const pages = [
   SignUpComponent,
@@ -21,6 +22,7 @@ const pages = [
   ],
   imports: [
     BrowserModule,
+    HttpClientModule, 
     ReactiveFormsModule, 
     AppRoutingModule,
     BrowserAnimationsModule,

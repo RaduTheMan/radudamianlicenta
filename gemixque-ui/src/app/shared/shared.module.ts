@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
@@ -10,6 +11,7 @@ const components = [HeaderComponent, LoginDropdownComponent];
 @NgModule({
     declarations: [...components],
     imports: [
+        CommonModule,
         MaterialModule,
         AppRoutingModule,
         ReactiveFormsModule
