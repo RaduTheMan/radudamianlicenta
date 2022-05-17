@@ -1,0 +1,15 @@
+{
+    "allUsers": "/users",
+    "userById": "/users/$",
+    "allGames": "/games",
+    "gameById": "/games/$",
+    "reviews": "/reviews",
+    "reviewById": "/reviews/$",
+    "gamesPlayedByUser": "/users/$/games",
+    "reviewsMadeByUser": "/users/$/reviews",
+    "reviewsMadeOnGame": "/games/$/reviews",
+    "commentsMadeOnReview": "/reviews/$/comments",
+    "followersOfUser": "/users/$/followers",
+    "followingOfUser": "/users/$/following",
+    "usersLikedOnReview": "/reviews/$/likes"
+}

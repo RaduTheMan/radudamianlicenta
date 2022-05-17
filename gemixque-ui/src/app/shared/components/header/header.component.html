@@ -33,7 +33,7 @@
           <a class="nav-link" routerLink="">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="profile">Profile</a>
+          <a class="nav-link" routerLink="profile" *ngIf="authService.isLoggedIn">Profile</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link" routerLink="sign-up">Sign up</a>
