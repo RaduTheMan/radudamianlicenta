@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { take } from 'rxjs';
-import { twenty } from 'src/app/shared/constants';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { BehaviorSubject, switchMap } from 'rxjs';
+import { Game } from 'src/app/shared/types';
 import { GamesService } from './services';
 
+@UntilDestroy()
 @Component({
   selector: 'app-games',
   templateUrl: './games.component.html',
@@ -10,15 +12,37 @@ import { GamesService } from './services';
 })
 export class GamesComponent implements OnInit {
 
-  currentPage: number = 1;
-  pageSize: number = twenty;
+  currentPage = 1;
+  currentPageEmiter$ = new BehaviorSubject<number>(this.currentPage);
+  pageSize = 8;
+  games!: Game[];
+  isLoading = true;
 
-  constructor(private readonly service: GamesService) { }
+  constructor(
+    private readonly service: GamesService) {}
 
   ngOnInit(): void {
-    this.service.getGamesPaginated(this.currentPage, this.pageSize)?.pipe(take(1))
-    .subscribe(data => {
-      console.log(data);
+    this.currentPageEmiter$.asObservable().pipe(switchMap(page => {
+      return this.service.getGamesPaginated(page, this.pageSize);
+    })).pipe(untilDestroyed(this)).subscribe(data => {
+      this.games = data;
+      this.isLoading = false;
     });
+  }
+
+  previousPage(): void {
+    if (this.currentPage > 1){
+      this.currentPage -= 1;
+      this.currentPageEmiter$.next(this.currentPage);
+      this.isLoading = true;
+    }
+  }
+
+  nextPage(): void {
+    if (this.currentPage < 30){
+      this.currentPage += 1;
+      this.currentPageEmiter$.next(this.currentPage);
+      this.isLoading = true;
+    }
   }
 }

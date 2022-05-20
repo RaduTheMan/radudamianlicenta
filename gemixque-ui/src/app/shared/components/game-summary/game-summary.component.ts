@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-game-summary',
@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameSummaryComponent {
 
+  @Input() imageUrl!: string;
+  @Input() summary!: string;
+  @Input() title!: string;
   constructor() { }
 
 }
