@@ -3,10 +3,11 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from '../app-routing.module';
 import { MaterialModule } from '../material';
-import { HeaderComponent } from './components';
+import { GameSummaryComponent, HeaderComponent } from './components';
 import { LoginDropdownComponent } from './components/header';
 
-const components = [HeaderComponent, LoginDropdownComponent];
+const components = [HeaderComponent, LoginDropdownComponent, GameSummaryComponent];
+const exportedComponents = [HeaderComponent, GameSummaryComponent];
 
 @NgModule({
     declarations: [...components],
@@ -17,7 +18,7 @@ const components = [HeaderComponent, LoginDropdownComponent];
         ReactiveFormsModule
     ],
     exports: [
-        HeaderComponent,
+        ...exportedComponents,
         MaterialModule
     ]
 })

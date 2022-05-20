@@ -13,7 +13,12 @@ export class LoginDropdownComponent {
   constructor() {
     this.formGroup = new FormGroup({
       username: new FormControl(null, [Validators.required, Validators.pattern(usernamePattern)]),
-      password: new FormControl(null, [Validators.required, Validators.pattern(passwordPattern)])
+      password: new FormControl(null, [Validators.required, Validators.pattern(passwordPattern)]),
+      rememberMe: new FormControl(null)
     });
+  }
+
+  onLogin(): void {
+    console.log(this.formGroup.getRawValue());
   }
 }

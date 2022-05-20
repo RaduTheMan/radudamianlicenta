@@ -5,6 +5,8 @@ import com.damian.gemixqueapi.projection.user.GamesPlayedInterfaceProjection;
 import com.damian.gemixqueapi.repository.GameRepository;
 import com.damian.gemixqueapi.repository.GamesPlayedByUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -29,5 +31,9 @@ public class GameService {
 
     public Optional<GamesPlayedInterfaceProjection> getGamesFromUserId(String userId){
         return gamesPlayedByUserRepository.findByUuid(userId);
+    }
+
+    public Page<GameInterfaceProjection> getGamesPaginated(int page, int pageSize) {
+        return gameRepository.findAllProjectedBy(PageRequest.of(page, pageSize));
     }
 }

@@ -2,6 +2,9 @@ package com.damian.gemixqueapi.repository;
 
 import com.damian.gemixqueapi.entity.game.GameEntity;
 import com.damian.gemixqueapi.projection.game.GameInterfaceProjection;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
 
 import java.util.List;
@@ -10,4 +13,5 @@ import java.util.Optional;
 public interface GameRepository extends Neo4jRepository<GameEntity, String> {
     List<GameInterfaceProjection> findAllProjectedBy();
     Optional<GameInterfaceProjection> findByUuid(String uuid);
+    Page<GameInterfaceProjection> findAllProjectedBy(Pageable pageable);
 }

@@ -70,10 +70,10 @@ public class GameProvider {
     private Map<String, Object> getVisuals(Game game){
         var registry = new HashMap<String, Object>();
         registry.put("id", "0");
-        registry.put("screenshots", game.getScreenshotsList().stream().map(Screenshot::getUrl).collect(Collectors.toList()));
+        registry.put("screenshots", game.getScreenshotsList().stream().map(screenshot -> screenshot.getUrl().replace("t_thumb", "t_screenshot_big")).collect(Collectors.toList()));
         registry.put("summary", game.getSummary());
         registry.put("storyline", game.getStoryline());
-        registry.put("cover", game.getCover().getUrl());
+        registry.put("cover", game.getCover().getUrl().replace("t_thumb", "t_cover_big"));
         return registry;
     }
 
