@@ -1,8 +1,8 @@
-<a
+<a #dropdownTrigger
   class="nav-link dropdown-toggle"
   data-bs-toggle="dropdown"
   aria-expanded="false"
-  data-bs-auto-close="outside"
+  data-bs-auto-close="outside" *ngIf="!authService.isLoggedIn"
   >Login</a
 >
 <form [formGroup]="formGroup" class="dropdown-menu dropdown-menu-end p-4">
@@ -19,7 +19,7 @@
     </mat-form-field>
   </div>
   <div class="form-group">
-    <mat-checkbox  formControlName="rememberMe" class="mb-3">Remember me</mat-checkbox>
+    <mat-checkbox color="primary" formControlName="rememberMe" class="mb-3">Remember me</mat-checkbox>
   </div>
   <div class="form-group">
     <button class="my-3" [disabled]="!formGroup.valid" type="button" class="btn btn-primary" (click)="onLogin()">

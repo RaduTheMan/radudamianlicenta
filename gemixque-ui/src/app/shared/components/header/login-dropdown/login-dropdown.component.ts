@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 import { passwordPattern, usernamePattern } from 'src/app/shared/validators';
 
 @Component({
@@ -8,17 +9,20 @@ import { passwordPattern, usernamePattern } from 'src/app/shared/validators';
   styleUrls: ['./login-dropdown.component.css']
 })
 export class LoginDropdownComponent {
+  @ViewChild('dropdownTrigger') ref!: ElementRef;
   formGroup: FormGroup;
 
-  constructor() {
+  constructor(readonly authService: AuthService) {
     this.formGroup = new FormGroup({
-      username: new FormControl(null, [Validators.required, Validators.pattern(usernamePattern)]),
-      password: new FormControl(null, [Validators.required, Validators.pattern(passwordPattern)]),
+      username: new FormControl('libbie.dickinson', [Validators.required, Validators.pattern(usernamePattern)]),
+      password: new FormControl('8F93C729', [Validators.required, Validators.pattern(passwordPattern)]),
       rememberMe: new FormControl(null)
     });
   }
 
   onLogin(): void {
-    console.log(this.formGroup.getRawValue());
+    this.ref.nativeElement.click();
+    this.authService.onLogin();
+    // console.log(this.formGroup.getRawValue());
   }
 }

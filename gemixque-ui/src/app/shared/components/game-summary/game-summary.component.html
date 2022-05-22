@@ -1,8 +1,8 @@
 <div class="card my-3" style="width: 18rem;">
-  <img class="card-img-top" [src]="imageUrl" alt="Card image cap">
+  <img class="card-img-top" [src]="game.visuals.cover" alt="Card image cap">
   <div class="card-body">
-    <h5 class="card-title">{{title}}</h5>
-    <p class="card-text">{{summary}}</p>
-    <a href="" class="btn btn-primary">Details</a>
+    <h5 class="card-title">{{game.title}}</h5>
+    <p class="card-text">{{game.visuals.summary}}</p>
+    <a class="btn btn-primary" [routerLink]="[game.uuid]">Details</a>
   </div>
 </div>

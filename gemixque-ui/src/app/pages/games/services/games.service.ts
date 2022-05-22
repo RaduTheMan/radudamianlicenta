@@ -11,12 +11,12 @@ export class GamesService {
 
 constructor(private readonly configuration: ConfigurationService, private readonly httpClient: HttpClient) { }
 
-getGamesPaginated(page: number, pageSize: number): Observable<Game[]> {
+getGamesPaginated(page: number, pageSize: number): Observable<Paginated<Game>> {
   const url = this.configuration.getEndpoint('gamesPaginated')!;
   const params = new HttpParams()
   .set('page', page)
   .set('pageSize', pageSize);
-  return this.httpClient.get<Paginated<Game>>(url, { params } ).pipe(map(result => result.content));
+  return this.httpClient.get<Paginated<Game>>(url, { params } );
 }
 
 }

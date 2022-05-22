@@ -15,9 +15,9 @@ constructor() { }
 getEndpoint(key: string, id: string | null = null): string | undefined {
   const keys = Object.keys(this.endpointsObjConfig);
   if (keys.includes(key)) {
-    const endpoint = this.endpointsObjConfig[key];
+    let endpoint = this.endpointsObjConfig[key];
     if (id !== null) {
-      endpoint.replace('$', id);
+      endpoint = endpoint.replace('$', id);
     }
     return `/api${endpoint}`;
   }

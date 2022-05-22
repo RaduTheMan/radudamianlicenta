@@ -8,4 +8,8 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class HeaderComponent {
   constructor(readonly authService: AuthService) { }
+
+  onLogout(): void {
+    this.authService.onLogout();
+  }
 }

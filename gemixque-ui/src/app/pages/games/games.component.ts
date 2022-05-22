@@ -13,6 +13,7 @@ import { GamesService } from './services';
 export class GamesComponent implements OnInit {
 
   currentPage = 1;
+  maxPage = 1;
   currentPageEmiter$ = new BehaviorSubject<number>(this.currentPage);
   pageSize = 8;
   games!: Game[];
@@ -25,7 +26,8 @@ export class GamesComponent implements OnInit {
     this.currentPageEmiter$.asObservable().pipe(switchMap(page => {
       return this.service.getGamesPaginated(page, this.pageSize);
     })).pipe(untilDestroyed(this)).subscribe(data => {
-      this.games = data;
+      this.games = data.content;
+      this.maxPage = data.totalPages;
       this.isLoading = false;
     });
   }
@@ -39,7 +41,7 @@ export class GamesComponent implements OnInit {
   }
 
   nextPage(): void {
-    if (this.currentPage < 30){
+    if (this.currentPage < this.maxPage){
       this.currentPage += 1;
       this.currentPageEmiter$.next(this.currentPage);
       this.isLoading = true;

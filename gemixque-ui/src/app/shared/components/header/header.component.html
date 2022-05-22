@@ -28,13 +28,13 @@
         <li class="nav-item" *ngIf="authService.isLoggedIn">
           <a class="nav-link" routerLink="profile">Profile</a>
         </li>
-        <li class="nav-item dropdown">
+        <li class="nav-item dropdown" *ngIf="!authService.isLoggedIn">
           <a class="nav-link" routerLink="sign-up">Sign up</a>
         </li>
         <li class="nav-item dropdown">
           <app-login-dropdown></app-login-dropdown>
         </li>
-        <li class="nav-item" *ngIf="authService.isLoggedIn">
+        <li class="nav-item" *ngIf="authService.isLoggedIn" (click)="onLogout()">
           <a class="nav-link">Logout</a>
         </li>
         <div class="me-lg-5"></div>

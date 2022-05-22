@@ -6,21 +6,19 @@
 
 <div *ngIf="!isLoading" class="d-flex justify-content-evenly">
   <button mat-fab color="primary" class="mx-auto my-5" (click)="previousPage()">
-    <mat-icon svgIcon="chevron-left" class=""></mat-icon>
+    <mat-icon>chevron_left</mat-icon>
   </button>
   <div class="container">
     <div class="row">
       <div class="col" *ngFor="let game of games">
         <app-game-summary
-          [imageUrl]="game.visuals.cover"
-          [summary]="game.visuals.summary"
-          [title]="game.title"
+          [game]="game"
         ></app-game-summary>
       </div>
     </div>
   </div>
   <button mat-fab color="primary" class="mx-auto my-5" (click)="nextPage()">
-    <mat-icon svgIcon="chevron-right" class=""></mat-icon>
+    <mat-icon>chevron_right</mat-icon>
   </button>
 </div>
 
