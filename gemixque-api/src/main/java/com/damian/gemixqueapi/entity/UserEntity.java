@@ -22,6 +22,12 @@ public class UserEntity {
     @Property
     private final String password;
 
+    @Property("average_score")
+    private final Double averageScore;
+
+    @Property("nr_reviews_made")
+    private final Integer nrReviewsMade;
+
     @Relationship(type = "PLAYS", direction = Relationship.Direction.OUTGOING)
     private List<GameEntity> gamesPlayed;
 
@@ -40,10 +46,12 @@ public class UserEntity {
     @Relationship(type = "FOLLOWS", direction = Relationship.Direction.OUTGOING)
     private List<UserEntity> following;
 
-    public UserEntity(String username, String email, String password) {
+    public UserEntity(String username, String email, String password, Double averageScore, Integer nrReviewsMade) {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.averageScore = averageScore;
+        this.nrReviewsMade = nrReviewsMade;
     }
 
     public List<UserEntity> getFollowers() {
@@ -84,5 +92,13 @@ public class UserEntity {
 
     public String getPassword() {
         return password;
+    }
+
+    public Double getAverageScore() {
+        return averageScore;
+    }
+
+    public Integer getNrReviewsMade() {
+        return nrReviewsMade;
     }
 }

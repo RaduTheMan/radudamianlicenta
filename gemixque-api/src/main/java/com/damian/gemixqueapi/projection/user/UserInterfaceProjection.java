@@ -8,5 +8,6 @@ public interface UserInterfaceProjection {
     String getUuid();
     String getUsername();
     String getEmail();
-
+    Double getAverageScore();
+    Integer getNrReviewsMade();
 }

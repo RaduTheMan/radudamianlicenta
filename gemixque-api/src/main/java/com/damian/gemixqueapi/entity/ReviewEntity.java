@@ -4,7 +4,6 @@ import com.damian.gemixqueapi.entity.game.GameEntity;
 import org.springframework.data.neo4j.core.schema.*;
 import org.springframework.data.neo4j.core.support.UUIDStringGenerator;
 
-import javax.management.relation.Relation;
 import java.util.List;
 
 @Node("Review")
@@ -40,6 +39,16 @@ public class ReviewEntity {
         this.content = content;
         this.score = score;
         this.time = time;
+    }
+
+    @Override
+    public String toString() {
+        return "ReviewEntity{" +
+                "uuid='" + uuid + '\'' +
+                ", content='" + content + '\'' +
+                ", score='" + score + '\'' +
+                ", time='" + time + '\'' +
+                '}';
     }
 
     public List<CommentEntity> getComments() {

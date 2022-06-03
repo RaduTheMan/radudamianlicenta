@@ -24,4 +24,6 @@ techniques. The major disadvantage of CBF is the need to have an in-depth knowle
 Collaborative filtering is a domain-independent prediction technique for content that cannot easily
  and adequately be described by metadata such as movies and music. Collaborative filtering technique works
  by building a database (user-item matrix) of preferences for items by users. It then matches users with
- relevant interest and preferences by calculating similarities between their profiles to make recommendations
+ relevant interest and preferences by calculating similarities between their profiles to make recommendations.
+
+Potential problems: sparsity of data, cold start

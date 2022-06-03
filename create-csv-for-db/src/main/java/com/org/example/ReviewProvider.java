@@ -30,8 +30,15 @@ public class ReviewProvider {
             Faker faker = new Faker();
             var randomReviewsIterator = this.getIteratorFromRandomReviewsFile();
             for (var user : users) {
+                var probability = ThreadLocalRandom.current().nextDouble();
+                int nrReviewsMade = 0;
+                if(probability <= 0.2){
+                    nrReviewsMade = ThreadLocalRandom.current().nextInt(0, 5);
+                } else {
+                    nrReviewsMade = ThreadLocalRandom.current().nextInt(5, 21);
+                }
                 var playedGames = user.getPlayedGames();
-                var reviewedGames = RandomUtil.pickNRandomUsers(playedGames, 5, ThreadLocalRandom.current());
+                var reviewedGames = RandomUtil.pickNRandomUsers(playedGames, nrReviewsMade, ThreadLocalRandom.current());
                 for (var reviewedGame : reviewedGames) {
                     var maybeSteamGame = steamGames.stream().filter(steamGame -> steamGame.getName().startsWith(reviewedGame.getName())).sorted().findFirst();
                     String review = "";
