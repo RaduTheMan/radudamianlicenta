@@ -51,7 +51,10 @@ public class GameController {
         for(var similarUser: similarUsers) {
             var weight = recommendationService.getWeight(userId, similarUser.getUuid());
             var uncommonReviews = recommendationService.getUncommonReviewsForOtherUser(userId, similarUser.getUuid());
-            System.out.println(Arrays.toString(uncommonReviews.toArray()));
+            //update scores
+            for(var uncommonReview: uncommonReviews){
+                var gameEntity = uncommonReview.getOtherGame();
+            }
             break;
         }
     }

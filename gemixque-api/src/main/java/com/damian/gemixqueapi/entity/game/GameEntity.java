@@ -6,6 +6,7 @@ import org.springframework.data.neo4j.core.schema.*;
 import org.springframework.data.neo4j.core.support.UUIDStringGenerator;
 
 import java.util.List;
+import java.util.Objects;
 
 @Node("Game")
 public class GameEntity {
@@ -43,6 +44,17 @@ public class GameEntity {
         this.firstReleaseYear = firstReleaseYear;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        GameEntity that = (GameEntity) o;
+
+        return Objects.equals(uuid, that.uuid);
+    }
+
+
     public VisualsEntity getVisuals() {
         return visuals;
     }
@@ -57,6 +69,10 @@ public class GameEntity {
 
     public String getUuid() {
         return uuid;
+    }
+
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
     }
 
     public String getTitle() {

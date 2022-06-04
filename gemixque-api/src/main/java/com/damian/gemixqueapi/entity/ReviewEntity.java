@@ -71,6 +71,10 @@ public class ReviewEntity {
         return uuid;
     }
 
+    public void setUuid(String uuid) {
+        this.uuid = uuid;
+    }
+
     public String getContent() {
         return content;
     }
