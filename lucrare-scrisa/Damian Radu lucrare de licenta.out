@@ -1,10 +1,12 @@
 \BOOKMARK [1][-]{section.0.1}{Descrierea problemei}{}% 1
-\BOOKMARK [1][-]{section.0.2}{Fundamente}{}% 2
+\BOOKMARK [1][-]{section.0.2}{Tehnologii s\356 resurse folosite}{}% 2
 \BOOKMARK [1][-]{section.0.3}{Scopuri si cerinte ale aplicatiei}{}% 3
-\BOOKMARK [2][-]{subsection.0.3.1}{Introducere}{section.0.3}% 4
-\BOOKMARK [1][-]{section.0.4}{Analiza si proiectare}{}% 5
-\BOOKMARK [2][-]{subsection.0.4.1}{Baza de date}{section.0.4}% 6
-\BOOKMARK [2][-]{subsection.0.4.2}{De ce NoSQL si nu SQL?}{section.0.4}% 7
-\BOOKMARK [1][-]{section.0.5}{Implementare}{}% 8
-\BOOKMARK [1][-]{section.0.6}{Manual de utilizare}{}% 9
-\BOOKMARK [1][-]{section.0.7}{Concluzii}{}% 10
+\BOOKMARK [2][-]{subsection.0.3.1}{Scopul documentului}{section.0.3}% 4
+\BOOKMARK [2][-]{subsection.0.3.2}{Publicul tinta}{section.0.3}% 5
+\BOOKMARK [2][-]{subsection.0.3.3}{Scopul aplicatiei}{section.0.3}% 6
+\BOOKMARK [1][-]{section.0.4}{Analiza si proiectare}{}% 7
+\BOOKMARK [2][-]{subsection.0.4.1}{Baza de date}{section.0.4}% 8
+\BOOKMARK [2][-]{subsection.0.4.2}{De ce NoSQL si nu SQL?}{section.0.4}% 9
+\BOOKMARK [1][-]{section.0.5}{Implementare}{}% 10
+\BOOKMARK [1][-]{section.0.6}{Manual de utilizare}{}% 11
+\BOOKMARK [1][-]{section.0.7}{Concluzii}{}% 12

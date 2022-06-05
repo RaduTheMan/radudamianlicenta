@@ -37,12 +37,14 @@
 	{\scshape\normalsize LUCRARE DE LICENȚĂ\par}
 	\vspace{1cm}
 	{\huge\bfseries Gemixque\par}
+	\vspace{1cm}
+	{\normalsize \textbf{sistem de recomandări de jocuri video}\par}
 	\vspace{1.5cm}
 	{\normalsize \textbf{propusă de}\par}
 	\vspace{1cm}
 	{\Large\itshape\textbf {Radu Damian}\par}
 	\vspace{2cm}
-	{\normalsize \textbf{Sesiunea:} \textit{luna, 2022}\par}
+	{\normalsize \textbf{Sesiunea:} \textit{iunie/iulie, 2022}\par}
 	\vspace{1cm}
 	{\normalsize \textbf{Coordonator științific}\par}
 	\vspace{0.5cm}
@@ -60,10 +62,12 @@
 
 
 	{\huge\bfseries Gemixque\par}
+	\vspace{1cm}
+	{\normalsize \textbf{sistem de recomandări de jocuri video}\par}
 	\vspace{3cm}
 	{\Large\itshape\textbf {Radu Damian}\par}
 	\vspace{2cm}
-	{\normalsize \textbf{Sesiunea:} \textit{luna, 2022}\par}
+	{\normalsize \textbf{Sesiunea:} \textit{iunie/iulie, 2022}\par}
 	\vspace{4cm}
 	{\normalsize \textbf{Coordonator științific}\par}
 	\vspace{0.5cm}
@@ -212,44 +216,99 @@
 	
 	
 
-\end{titlepage}   
+\end{titlepage}
+\hfill \break
+	\begin{center}
+	{\scshape\large \textbf{Mulțumiri} \par}
+	\end{center}
+	
+\begin{flushright}
+\hfill \break
+\hfill \break
+Sunt profund recunoscător pentru sprijinul necondiționat oferit de părinții și de bunica mea în vederea realizării acestei lucrări de licență.
+\end{flushright}
+\hfill \break
+\hfill \break
+\hfill \break
+\begin{flushright}
+De asemenea, îi mulțumesc domnului prof. dr Frăsinaru Cristian, îndrumător al lucrării de licență, pentru sfaturile, resursele, și încrederea oferită de-a lungul perioadei în care am lucrat pentru această documentație.
+\end{flushright}
+
+\newpage
+   
 \renewcommand*{\contentsname}{Cuprins}
 \tableofcontents
 \newpage
+
+\hfill \break
 
 	\hfill \break
 	\begin{center}
 	{\scshape\large \textbf{Introducere} \par}
 	\end{center}
 	
-	Această aplicație web constă într-un sistem de recomandări de jocuri video încorporat într-o rețea socială.
+	Această lucrare de licență propune prezentarea implementării unui sistem de recomandare, sub forma unei aplicații web.
 	
-	-punere în cunoștință de cauză a cititorului
+	În următoarele capitole vor fi ilustrate următoarele: problema ce trebuie rezolvată, tehnologiile folosite, modelarea bazei de date, modul în care au fost generate datele de intrare ale problemei, server-ul de back-end, algoritmul implementat și server-ul de front-end.
 	
-	-plasarea tematicii în context
+	\begin{center}
+	{\scshape\large \textbf{Motivație} \par}
+	\end{center}
+
+	Ideea de bază a lucrării de licență a venit oarecum din întâmplare. Când eram student în semestrul II din anul 2 de facultate, mă uitasem într-o zi obișnuită la acest site: \href{https://simkl.com/}{https://simkl.com}, pe care-l foloseam pentru a nu uita la ce episod am rămas dintr-un anumit serial. Acest site poate oferi și recomandări de filme/seriale în funcție de datele din profilul meu.
 	
-	-prezentarea clară a scopului și modului de realizare(soluția teoretică/tehnologică oferită)
+	Fiind un amator de jocuri video pe PC, mi-a venit ideea de a face un astfel de site, însă care să recomande, bineînțeles, jocuri video.
 	
-	-punctarea celor mai interesante aspecte + contribuții personale
+	O observație importantă este faptul că aș fi putut alege orice resursă ce poate fi recomandată(de exemplu: periuțe de dinți, telefoane, picturi etc.), așadar problema în speță poate fi privită într-un mod mai general. Motivul pentru care am ales jocurile video este dat de pasiunea mea pentru acestea.
 	
-	-prezentarea structurii lucrării( capitolul X se referă...)
+	De asemenea, eram curios în acea perioadă, printre altele, legat de cum aș putea implementa o soluție pentru acest sistem de recomandare pe care mi l-am propus să-l realizez.
 	
-	-mulțumirile aduse
+	Așadar, am avut inspirație, dar și noroc, deoarece această idee mi-a venit relativ repede, lucru ce a reprezentat un punct de pornire important în realizarea efectivă a acestei lucrări.
 	
 	\newpage
 	
 \setcounter{secnumdepth}{3} 
 \renewcommand*\thesection{\arabic{section}}
 \section{Descrierea problemei}
-\section{Fundamente}
+
+Problema ce trebuie rezolvată se rezumă la recomandarea unor jocuri video(niciunul, unul, sau mai multe) unui utilizator. În ansamblu, datele de intrare ar putea fi reprezentate de o mulțime de jocuri video, o mulțime de utilizatori și o mulțime de recenzii.
+
+Aceste recenzii sunt oferite de utilizator și asociate unui joc. În recenzie, utilizatorul oferă o notă(un scor, pe o scară de la 1 la 10) care indică cât de mult i-a plăcut/displăcut jocul respectiv. Un utilizator poate face maxim o recenzie per joc.
+\section{Tehnologii șî resurse folosite}
+
+Pentru aplicația web:
+
+\begin{enumerate}
+  \item Baza de date: Neo4j.
+  \item Server de back-end:
+  \begin{itemize}
+     \item Limbaj: Java versiunea 11
+     \item Framework: Spring Boot
+     \item REST API
+   \end{itemize}
+  \item Server de front-end:
+  \begin{itemize}
+     \item Limbaj: Typescript
+     \item Framework: Angular
+   \end{itemize}
+\end{enumerate}
+Pentru modulul de generare al datelor de intrare:
+
+\begin{enumerate}
+  \item API extern folosit pentru a procura date despre jocuri video: IGDB API \cite{1}
+  \item API extern folosit pentru procurarea de recenzii de pe Steam \cite{2}
+  \item Java Faker - pentru generarea de date aleatoare \cite{3}
+  \item Apache Commons CSV - pentru manipularea de fișiere CSV \cite{4}
+\end{enumerate}
+
+
 \section{Scopuri și cerințe ale aplicației}
-\subsection{Introducere}
-\subsubsection{Scopul documentului}
+\subsection{Scopul documentului}
 Scopul acestui document este de a ilustra modul în care funcționează un sistem de recomandări de jocuri video sub forma unei rețele sociale.
-\subsubsection{Publicul țintă}
+\subsection{Publicul țintă}
 Acest document este destinat atât cititorilor avizați(e.g. profesori universitari) pentru a afla de exemplu soluțiile utilizate în cadrul capitolului 4 \textbf{Analiză și proiectare} , sau modul de implementare a aplicației în capitolul 5 \textbf{Implementare}, cât și cititorilor neavizați(utilizatori obișnuiți), care se pot informa în legătură cu modul în care pot interacționa cu site-ul în capitolul 6 \textbf{Manual de utilizare}.
-\subsubsection{Scopul aplicației}
-Scopul acestei aplicații este de a oferi o soluție în a contracara cantitatea masivă de informații ce se regăsește pe internet \cite{1} în ceea ce privește multitudinea de jocuri video, prin a dezvolta un sistem de recomandări care să faciliteze decizia unui utilizator legat de ce joc să aleagă.  
+\subsection{Scopul aplicației}
+Scopul acestei aplicații este de a oferi o soluție în a contracara cantitatea masivă de informații ce se regăsește pe internet \cite{5} în ceea ce privește multitudinea de jocuri video, prin a dezvolta un sistem de recomandări care să faciliteze decizia unui utilizator legat de ce joc să aleagă.  
 
 
 
@@ -267,7 +326,7 @@ Tipul de stocare ales este cel oferit de Neo4j, în care se prezintă o abordare
 \hfill \break
 \hfill \break
 
-Un nod în neo4j are următoarele caracteristici \cite{2}: reprezintă entități/obiecte, pot fi etichetate și pot avea proprietăți.
+Un nod în neo4j are următoarele caracteristici \cite{6}: reprezintă entități/obiecte, pot fi etichetate și pot avea proprietăți.
 
 Observăm din figură cele trei entități: două noduri etichate cu 'Actor' și un nod etichetat cu 'Movie'. De asemenea, ambele noduri 'Actor' au proprietatea 'name', însă doar unul din ele are și proprietatea 'age'. Așadar, nu trebuie neapărat ca două noduri cu aceeași etichetă să aibă aceleași proprietăți.
 
@@ -307,11 +366,39 @@ De comparat o interogare intre limbajele SQL si Cypher.
 \renewcommand\bibname{Bibliografie}
 \begin{thebibliography}{9}
 
+\bibitem{igdb-api}
+  
+  \textit{IGDB API}
+  
+  \url{https://www.igdb.com/api}
+  
+  \url{https://github.com/husnjak/IGDB-API-JVM}
+  
+\bibitem{steam-reviews}
+  
+  \textit{Steamworks Documentation - Reviews}
+  
+  \url{https://partner.steamgames.com/doc/store/getreviews}
+  
+\bibitem{java-faker}
+  
+  \textit{Java Faker}
+  
+  \url{https://github.com/DiUS/java-faker}
+  
+\bibitem{apache-commons-csv}
+  
+  \textit{Apache Commons CSV}
+  
+  \url{https://commons.apache.org/proper/commons-csv/}
+
+
 \bibitem{lamport94}
-  F.O. Isinkaye, Y.O. Folajimi, B.A. Ojokoh
   
   \textit{Recommendation systems: Principles, methods and evaluation},
   2015.
+  
+  F.O. Isinkaye, Y.O. Folajimi, B.A. Ojokoh
   
   \url{https://www.sciencedirect.com/science/article/pii/S1110866515000341}
   
