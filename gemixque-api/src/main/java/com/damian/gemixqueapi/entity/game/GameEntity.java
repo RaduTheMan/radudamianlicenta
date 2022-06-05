@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Objects;
 
 @Node("Game")
-public class GameEntity {
+public class GameEntity implements Comparable<GameEntity> {
 
     @Id
     @GeneratedValue(UUIDStringGenerator.class)
@@ -54,6 +54,12 @@ public class GameEntity {
         return Objects.equals(uuid, that.uuid);
     }
 
+    @Override
+    public String toString() {
+        return "GameEntity{" +
+                "title='" + title + '\'' +
+                '}';
+    }
 
     public VisualsEntity getVisuals() {
         return visuals;
@@ -85,5 +91,10 @@ public class GameEntity {
 
     public String getFirstReleaseYear() {
         return firstReleaseYear;
+    }
+
+    @Override
+    public int compareTo(GameEntity o) {
+        return title.compareTo(o.title);
     }
 }

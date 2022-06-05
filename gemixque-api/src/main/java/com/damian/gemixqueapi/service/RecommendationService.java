@@ -33,7 +33,7 @@ public class RecommendationService {
         return recommendationRepository.findByCustomQuery(userId).orElseThrow(InternalServerErrorException::new);
     }
 
-    public Double getWeight(String currentUserId, String otherUserId) {
+    public double getWeight(String currentUserId, String otherUserId) {
         return recommendationRepository.findByCustomQuery(currentUserId, otherUserId).orElseThrow(InternalServerErrorException::new);
     }
 

@@ -1,19 +1,18 @@
 package com.damian.gemixqueapi.controller;
 
-import com.damian.gemixqueapi.entity.UserEntity;
+import com.damian.gemixqueapi.entity.game.GameEntity;
 import com.damian.gemixqueapi.exception.ResourceNotFoundException;
 import com.damian.gemixqueapi.projection.game.GameInterfaceProjection;
 import com.damian.gemixqueapi.projection.user.GamesPlayedInterfaceProjection;
 import com.damian.gemixqueapi.service.GameService;
 import com.damian.gemixqueapi.service.RecommendationService;
+import com.damian.gemixqueapi.service.UserService;
+import com.damian.gemixqueapi.service.custom_classes.Fraction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.*;
 
 @RestController
 @RequestMapping("api")
@@ -21,6 +20,9 @@ public class GameController {
 
     @Autowired
     private GameService gameService;
+
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private RecommendationService recommendationService;
@@ -47,16 +49,39 @@ public class GameController {
 
     @GetMapping("/users/{userId}/recommended-games")
     public void getRecommendedGamesForUser(@PathVariable String userId){
+        var currentUser = userService.getUserById(userId).orElseThrow(ResourceNotFoundException::new);
         var similarUsers = recommendationService.getSimilarUsers(userId);
+        SortedMap<GameEntity, Fraction> gameRegistry = new TreeMap<>();
         for(var similarUser: similarUsers) {
             var weight = recommendationService.getWeight(userId, similarUser.getUuid());
             var uncommonReviews = recommendationService.getUncommonReviewsForOtherUser(userId, similarUser.getUuid());
             //update scores
             for(var uncommonReview: uncommonReviews){
                 var gameEntity = uncommonReview.getOtherGame();
+                var reviewEntity = uncommonReview.getRev();
+                double score = Double.parseDouble(reviewEntity.getScore());
+                double numerator = weight * (score - similarUser.getAverageScore());
+                double denominator = Math.abs(weight);
+                if (gameRegistry.containsKey(gameEntity)){
+                    Fraction oldFraction = gameRegistry.get(gameEntity);
+                    double oldNumerator = oldFraction.getNumerator();
+                    double oldDenominator = oldFraction.getDenominator();
+                    oldFraction.setNumerator(oldNumerator + numerator);
+                    oldFraction.setDenominator(oldDenominator + denominator);
+                    gameRegistry.put(gameEntity, oldFraction);
+                } else {
+                    gameRegistry.put(gameEntity, new Fraction(currentUser.getAverageScore(), numerator, denominator));
+                }
             }
-            break;
         }
+        SortedSet<Map.Entry<GameEntity, Fraction>> solution = new TreeSet<>(new Comparator<Map.Entry<GameEntity, Fraction>>() {
+            @Override
+            public int compare(Map.Entry<GameEntity, Fraction> o1, Map.Entry<GameEntity, Fraction> o2) {
+                return (-1) * o1.getValue().compareTo(o2.getValue());
+            }
+        });
+        solution.addAll(gameRegistry.entrySet());
+        System.out.println(solution);
     }
 
 }
