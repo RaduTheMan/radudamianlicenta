@@ -9,6 +9,7 @@
 \usepackage{hyperref}
 \usepackage{fancyvrb}
 \usepackage{caption}
+\usepackage{float}
 \addbibresource{sample.bib}
 
 \geometry{
@@ -177,48 +178,6 @@
 	
 \end{titlepage}
 
-\begin{titlepage}
-
-	\hfill \break
-	\begin{center}
-	ACORD PRIVIND PROPRIETATEA DREPTULUI DE AUTOR
-	\end{center}
-	
-	\hfill \break
-	\hfill \break
-	\justifying
-	Facultatea de Informatică este de acord ca drepturile
-	de autor asupra programelor-calculator, în format
-	executabil și sursă, să aparțină autorului prezentei
-	lucrări, \emph{Radu Damian.}
-	\hfill \break
-	\hfill \break
-	Încheierea acestui acord este necesară din următoarele
-	motive:
-	\hfill \break
-	\hfill \break
-	\hfill \break
-	\emph{...de completat...}
-	\hfill \break
-	\hfill \break
-	\hfill \break
-	\hfill \break
-	\hfill \break
-	\hfill \break
-	Iași, \emph{data}
-	\hfill \break
-	\hfill \break
-	\hfill \break
-	Decan \emph{Adrian Iftene} \hspace{18em} Absolvent \emph{Radu Damian}  
-	\hfill \break
-	\hfill \break
-	\rule{4.5cm}{0.15mm} \hspace{16em} \rule{4.5cm}{0.15mm}
-	(semnătura în original) \hspace{17em} (semnătura în original)
-	
-	
-	
-
-\end{titlepage}
 \hfill \break
 	\begin{center}
 	{\scshape\large \textbf{Mulțumiri} \par}
@@ -233,7 +192,13 @@ Sunt profund recunoscător pentru sprijinul necondiționat oferit de părinții 
 \hfill \break
 \hfill \break
 \begin{flushright}
-De asemenea, îi mulțumesc domnului prof. dr Frăsinaru Cristian, îndrumător al lucrării de licență, pentru sfaturile, resursele, și încrederea oferită de-a lungul perioadei în care am lucrat pentru această documentație.
+Îi mulțumesc Monicăi pentru faptul că m-a ajutat să-mi gestionez trăirile și să privesc provocările pe care le-am întâmpinat cu o atitudine sănătoasă.
+\hfill \break
+\hfill \break
+\hfill \break
+\end{flushright}
+\begin{flushright}
+De asemenea, îi mulțumesc domnului prof. dr Frăsinaru Cristian, îndrumător al lucrării de licență, pentru sfaturile, resursele, și încrederea oferită de-a lungul perioadei în care am lucrat pentru această lucrare.
 \end{flushright}
 
 \newpage
@@ -421,13 +386,79 @@ Pentru o mai bună înțelegere a modului în care sunt reprezentate efectiv dat
 \caption*{Datele folosite pentru a exemplifica interogarea în Cypher}
 \end{figure}
 
-
 \subsection{Modelarea bazei de date}
+
 
 Având în vedere noțiunile prezentate în capitolele anterioare, în acest capitol va fi descrisă schema bazei de date ce va fi folosită pentru a stoca datele necesare rezolvării problemei de a recomanda jocuri video.
 
+Însă, înainte de a ilustra schema în ansamblu, fiecare entitate în parte va fi detaliată în rândurile următoare.
+
+\bigskip
+\textbf{Utilizatorul}
+\bigskip
+
+Această entitate reprezintă punctul central al aplicației, deoarece utilizatorul este cel care oferă recenzii(note) jocurilor și influențează într-un mod indirect recomandările unui alt utilizator, deci el este cel care, practic, inițiază acțiunea.
+
+Nodul corespunzător acestei entități este cel din \textbf{Figura 5}.
+
+Printre proprietățile alese pentru a reprezenta un utilizator, două dintre acestea reflectă activitatea lui în sistemul de recomandare, anume \emph{average\underline{ }score} și \emph{nr\underline{ }reviews\underline{ }made}, care semnifică numărul total de recenzii făcute de utilizator, respectiv scorul mediu al acestuia(media tuturor scorurilor oferite).
+
+\bigskip
+\textbf{Recenzia}
+\bigskip
+
+Recenzia reprezintă practic indicatorul calitativ pe care-l oferă un utilizator asupra unui joc. Așa cum se observă din 
+\textbf{Figura 6}, o recenzie poate fi caracterizată prin proprietatea \emph{score}, nota oferită de utilizator jocului, proprietatea \emph{content}, care reprezintă un text ce poate fi introdus de utilizator pentru a-și exprima, dacă dorește, opinia sa asupra jocului, și proprietatea \emph{time}, adică momentul în care a făcut recenzia.
+
+\bigskip
+\textbf{Jocul}
+\bigskip
+
+Jocul indică resursa ce va fi recomandată de către utilizator și este punctul de interes al aplicației. Faptul că această entitate poate avea un număr relativ semnificativ de proprietăți reprezintă o provocare justificată, iar abordarea mea pentru a reprezenta această entitate se poate observa în 
+\textbf{Figura 7}.
 
 
+Pentru a nu suprasatura un nod cu multe proprietăți, am decis să împart acestea în funcție de categoria în care ar putea fi încadrate. Nodul principal \textbf{Game} are doar titlul, genurile și anul primei lansări, iar prin relația de tipul \texttt{HAS} se evidențiază nodurile care extind această entitate, și anume cel care conține proprietățile care indică elemente vizuale ale jocului(\emph{Visuals}), cel care conține date suplimentare despre joc(\emph{Details}) și cel care ține evidența legat de recenziile aplicate asupra jocului (\emph{Average}), unde proprietatea \emph{value} reprezintă scorul mediu al jocului(cât de bine este notat în medie de către utilizatorii sistemului), iar proprietatea \emph{aggregated\_rating} reprezintă scorul obținut dintr-o sursă externă(e.g. Metacritic)
+
+\bigskip
+\textbf{Schema bazei de date}
+\bigskip
+
+În \textbf{Figura 8}, având în vedere și aspectele menționate anterior legat de entitățile care formează în ansamblu schema bazei de date, se poate intui fluxul principal al aplicației. Utilizatorul introduce în profilul său ce jocuri video s-a jucat prin intermediul relației \texttt{PLAYS}, iar acțiunea prin care acesta efectuează o recenzie asupra jocului este reprezentată prin relația de tip \texttt{MAKES}. De asemenea, relația \texttt{ON} indică asupră cărei entități etichetată cu \emph{Game} se face recenzia.
+
+Se poate deduce faptul că relațiile între noduri sunt numite astfel încât să reprezinte acțiuni ce pot fi efectuate sau aplicate asupra unor entități, ceea ce poate reprezenta un procedeu de bună practică în modelarea bazei de date în acest context. \cite{11}
+
+
+
+\begin{figure}[H]
+\centering
+\caption{Utilizatorul}
+\includegraphics[]{exemplu_6_neo4j}
+\caption*{}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\caption{Recenzia}
+\includegraphics[]{exemplu_7_neo4j}
+\caption*{}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\caption{Jocul}
+\includegraphics[scale = 0.6]{exemplu_8_neo4j}
+\caption*{}
+\end{figure}
+
+
+
+\begin{figure}[H]
+\centering
+\caption{Schema bazei de date}
+\includegraphics[scale=0.4]{exemplu_5_neo4j}
+\caption*{}
+\end{figure}
 
 
 
@@ -506,6 +537,12 @@ Având în vedere noțiunile prezentate în capitolele anterioare, în acest cap
   \textit{Neo4j Training - Overview of Neo4j 4.x - Neo4j is a Graph Database  }
   
   \url{https://neo4j.com/graphacademy/training-overview-40/01-overview40-neo4j-graph-database/}
+  
+  \bibitem{11}
+  
+  \textit{Graph Modeling Guidelines}
+  
+  \url{https://neo4j.com/developer/guide-data-modeling/}
 
 \end{thebibliography}
 
