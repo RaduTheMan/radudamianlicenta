@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.10.3)  6 JUN 2022 00:09
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.7) (preloaded format=pdflatex 2020.10.3)  6 JUN 2022 21:33
 entering extended mode
 **"./Damian Radu lucrare de licenta.tex"
 ("Damian Radu lucrare de licenta.tex"
@@ -468,45 +468,72 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip85
 )
+(C:\Users\Radu\AppData\Local\Programs\MiKTeX\tex/latex/fancyvrb\fancyvrb.sty
+Package: fancyvrb 2020/05/03 v3.6 verbatim text (tvz,hv)
+\FV@CodeLineNo=\count387
+\FV@InFile=\read3
+\FV@TabBox=\box46
+\c@FancyVerbLine=\count388
+\FV@StepNumber=\count389
+\FV@OutFile=\write5
+)
+(C:\Users\Radu\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption.sty
+Package: caption 2020/09/02 v3.5a Customizing captions (AR)
+
+(C:\Users\Radu\AppData\Local\Programs\MiKTeX\tex/latex/caption\caption3.sty
+Package: caption3 2020/08/30 v2.0 caption3 kernel (AR)
+\captionmargin=\dimen149
+\captionmargin@=\dimen150
+\captionwidth=\dimen151
+\caption@tempdima=\dimen152
+\caption@indent=\dimen153
+\caption@parindent=\dimen154
+\caption@hangindent=\dimen155
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count390
+\c@continuedfloat=\count391
+Package caption Info: hyperref package is loaded.
+)
 
 Package geometry Warning: Over-specification in `h'-direction.
     `width' (483.69684pt) is ignored.
 
-\@quotelevel=\count387
-\@quotereset=\count388
+\@quotelevel=\count392
+\@quotereset=\count393
 ("Damian Radu lucrare de licenta.aux")
 \openout1 = `"Damian Radu lucrare de licenta.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 29.
+LaTeX Font Info:    ... okay on input line 29.
 
 (C:\Users\Radu\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mki
 i
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count389
-\scratchdimen=\dimen149
-\scratchbox=\box46
-\nofMPsegments=\count390
-\nofMParguments=\count391
+\scratchcounter=\count394
+\scratchdimen=\dimen156
+\scratchbox=\box47
+\nofMPsegments=\count395
+\nofMParguments=\count396
 \everyMPshowfont=\toks17
-\MPscratchCnt=\count392
-\MPscratchDim=\dimen150
-\MPnumerator=\count393
-\makeMPintoPDFobject=\count394
+\MPscratchCnt=\count397
+\MPscratchDim=\dimen157
+\MPnumerator=\count398
+\makeMPintoPDFobject=\count399
 \everyMPtoPDFconversion=\toks18
 )
 (C:\Users\Radu\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-ba
@@ -515,7 +542,7 @@ Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 85.
 ) ABD: EverySelectfont initializing macros
-LaTeX Info: Redefining \selectfont on input line 27.
+LaTeX Info: Redefining \selectfont on input line 29.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -567,10 +594,10 @@ Package biblatex Info: ... file '"Damian Radu lucrare de licenta".bbl' not foun
 d.
 
 No file "Damian Radu lucrare de licenta".bbl.
-Package biblatex Info: Reference section=0 on input line 27.
-Package biblatex Info: Reference segment=0 on input line 27.
-\AtBeginShipoutBox=\box47
-Package hyperref Info: Link coloring OFF on input line 27.
+Package biblatex Info: Reference section=0 on input line 29.
+Package biblatex Info: Reference segment=0 on input line 29.
+\AtBeginShipoutBox=\box48
+Package hyperref Info: Link coloring OFF on input line 29.
 (C:\Users\Radu\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
 
@@ -581,36 +608,38 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 estring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count395
+\c@section@level=\count400
 )
-LaTeX Info: Redefining \ref on input line 27.
-LaTeX Info: Redefining \pageref on input line 27.
-LaTeX Info: Redefining \nameref on input line 27.
+LaTeX Info: Redefining \ref on input line 29.
+LaTeX Info: Redefining \pageref on input line 29.
+LaTeX Info: Redefining \nameref on input line 29.
  ("Damian Radu lucrare de licenta.out")
 ("Damian Radu lucrare de licenta.out")
-\@outlinefile=\write5
-\openout5 = `"Damian Radu lucrare de licenta.out"'.
+\@outlinefile=\write6
+\openout6 = `"Damian Radu lucrare de licenta.out"'.
 
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: End \AtBeginDocument code.
  Excluding 'comment' comment.
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
-(Font)              using `OT1/cmr/bx/n' instead on input line 32.
+(Font)              using `OT1/cmr/bx/n' instead on input line 34.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <14.4> on input line 32.
+(Font)              <14.4> on input line 34.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 32.
-<logo-fii.png, id=51, 148.3944pt x 144.2991pt>
+(Font)              <7> on input line 34.
+<logo-fii.png, id=55, 148.3944pt x 144.2991pt>
 File: logo-fii.png Graphic file (type png)
 <use logo-fii.png>
-Package pdftex.def Info: logo-fii.png  used on input line 36.
+Package pdftex.def Info: logo-fii.png  used on input line 38.
 (pdftex.def)             Requested size: 68.28383pt x 66.40039pt.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 37.
+(Font)              <12> on input line 39.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 37.
+(Font)              <8> on input line 39.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 37.
+(Font)              <6> on input line 39.
 [1
 
 {C:/Users/Radu/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./logo-fii.png>]
@@ -618,40 +647,40 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 dentifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.75 \end{titlepage}
+l.77 \end{titlepage}
                      [1] Excluding 'comment' comment.
-Underfull \hbox (badness 10000) in paragraph at lines 82--82
+Underfull \hbox (badness 10000) in paragraph at lines 84--84
  []\OT1/cmr/m/n/12 Avizat,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 83--83
+Underfull \hbox (badness 10000) in paragraph at lines 85--85
  [][]\OT1/cmr/m/n/12 Indrumator Lu-crare de Licen[]a
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 84--85
+Underfull \hbox (badness 10000) in paragraph at lines 86--87
  []\OT1/cmr/m/n/12 Titlul, Nu-mele []i Prenume   []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 87--87
+Underfull \hbox (badness 10000) in paragraph at lines 89--89
  []\OT1/cmr/m/n/12 Data []   Semnatura []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 89--90
+Underfull \hbox (badness 10000) in paragraph at lines 91--92
 
  []
 
 
-Overfull \hbox (2.17763pt too wide) in paragraph at lines 97--113
+Overfull \hbox (2.17763pt too wide) in paragraph at lines 99--115
 \OT1/cmr/m/n/12 nascut(a) la data de ..............................,  iden-ti
 -fi-cat prin CNP ........................................,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 128--129
+Underfull \hbox (badness 10000) in paragraph at lines 130--131
 
  []
 
@@ -659,69 +688,69 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.133 \end{titlepage}
+l.135 \end{titlepage}
                       [1] Excluding 'comment' comment.
-Underfull \hbox (badness 10000) in paragraph at lines 138--139
+Underfull \hbox (badness 10000) in paragraph at lines 140--141
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--165
+Underfull \hbox (badness 10000) in paragraph at lines 161--167
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--165
+Underfull \hbox (badness 10000) in paragraph at lines 161--167
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--165
+Underfull \hbox (badness 10000) in paragraph at lines 161--167
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 159--165
+Underfull \hbox (badness 10000) in paragraph at lines 161--167
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--171
+Underfull \hbox (badness 10000) in paragraph at lines 168--173
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--171
+Underfull \hbox (badness 10000) in paragraph at lines 168--173
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--171
+Underfull \hbox (badness 10000) in paragraph at lines 168--173
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--171
+Underfull \hbox (badness 10000) in paragraph at lines 168--173
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 166--171
+Underfull \hbox (badness 10000) in paragraph at lines 168--173
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 171--171
- []\OT1/cmr/m/n/12 Absolvent \OT1/cmr/m/it/12 Radu Damian
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 172--172
- [][]
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 173--173
+ []\OT1/cmr/m/n/12 Absolvent \OT1/cmr/m/it/12 Radu Damian
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 174--174
+ [][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 175--175
  []\OT1/cmr/m/n/12 (semnatura ^n orig-i-nal)
  []
 
@@ -729,75 +758,75 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.176 \end{titlepage}
+l.178 \end{titlepage}
                       [1]
-Underfull \hbox (badness 10000) in paragraph at lines 180--181
+Underfull \hbox (badness 10000) in paragraph at lines 182--183
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 185--215
+Underfull \hbox (badness 10000) in paragraph at lines 187--217
 
  []
 
 
-Overfull \hbox (11.77466pt too wide) in paragraph at lines 185--215
+Overfull \hbox (11.77466pt too wide) in paragraph at lines 187--217
 \OT1/cmr/m/n/12 Facultatea de In-for-matica este de acord ca drep-turile de au
 -tor asupra programelor-calculator,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 185--215
+Underfull \hbox (badness 10000) in paragraph at lines 187--217
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 185--215
+Underfull \hbox (badness 10000) in paragraph at lines 187--217
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 185--215
+Underfull \hbox (badness 10000) in paragraph at lines 187--217
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 185--215
+Underfull \hbox (badness 10000) in paragraph at lines 187--217
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 185--215
+Underfull \hbox (badness 10000) in paragraph at lines 187--217
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 185--215
+Underfull \hbox (badness 10000) in paragraph at lines 187--217
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 185--215
+Underfull \hbox (badness 10000) in paragraph at lines 187--217
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 185--215
+Underfull \hbox (badness 10000) in paragraph at lines 187--217
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 185--215
+Underfull \hbox (badness 10000) in paragraph at lines 187--217
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 185--215
+Underfull \hbox (badness 10000) in paragraph at lines 187--217
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 185--215
+Underfull \hbox (badness 10000) in paragraph at lines 187--217
 
  []
 
@@ -805,24 +834,24 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.219 \end{titlepage}
+l.221 \end{titlepage}
                       [1]
-Underfull \hbox (badness 10000) in paragraph at lines 220--221
+Underfull \hbox (badness 10000) in paragraph at lines 222--223
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 230--233
+Underfull \hbox (badness 10000) in paragraph at lines 232--235
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 230--233
+Underfull \hbox (badness 10000) in paragraph at lines 232--235
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 230--233
+Underfull \hbox (badness 10000) in paragraph at lines 232--235
 
  []
 
@@ -830,149 +859,155 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.237 \newpage
+l.239 \newpage
                [1] ("Damian Radu lucrare de licenta.toc")
-\tf@toc=\write6
-\openout6 = `"Damian Radu lucrare de licenta.toc"'.
+\tf@toc=\write7
+\openout7 = `"Damian Radu lucrare de licenta.toc"'.
 
  [2
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 243--244
+Underfull \hbox (badness 10000) in paragraph at lines 245--246
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 245--246
+Underfull \hbox (badness 10000) in paragraph at lines 247--248
 
  []
 
 [3]
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <17.28> on input line 277.
+(Font)              <17.28> on input line 279.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\textcommabelow' on input line 277.
+(hyperref)                removing `\textcommabelow' on input line 279.
 
 
-LaTeX Warning: Citation '1' on page 4 undefined on input line 298.
+LaTeX Warning: Citation '1' on page 4 undefined on input line 300.
 
 
-LaTeX Warning: Citation '2' on page 4 undefined on input line 299.
+LaTeX Warning: Citation '2' on page 4 undefined on input line 301.
 
 
-LaTeX Warning: Citation '3' on page 4 undefined on input line 300.
+LaTeX Warning: Citation '3' on page 4 undefined on input line 302.
 
 
-LaTeX Warning: Citation '4' on page 4 undefined on input line 301.
-
-
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\textcommabelow' on input line 305.
+LaTeX Warning: Citation '4' on page 4 undefined on input line 303.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\textcommabelow' on input line 305.
+(hyperref)                removing `\textcommabelow' on input line 307.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\textcommabelow' on input line 305.
+(hyperref)                removing `\textcommabelow' on input line 307.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\textcommabelow' on input line 308.
+(hyperref)                removing `\textcommabelow' on input line 307.
 
-
-Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\u' on input line 308.
-
-[4]
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
 (hyperref)                removing `\textcommabelow' on input line 310.
 
 
-LaTeX Warning: Citation '5' on page 5 undefined on input line 311.
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\u' on input line 310.
+
+[4]
+
+Package hyperref Warning: Glyph not defined in PD1 encoding,
+(hyperref)                removing `\textcommabelow' on input line 312.
+
+
+LaTeX Warning: Citation '5' on page 5 undefined on input line 313.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\u' on input line 316.
+(hyperref)                removing `\u' on input line 318.
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\textcommabelow' on input line 316.
+(hyperref)                removing `\textcommabelow' on input line 318.
 
-<exemplu_1_neo4j.png, id=118, 726.715pt x 408.52625pt>
+<exemplu_1_neo4j.png, id=123, 726.715pt x 408.52625pt>
 File: exemplu_1_neo4j.png Graphic file (type png)
 <use exemplu_1_neo4j.png>
-Package pdftex.def Info: exemplu_1_neo4j.png  used on input line 324.
+Package pdftex.def Info: exemplu_1_neo4j.png  used on input line 329.
 (pdftex.def)             Requested size: 363.3566pt x 204.26262pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 324--328
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 324--328
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 324--328
-
- []
-
-
-LaTeX Warning: Citation '6' on page 5 undefined on input line 329.
+LaTeX Warning: Citation '6' on page 5 undefined on input line 334.
 
 [5 <./exemplu_1_neo4j.png>]
-<exemplu_2_neo4j.png, id=124, 715.67375pt x 315.1775pt>
+<exemplu_2_neo4j.png, id=130, 715.67375pt x 315.1775pt>
 File: exemplu_2_neo4j.png Graphic file (type png)
 <use exemplu_2_neo4j.png>
-Package pdftex.def Info: exemplu_2_neo4j.png  used on input line 338.
+Package pdftex.def Info: exemplu_2_neo4j.png  used on input line 344.
 (pdftex.def)             Requested size: 357.836pt x 157.58836pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 335--342
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 335--342
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 335--342
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 335--342
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 335--342
-
- []
 
 
 Package hyperref Warning: Glyph not defined in PD1 encoding,
-(hyperref)                removing `\textcommabelow' on input line 351.
+(hyperref)                removing `\textcommabelow' on input line 357.
 
-[6 <./exemplu_2_neo4j.png>] [7]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 413.
- [8
+
+LaTeX Warning: Citation '7' on page 6 undefined on input line 364.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6 <./exemplu_2_neo4j.png>]
+<exemplu_3_neo4j.png, id=138, 1193.45876pt x 200.75pt>
+File: exemplu_3_neo4j.png Graphic file (type png)
+<use exemplu_3_neo4j.png>
+Package pdftex.def Info: exemplu_3_neo4j.png  used on input line 391.
+(pdftex.def)             Requested size: 477.37505pt x 80.29857pt.
+
+Overfull \hbox (22.13094pt too wide) in paragraph at lines 391--392
+ [][] 
+ []
+
+
+LaTeX Warning: Citation '8' on page 7 undefined on input line 410.
+
+
+LaTeX Warning: Citation '9' on page 7 undefined on input line 410.
+
+
+LaTeX Warning: Citation '10' on page 7 undefined on input line 413.
+
+<exemplu_4_neo4j.png, id=139, 871.00406pt x 514.92375pt>
+File: exemplu_4_neo4j.png Graphic file (type png)
+<use exemplu_4_neo4j.png>
+Package pdftex.def Info: exemplu_4_neo4j.png  used on input line 420.
+(pdftex.def)             Requested size: 435.50096pt x 257.46124pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[7 <./exemplu_3_neo4j.png>] [8 <./exemplu_4_neo4j.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 496--497
+[][]$\OT1/cmtt/m/n/12 https : / / neo4j . com / graphacademy / training-[]query
+ing-[]40 /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 508--509
+[][]$\OT1/cmtt/m/n/12 https : / / neo4j . com / graphacademy / training-[]overv
+iew-[]40 /
+ []
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 512.
+[9
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 413.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 512.
  ("Damian Radu lucrare de licenta.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 413.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 413.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 512.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 512.
 Package rerunfilecheck Info: File `"Damian Radu lucrare de licenta".out' has no
 t changed.
-(rerunfilecheck)             Checksum: 2AEC7A35697F0B325FBB7C3BFBF6994F;758.
+(rerunfilecheck)             Checksum: B63108356958ADF705A7A28E196C1F98;835.
 
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
@@ -991,13 +1026,13 @@ xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 13359 strings out of 481161
- 244182 string characters out of 2904379
- 925483 words of memory out of 3000000
- 28780 multiletter control sequences out of 15000+200000
+ 14930 strings out of 481161
+ 273343 string characters out of 2904379
+ 955949 words of memory out of 3000000
+ 30329 multiletter control sequences out of 15000+200000
  544871 words of font info for 61 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 43i,6n,39p,844b,1206s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,6n,43p,844b,1206s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Radu/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/cm-super/cm-supe
 r-ts1.enc}<C:/Users/Radu/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
 nts/cm/cmbx10.pfb><C:/Users/Radu/AppData/Local/Programs/MiKTeX/fonts/type1/publ
@@ -1012,10 +1047,10 @@ rs/Radu/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb
 ><C:/Users/Radu/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cm
 tt12.pfb><C:/Users/Radu/AppData/Local/Programs/MiKTeX/fonts/type1/public/cm-sup
 er/sfrm1200.pfb>
-Output written on "Damian Radu lucrare de licenta.pdf" (13 pages, 213451 bytes)
+Output written on "Damian Radu lucrare de licenta.pdf" (14 pages, 295221 bytes)
 .
 PDF statistics:
- 199 PDF objects out of 1000 (max. 8388607)
- 36 named destinations out of 1000 (max. 500000)
- 112 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 231 PDF objects out of 1000 (max. 8388607)
+ 48 named destinations out of 1000 (max. 500000)
+ 130 words of extra memory for PDF output out of 10000 (max. 10000000)
 
