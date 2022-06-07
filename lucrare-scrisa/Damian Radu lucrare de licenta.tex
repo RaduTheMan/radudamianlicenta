@@ -9,7 +9,9 @@
 \usepackage{hyperref}
 \usepackage{fancyvrb}
 \usepackage{caption}
+\usepackage{amsmath}
 \usepackage{float}
+\usepackage{listings}
 \addbibresource{sample.bib}
 
 \geometry{
@@ -457,8 +459,90 @@ Se poate deduce faptul că relațiile între noduri sunt numite astfel încât s
 \centering
 \caption{Schema bazei de date}
 \includegraphics[scale=0.4]{exemplu_5_neo4j}
-\caption*{}
+\caption*{Entitățile etichetate cu User, Game și Review mai au o proprietate în plus, și anume cea de id, care reprezintă un identificator unic pentru entitățile respective(uuid)}
 \end{figure}
+
+\subsection{Potențiale probleme}
+
+\bigskip
+\textbf{Constrângeri}
+\bigskip
+
+Am menționat atunci când am introdus capitolul de Baze de date faptul că două noduri care au aceeași etichetă nu trebuie să aibă neapărat aceleași proprietăți. Acest aspect face ca, în mod implicit, ca manipularea datelor să fie mult mai tolerabilă(cu mai puține constrângeri) în comparație cu o bază de date de tip SQL, unde acolo de exemplu trebuie să specificăm pentru o tabelă ce coloane să aibă și de ce tipuri să fie acestea.
+
+Totuși, ce ar fi dacă am vrea să stabilim niște constrângeri? Poate am vrea să spunem de exemplu că o entitate etichetată cu User trebuie să aibă neapărat proprietățile \emph{username}, \emph{email} și \emph{password}, sau am vrea să setăm pentru o entitate cheia sa, ca să o putem identifica. Pentru a rezolva acest lucru, Neo4j introduce conceptul de constrângeri (\emph{constraints}) \cite{12}
+
+Pentru a lucra facil cu baza noastră de date, Neo4j oferă o aplicație desktop ce vine cu un panou de comandă care oferă multe utilități. Putem executa de exemplu interogări în Cypher și să vizualizăm în mod interactiv graful obținut, cum se poate observa și în \textbf{Figura 4}.
+
+În figura de mai jos, am realizat o captură în acest panou de comandă în care am scris comanda \texttt{SHOW CONSTRAINTS} unde pot vedea ce constrângeri sunt setate.
+
+\begin{figure}[H]
+\centering
+\caption{}
+\includegraphics[scale = 0.5]{exemplu_9_neo4j}
+\caption*{Se pot observa constrângerile pe care le-am setat pentru entitatea User}
+\end{figure}
+
+\bigskip
+\textbf{Modul în care se actualizează scorul mediu al utilizatorului și al nodului \emph{Average} asociat nodului \emph{Game}}
+\bigskip
+
+Am menționat atunci când am prezentat schema bazei de date de faptul că am dori să ținem cont de scorul mediu al utilizatorului și al jocului, și de numărul de recenzii al acestor entități. O variantă naivă pentru a rezolva această problemă este să calculăm valorile acestor proprietăți în serverul de back-end, parcurgând toate recenziile asociate unui utilizator/joc și calculând media aritmetică a scorurilor acestora de fiecare dată când se face o nouă recenzie de exemplu. Dacă avem relativ puține date, nu ar fi o problemă, însă atunci când numărul de recenzii, de jocuri sau de utilizatori crește semnificativ, atunci trebuie abordată o altă soluție pentru a eficientiza acest proces.
+
+Neo4j introduce un alt concept, prin intermediul librăriei APOC \cite{13}, cel de declanșatoare
+(\emph{triggers}). \cite{14}
+Declanșatoarele sunt folosite pentru a executa cod în Cypher înainte sau după ce anumite date au fost modificate.
+
+Așadar, am putea folosi un declanșator pentru a actualiza numărul de recenzii și scorul mediu pentru entitățile \emph{User} și \emph{Game} după ce o recenzie a fost creată.
+
+Pentru a înțelege codul ce va fi prezentat ulterior, voi introduce un mic artificiu matematic pentru a înțelege cum se actualizează media scorurilor în acest caz.
+
+\bigskip
+
+Să presupunem că după \( k \) recenzii efectuate, scorul mediu este \( a_k \) și cea de a \( k+1 \) recenzie are scorul \( s \).
+
+Pentru a reconstitui suma anterioară, aceasta reprezintă pur și simplu produsul dintre \( k \) și \( a_k \). Așadar, putem calcula noua medie, prin formula: 
+
+\[ a_{k+1} = \frac{k \cdot a_k + s}{k+1} \]
+
+Prin urmare, fiind introdusă această formulă, se poate prezenta codul ce va fi executat în cadrul declanșatorului, în rândurile următoare:
+
+\begin{figure}[h]
+\centering
+\begin{BVerbatim}
+ UNWIND \$createdRelationships AS r 
+    MATCH (review:Review)-[r:ON]->(game:Game)
+    MATCH (game)-[:HAS]->(average:Average)
+    MATCH (u:User)-[:MAKES]->(review)-[:ON]->(game)
+    SET average.value = toFloat(
+    average.nr_reviews * average.value + toInteger(review.score)
+    ) / (average.nr_reviews + 1),
+	average.nr_reviews = average.nr_reviews + 1,
+    u.average_score = toFloat(
+    u.nr_reviews_made * u.average_score + toInteger(review.score)
+    ) / (u.nr_reviews_made + 1),
+    u.nr_reviews_made = u.nr_reviews_made + 1
+\end{BVerbatim}
+\caption*{A se ignora simbolul \textbackslash{ } înainte de createdRelationships}
+\end{figure}
+
+Așadar, de fiecare dată după ce se creează o relație de tipul \texttt{ON} între nodurile \emph{Review} și \emph{Game}, atunci vom interoga nodurile \emph{Average} și \emph{User} pe care dorim să le actualizăm folosind formula anterioară.
+
+\subsection{Generarea datelor de intrare}
+
+Neo4j oferă funcționalitatea de a importa date prin intermediul fișierelor CSV, iar prin intermediul limbajului Cypher, pot fi create noduri și relații cu aceste date pentru a crea schema de baze de date.
+
+Din intenția de a-mi modela baza de date după bunul meu plac, nu am vrut să optez pentru a lua un set de date deja gata făcut, ci am implementat un submodul în limbajul Java(separat de aplicația web propriu-zisă) care extrage date ori din API-uri externe(menționate la capitolul \textbf{Tehnologii și resurse folosite}, ori din fișiere salvate local, și generează fișiere CSV pentru a le putea importa apoi în baza de date.
+
+\bigskip
+\textbf{Generarea utilizatorilor}
+\bigskip
+
+Pentru a-mi genera utilizatorii fictivi ai aplicației, am apelat la librăria Java Faker. Aceasta m-a ajutat ca să generez nume de utilizator, parole și adrese de e-mail. În ceea ce privește parolele, am generat prin intermediul acestei librării un șir de caractere \emph{random} format din 8 caractere, ce conține cifre și litere. De asemenea, pe această parolă am aplicat o funcție hash, cu scopul de a fi folosită atunci când un utilizator se loghează în aplicație, pentru a avea un strat de securitate în acest caz. Am ales să utilizez algoritmul PBKDF2 în convertirea parolei deoarece este o variantă sigură. \cite{15}
+
+Așadar, cu valorile generate, am creat două fișiere CSV în care rețin 500 de utilizatori(un fișier cu parolele originale, celălalt cu parolele convertite prin funcția hash)
+
+O observație importantă este că atât pentru utilizator, cât și pentru celelalte entități, am generat și un identificator unic, prin intermediul utilitarului UUID oferit de Java.
 
 
 
@@ -543,6 +627,30 @@ Se poate deduce faptul că relațiile între noduri sunt numite astfel încât s
   \textit{Graph Modeling Guidelines}
   
   \url{https://neo4j.com/developer/guide-data-modeling/}
+  
+  \bibitem{12}
+  
+  \textit{Constraints}
+  
+  \url{https://neo4j.com/docs/cypher-manual/current/constraints/}
+  
+  \bibitem{13}
+  
+  \textit{APOC Documentation / Introduction}
+  
+  \url{https://neo4j.com/labs/apoc/4.1/introduction/}
+  
+  \bibitem{14}
+  
+  \textit{Triggers}
+  
+  \url{https://neo4j.com/labs/apoc/4.1/background-operations/triggers/}
+  
+  \bibitem{15}
+  
+  \textit{Hashing a Password in Java}
+  
+  \url{https://www.baeldung.com/java-password-hashing}
 
 \end{thebibliography}
 
