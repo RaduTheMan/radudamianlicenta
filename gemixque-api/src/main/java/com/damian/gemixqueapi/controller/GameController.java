@@ -8,11 +8,14 @@ import com.damian.gemixqueapi.service.GameService;
 import com.damian.gemixqueapi.service.RecommendationService;
 import com.damian.gemixqueapi.service.UserService;
 import com.damian.gemixqueapi.service.custom_classes.Fraction;
+import com.damian.gemixqueapi.service.custom_classes.SolutionEntry;
+import com.damian.gemixqueapi.service.custom_classes.UserWithWeight;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("api")
@@ -28,41 +31,48 @@ public class GameController {
     private RecommendationService recommendationService;
 
     @GetMapping("/games")
-    public List<GameInterfaceProjection> getAllGames(){
+    public List<GameInterfaceProjection> getAllGames() {
         return gameService.getAllGames();
     }
 
     @GetMapping("/games/paginated")
-    public  Page<GameInterfaceProjection> getGamesPaginated(@RequestParam int page, @RequestParam int pageSize) {
+    public Page<GameInterfaceProjection> getGamesPaginated(@RequestParam int page, @RequestParam int pageSize) {
         return gameService.getGamesPaginated(page, pageSize);
     }
 
     @GetMapping("/games/{id}")
-    public GameInterfaceProjection getGame(@PathVariable String id){
+    public GameInterfaceProjection getGame(@PathVariable String id) {
         return gameService.getGameById(id).orElseThrow(ResourceNotFoundException::new);
     }
 
     @GetMapping("/users/{userId}/games")
-    public GamesPlayedInterfaceProjection getGamesFromUser(@PathVariable String userId){
+    public GamesPlayedInterfaceProjection getGamesFromUser(@PathVariable String userId) {
         return gameService.getGamesFromUserId(userId).orElseThrow(ResourceNotFoundException::new);
     }
 
     @GetMapping("/users/{userId}/recommended-games")
-    public void getRecommendedGamesForUser(@PathVariable String userId){
+    public List<SolutionEntry> getRecommendedGamesForUser(@PathVariable String userId, @RequestParam int k) {
         var currentUser = userService.getUserById(userId).orElseThrow(ResourceNotFoundException::new);
         var similarUsers = recommendationService.getSimilarUsers(userId);
         SortedMap<GameEntity, Fraction> gameRegistry = new TreeMap<>();
-        for(var similarUser: similarUsers) {
+
+        var usersWithWeight = similarUsers.stream().map(similarUser -> {
             var weight = recommendationService.getWeight(userId, similarUser.getUuid());
-            var uncommonReviews = recommendationService.getUncommonReviewsForOtherUser(userId, similarUser.getUuid());
+            return new UserWithWeight(weight, similarUser.getUuid());
+        }).filter(userWithWeight -> userWithWeight.getWeight() != 0.0).sorted().limit(k).collect(Collectors.toList());
+
+
+        for (var userWithWeight : usersWithWeight) {
+            var weight = userWithWeight.getWeight();
+            var uncommonReviews = recommendationService.getUncommonReviewsForOtherUser(userId, userWithWeight.getId());
             //update scores
-            for(var uncommonReview: uncommonReviews){
+            for (var uncommonReview : uncommonReviews) {
                 var gameEntity = uncommonReview.getOtherGame();
                 var reviewEntity = uncommonReview.getRev();
                 double score = Double.parseDouble(reviewEntity.getScore());
-                double numerator = weight * (score - similarUser.getAverageScore());
+                double numerator = weight * (score - userWithWeight.getAverageScore());
                 double denominator = Math.abs(weight);
-                if (gameRegistry.containsKey(gameEntity)){
+                if (gameRegistry.containsKey(gameEntity)) {
                     Fraction oldFraction = gameRegistry.get(gameEntity);
                     double oldNumerator = oldFraction.getNumerator();
                     double oldDenominator = oldFraction.getDenominator();
@@ -74,14 +84,14 @@ public class GameController {
                 }
             }
         }
-        SortedSet<Map.Entry<GameEntity, Fraction>> solution = new TreeSet<>(new Comparator<Map.Entry<GameEntity, Fraction>>() {
+        return gameRegistry.entrySet().stream().map(entry -> {
+            return new SolutionEntry(entry.getKey(), entry.getValue());
+        }).sorted(new Comparator<SolutionEntry>() {
             @Override
-            public int compare(Map.Entry<GameEntity, Fraction> o1, Map.Entry<GameEntity, Fraction> o2) {
-                return (-1) * o1.getValue().compareTo(o2.getValue());
+            public int compare(SolutionEntry o1, SolutionEntry o2) {
+                return (-1) * Double.compare(o1.getValue(), o2.getValue());
             }
-        });
-        solution.addAll(gameRegistry.entrySet());
-        System.out.println(solution);
+        }).collect(Collectors.toList());
     }
 
 }
