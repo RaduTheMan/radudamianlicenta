@@ -544,9 +544,104 @@ Așadar, cu valorile generate, am creat două fișiere CSV în care rețin 500 d
 
 O observație importantă este că atât pentru utilizator, cât și pentru celelalte entități, am generat și un identificator unic, prin intermediul utilitarului UUID oferit de Java.
 
+\bigskip
+\textbf{Generarea jocurilor}
+\bigskip
+
+Pentru a-mi procura jocurile, m-am folosit de API-ul oferit de cătrei cei de la IGDB.
+
+Pentru a putea utiliza acest API, a fost necesară crearea unui cont pe Twitch, iar prin intermediul acestui cont, mi-am generat un \emph{Client ID} și un \emph{Client Secret}. Cu aceste credențiale, am generat un \emph{token} pe care l-am folosit ca să pot accesa după API-ul menționat. Mai multe detalii pot fi regăsite aici. \cite{16}
+
+În figura următoare, am atașat o bucată de cod prin care se poate observa cum utilizez acest API pentru a procura jocurile.
+
+\begin{figure}[H]
+\centering
+\caption{}
+\includegraphics[scale = 0.6]{exemplu_10_games}
+\caption*{Așadar, acele proprietăți enumerate în proprietatea FIELDS sunt practic cele folosite pentru modelarea entității \emph{Game} din baza de date. Am procurat 300 de jocuri pe care le-am sortat descrescător după proprietatea \emph{follows} pentru a mă asigura că voi lua cele mai populare jocuri cu putință. }
+\end{figure}
+
+După ce am obținut jocurile, am împărțit proprietățile așa cum am menționat la subcapitolul \textbf{Modelarea bazei de date} și am creat 4 fișiere CSV (games.csv, details.csv, visuals.csv, average.csv)
+
+\bigskip
+\textbf{Algoritmul lui Durstenfield}
+\bigskip
+
+Înainte de a trece la secțiunile următoare, am să prezint un algoritm care extrage în mod \emph{random} un număr de \( k\) elemente dintr-o listă cu scopul de a-l folosi în repartizarea jocurilor și a recenziilor cățre fiecare utilizator.
+
+Acest algoritm a fost introdus de către Richard Durstenfield și este o variantă modernizată a aloritmului Fisher-Yates. \cite{16} Aceasta presupune parcurgerea listei(ori de la capăt, ori de la început) și schimbarea elementului curent cu un element ales în mod \emph{random}. Dacă toată lista este parcursă, atunci vom obține o permutare a listei inițiale.
+
+Deoarece avem de extras \( k \) elemente din listă, atunci nu e nevoie să parcurgem toată lista, ci doar primele/ultimele \( k \) elemente. După aceste \( k \) schimbări, putem extrage elementele dorite, ori de la începutul, ori de la sfârșitul listei.
+
+O variantă de implementare a algoritmului în limbajul Java ar putea arăta în felul următor:
+
+\begin{figure}[H]
+\centering
+\caption{}
+\includegraphics[scale = 0.8]{exemplu_11_random}
+\caption*{Complexitatea acestui algoritm este \(\mathcal{O}(n) \), cu condiția ca metoda care alege în mod întâmplător elementul care trebuie schimbat să se facă în complexitate \(\mathcal{O}(1) \) }
+\end{figure}
+
+\bigskip
+\textbf{Repartizarea jocurilor jucate către fiecare utilizator}
+\bigskip
+
+În această secțiune se poate observa deja utilitatea algoritmului menționat anterior. Pentru fiecare utilizator, am ales la întâmplare 20 de jocuri din cele 300 generate, iar aceste asocieri le-am salvat în fișierul plays.csv
+
+Acest fișier arată în felul următor:
+
+\begin{figure}[H]
+\centering
+\caption{}
+\includegraphics[scale = 0.8]{exemplu_12_plays}
+\caption*{De menționat faptul că în coloana id\_games\_played sunt salvate niște liste de uuid-uri. În mod intuitiv, fișierele CSV generate ar putea fi asociate cu tabele dintr-o bază de date relațională. În acest caz, dacă am ignora faptul că id-urile jocurilor sunt reținute sub forma unei liste, am putea asocia conținutul fișierului plays.csv cu o tabelă asociativă. Practic aici se identifică o relație de mai mulți la mai mulți(un utilizator poate avea mai multe jocuri, iar un joc poate fi jucat de mai mulți utilizatori) }
+\end{figure}
+
+\bigskip
+\textbf{Generarea recenziilor și repartizarea acestora către fiecare utilizator}
+\bigskip
+
+În această secțiune, am folosit atât API-ul oferit de Steam pentru a obține recenziile unui joc, dar și fișiere salvate local pentru a încerca să optimizez cât mai mult timpul necesar pentru a fi generate toate fișierele.
+
+Primul pas a fost să salvez într-un fișier local în format JSON jocurile oferite de Steam, sub forma unei liste de obiecte, în care fiecare obiect are două proprietăți:  \emph{appid}(un identificator unic folosit de Steam pentru jocurile sale) și \emph{name}(numele jocului). Scopul acestui fișier este de a încerca să identific dacă jocul procurat inițial de la IGDB API poate fi identificat ca un joc din platforma Steam ca să pot extrage ulterior recenzii relevante acestui joc. (prin intermediul API-ului oferit de Steam). În caz contrar, voi extrage o recenzie aleatoare dintr-un fișier salvat local de tip csv dintr-un set de date oferit de Kaggle. \cite{17}
+
+Al doilea pas a fost să asociez fiecărui utilizator un număr de recenzii pe care le poate oferi din cele 20 de jocuri pe care le-am repartizat. Inițial am extras din cele 20 de jocuri un număr din acestea stabilit în felul următor:
+
+\bigskip
+
+Voi genera un număr întreg în intervalul \([0, 5) \) cu probabilitate de \(0.2 \), și cu probabilitate de \( 0.8 \) un număr în intervalul \([5, 20] \). Motivul pentru care am procedat astfel este ca să sporesc șansele ca doi utilizatori să aibă cât mai multe jocuri în comun la care au făcut recenzii. Am sporit aceste șanse pentru algoritmul de recomandare ce va fi descris într-un capitol ulterior.
+
+În mod intuitiv, acest procedeu poate fi asociat prin alegerea unei urne din 2 disponibile. O urnă are probabilitate \( 0.2 \) de a fi aleasă, iar cealaltă urnă are probabilitate \( 0.8 \). În fiecare urnă, bilele(în cazul nostru numerele întregi) au aceeași probabilitate de a fi alese.(adică urmează o distribuție uniformă).
+
+\bigskip
+
+După ce am determinat acest număr, voi extrage acel număr de jocuri propriu-zis, după care voi încerca să asociez pentru fiecare joc câte o recenzie. 
+
+Pentru a fi mai ușor de explicat, următorii pași îi voi ilustra sub forma unui pseudocod, iar după acest pseudocod va fi prezentat codul propriu-zis în Java, pentru a fi mai ușor de înțeles.
+
+\begin{figure}[H]
+\centering
+\caption{}
+\includegraphics[scale = 0.8]{exemplu_13_review_code}
+\caption*{La o primă vedere, acest procedeu nu este complicat, însă dificultatea constă în extragerea unei recenzii pentru un joc aflat pe platforma Steam, deoarece trebuie gestionată frecvența \emph{request}-urilor care se fac către API-ul care ne oferă recenziile în acest caz. De menționat faptul că acest procedeu se realizează pentru fiecare utilizator.}
+\end{figure}
+
+O modalitate naivă este de a face un \emph{request} de fiecare dată când dorim să asociem o recenzie unui joc, însă numărul de \emph{request-uri} crește cu cât mărim numărul de utilizatori și de jocuri recenzate de fiecare utilizator. În cazul de față, avem \(500\) de utilizatori, iar în cel mai rău caz, pentru fiecare utilizator avem \(20\) de recenzii, deci în total \(10 000 \) de \emph{request}-uri.
+
+Să presupunem că timpul mediu în care s-ar face un request este de \( 20 \) milisecunde.(un timp foarte bun în practică) În total ar dura \( 10 000 \cdot 20 = 200000 \approx 3 \) minute, ceea ce este un timp deloc neglijabil în acest context.
+
+O observație importantă este faptul că un joc căruia i se extrage o recenzie este foarte posibil să se repete atunci când se parcurg utilizatorii. De asemenea, nu suntem constrânși de către API să extragem fix o recenzie, putem extrage mai multe dacă se dorește acest lucru, ceea ce sporește varietatea recenziilor pentru același joc, în cazul în care se repetă.
+
+O structură de date folositoare oferită de limbajul Java pentru a fructifica acest aspect este cea numită \emph{Map}, în care se rețin perechi tip cheie-valoare. În contextul nostru, cheia este un joc, iar valoarea este reprezentată de recenziile jocului, sub forma unui JSON. Inițializarea acestuia ar putea arăta în felul următor:
+
+\begin{verbatim}
+  private final Map<SteamGame, JsonNode> reviewsRegistry = new HashMap<>();
+\end{verbatim}
 
 
-\section{Implementare}
+\section{Back-end}
+\section{Algoritmul de recomandare}
+\section{Front-end}
 \section{Manual de utilizare}
 \section{Concluzii}
 
@@ -651,6 +746,18 @@ O observație importantă este că atât pentru utilizator, cât și pentru cele
   \textit{Hashing a Password in Java}
   
   \url{https://www.baeldung.com/java-password-hashing}
+  
+  \bibitem{16}
+  
+  \textit{Fisher–Yates shuffle}
+  
+  \url{https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle}
+  
+  \bibitem{17}
+  
+  \textit{Steam Game Review Dataset}
+  
+  \url{https://www.kaggle.com/datasets/arashnic/game-review-dataset}
 
 \end{thebibliography}
 
