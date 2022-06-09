@@ -30,7 +30,7 @@ public class User {
         this.username = username;
         this.email = email;
         this.originalPassword = original_password;
-        this.hashedPassword = PasswordUtil.generateHashedPassword(this.originalPassword);
+        this.hashedPassword = PasswordUtil.getInstance().generateHashedPassword(this.originalPassword);
         this.id = UUID.randomUUID().toString();
     }
 

@@ -1,26 +1,26 @@
 package com.org.example;
 
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
-import java.security.NoSuchAlgorithmException;
-import java.security.SecureRandom;
-import java.security.spec.InvalidKeySpecException;
-import java.security.spec.KeySpec;
-import org.apache.commons.codec.binary.Hex;
+import org.springframework.security.crypto.password.Pbkdf2PasswordEncoder;
+
+import static org.springframework.security.crypto.password.Pbkdf2PasswordEncoder.SecretKeyFactoryAlgorithm.PBKDF2WithHmacSHA1;
 
 public class PasswordUtil {
-    public static String generateHashedPassword (String originalPassword) {
-        SecureRandom random = new SecureRandom();
-        byte[] salt = new byte[16];
-        random.nextBytes(salt);
-        KeySpec spec = new PBEKeySpec(originalPassword.toCharArray(), salt, 65536, 128);
-        try {
-            SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-            byte[] hash = factory.generateSecret(spec).getEncoded();
-            return Hex.encodeHexString(hash);
-        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-            e.printStackTrace();
-            return "";
-        }
+
+    private final Pbkdf2PasswordEncoder encoder;
+    private static PasswordUtil instance = null;
+
+    private PasswordUtil() {
+        encoder = new Pbkdf2PasswordEncoder();
+        encoder.setAlgorithm(PBKDF2WithHmacSHA1);
+    }
+
+    public static PasswordUtil getInstance() {
+        if (instance == null)
+            instance = new PasswordUtil();
+        return instance;
+    }
+
+    public String generateHashedPassword (String originalPassword) {
+        return encoder.encode(originalPassword);
     }
 }
