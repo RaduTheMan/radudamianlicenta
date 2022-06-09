@@ -282,8 +282,8 @@ Scopul acestei aplicații este de a oferi o soluție în a contracara cantitatea
 
 
 
-\section{Analiză și proiectare}
-\subsection{Baza de date}
+\section{Baza de date}
+\subsection{Introducere}
 
 Tipul de stocare ales este cel oferit de Neo4j, în care se prezintă o abordare NoSQL de tip graf.  Comparativ cu o bază de date relațională, în care datele sunt stocate prin intermediul unor înregistrări(tuple) în tabele, în Neo4j datele sunt stocate prin intermediul nodurilor și muchiilor.
 
@@ -638,8 +638,88 @@ O structură de date folositoare oferită de limbajul Java pentru a fructifica a
   private final Map<SteamGame, JsonNode> reviewsRegistry = new HashMap<>();
 \end{verbatim}
 
+Așadar, dacă jocul există deja în această structură de date, atunci voi extrage o recenzie deja stocată. În caz contrar, voi face un \emph{request} pentru a obține recenziile.
+
+Codul implementat în Java arată în felul următor:
+
+\begin{figure}[H]
+\centering
+\caption{}
+\includegraphics[scale = 0.7]{exemplu_14_review_code_java}
+\caption*{Se poate observa folosirea proprietății \emph{votedUp}, pusă la dispoziție de către API-ul responsabil de recenzii de la Steam, prin care verific dacă acea recenzie a fost pozitivă sau negativă. În funcție de acest verdict, încerc să generez un scor care să reflecte cât mai mult realitatea.}
+\end{figure}
+
+Așadar, acesta este submodulul care se ocupă de generarea fișierelor CSV necesare pentru a putea importa conținutul acestora în baza de date.
+
+\subsection{Importarea conținutului fișierelor CSV în baza de date}
+
+Modul prin care sunt importate aceste date este prin intermediul limbajului Cypher, mai concret prin comanda \texttt{LOAD CSV} ce face parte din acest limbaj \cite{18}.
+
+Un exemplu de cod în Cypher în care îmi creez recenziile generate poate fi acesta:
+
+\begin{figure}[H]
+\centering
+\begin{BVerbatim}
+LOAD CSV WITH HEADERS
+FROM 'file:///reviews.csv'
+AS line
+MATCH(u:User {id: line.id_user})
+MATCH(g:Game {id: line.id_game})
+MERGE(r:Review {id: line.id_review})
+    ON CREATE SET r.score = line.score,
+                  r.content = line.content,
+                  r.time = line.time
+MERGE (u)-[:MAKES]->(r)-[:ON]->(g)
+\end{BVerbatim}
+\caption*{Un element de noutate este reprezentat de clauza \texttt{MERGE}. Prin aceasta putem verifica, în acest caz, dacă nodul \emph{Review} a fost creat sau există deja. În cazul în care este creat, atunci vor fi setate proprietățile aferente. În cazul în care acest cod ar fi rulat a doua oară(fără alte modificări în prealabil), atunci nu va fi creat niciun nod nou, deci practic nu va mai avea niciun efact.}
+\end{figure}
+
+De-a lungul timpului cât am dezvoltat acest submodul de generare a fișierelor CSV, am întâmpinat uneori dificultăți care au făcut necesare ștergerea datelor din baza de date și reintroducerea acestora cu modificările aferente. Pentru a ușura acest proces, Neo4j oferă prin intermediul panoului de comandă o secțiune prin care se pot marca coduri în Cypher ca favorite și pot fi executate ori de câte ori este nevoie.
+
+Practic, mi-am salvat o serie de coduri în secțiunea de favorite pe care le pot executa în ordine atunci când este nevoie. 
+
+\begin{figure}[H]
+\centering
+\caption{}
+\includegraphics[scale = 0.8]{exemplu_15_favorites}
+\caption*{}
+\end{figure}
+
+În ceea ce privește ștergerea întregului conținut al bazei de date, aceasta trebuie făcută cu grijă. Neo4j recomandă mai multe alternative prin care acest procedeu poate fi făcut utilizându-se cele mai bune practici, pentru a evita efecte secundare neplăcute. \cite{19}
+
+Varianta pentru care am optat este următoarea:
+
+\begin{figure}[H]
+\centering
+\begin{BVerbatim}
+CALL apoc.periodic.iterate(
+"MATCH (n) return id(n) as id",
+"MATCH (n) WHERE id(n) = id DETACH DELETE n", 
+{batchSize: 10000}
+)
+YIELD batches, total RETURN batches, total
+\end{BVerbatim}
+\caption*{Practic, prin intermediul librăriei APOC, șterg toate nodurile(cu tot cu relațiile asociate) în grupuri de câte 10000 de noduri.}
+\end{figure}
+
+După ce am importat datele, putem interacționa cu acestea prin intermediul panoului de comandă ca să se poată verifica dacă datele au fost întradevăr, introduse corect.
+
+Una din modalitățile interesante prin care putem verifica asta este dacă schema bazei de date care a fost descrisă în subcapitolul \textbf{4.3 Modelarea bazei de date } se potrivește cu cea pe care o putem vizualiza în mod interactiv prin intermediul comenzii \texttt{CALL db.schema.visualization()}
+
+Rezultatul acestei comenzi este reprezentat în figura de mai jos:
+
+\begin{figure}[H]
+\centering
+\caption{}
+\includegraphics[scale = 0.7]{exemplu_16_schema}
+\caption*{}
+\end{figure}
+
+
 
 \section{Back-end}
+
+\subsection{De ce Spring Boot?}
 \section{Algoritmul de recomandare}
 \section{Front-end}
 \section{Manual de utilizare}
@@ -758,6 +838,18 @@ O structură de date folositoare oferită de limbajul Java pentru a fructifica a
   \textit{Steam Game Review Dataset}
   
   \url{https://www.kaggle.com/datasets/arashnic/game-review-dataset}
+  
+  \bibitem{18}
+  
+  \textit{Importing CSV Data into Neo4j}
+  
+  \url{https://neo4j.com/developer/guide-import-csv/}
+  
+  \bibitem{19}
+  
+  \textit{Large Delete Transaction Best Practices in Neo4j}
+  
+  \url{https://neo4j.com/developer/kb/large-delete-transaction-best-practices-in-neo4j/}
 
 \end{thebibliography}
 

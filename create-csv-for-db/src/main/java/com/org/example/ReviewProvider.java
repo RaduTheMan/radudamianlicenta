@@ -40,7 +40,13 @@ public class ReviewProvider {
                 var playedGames = user.getPlayedGames();
                 var reviewedGames = RandomUtil.pickNRandomUsers(playedGames, nrReviewsMade, ThreadLocalRandom.current());
                 for (var reviewedGame : reviewedGames) {
-                    var maybeSteamGame = steamGames.stream().filter(steamGame -> steamGame.getName().startsWith(reviewedGame.getName())).sorted().findFirst();
+                    var maybeSteamGame = steamGames
+                                                            .stream()
+                                                            .filter(steamGame -> steamGame
+                                                                                 .getName()
+                                                                                 .startsWith(reviewedGame.getName()))
+                                                            .sorted()
+                                                            .findFirst();
                     String review = "";
                     int score = ThreadLocalRandom.current().nextInt(1, 11);
                     String time = faker.date().past(faker.random().nextInt(1, 1000), TimeUnit.DAYS).toString();
