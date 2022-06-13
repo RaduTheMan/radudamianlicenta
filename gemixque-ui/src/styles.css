@@ -6,3 +6,7 @@ html, body {
 .doubled-icon-size {
   transform: scale(2);
 }
+
+.red-snackbar {
+  background-color: crimson;
+}

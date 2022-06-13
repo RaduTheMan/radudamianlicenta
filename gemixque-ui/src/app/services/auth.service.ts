@@ -10,6 +10,7 @@ import { User } from '../shared/types/user';
 export class AuthService {
 
   isLoggedIn = false;
+  tryingToLogin = false;
   tokenWrapper?: {token: string, uuid: string };
 
   constructor(private readonly httpClient: HttpClient, private readonly configuration: ConfigurationService) {}

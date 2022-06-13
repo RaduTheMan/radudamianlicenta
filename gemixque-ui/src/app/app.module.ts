@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtModule } from '@auth0/angular-jwt';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 const pages = [
@@ -33,6 +34,7 @@ const pages = [
     ReactiveFormsModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    NgbModule,
     SharedModule,
   ],
   providers: [],

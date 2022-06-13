@@ -10,7 +10,7 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
   title = 'gemixque-ui';
-  constructor(private readonly authService: AuthService) {
+  constructor(readonly authService: AuthService) {
     const data = localStorage.getItem('userData');
     if (data) {
       const helper = new JwtHelperService();

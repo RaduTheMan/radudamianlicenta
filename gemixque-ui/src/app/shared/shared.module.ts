@@ -5,9 +5,10 @@ import { AppRoutingModule } from '../app-routing.module';
 import { MaterialModule } from '../material';
 import { GameSummaryComponent, HeaderComponent } from './components';
 import { LoginDropdownComponent } from './components/header';
+import { SpinnerComponent } from './components/spinner';
 
-const components = [HeaderComponent, LoginDropdownComponent, GameSummaryComponent];
-const exportedComponents = [HeaderComponent, GameSummaryComponent];
+const components = [HeaderComponent, LoginDropdownComponent, GameSummaryComponent, SpinnerComponent];
+const exportedComponents = [HeaderComponent, GameSummaryComponent, SpinnerComponent];
 
 @NgModule({
     declarations: [...components],

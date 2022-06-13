@@ -1,2 +1,6 @@
 <app-header></app-header>
-<router-outlet></router-outlet>
+<router-outlet *ngIf="authService.tryingToLogin === false"></router-outlet>
+
+<div *ngIf="authService.tryingToLogin" class="d-flex justify-content-center h-100">
+    <app-spinner [ngClass]="'my-auto'"></app-spinner>
+</div>
