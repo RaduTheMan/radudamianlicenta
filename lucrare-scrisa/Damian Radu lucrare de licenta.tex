@@ -719,7 +719,28 @@ Rezultatul acestei comenzi este reprezentat în figura de mai jos:
 
 \section{Back-end}
 
-\subsection{De ce Spring Boot?}
+\subsection{De ce Java? De ce Spring Boot?}
+
+Soluția aleasă pentru a stoca datele este una relativ de nișă, având în vedere caracteristica de NoSql a bazei de date Neo4j, dar și de faptul că are la bază o reprezentare de tip graf. Așadar, studiind soluțile oferite din această documentație \cite{20} legată de limbajele suportate de Neo4j, am observat că Java este singurul limbaj în care Neo4j oferă capabilitatea de a mapa nodurile ce se regăsesc în baza de date în entități, ceea ce oferă un mod de lucru facil cu o perspectivă de ansamblu mult mai mare, în comparație cu un \emph{driver} în care modul de lucru este unul mult mai elaborat. Această soluție se numește \emph{Spring Data Neo4j}. \cite{21}
+
+Având în vedere faptul că capabilitățile de a lucra mult mai facil cu baza de date se regăsesc în suita Spring, am ales să utilizez Spring Boot pentru a implementa serverul de back-end. Faptul că am avut o introducere în acest \emph{framework} în cadrul materiei \emph{Programare avansată} din anul 2 semestrul 2 de studiu mi-a dat un punct de pornire consistent pentru a dezvolta această parte de back-end.
+
+\subsection{Arhitectură}
+
+Înainte de a trece la prezentarea mai în amănunt a soluției de back-end, în figura următoare va fi ilustrată arhitectura generală a aplicației.
+
+
+\begin{figure}[H]
+\centering
+\caption{}
+\includegraphics[scale = 0.5]{exemplu_17_diagrama_c4_nivel_1.drawio}
+\caption*{Diagramă C4 nivelul 1}
+\end{figure}
+
+\subsection{Modelarea nodurilor în entități}
+
+Așa cum am menționat la introducerea acestui capitol, soluția folosită pentru a mapa nodurile în entități este cea oferită de \emph{Spring Data Neo4j}.
+
 \section{Algoritmul de recomandare}
 \section{Front-end}
 \section{Manual de utilizare}
@@ -850,6 +871,18 @@ Rezultatul acestei comenzi este reprezentat în figura de mai jos:
   \textit{Large Delete Transaction Best Practices in Neo4j}
   
   \url{https://neo4j.com/developer/kb/large-delete-transaction-best-practices-in-neo4j/}
+  
+  \bibitem{20}
+  
+  \textit{Drivers \& Language Guides}
+  
+  \url{https://neo4j.com/developer/language-guides/}
+  
+  \bibitem{21}
+  
+  \textit{Spring Data Neo4j}
+  
+  \url{https://neo4j.com/developer/spring-data-neo4j/}
 
 \end{thebibliography}
 
