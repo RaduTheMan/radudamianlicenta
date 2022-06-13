@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -7,9 +8,10 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  constructor(readonly authService: AuthService) { }
+  constructor(readonly authService: AuthService, private readonly router: Router) { }
 
   onLogout(): void {
     this.authService.onLogout();
+    this.router.navigate(['']);
   }
 }

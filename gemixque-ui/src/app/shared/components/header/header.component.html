@@ -28,9 +28,9 @@
         <li class="nav-item" *ngIf="authService.isLoggedIn">
           <a class="nav-link" routerLink="profile">Profile</a>
         </li>
-        <li class="nav-item dropdown" *ngIf="!authService.isLoggedIn">
+        <!-- <li class="nav-item dropdown" *ngIf="!authService.isLoggedIn">
           <a class="nav-link" routerLink="sign-up">Sign up</a>
-        </li>
+        </li> -->
         <li class="nav-item dropdown">
           <app-login-dropdown></app-login-dropdown>
         </li>

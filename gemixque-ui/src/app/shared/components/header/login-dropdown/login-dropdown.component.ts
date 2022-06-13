@@ -14,15 +14,21 @@ export class LoginDropdownComponent {
 
   constructor(readonly authService: AuthService) {
     this.formGroup = new FormGroup({
-      username: new FormControl('libbie.dickinson', [Validators.required, Validators.pattern(usernamePattern)]),
-      password: new FormControl('8F93C729', [Validators.required, Validators.pattern(passwordPattern)]),
-      rememberMe: new FormControl(null)
+      username: new FormControl(null, [Validators.required, Validators.pattern(usernamePattern)]),
+      password: new FormControl(null, [Validators.required, Validators.pattern(passwordPattern)])
     });
   }
 
   onLogin(): void {
     this.ref.nativeElement.click();
-    this.authService.onLogin();
+    const data = this.formGroup.getRawValue();
+    this.authService.onLogin(data).subscribe(response => {
+        const token = response.accessToken;
+        const uuid = response.uuid;
+        this.authService.tokenWrapper = { token, uuid };
+        this.authService.isLoggedIn = true;
+        localStorage.setItem('userData', JSON.stringify(this.authService.tokenWrapper));
+    });
     // console.log(this.formGroup.getRawValue());
   }
 }

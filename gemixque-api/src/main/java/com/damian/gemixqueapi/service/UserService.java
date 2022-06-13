@@ -1,5 +1,7 @@
 package com.damian.gemixqueapi.service;
 
+import com.damian.gemixqueapi.auth.UserDetailsWithUuidInterface;
+import com.damian.gemixqueapi.auth.UserWithUuid;
 import com.damian.gemixqueapi.projection.user.GetFollowersInterfaceProjection;
 import com.damian.gemixqueapi.projection.user.GetFollowingInterfaceProjection;
 import com.damian.gemixqueapi.projection.user.UserInterfaceProjection;
@@ -47,11 +49,11 @@ public class UserService implements UserDetailsService {
     }
 
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+    public UserDetailsWithUuidInterface loadUserByUsername(String username) throws UsernameNotFoundException {
         var userDetailsObj =  userRepository.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User with username: " + username + " not found."));
 
         List<GrantedAuthority> authorities = new ArrayList<>(); //no authorities
-        return new User(userDetailsObj.getUsername(), userDetailsObj.getPassword(), authorities);
+        return new UserWithUuid(userDetailsObj.getUsername(), userDetailsObj.getPassword(), userDetailsObj.getUuid(), authorities);
     }
 }

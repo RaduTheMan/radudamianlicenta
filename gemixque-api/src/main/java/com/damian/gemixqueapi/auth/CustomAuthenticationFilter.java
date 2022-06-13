@@ -50,7 +50,7 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
 
     @Override
     protected void successfulAuthentication(HttpServletRequest request, HttpServletResponse response, FilterChain chain, Authentication authResult) throws IOException, ServletException {
-        User user = (User)authResult.getPrincipal();
+        UserWithUuid user = (UserWithUuid)authResult.getPrincipal();
         Algorithm algorithm = Algorithm.HMAC256("hardcoded-secret".getBytes());
         String accessToken = JWT.create()
                 .withSubject(user.getUsername())
@@ -60,7 +60,8 @@ public class CustomAuthenticationFilter extends UsernamePasswordAuthenticationFi
         response.setHeader("accessToken", accessToken);
         var gson = new Gson();
         Map<String, String> token = new HashMap<>();
-        token.put("access_token", accessToken);
+        token.put("accessToken", accessToken);
+        token.put("uuid", user.getUuid());
         response.setContentType(APPLICATION_JSON_VALUE);
         var writer = response.getWriter();
         writer.print(gson.toJson(token));

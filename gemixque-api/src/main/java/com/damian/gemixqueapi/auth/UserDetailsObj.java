@@ -5,6 +5,7 @@ public class UserDetailsObj implements UserDetailsProjection{
     private String username;
     private String password;
 
+
     public UserDetailsObj() {
     }
 

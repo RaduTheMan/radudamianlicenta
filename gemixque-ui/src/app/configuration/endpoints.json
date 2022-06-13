@@ -12,5 +12,7 @@
     "commentsMadeOnReview": "/reviews/$/comments",
     "followersOfUser": "/users/$/followers",
     "followingOfUser": "/users/$/following",
-    "usersLikedOnReview": "/reviews/$/likes"
+    "usersLikedOnReview": "/reviews/$/likes",
+    "recommendedGamesOfUser": "/users/$/recommended-games",
+    "login": "/login"
 }
