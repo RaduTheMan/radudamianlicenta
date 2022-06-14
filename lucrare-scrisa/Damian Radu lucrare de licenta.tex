@@ -200,7 +200,7 @@ Sunt profund recunoscător pentru sprijinul necondiționat oferit de părinții 
 \hfill \break
 \end{flushright}
 \begin{flushright}
-De asemenea, îi mulțumesc domnului prof. dr Frăsinaru Cristian, îndrumător al lucrării de licență, pentru sfaturile, resursele, și încrederea oferită de-a lungul perioadei în care am lucrat pentru această lucrare.
+De asemenea, îi mulțumesc domnului prof. dr Frăsinaru Cristian, îndrumător al lucrării de licență, pentru sfaturile, resursele, și încrederea oferită de-a lungul perioadei în care am lucrat pentru licență.
 \end{flushright}
 
 \newpage
@@ -272,11 +272,25 @@ Pentru modulul de generare al datelor de intrare:
 
 
 \section{Scopuri și cerințe ale aplicației}
-\subsection{Scopul documentului}
-Scopul acestui document este de a ilustra modul în care funcționează un sistem de recomandări de jocuri video sub forma unei rețele sociale.
-\subsection{Publicul țintă}
-Acest document este destinat atât cititorilor avizați(e.g. profesori universitari) pentru a afla de exemplu soluțiile utilizate în cadrul capitolului 4 \textbf{Analiză și proiectare} , sau modul de implementare a aplicației în capitolul 5 \textbf{Implementare}, cât și cititorilor neavizați(utilizatori obișnuiți), care se pot informa în legătură cu modul în care pot interacționa cu site-ul în capitolul 6 \textbf{Manual de utilizare}.
-\subsection{Scopul aplicației}
+
+\bigskip
+\textbf{Scopul documentului}
+\bigskip
+
+Scopul acestui document este de a ilustra modul în care funcționează un sistem de recomandări de jocuri video sub forma unei aplicații web având ca soluție de stocare o bază de date de tip graf NoSql.
+
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+\textbf{Publicul țintă}
+\bigskip
+
+Acest document este destinat atât cititorilor avizați(e.g. profesori universitari) pentru a afla de exemplu soluțiile utilizate în cadrul capitolelor 4, 5 sau 6, \textbf{Baza de date}, \textbf{Back-end} respectiv \textbf{Algoritmul de recomandare}, cât și cititorilor neavizați(utilizatori obișnuiți), care se pot informa în legătură cu modul în care pot interacționa cu site-ul în capitolul 8 \textbf{Manual de utilizare}.
+
+\bigskip
+\textbf{Scopul aplicației}
+\bigskip
 Scopul acestei aplicații este de a oferi o soluție în a contracara cantitatea masivă de informații ce se regăsește pe internet \cite{5} în ceea ce privește multitudinea de jocuri video, prin a dezvolta un sistem de recomandări care să faciliteze decizia unui utilizator legat de ce joc să aleagă.  
 
 
@@ -538,7 +552,7 @@ Din intenția de a-mi modela baza de date după bunul meu plac, nu am vrut să o
 \textbf{Generarea utilizatorilor}
 \bigskip
 
-Pentru a-mi genera utilizatorii fictivi ai aplicației, am apelat la librăria Java Faker. Aceasta m-a ajutat ca să generez nume de utilizator, parole și adrese de e-mail. În ceea ce privește parolele, am generat prin intermediul acestei librării un șir de caractere \emph{random} format din 8 caractere, ce conține cifre și litere. De asemenea, pe această parolă am aplicat o funcție hash, cu scopul de a fi folosită atunci când un utilizator se loghează în aplicație, pentru a avea un strat de securitate în acest caz. Am ales să utilizez algoritmul PBKDF2 în convertirea parolei deoarece este o variantă sigură. \cite{15}
+Pentru a-mi genera utilizatorii fictivi ai aplicației, am apelat la librăria Java Faker. Aceasta m-a ajutat ca să generez nume de utilizator, parole și adrese de e-mail. În ceea ce privește parolele, am generat prin intermediul acestei librării un șir de caractere \emph{random} format din 8 caractere, ce conține cifre și litere. De asemenea, pe această parolă am aplicat o funcție hash, cu scopul de a nu fi stocată parola originală în baza de date, deci pentru a avea un strat de securitate în acest caz. Am ales să utilizez algoritmul PBKDF2 în convertirea parolei deoarece este o variantă sigură. \cite{15}
 
 Așadar, cu valorile generate, am creat două fișiere CSV în care rețin 500 de utilizatori(un fișier cu parolele originale, celălalt cu parolele convertite prin funcția hash)
 
@@ -741,7 +755,106 @@ Având în vedere faptul că capabilitățile de a lucra mult mai facil cu baza 
 
 Așa cum am menționat la introducerea acestui capitol, soluția folosită pentru a mapa nodurile în entități este cea oferită de \emph{Spring Data Neo4j}.
 
+Această mapare presupune reprezentarea nodurilor din schema bazei de date (\emph{User}, \emph{Review} și \emph{Game}) sub forma unor clase(entități) care pot fi utilizate pe partea de back-end. O instanță a acestei clase reprezintă practic un nod din baza de date.
+
+La baza acestor mapări stau adnotările, iar cele care au fost utilizate în cadrul aplicației în mod frecvent sunt: \emph{@Id}, \emph{@Property}, \emph{@Relationship}. Pentru a explica utilizarea lor, va fi reprezentată următoarea figură:
+
+\begin{figure}[H]
+\centering
+\caption{}
+\includegraphics[scale = 0.8]{exemplu_18_adnotari}
+\caption*{Entitatea \emph{Game}}
+\end{figure}
+
+În primul rând, se observă adnotarea clasei \emph{GameEntity} cu \emph{@Node("Game")}, care asociază reprezentarea acestei clase cu cea a nodului din schema bazei de date etichetat cu "Game".
+
+Cu adnotarea \emph{@Id} se specifică proprietatea care identifică în mod unic o entitate. Având în vedere faptul că se utilizează \emph{uuid}-uri, adnotarea \emph{@GeneratedValue} ajută la specificarea unui generator care face în mod automat un \emph{uuid}, un aspect util atunci când se instanțiază o nouă entitate, de exemplu.
+
+Adnotarea \emph{@Property} este utilă pentru a asocia proprietățile corespunzătoare nodurilor din schema bazei de date cu proprietățile din această clasă.(e.g. proprietățile \emph{title}, \emph{genres}, \emph{firstReleaseYear})
+
+Adnotarea \emph{@Relationship} este utilă atunci când se dorește ținerea în evidență a relațiilor pe care le poate avea entitatea definită cu celelalte entități. În acest caz, cum nodul \emph{Game} are cele trei noduri \emph{Visuals}, \emph{Details} și \emph{Average} care îl extind pe acesta, se poate observa în mod intuitiv utilizarea acestei adnotări. O relație este definită prin intermediul unui tip și al unei direcții("înspre" entitatea definită, sau "în afara" entității.) De asemenea, se observă ținerea în evidență a recenziilor care s-au făcut asupra jocului.
+
+O observație importantă în ceea ce privește încărcarea datelor asociate unei relații, este faptul că aceasta se face doar atunci când este în mod explicit nevoie. De exemplu, dacă am dori să obținem o entitate \emph{GameEntity} în funcție de \emph{uuid}, atunci datele obținute sunt doar cele aferente proprietăților(adică nu se vor încărca datele asociate nodurilor \emph{Visuals}, \emph{Details} și \emph{Average}) pentru un plus de performanță.
+
+Pentru a avea mai mult control asupra datelor ce se doresc a fi obținute, va fi prezentată secțiunea următoare.
+
+\subsection{Interfața Repository și conceptul de Interface Projection}
+
+Scopul interfeței Repository este de a oferi un mod abstract și facil prin intermediul căruia este implementat un strat de acces care poate fi utilizat pentru a reduce în mod semnificativ codul implementat în interacționarea cu datele. \cite{22}
+
+Această interfață este definită în mod generic, luând doi parametrii: numele entității care va fi prelucrată și tipul de date al identificatorului(în cazul de față \emph{String})
+
+Metodele specifice acestei interfețe fac parte din repertoriul CRUD(Create, Read, Update, Delete.)
+
+Un exemplu de definire a acestei entități poate fi observat în figura următoare:
+
+\begin{figure}[H]
+\centering
+\caption{}
+\includegraphics[scale = 0.8]{exemplu_19_repository}
+\caption*{Interfața de tip \emph{Neo4jRepository} specifică entității \emph{GameEntity}}
+\end{figure}
+
+În mod convențional, metodele sunt numite astfel încât să se poată observa tipul operației, folosindu-se cuvinte cheie precum \emph{find}, \emph{by}, \emph{save}, iar implementarea acestora se face în mod automat la \emph{runtime}. În exemplul din figură, metodele sunt de tipul Read: una pentru a obține toate jocurile stocate, una pentru a obține un joc după un \emph{uuid}, și una pentru a obține jocurile prin intermediul paginării(de exemplu: o pagină de 5 jocuri)
+
+Se oferă suport și pentru definirea unor metode \emph{custom} în cazul în care este nevoie de obținerea unui rezultat în urma unei interogări în limbajul \emph{Cypher}, însă mai multe detalii legat de acest aspect se pot regăsi în capitolul 6 \textbf{Algoritmul de recomandare}.
+
+De asemenea, se poate observa apariția conceptului de \emph{Interface Projection}, prin care se poate preciza prin intermediul unei interfețe ce date să fie prelucrate dintr-o entitate. 
+
+În cazul de față, să presupunem că dorim să avem pentru entiatea \emph{GameEntity} și acele date care extind nodul \emph{Game} aferent din baza de date (\emph{Visuals}, \emph{Details} și \emph{Average}). Așadar, putem să ne definim o interfață(de exemplu cu numele de \emph{GameInterfaceProjection}) care precizează datele de care avem nevoie. Aceasta arată în felul următor:
+
+\begin{figure}[H]
+\centering
+\caption{}
+\includegraphics[scale = 1]{exemplu_20_interface_projection}
+\caption*{Un lucru interesant de menționat este faptul că aceste proiecții pot fi definite în mod recursiv. În cazul de față, \emph{Visuals}, \emph{Details} și \emph{Average} sunt de asemenea entități, și datele acestora pot fi controlate separat prin intermediul unui \emph{Interface Projection} specific.}
+\end{figure}
+
+
+\subsection{REST API}
+
+Modul prin care funcționalitățile de pe back-end sunt expuse spre a fi folosite de către serverul de front-end este prin intermediul unui REST API, în care resursele oferite sunt reprezentate sub format JSON.
+
+Expunerea acestor funcționalități s-a făcut prin intermediul \emph{Controller}-elor: \emph{UserController}, \emph{GameController} și \emph{ReviewController}. Acestea utilizează în mod intern servicii implementate care se utilizează de metodele din \emph{repository}. De exemplu, se poate regăsi în figura de mai jos modul cum a fost definit \emph{ReviewController}:
+
+\begin{figure}[H]
+\centering
+\caption{}
+\includegraphics[scale = 0.7]{exemplu_21_review_controller}
+\caption*{}
+\end{figure}
+
+Adnotările sunt și în acest caz destul de sugestive. Practic, sunt definite mai multe \emph{request-uri} de tipul GET ce pot fi accesate prin intermediul protocolului HTTP. Acestea au rolul de a oferi resurse(recenzii), mai concret ori toate recenziile disponibile, ori o recenzie în funcție de id, ori toate recenziile făcute de un utilizator, ori toate recenziile făcute asupra unui joc.
+
+Adnotarea \emph{@Autowired} denotă faptul că instanța serviciului \emph{ReviewService} este injectată spre a fi folosită în acest controller. Acest aspect ilustrează conceptul de \emph{Dependency Injection}, care are ca scop reducerea cuplării. \cite{23}
+
+Acest serviciu este responsabil de procurarea datelor necesare prin intermediul \emph{repository-urilor} definite.
+
+Modul cum a fost implementat se regăsește în următoarea figură:
+
+\begin{figure}[H]
+\centering
+\caption{}
+\includegraphics[scale = 0.65]{exemplu_22_review_service}
+\caption*{}
+\end{figure}
+
+Se poate observa că implementarea propriu-zisă este aproape trivială în acest caz.
+
+
+
+
+
+\subsection{Modulul de autentificare al utilizatorilor}
+
+Acest modul are un scop relativ simplu, fiind reprezentat de valorificarea fișierului csv în care sunt reținute parolele convertite de funcția hash, dar și de a persista starea de logare a utilizatorului pe partea de front-end a aplicației, prin intermediul unui JWT token. \cite{24}
+
+Implementarea acestuia reprezintă doar un punct de pornire, căci poate fi extins și prin introducerea autorizării, în care anumite \emph{request-uri} din API pot fi autorizate în funcție de rolul pe care îl are utilizatorul prin intermediul token-ului menționat anterior. Totuși, pentru scopul în mare al proiectului, acela de a observa cum se poate rezolva problema recomandării unor jocuri video, acest aspect de autentificare/autorizare nu a fost atins foarte în detaliu.  
+
 \section{Algoritmul de recomandare}
+
+\subsection{Introducere}
+
 \section{Front-end}
 \section{Manual de utilizare}
 \section{Concluzii}
@@ -883,6 +996,27 @@ Așa cum am menționat la introducerea acestui capitol, soluția folosită pentr
   \textit{Spring Data Neo4j}
   
   \url{https://neo4j.com/developer/spring-data-neo4j/}
+  
+  \bibitem{22}
+  
+  \textit{Working with Spring Data Repositories}
+  
+  \url{https://docs.spring.io/spring-data/neo4j/docs/current/reference/html/#repositories}
+  
+  \bibitem{23}
+  
+  \textit{Spring Dependency Injection}
+  
+  \url{https://www.baeldung.com/spring-dependency-injection}
+  
+  \bibitem{24}
+  
+  \textit{Introduction to JSON Web Tokens}
+  
+  \url{https://jwt.io/introduction}
+  
+  
+
 
 \end{thebibliography}
 
