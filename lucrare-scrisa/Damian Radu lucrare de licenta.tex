@@ -897,9 +897,46 @@ Implementarea acestuia reprezintă doar un punct de pornire, căci poate fi exti
 
 Pentru a implementa acest modul, am utilizat funcționalitățile oferite de \emph{Spring Security}. \cite{25}
 
+În general, o aplicație web Spring are la bază un \emph{Dispatcher Servlet}, care, în mod intuitiv conform numelui, acționează ca un dispecer care verifică ce \emph{request} s-a făcut și îl asociază cu unul definit în cadrul unui metode din \emph{Controller}. \cite{26}
+
+Totuși, nu am menționat niciun aspect legat de securitate, iar de acest lucru se ocupă \emph{Spring Security}, care în linii mari include posibilitatea de a adăuga unul sau mai multe filtre înainte de a acționa acel \emph{Dispatcher Servlet}.
+
+Pentru a stabili aceste filtre, am suprascris anumite metode din cadrul clasei abstracte \emph{WebSecurityConfigurerAdapter} în clasa numită \emph{WebSecurityConfig} în felul următor:
+
+\begin{figure}[H]
+\centering
+\caption{}
+\includegraphics[scale = 0.7]{exemplu_23_security}
+\caption*{}
+\end{figure}
+
+În stadiul actual, practic orice \emph{request} are cale liberă spre a fi folosit, însă acest lucru poate fi bineînțeles schimbat ulterior prin autorizarea \emph{request}-urilor în funcție de rolurile utilizatorului.
+
+De asemenea, a fost implementat un \emph{userService} care are rolul de a prelua un utilizator după \emph{username}-ul său.
+
+Punctul de interes îl reprezintă acel \emph{CustomAuthenticationFilter} care prelucrează credențialele
+(numele de utilizator și parola) din cadrul \emph{request}-ului care se ocupă de autentificarea unui utilizator, și acționează corespunzător dacă autentificarea s-a efectuat cu succes sau nu. În caz pozitiv, acest \emph{request} va furniza un JWT token ce va fi folosit de către aplicația de front-end pentru a persista logarea utilizatorului.
+
+O variantă de implementare concretă a furnizării acelui \emph{token} poate fi următoarea:
+
+
+\begin{figure}[H]
+\centering
+\caption{}
+\includegraphics[scale = 0.75]{exemplu_24_jwt}
+\caption*{}
+\end{figure}
+
+De menționat faptul că acel secret care este pus manual pentru a fi folosit în semnarea \emph{token}-ului prin intermediul algoritmului HMAC nu este o metodă bună în practică(în contextul unei eventuale lansări ipotetice a aplicației în producție), însă în scopul de față, acest aspect nu reprezintă un inconvenient major.
+
+
+\newpage
+
+
+
 \section{Algoritmul de recomandare}
 
-Documentația pe care am consultat-o în scopul implementării acestui algoritm constă într-un curs de pe Udemy. \cite{26} Chiar dacă în acest curs noțiunile sunt prezentate având ca limbaj suport Python, intenția mea a fost de a înțelege mai degrabă conceptele și de a le implementa utilizând limbajul Java și baza de date Neo4j.
+Documentația pe care am consultat-o în scopul implementării acestui algoritm constă într-un curs de pe Udemy. \cite{27} Chiar dacă în acest curs noțiunile sunt prezentate având ca limbaj suport Python, intenția mea a fost de a înțelege mai degrabă conceptele și de a le implementa utilizând limbajul Java și baza de date Neo4j.
 
 \subsection{Introducere}
 
@@ -1067,6 +1104,12 @@ Documentația pe care am consultat-o în scopul implementării acestui algoritm 
   \url{https://spring.io/projects/spring-security}
   
   \bibitem{26}
+  
+  \textit{Spring Security: Authentication and Authorization In-Depth}
+  
+  \url{https://www.marcobehler.com/guides/spring-security}
+  
+  \bibitem{27}
   
   \textit{Recommender Systems and Deep Learning in Python}
   
