@@ -358,7 +358,7 @@ Tipul de stocare ales este cel oferit de Neo4j, în care se prezintă o abordare
 În exemplul următor, vor fi ilustrate caracteristicile nodurilor și muchiilor în stocarea efectivă a datelor:
 
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \caption{}
 \includegraphics[scale=0.5]{exemplu_1_neo4j}
@@ -373,7 +373,7 @@ Observăm din figură cele trei entități: două noduri etichate cu 'Actor' și
 Încă un lucru important de menționat este faptul că un nod poate avea mai multe etichete, așa cum se poate vedea din următorul exemplu:
 
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \caption{}
 \includegraphics[scale=0.5]{exemplu_2_neo4j}
@@ -402,7 +402,7 @@ Să propunem că dorim să efectuăm următoarea interogare: pentru un student, 
 
 O interogare în limbajul SQL ar putea arăta în felul următor:
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \begin{BVerbatim}
 SELECT p.nume, p.prenume FROM NOTE n 
@@ -420,7 +420,7 @@ Se poate observa așadar faptul că sunt necesare o serie de join-uri pentru a p
 Pentru a putea compara această interogare cu cea care s-ar putea face în limbajul Cypher folosit în Neo4j, se va ilustra pe scurt cum s-ar putea modela schema bazei de date anterior menționată în una de tip graf. (nu în totalitate, ci doar de ceea ce avem nevoie pentru a evidenția interogarea)
 
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \caption{Miniatură a schemei bazei de date}
 \includegraphics[scale=0.4]{exemplu_3_neo4j}
@@ -430,7 +430,7 @@ Pentru a putea compara această interogare cu cea care s-ar putea face în limba
 
 Așadar, având în vedere acest model, interogarea în Cypher ar putea arăta în felul următor:
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \begin{BVerbatim}
 MATCH (s:STUDENT)-[:ARE]->(n:NOTA {valoare: 10}),
@@ -449,7 +449,7 @@ Pe de altă parte, o altă caracteristică importantă a bazelor de date de tip 
 
 Pentru o mai bună înțelegere a modului în care sunt reprezentate efectiv datele, se poate vedea figura de mai jos:
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \caption{}
 \includegraphics[scale=0.5]{exemplu_4_neo4j}
