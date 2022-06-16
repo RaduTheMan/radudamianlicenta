@@ -236,6 +236,34 @@ De asemenea, îi mulțumesc domnului prof. dr Frăsinaru Cristian, îndrumător 
 	
 	\newpage
 	
+	\begin{center}
+	{\scshape\large \textbf{Aplicații similare} \par}
+	\end{center}
+	
+	Din aplicațiile similare căutate, am identificat următoarele pe care le-am considerat mai notabile:
+	
+\begin{itemize}
+  \item IGDB - \url{https://www.igdb.com/}
+  \item Steam - \url{https://store.steampowered.com/}
+  \item Metacritic - \url{https://www.metacritic.com/}
+  \item Quantic Foundry - \url{https://quanticfoundry.com/}
+  \item Games finder - \url{https://gameslikefinder.com/}
+\end{itemize}
+
+
+Încercând să caut informații legate de modul concret de implementare al recomandărilor care se regăsesc în aceste aplicații, mi-am dat seama că acest lucru este în zadar, din cauza aspectului comercial al aplicațiilor.
+
+Chiar și așa, aplicația ce va fi prezentată în această lucrare de licență are un algoritm de recomandare ce a necesitat o documentare în prealabil, și utilizează de asemenea o bază de date nerelațională de tip graf.
+
+Așadar, aplicația propusă s-ar putea descrie mai degrabă ca o tentativă de a îmi răspunde la următoarea întrebare care nu mi-a fost răspunsă consultând aplicațiile similare: Cum se poate implementa un algoritm de recomandare?
+
+Bineînțeles că răspunsul nu este unul universal, ci propun o variantă(din nenumăratele care pot exista, căci este loc de inovații și contribuții semnificative în a ataca această problemă) care a fost șlefuită folosind resurse proprii.
+
+În timpul implementării aplicației, mi-am dat seama că răspunsul meu poate fi privit doar ca un punct de pornire pentru a dezvolta în continuare partea de recomandare a aplicației. Aceste reflecții pot fi regăsite în capitolul \textbf{Concluzii și direcții viitoare}.
+	
+	
+\newpage
+	
 \setcounter{secnumdepth}{3} 
 \renewcommand*\thesection{\arabic{section}}
 \section{Descrierea problemei}
@@ -243,7 +271,39 @@ De asemenea, îi mulțumesc domnului prof. dr Frăsinaru Cristian, îndrumător 
 Problema ce trebuie rezolvată se rezumă la recomandarea unor jocuri video(niciunul, unul, sau mai multe) unui utilizator. În ansamblu, datele de intrare ar putea fi reprezentate de o mulțime de jocuri video, o mulțime de utilizatori și o mulțime de recenzii.
 
 Aceste recenzii sunt oferite de utilizator și asociate unui joc. În recenzie, utilizatorul oferă o notă(un scor, pe o scară de la 1 la 10) care indică cât de mult i-a plăcut/displăcut jocul respectiv. Un utilizator poate face maxim o recenzie per joc.
-\section{Tehnologii șî resurse folosite}
+
+O descriere mai amănunțită a utilizatorilor, recenzilor și a jocurilor se poate regăsi în capitolul 4 \textbf{Baza de date}, subcapitolul \textbf{Modelarea bazei de date}.
+
+\subsection{Scopuri și cerințe ale aplicației}
+
+\bigskip
+\bigskip
+\textbf{Scopul documentului}
+\bigskip
+
+Scopul acestui document este de a ilustra modul în care funcționează un sistem de recomandări de jocuri video sub forma unei aplicații web având ca soluție de stocare o bază de date de tip graf NoSql.
+
+\bigskip
+\textbf{Publicul țintă}
+\bigskip
+
+Acest document este destinat atât cititorilor avizați(e.g. profesori universitari) pentru a afla de exemplu soluțiile utilizate în cadrul capitolelor 4, 5 sau 6, \textbf{Baza de date}, \textbf{Back-end} respectiv \textbf{Algoritmul de recomandare}, cât și cititorilor neavizați(utilizatori obișnuiți), care se pot informa în legătură cu modul în care pot interacționa cu site-ul în capitolul 8 \textbf{Manual de utilizare}.
+
+\bigskip
+\textbf{Scopul aplicației}
+\bigskip
+
+Scopul acestei aplicații este de a oferi o soluție în a contracara cantitatea masivă de informații ce se regăsește pe internet \cite{5} în ceea ce privește multitudinea de jocuri video, prin a dezvolta un sistem de recomandări care să faciliteze decizia unui utilizator legat de ce joc să aleagă.
+
+\bigskip
+\textbf{Contribuții}
+\bigskip  
+
+Generarea datelor de intrare ale problemei a fost realizată de mine, în sensul că nu am folosit în mod direct seturi de date externe(de exemplu: Kaggle), ci am implementat un modul în Java care generează fișiere tip csv.
+
+De asemenea, implementarea algoritmului a fost făcută fără utilizarea unei librării externe(cum s-ar fi putut face de exemplu cu Python). Motivația acestei decizii este reprezentată de a avea o perspectivă mai profundă a unui posibil algoritm de recomandare.
+
+\section{Tehnologii folosite}
 
 Pentru aplicația web:
 
@@ -270,30 +330,24 @@ Pentru modulul de generare al datelor de intrare:
   \item Apache Commons CSV - pentru manipularea de fișiere CSV \cite{4}
 \end{enumerate}
 
+\newpage
 
-\section{Scopuri și cerințe ale aplicației}
+\section{Arhitectura sistemului}
 
-\bigskip
-\textbf{Scopul documentului}
-\bigskip
+Arhitectura sistemului ce propune rezolvarea problemei este următoarea:
 
-Scopul acestui document este de a ilustra modul în care funcționează un sistem de recomandări de jocuri video sub forma unei aplicații web având ca soluție de stocare o bază de date de tip graf NoSql.
+\begin{figure}[H]
+\centering
+\caption{}
+\includegraphics[scale = 0.5]{exemplu_17_diagrama_c4_nivel_1.drawio}
+\caption*{Diagramă C4 nivelul 1}
+\end{figure}
 
-\bigskip
-\bigskip
-\bigskip
-\bigskip
-\textbf{Publicul țintă}
-\bigskip
+Se poate observa în ansamblu suita de tehnologii folosite: Neo4j pentru baza de date, Spring Boot pentru back-end și Angular pentru front-end.
 
-Acest document este destinat atât cititorilor avizați(e.g. profesori universitari) pentru a afla de exemplu soluțiile utilizate în cadrul capitolelor 4, 5 sau 6, \textbf{Baza de date}, \textbf{Back-end} respectiv \textbf{Algoritmul de recomandare}, cât și cititorilor neavizați(utilizatori obișnuiți), care se pot informa în legătură cu modul în care pot interacționa cu site-ul în capitolul 8 \textbf{Manual de utilizare}.
+Schema bazei de date va fi reprezentată în capitolul următor, deoarece înțelegerea acesteia presupune o scurtă inițiere în ceea ce propune Neo4j.
 
-\bigskip
-\textbf{Scopul aplicației}
-\bigskip
-Scopul acestei aplicații este de a oferi o soluție în a contracara cantitatea masivă de informații ce se regăsește pe internet \cite{5} în ceea ce privește multitudinea de jocuri video, prin a dezvolta un sistem de recomandări care să faciliteze decizia unui utilizator legat de ce joc să aleagă.  
-
-
+\newpage
 
 
 \section{Baza de date}
@@ -739,17 +793,6 @@ Soluția aleasă pentru a stoca datele este una relativ de nișă, având în ve
 
 Având în vedere faptul că capabilitățile de a lucra mult mai facil cu baza de date se regăsesc în suita Spring, am ales să utilizez Spring Boot pentru a implementa serverul de back-end. Faptul că am avut o introducere în acest \emph{framework} în cadrul materiei \emph{Programare avansată} din anul 2 semestrul 2 de studiu mi-a dat un punct de pornire consistent pentru a dezvolta această parte de back-end.
 
-\subsection{Arhitectură}
-
-Înainte de a trece la prezentarea mai în amănunt a soluției de back-end, în figura următoare va fi ilustrată arhitectura generală a aplicației.
-
-
-\begin{figure}[H]
-\centering
-\caption{}
-\includegraphics[scale = 0.5]{exemplu_17_diagrama_c4_nivel_1.drawio}
-\caption*{Diagramă C4 nivelul 1}
-\end{figure}
 
 \subsection{Modelarea nodurilor în entități}
 
@@ -839,7 +882,7 @@ Modul cum a fost implementat se regăsește în următoarea figură:
 \caption*{}
 \end{figure}
 
-Se poate observa că implementarea propriu-zisă este aproape trivială în acest caz.
+Se poate observa că implementarea propriu-zisă este aproape trivială în acest caz. Totuși, o implementare netrivială se poate regăsi în capitolul 6 \textbf{Algoritmul de recomandare}.
 
 
 
@@ -847,17 +890,22 @@ Se poate observa că implementarea propriu-zisă este aproape trivială în aces
 
 \subsection{Modulul de autentificare al utilizatorilor}
 
-Acest modul are un scop relativ simplu, fiind reprezentat de valorificarea fișierului csv în care sunt reținute parolele convertite de funcția hash, dar și de a persista starea de logare a utilizatorului pe partea de front-end a aplicației, prin intermediul unui JWT token. \cite{24}
 
-Implementarea acestuia reprezintă doar un punct de pornire, căci poate fi extins și prin introducerea autorizării, în care anumite \emph{request-uri} din API pot fi autorizate în funcție de rolul pe care îl are utilizatorul prin intermediul token-ului menționat anterior. Totuși, pentru scopul în mare al proiectului, acela de a observa cum se poate rezolva problema recomandării unor jocuri video, acest aspect de autentificare/autorizare nu a fost atins foarte în detaliu.  
+   Acest modul are un scop relativ simplu, fiind reprezentat de valorificarea fișierului csv în care sunt reținute parolele convertite de funcția hash, dar și de a persista starea de logare a utilizatorului pe partea de front-end a aplicației, prin intermediul unui JWT token. \cite{24}
+
+Implementarea acestuia reprezintă doar un punct de pornire, căci poate fi extins și prin introducerea autorizării, în care anumite \emph{request-uri} din API pot fi autorizate în funcție de rolul pe care îl are utilizatorul prin intermediul token-ului menționat anterior. Totuși, pentru scopul în mare al proiectului, acela de a observa cum se poate rezolva problema recomandării unor jocuri video, acest aspect de autentificare/autorizare nu a fost atins foarte în detaliu.
+
+Pentru a implementa acest modul, am utilizat funcționalitățile oferite de \emph{Spring Security}. \cite{25}
 
 \section{Algoritmul de recomandare}
+
+Documentația pe care am consultat-o în scopul implementării acestui algoritm constă într-un curs de pe Udemy. \cite{26} Chiar dacă în acest curs noțiunile sunt prezentate având ca limbaj suport Python, intenția mea a fost de a înțelege mai degrabă conceptele și de a le implementa utilizând limbajul Java și baza de date Neo4j.
 
 \subsection{Introducere}
 
 \section{Front-end}
 \section{Manual de utilizare}
-\section{Concluzii}
+\section{Concluzii și direcții viitoare}
 
 \renewcommand\bibname{Bibliografie}
 \begin{thebibliography}{9}
@@ -906,12 +954,9 @@ Implementarea acestuia reprezintă doar un punct de pornire, căci poate fi exti
   
   \bibitem{7}
   
-  \textit{Baze de date - Laborator 1}
+  \textit{Baze de date}
   
-  A se vedea secțiunea 'Schema bazei de date - studiu de caz'
-  
-  
-  \url{https://profs.info.uaic.ro/~bd/wiki/index.php/Laborator_1}
+  \url{https://profs.info.uaic.ro/~bd/}
   
   \bibitem{8}
   
@@ -1015,7 +1060,17 @@ Implementarea acestuia reprezintă doar un punct de pornire, căci poate fi exti
   
   \url{https://jwt.io/introduction}
   
+  \bibitem{25}
   
+  \textit{Spring Security}
+  
+  \url{https://spring.io/projects/spring-security}
+  
+  \bibitem{26}
+  
+  \textit{Recommender Systems and Deep Learning in Python}
+  
+  \url{https://www.udemy.com/course/recommender-systems/}
 
 
 \end{thebibliography}
