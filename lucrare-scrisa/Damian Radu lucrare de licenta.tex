@@ -940,6 +940,90 @@ Documentația pe care am consultat-o în scopul implementării acestui algoritm 
 
 \subsection{Introducere}
 
+Se observă o tendință ascendentă în ultimii 20-30 de ani în ceea ce privește atât conținutul informațiilor ce se regăsește pe internet, cât și numărul utilizatorilor acesteia. \cite{28} Așadar, se pune problema de a filtra cât mai eficient aceste informații pentru ca utilizatorul să obțină ceea ce își dorește. O modalitate este reprezentată de folosirea unor motoare de căutare, cel mai cunoscut fiind cel de la \emph{Google}. \cite{5}
+
+Totuși, acest lucru nu garantează în mod implicit identificarea unor informații care să fie personalizate în funcție de interesele utilizatorului. Un exemplu clasic ar fi reprezentat de un magazin online, în care utilizatorul, în funcție de anumite caracteristici, precum istoricul comenzilor sale, recenziile pe care le-a făcut la produse sau ultimele produse accesate, să poată primi recomandări de noi produse pe care, în cazul fericit, să le comande. Așadar, se încearcă găsirea unei soluții care practic să prezică unui utilizator viitoarele produse pe care ar dori să le comande în acest caz.
+
+Această soluție este reprezentată de un sistem de recomandări.
+
+\subsection{Categorii de sisteme de recomandări}
+
+Un sistem de recomandări poate fi catalogat în două mari categorii:
+
+\begin{enumerate}
+  \item Sistem de recomandări bazate pe conținut
+  \item Sistem de recomandări bazate pe filtrare colaborativă
+\end{enumerate}
+
+Sistemele de recomandări bazate pe \textbf{conținut} pun mai mult accent pe metadatele asociate unei resurse. Cu cât resursa ce se dorește a fi recomandată poate fi cât mai bine descrisă din acest punct de vedere, cu atât șansele de reușită ale unui algoritm care se încadrează în această categorie sunt mai mari. 
+
+În schimb, sistemele de recomandări bazate pe \textbf{filtrare colaborativă} sunt pretate acelor resurse care nu pot fi desscrise cu ușurință prin intermediul metadatelor. În linii mari, algoritmii care se încadrează în acest sistem țin cont de recenziile altor utilizatori similari cu utilizatorul căruia i se furnizează o recomandare.
+
+În secțiunea următoare, va fi descrisă soluția implementată în cadrul acestei aplicații, și anume un algoritm de recomandare bazat pe filtrare colaborativă.
+
+\subsection{Recomandări bazate pe filtrare colaborativă}
+
+
+   Înainte de a fi explicat algoritmul propriu-zis, vor fi introduse notații care vor facilita prezentarea algoritmului. Aceste notații au fost prezentate în cadrul cursului de pe Udemy.
+
+\bigskip
+\bigskip
+
+Fie \( S \) un sistem de recomandare.
+
+Fie \( n \) numărul de utilizatori existenți în cadrul sistemului \(S \).
+
+Fie \( m \) numărul de resurse(jocuri)\footnote{teoretic, termenul de \emph{resurse} sau \emph{jocuri} poate fi folosit în mod interschimbabil, căci nu contează în mod specific ce resursă urmează a fi recomandată. Pentru simplitate, mă voi referi de acum încolo la termenul de \emph{jocuri}.}. 
+
+\bigskip
+\bigskip
+
+\noindent Fiecare utilizator poate atribui un scor jocurilor. O modalitate prin care putem reprezenta acest fenomen este prin intermediul unei matrici care poate fi descrisă în felul următor:
+
+\bigskip
+\bigskip
+
+Fie \( r_{ij} =  \) scorul pe care utilizatorul \( i \) îl atribuie jocului \( j \),
+
+unde \( i = \overline{\rm 1,n} \), \( j = \overline{\rm 1,m} \)
+
+\( R_{n \times m} = \) matrice de dimensiune \( n \times m\) în care sunt reținute scorurile pe care utilizatorii le pot da jocurilor.
+
+\bigskip
+\bigskip
+
+
+\noindent În practică, această matrice este rară, adică sunt relativ puține elemente care să fie nenule. O observație importantă este faptul că dacă un utilizator atribuie unui joc scorul 0, asta nu înseamnă că acel element este considerat lipsă(gol), ci că utilizatorul a atribuit unui joc cel mai mic scor posibil. Așadar, matricea este rară nu din cauză că majoritatea elementelor au scorul 0, ci că la majoritatea utilizatorul \( i \) nu a atribuit un scor jocului \( j \).
+
+La prima vedere, acest lucru nu ar putea fi considerat unul benefic, însă să presupunem următorul studiu de caz:
+
+\bigskip
+
+Fie platforma de jocuri video pentru PC numită Steam. În momentul scrierii acestei lucrări, există aproximativ \( 50 000 \) jocuri pe această platformă. \cite{29} Nu am găsit un număr concret legat de câți utilizatori ar exista, însă estimativ în jur de 60 de milioane de utilizatori folosesc Steam zilnic, și sunt 120 de milioane de utilizatori activi într-o lună, așadar, numărul este considerabil mai mare. Este cert mult mai mare decât numărul de jocuri existente.
+
+În mod intuitiv, matricea asociată este una rară. Ca să explic mai bine această intuiție, am încercat să găsesc statistici legate de numărul de jocuri în medie deținute de un utilizator. Neoficial, un utilizator deține în jur de 11 jocuri. Acest aspect este îndeajuns pentru a motiva faptul că matricea este întradevăr rară.
+
+Dacă matricea ar fi plină, atunci înseamnă practic că utilizatorii în mare au oferit recenzii majorității jocurilor existente, ceea ce înseamnă că nu se mai observă rostul de a oferi recomandări, de vreme ce matricea este plină. Așadar, este un lucru benefic faptul că matricea este rară, căci aceasta este problema pe care o încearcă un sistem de recomandări să o rezolve: să prezică scoruri pentru elementele lipsă din matrice.
+
+\bigskip
+
+Fie \( s(i, j) \) scorul ce se încearcă a fi prezis pe care utilizatorul \( i \) îl atribuie jocului \( j \).
+
+\noindent O primă tentativă de a stabili o formulă pentru a calcula acest scor ar fi următoarea:
+
+\[ s(i, j) = \dfrac{ \sum\limits_{i' \epsilon \Omega_{j} } r_{i'j} }{|\Omega_{j}|}\]
+
+unde \( \Omega_{j}\) reprezintă mulțimea utilizatorilor care au atribuit un scor jocului \( j \).
+
+\bigskip
+
+Această formulă reprezintă defapt calcularea unui scor mediu, iar inconvenientul pe care îl prezintă este faptul că tratează fiecare utilizator în mod egal. Totuși, raportându-ne la un utilizator, există alți utilizatori care ar putea avea preferințe similare, și alți utilizatori care ar putea avea mai puține preferințe similare cu acesta.
+
+Pentru a putea ajusta această formulă, o putem transforma într-o medie aritmetică ponderată, care arată în felul următor:
+
+\[ s(i, j) = \dfrac{ \sum\limits_{i' \epsilon \Omega_{j} } w_{ii'} \cdot r_{i'j} }{\sum\limits_{i' \epsilon \Omega_{j}} w_{ii'}}  \]
+
+
 \section{Front-end}
 \section{Manual de utilizare}
 \section{Concluzii și direcții viitoare}
@@ -1114,6 +1198,18 @@ Documentația pe care am consultat-o în scopul implementării acestui algoritm 
   \textit{Recommender Systems and Deep Learning in Python}
   
   \url{https://www.udemy.com/course/recommender-systems/}
+  
+  \bibitem{28}
+  
+  \textit{Internet Growth Statistics}
+  
+  \url{https://www.internetworldstats.com/emarketing.htm}
+  
+  \bibitem{29}
+  
+  \textit{Steam Usage and Catalog Stats for 2022}
+  
+  \url{https://backlinko.com/steam-users}
 
 
 \end{thebibliography}
