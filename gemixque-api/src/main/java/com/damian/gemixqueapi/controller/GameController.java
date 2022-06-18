@@ -54,7 +54,7 @@ public class GameController {
     public List<SolutionEntry> getRecommendedGamesForUser(@PathVariable String userId, @RequestParam int k) {
         var currentUser = userService.getUserById(userId).orElseThrow(ResourceNotFoundException::new);
         var similarUsers = recommendationService.getSimilarUsers(userId);
-        SortedMap<GameEntity, Fraction> gameRegistry = new TreeMap<>();
+        Map<GameEntity, Fraction> gameRegistry = new HashMap<>();
 
         var usersWithWeight = similarUsers.stream().map(similarUser -> {
             var weight = recommendationService.getWeight(userId, similarUser.getUuid());
@@ -89,7 +89,11 @@ public class GameController {
         }).sorted(new Comparator<SolutionEntry>() {
             @Override
             public int compare(SolutionEntry o1, SolutionEntry o2) {
-                return (-1) * Double.compare(o1.getValue(), o2.getValue());
+                int compareValue = (-1) * Double.compare(o1.getValue(), o2.getValue());
+                if(compareValue != 0){
+                    return compareValue;
+                }
+                return o1.getTitle().compareTo(o2.getTitle());
             }
         }).collect(Collectors.toList());
     }

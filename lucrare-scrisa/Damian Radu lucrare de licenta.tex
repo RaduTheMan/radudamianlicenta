@@ -1116,7 +1116,97 @@ unde \( \Psi_{i} \) reprezintă mulțimea jocurilor recenzate de utilizatorul \(
 
 analog pentru \( \Psi_{i'} \)
 
-\subsection{Aplicarea algoritmului utilizând Java și Cypher}
+\bigskip
+\textbf{Posibile optimizări}
+\bigskip
+
+Anumite observații pot facilita în practică timpul necesar executării algoritmului.
+
+O primă întrebare care ar putea apărea este următoarea: "Cum ar trebui procedat în cazul în care doi utilizatori au puține jocuri recenzate în comun?". În acest caz, se poate stabili un prag inferior, adică, pentru un anumit utilizator \( i \), să luăm în considerare doar acei utilizatori \( i' \) cu care au cel puțin \( p \) jocuri recenzate în comun. În aplicarea algoritmului, am fixat \( p = 3 \).
+
+De asemenea, în loc să considerăm toți utilizatorii \( i' \) care satisfac criteriul anterior, putem să-i alegem doar pe acei \( k \) care au cele mai mari ponderi. Cu cât se alege \( k \) mai mare, cu atât recomandările finale sunt potențial mai bune. Acest parametru \( k \) l-am lăsat la latitudinea utilizatorului de pe front-end ce va interacționa cu aplicația. Acesta va putea seta \( k \) dintr-un anumit interval.
+
+\subsection{Implementarea algoritmului utilizând Java și Cypher}
+
+Pentru a implementa observațiile menționate în subcapitolul anterior, am utilizat atât limbajul Java pentru a-mi implementa algoritmul și a furniza rezultate obținute spre a fi prelucrate pe front-end, cât și limbajul Cypher, pentru a efectua anumite interogări(de exemplu, calculul unei ponderi între doi utilizatori).
+
+Pentru început, vor fi ilustrate interogările scrise în limbajul Cypher, care au fost folosite în cadrul unui \emph{Repository} prin metoda \emph{findByCustomQuery}:
+
+\begin{figure}[H]
+\centering
+\caption{}
+\includegraphics[scale = 0.7]{exemplu_25_recom_repository}
+\caption*{}
+\end{figure}
+
+În prima interogare, vor fi furnizați acei utilizatori care au cel puțin 3 jocuri recenzate în comun cu utilizatorul căruia i se caută recomandările. Acești utilizatori sunt ordonați descrescător după criteriul menționat anterior.
+
+A doua interogare calculează ponderea prin intermediul formulei menționate anterior. Se observă folosirea proprietății \emph{average\_score} care este actualizată prin intermediul declanșatorului explicat în capitolul 4 \textbf{Baza de date}.
+
+\bigskip
+
+De asemenea, o a treia interogare a fost utilizată, care furnizează acele jocuri ale utilizatorului \( i' \), împreună cu recenziile asociate, care nu sunt în comun cu jocurile recenzate de către utilizatorul \( i \). Aceste jocuri sunt cele candidat spre a fi recomandate utilizatorului \( i' \). La finalul algoritmului, aceste jocuri vor avea asociat un scor calculat prin intermediul formulei:
+
+\[  s(i,j) = \overline{r_i} + \hat{w\_dev(i,j)}  \]
+
+Nu am găsit o soluție pentru a executa această interogare în cadrul unei \emph{Repository}, din cauza faptului că aceasta returnează atât jocul, cât și recenzia. Așadar, am mapat manual rezultatul interogării, acest procedeu putând fi văzut în figura următoare:
+
+\begin{figure}[H]
+\centering
+\caption{}
+\includegraphics[scale = 0.6]{exemplu_26_third_query}
+\caption*{}
+\end{figure}
+
+Așadar, aceste trei interogări au fost utilizate pentru a facilita implementarea algoritmului în limbajul Java.
+Algoritmul în sine va fi ilustrat prin intermediul a trei figuri, pentru a ușura explicația și încadrarea pe pagină.
+
+\bigskip
+\textbf{Prima parte a algoritmului}
+\bigskip
+
+\begin{figure}[H]
+\centering
+\caption{}
+\includegraphics[scale = 0.7]{exemplu_27_first_part}
+\caption*{Observație: acest algoritm a fost implementat în cadrul metodei \emph{getRecommendedGamesForUser} din \emph{GameController}}
+\end{figure}
+
+Prima parte este responsabilă de identificarea utilizatorilor similari cu utilizatorul care cere recomandarea, prin intermediul primei interogări ilustrate.
+
+De asemenea, din acești utilizatori determinați, vor fi selectați doar acei \( k \) cu ponderile cele mai mari, acestea fiind calculate prin intermediul celei de a doua interogări prezentate. Un caz particular a fost tratat, și anume au fost ignorați acei utilizatori pentru care ponderea este egală cu \( 0 \).
+
+În variabila \emph{gameRegistry} vor fi reținute jocurile candidat spre a fi recomandate și vor fi actualizate scorurile pe parcursul algoritmului.
+
+\bigskip
+\textbf{A doua parte a algoritmului}
+\bigskip
+
+\begin{figure}[H]
+\centering
+\caption{}
+\includegraphics[scale = 0.6]{exemplu_28_second_part}
+\caption*{}
+\end{figure}
+
+În această parte a algoritmului, se vor trece prin toți utilizatorii determinați la pasul anterior, iar pentru fiecare utilizator se vor determina acele jocuri recenzate care nu sunt în comun cu jocurile recenzate de utilizatorul \( i \), adică practic rezultatul celei de a treia interogări în Cypher.
+
+Pentru fiecare joc, se calculează numărătorul și numitorul conform formulei menționate anterior, și scorul va fi actualizat corespunzător.
+
+\newpage
+
+\bigskip
+\textbf{A treia parte a algoritmului}
+\bigskip
+
+\begin{figure}[H]
+\centering
+\caption{}
+\includegraphics[scale = 0.9]{exemplu_29_third_part}
+\caption*{}
+\end{figure}
+
+Această parte este responsabilă de prelucrarea soluției finale. Practic, vor fi furnizate jocurile ordonate descrescător după scorul obținut și crescător după titlul jocului.
 
 \section{Front-end}
 \section{Manual de utilizare}

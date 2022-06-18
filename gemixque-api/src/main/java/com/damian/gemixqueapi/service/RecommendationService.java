@@ -50,11 +50,20 @@ public class RecommendationService {
             var reviewNode = record.get("rev").asNode();
             var gameNode = record.get("otherGame").asNode();
 
-            var reviewEntity = new ReviewEntity(reviewNode.get("content").asString(), reviewNode.get("score").asString(), reviewNode.get("time").asString());
+            var reviewEntity = new ReviewEntity(
+                    reviewNode.get("content").asString(),
+                    reviewNode.get("score").asString(),
+                    reviewNode.get("time").asString()
+            );
             reviewEntity.setUuid(reviewNode.get("id").asString());
 
-            var gameEntity = new GameEntity(gameNode.get("title").asString(), gameNode.get("genres").asList(Value::asString), gameNode.get("first_release_year").asString());
+            var gameEntity = new GameEntity(
+                    gameNode.get("title").asString(),
+                    gameNode.get("genres").asList(Value::asString),
+                    gameNode.get("first_release_year").asString()
+            );
             gameEntity.setUuid(gameNode.get("id").asString());
+
             return new ReviewWithGameWrapper(reviewEntity, gameEntity);
         }).all());
     }
