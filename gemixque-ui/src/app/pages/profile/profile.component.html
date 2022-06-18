@@ -1,47 +1,95 @@
-<!-- user loaded -->
-<div *ngIf="!isLoading" class="row mt-3 ms-3">
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <h5 class="card-title">Profile</h5>
-      <p class="mt-3">Username: {{ user?.username }}</p>
-      <p>Email address: {{ user?.email }}</p>
-      <p>Average score: {{ user?.averageScore }}</p>
-      <p>Number of reviews made: {{ user?.nrReviewsMade }}</p>
+<div class="d-flex justify-content-center">
+  <div class="first-part-container">
+    <!-- user is loading -->
+    <div
+      *ngIf="isLoading"
+      class="card row mt-3 ms-3"
+      aria-hidden="true"
+      style="width: 18rem"
+    >
+      <div class="card-body">
+        <h5 class="card-title placeholder-glow">
+          <span class="placeholder col-6"></span>
+        </h5>
+        <p class="card-text placeholder-glow">
+          <span class="placeholder col-7"></span>
+          <span class="placeholder col-4"></span>
+          <span class="placeholder col-4"></span>
+          <span class="placeholder col-6"></span>
+          <span class="placeholder col-8"></span>
+        </p>
+      </div>
+    </div>
+
+    <!-- user loaded -->
+    <div *ngIf="!isLoading" class="row mt-3 ms-3">
+      <div class="card" style="width: 18rem">
+        <div class="card-body">
+          <h5 class="card-title">Profile</h5>
+          <p class="mt-3">Username: {{ sources?.user?.username }}</p>
+          <p>Email address: {{ sources?.user?.email }}</p>
+          <p>Average score: {{ sources?.user?.averageScore }}</p>
+          <p>Number of reviews made: {{ sources?.user?.nrReviewsMade }}</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- get recommendations -->
+    <div class="row mt-3 ms-3">
+      <div class="col-ms-12">
+        <button class="btn btn-primary">Get game recommendations</button>
+      </div>
+    </div>
+
+    <!-- games played -->
+    <div class="row mt-3 ms-3">
+      <h2>Games played</h2>
+      <hr class="w-25" />
+      <table class="mb-3">
+        <tr
+          *ngFor="
+            let gamePlayedByUser of sources?.gamesPlayedByUser
+              | slice: (pageGames - 1) * pageSize:pageGames * pageSize
+          "
+        >
+          <a [routerLink]="['/games', gamePlayedByUser.uuid]">{{
+            gamePlayedByUser.title
+          }}</a>
+        </tr>
+      </table>
+      <ngb-pagination
+        *ngIf="sources"
+        [collectionSize]="sources.gamesPlayedByUser.length"
+        [(page)]="pageGames"
+        [pageSize]="pageSize"
+      ></ngb-pagination>
     </div>
   </div>
-</div>
 
-<!-- user is loading -->
-<div *ngIf="isLoading" class="card mt-3 ms-3" aria-hidden="true" style="width: 18rem;">
-  <div class="card-body">
-    <h5 class="card-title placeholder-glow">
-      <span class="placeholder col-6"></span>
-    </h5>
-    <p class="card-text placeholder-glow">
-      <span class="placeholder col-7"></span>
-      <span class="placeholder col-4"></span>
-      <span class="placeholder col-4"></span>
-      <span class="placeholder col-6"></span>
-      <span class="placeholder col-8"></span>
-    </p>
-  </div>
-</div>
+  <div class="second-part-container">
+    <!-- reviews made -->
+    <div class="row mt-3 ms-3">
+      <h2>Reviews made</h2>
+      <hr class="w-25" />
 
-<!-- games played -->
-<div class="row mt-3 ms-3">
-  <h2>Games played</h2>
-  <hr class="w-25" />
-</div>
+      <div *ngIf="sources" class="d-flex flex-column mb-3">
+        <div  *ngFor="let review of sources.reviewsMadeByUser | slice: (pageReviews - 1) * pageSize:pageReviews * pageSize" class="card mb-3" style="width: 50rem; height: auto">
+          <div class="card-body">
+            <h5><a class="card-title" [routerLink]="['/games', review.gameEntity?.uuid]">{{ review.gameEntity?.title }}</a></h5>
+            <ngb-rating [readonly]="true" [rate]="+review.score"></ngb-rating>
+            <p class="card-text">
+              {{review.content}}
+            </p>
+          </div>
+        </div>
+      </div>
 
-<!-- reviews made -->
-<div class="row mt-3 ms-3">
-  <h2>Reviews made</h2>
-  <hr class="w-25" />
-</div>
-
-<!-- get recommendations -->
-<div class="row mt-3 ms-3">
-  <div class="col-ms-12">
-    <button class="btn btn-primary">Get game recommendations</button>
+      <ngb-pagination
+        *ngIf="sources"
+        [collectionSize]="sources.reviewsMadeByUser.length"
+        [(page)]="pageReviews"
+        [pageSize]="pageSize"
+      ></ngb-pagination>
+    </div>
   </div>
 </div>

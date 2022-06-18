@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { take } from 'rxjs';
-import { Game } from 'src/app/shared/types';
+import { Game, Review } from 'src/app/shared/types';
 import { GameDetailsService } from './service';
 
 @Component({
@@ -14,6 +14,9 @@ export class GameDetailsComponent implements OnInit {
   gameId: string;
   isLoading = false;
   game?: Game;
+  page = 1;
+  pageSize = 10;
+  reviews?: Review[];
   screenshots?: string[];
   constructor(private readonly route: ActivatedRoute, private readonly service: GameDetailsService) {
     this.gameId = this.route.snapshot.params['id'];
@@ -26,6 +29,9 @@ export class GameDetailsComponent implements OnInit {
       this.game = data;
       this.screenshots = this.game.visuals.screenshots;
       console.log(data);
+    });
+    this.service.getReviewsMadeOnGame(this.gameId).pipe(take(1)).subscribe(data => {
+      this.reviews = data;
     });
   }
 
