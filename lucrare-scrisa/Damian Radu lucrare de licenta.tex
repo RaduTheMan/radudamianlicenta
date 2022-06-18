@@ -973,7 +973,8 @@ Fie \( S \) un sistem de recomandare.
 
 Fie \( n \) numărul de utilizatori existenți în cadrul sistemului \(S \).
 
-Fie \( m \) numărul de resurse(jocuri)\footnote{teoretic, termenul de \emph{resurse} sau \emph{jocuri} poate fi folosit în mod interschimbabil, căci nu contează în mod specific ce resursă urmează a fi recomandată. Pentru simplitate, mă voi referi de acum încolo la termenul de \emph{jocuri}.}. 
+Fie \( m \) numărul de resurse(jocuri)\footnote{teoretic, termenul de \emph{resurse} sau \emph{jocuri} poate fi folosit în mod interschimbabil, căci nu contează în mod specific ce resursă urmează a fi recomandată. Pentru simplitate, mă voi referi de acum încolo la termenul de \emph{jocuri}.}
+ în cadrul sistemului \( S \).
 
 \bigskip
 \bigskip
@@ -1023,6 +1024,99 @@ Pentru a putea ajusta această formulă, o putem transforma într-o medie aritme
 
 \[ s(i, j) = \dfrac{ \sum\limits_{i' \epsilon \Omega_{j} } w_{ii'} \cdot r_{i'j} }{\sum\limits_{i' \epsilon \Omega_{j}} w_{ii'}}  \]
 
+În mod intuitiv, o pondere \( w_{ii'}\) arată cât de similar este utilizatorul \( i \) cu \(i'\). Adică, această pondere este cu atât mai mare cu cât \( i \) și \( i' \) au preferințe similare, și cu atât mai mică cu cât \( i \) și \( i' \) au preferințe mai puțin similare. Modul cum se poate calcula această pondere va fi descris ulterior.
+
+Următorul exemplu va fi ilustrat cu scopul de a înțelege mai bine această intuiție:
+
+\begin{center}
+\begin{tabular}{||c c c c c c||} 
+ \hline
+ & DOOM Eternal & Battlefield & Call of Duty & The Witcher 3: Wild Hunt & Dark Souls III \\ [0.5ex] 
+ \hline\hline
+ Ion & 9 & 8 & 10 & 3 & 6 \\ 
+ \hline
+ Gigel & 8 & 9 & & 4 & 5  \\
+ \hline
+ Alex & 5 & 7 & 4 & 10 & 9 \\
+ \hline
+\end{tabular}
+\end{center}
+
+Se observă o matrice de scoruri cu trei utilizatori și 5 jocuri. Jocurile DOOM Eternal, Battlefield și Call of Duty sunt jocuri \emph{shooter}, în timp ce celelalte două jocuri sunt de gen \emph{RPG}(Role-playing game).
+
+Din modul cum sunt distribuite scorurile, Ion preferă mai mult jocurile de tip \emph{shooter} în comparație cu jocurile de tip \emph{RPG}, în timp ce Alex preferă mai mult The Witcher 3 și Dark Souls III.
+
+Gigel încă nu a atribuit un scor jocului Call of Duty, însă în mod intuitiv, am putea prezice faptul că valoarea scorului va fi destul de mare(este foarte probabil ca lui Gigel să-i placă Call Of Duty), căci se observă faptul că Gigel și Ion au preferințe similare. Așadar, ponderea între Ion și Gigel ar fi una relativ mare, iar cea între Alex și Gigel ar fi una relativ mică.
+
+\newpage
+
+Totuși, chiar și această medie aritmetică ponderată are un dezavantaj care este reprezentat de faptul că utilizatorii ar putea fi optimiști sau pesimiști în ceea ce privește scorurile pe care le atribuie jocurilor. 
+
+De exemplu, un utilizator ar putea fi descris drept optimist dacă majoritatea scorurilor pe care le dă sunt note mari(9 sau 10), iar un utilizator pesimist este cel care oferă jocurilor în general scoruri mici(note între 1-5).
+
+Pentru a putea exprima acest lucru, se introduce conceptul de \textbf{deviație}. În mod intuitiv, poate fi explicată astfel:
+
+\bigskip
+
+Dacă un utilizator este pesimist(are un scor mediu de 6) și oferă unui joc scorul 9, înseamnă că i-a plăcut întradevăr acel joc. Acest lucru se poate întâmpla și invers în cazul unui utilizator optimist.
+
+Dacă nu am lua în considerare deviația, și am ține cont doar de scorul mediu, atunci în cazul ipotetic în care un utilizator oferă numai note de 10 jocurilor, atunci este dificil de tras o concluzie legat de ce jocuri i-ar plăcea cu adevărat.
+
+\bigskip
+
+Pentru a calcula deviația în cazul atribuirii unui scor al utilizatorului \( i \) jocului \( j \), aceasta poate fi exprimată prin următoarea formulă:
+
+\[ dev(i,j) = r_{ij} - \overline{r_{i}} \]
+
+unde \( \overline{r_{i}}\) reprezintă scorul mediu al utilizatorului \( i \).
+
+Practic, această formulă exprimă cât de mult utilizatorului \( i \) îi place sau displace jocul \( j \), raportat la scorul său mediu(tendința sa generală).
+
+Pentru a prezice deviația în cazul în care nu știm valoarea \( r_{ij}\) (adică nu știm scorul pe care utilizatorul \( i \) îl atribuie jocului \( j \)), se calculează practic media aritmetică a deviațiilor în felul următor:
+
+\[ \hat{dev(i,j)} = \frac{1}{|\Omega_{j}|} \cdot \sum\limits_{i' \epsilon \Omega_{j} } dev(i', j) \] 
+
+Iar în final, scorul prezis poate fi calculat astfel:
+
+\[ s(i,j) = \overline{r_i} + \hat{dev(i,j)} \]
+
+\bigskip
+
+Având introdus și acest concept de deviație, putem să utilizăm din nou ponderile între utilizatori, calculând o medie aritmetică ponderată a deviațiilor pentru un anumit joc \( j \). Formula arată în felul următor:
+
+\[ \hat{w\_dev(i,j)} = \dfrac{ \sum\limits_{i' \epsilon \Omega_{j} } w_{ii'} \cdot dev(i', j) }{\sum\limits_{i' \epsilon \Omega_{j}} |w_{ii'}|} \]
+
+De menționat faptul că la numitor, ponderile sunt în modul deoarece pot fi și negative.
+
+\bigskip
+
+Iar formula finală pentru a prezice scorul este următoarea:
+
+\[  s(i,j) = \overline{r_i} + \hat{w\_dev(i,j)}  \]
+
+Acum se pune următoarea problemă, aceea de a găsi o modalitate de a calcula aceste ponderi.
+
+O modalitate ar fi de a aplica formula introdusă prin \emph{Pearson correlation coefficient} \cite{30}
+, care în general, pentru două variabile aleatore \( x \) și \( y \), arată în felul următor: 
+
+\[ \frac{{}\sum_{i=1}^{n} (x_i - \overline{x})(y_i - \overline{y})}
+{\sqrt{\sum_{i=1}^{n} (x_i - \overline{x})^2(y_i - \overline{y})^2}} \]
+
+Totuși, această formulă trebuie adaptată matricii scorurilor atribuite de utilizatori jocurilor. Cum această matrice este rară, se vor folosi doar datele disponibile, iar formula se va prezenta astfel:
+
+\[ w_{ii'} = \dfrac{ \sum\limits_{j \epsilon \Psi_{ii'} } dev(i, j) \cdot dev(i', j) }{
+\sqrt{\sum\limits_{j \epsilon \Psi_{ii'} } dev(i, j)^2} \cdot \sqrt{\sum\limits_{j \epsilon \Psi_{ii'} } dev(i', j)^2} }\]
+
+unde \( \Psi_{ii'}\) reprezintă mulțimea jocurilor în comun recenzate de utilizatorii \( i \) și \( i' \),
+
+alternativ,
+\( \Psi_{ii'} = \Psi_{i} \cap \Psi_{i'}  \)
+
+unde \( \Psi_{i} \) reprezintă mulțimea jocurilor recenzate de utilizatorul \( i \)
+
+analog pentru \( \Psi_{i'} \)
+
+\subsection{Aplicarea algoritmului utilizând Java și Cypher}
 
 \section{Front-end}
 \section{Manual de utilizare}
@@ -1210,6 +1304,12 @@ Pentru a putea ajusta această formulă, o putem transforma într-o medie aritme
   \textit{Steam Usage and Catalog Stats for 2022}
   
   \url{https://backlinko.com/steam-users}
+  
+  \bibitem{30}
+  
+  \textit{Pearson correlation coefficient}
+  
+  \url{https://en.wikipedia.org/wiki/Pearson_correlation_coefficient}
 
 
 \end{thebibliography}
