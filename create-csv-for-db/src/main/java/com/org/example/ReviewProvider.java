@@ -30,12 +30,13 @@ public class ReviewProvider {
             Faker faker = new Faker();
             var randomReviewsIterator = this.getIteratorFromRandomReviewsFile();
             for (var user : users) {
-                var probability = ThreadLocalRandom.current().nextDouble();
-                int nrReviewsMade = 0;
-                if(probability <= 0.2){
-                    nrReviewsMade = ThreadLocalRandom.current().nextInt(0, 5);
-                } else {
-                    nrReviewsMade = ThreadLocalRandom.current().nextInt(5, 21);
+                var nrPlayedGames = user.getPlayedGames().size();
+                int nrReviewsMade;
+                if(nrPlayedGames == 0) {
+                    nrReviewsMade = 0;
+                }
+                else {
+                    nrReviewsMade = ThreadLocalRandom.current().nextInt(0, nrPlayedGames);
                 }
                 var playedGames = user.getPlayedGames();
                 var reviewedGames = RandomUtil.pickNRandomUsers(playedGames, nrReviewsMade, ThreadLocalRandom.current());
@@ -67,8 +68,11 @@ public class ReviewProvider {
                         }
                     }
                     if(takeRandom){
+                        if(!randomReviewsIterator.hasNext())
+                            randomReviewsIterator = this.getIteratorFromRandomReviewsFile();
                         var record = randomReviewsIterator.next();
                         review = record.get("user_review");
+                        review = this.cleanReview(review);
                     }
                     String idReview = UUID.randomUUID().toString();
                     printer.printRecord(idReview, user.getId(), score, review, time, reviewedGame.getId());
@@ -87,6 +91,9 @@ public class ReviewProvider {
             review = review.substring(1, review.length() - 2);
         }
         review = review.replace("\\", "");
+        review = review.replace("`", "");
+        review = review.replace("´", "");
+        review = review.replace("/", "");
         return review;
     }
 

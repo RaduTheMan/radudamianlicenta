@@ -55,12 +55,10 @@ public class GameController {
         var currentUser = userService.getUserById(userId).orElseThrow(ResourceNotFoundException::new);
         var similarUsers = recommendationService.getSimilarUsers(userId);
         Map<GameEntity, Fraction> gameRegistry = new HashMap<>();
-
         var usersWithWeight = similarUsers.stream().map(similarUser -> {
             var weight = recommendationService.getWeight(userId, similarUser.getUuid());
             return new UserWithWeight(weight, similarUser.getUuid());
         }).filter(userWithWeight -> userWithWeight.getWeight() != 0.0).sorted().limit(k).collect(Collectors.toList());
-
 
         for (var userWithWeight : usersWithWeight) {
             var weight = userWithWeight.getWeight();
@@ -95,7 +93,7 @@ public class GameController {
                 }
                 return o1.getTitle().compareTo(o2.getTitle());
             }
-        }).collect(Collectors.toList());
+        }).limit(10).collect(Collectors.toList());
     }
 
 }

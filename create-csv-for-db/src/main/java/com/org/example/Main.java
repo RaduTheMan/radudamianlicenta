@@ -9,9 +9,9 @@ public class Main {
         UsersProvider usersProvider = new UsersProvider(users);
         try {
             usersProvider.generateUsersFiles();
-            FollowsProvider.generateFollowsFile(users);
-            var messagesProvider = new MessagesProvider(users);
-            messagesProvider.generateMessagesFile();
+//            FollowsProvider.generateFollowsFile(users);
+//            var messagesProvider = new MessagesProvider(users);
+//            messagesProvider.generateMessagesFile();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -20,8 +20,8 @@ public class Main {
         try {
             PlaysProvider.generatePlaysFile(users, gameProvider.getGamePrototypes());
             ReviewProvider reviewProvider = new ReviewProvider(users);
-            LikesProvider.generateLikesFile(users, reviewProvider.getAllReviews());
-            CommentsProvider.generateCommentsFile(users, reviewProvider.getAllReviews());
+//            LikesProvider.generateLikesFile(users, reviewProvider.getAllReviews());
+//            CommentsProvider.generateCommentsFile(users, reviewProvider.getAllReviews());
         } catch (IOException e) {
             e.printStackTrace();
         }

@@ -14,8 +14,9 @@ import {
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from './shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
-import { JwtModule } from '@auth0/angular-jwt';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RecommendationsModalComponent } from './pages/profile/recommendations-modal';
+import { NgChartsModule } from 'ng2-charts';
 
 
 const pages = [
@@ -27,7 +28,7 @@ const pages = [
 ];
 
 @NgModule({
-  declarations: [AppComponent, ...pages],
+  declarations: [AppComponent, ...pages, RecommendationsModalComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -35,6 +36,7 @@ const pages = [
     AppRoutingModule,
     BrowserAnimationsModule,
     NgbModule,
+    NgChartsModule,
     SharedModule,
   ],
   providers: [],

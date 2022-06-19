@@ -55,6 +55,11 @@ public class GameEntity implements Comparable<GameEntity> {
     }
 
     @Override
+    public int hashCode() {
+        return uuid.hashCode();
+    }
+
+    @Override
     public String toString() {
         return "GameEntity{" +
                 "title='" + title + '\'' +

@@ -16,7 +16,8 @@ public class PlaysProvider {
         FileWriter out = new FileWriter("plays.csv");
         try (CSVPrinter printer = new CSVPrinter(out, CSVFormat.DEFAULT.withHeader("id", "id_games_played"))) {
             for(var user: users) {
-                var selectedGamePrototypes = RandomUtil.pickNRandomUsers(gamePrototypes, 20, ThreadLocalRandom.current());
+                var nrPlayedGames = ThreadLocalRandom.current().nextInt(0, 300);
+                var selectedGamePrototypes = RandomUtil.pickNRandomUsers(gamePrototypes, nrPlayedGames, ThreadLocalRandom.current());
                 printer.printRecord(user.getId(), selectedGamePrototypes.stream().map(GamePrototype::getId).collect(Collectors.toList()).toString());
                 user.setPlayedGames(new ArrayList<>(selectedGamePrototypes));
             }

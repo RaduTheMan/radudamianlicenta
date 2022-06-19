@@ -37,7 +37,7 @@
     <!-- get recommendations -->
     <div class="row mt-3 ms-3">
       <div class="col-ms-12">
-        <button class="btn btn-primary">Get game recommendations</button>
+        <button class="btn btn-primary" (click)="open()">Get game recommendations</button>
       </div>
     </div>
 
@@ -62,6 +62,8 @@
         [collectionSize]="sources.gamesPlayedByUser.length"
         [(page)]="pageGames"
         [pageSize]="pageSize"
+        [maxSize]="3" 
+        [boundaryLinks]="true"
       ></ngb-pagination>
     </div>
   </div>
@@ -71,6 +73,13 @@
     <div class="row mt-3 ms-3">
       <h2>Reviews made</h2>
       <hr class="w-25" />
+
+      <ngb-pagination
+        *ngIf="sources"
+        [collectionSize]="sources.reviewsMadeByUser.length"
+        [(page)]="pageReviews"
+        [pageSize]="pageSize"
+      ></ngb-pagination>
 
       <div *ngIf="sources" class="d-flex flex-column mb-3">
         <div  *ngFor="let review of sources.reviewsMadeByUser | slice: (pageReviews - 1) * pageSize:pageReviews * pageSize" class="card mb-3" style="width: 50rem; height: auto">
@@ -84,12 +93,7 @@
         </div>
       </div>
 
-      <ngb-pagination
-        *ngIf="sources"
-        [collectionSize]="sources.reviewsMadeByUser.length"
-        [(page)]="pageReviews"
-        [pageSize]="pageSize"
-      ></ngb-pagination>
+      
     </div>
   </div>
 </div>
