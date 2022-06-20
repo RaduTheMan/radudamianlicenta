@@ -1419,14 +1419,12 @@ Rezultatele din grafic au fost generate în această manieră ca utilizatorul s�
 
 \section{Manual de utilizare}
 
-Toate fișierele ce sunt necesare pentru instalarea locală a aplicației se găsesc în următorul \emph{link} de pe Github: 
-
-\url{https://github.com/RaduTheMan/radudamianlicenta}
+Toate fișierele ce sunt necesare pentru instalarea locală a aplicației se găsesc în arhiva \emph{surse.zip}.
 
 \newpage
 
 \bigskip
-\textbf{Instalarea și setarea bazei de date}
+\textbf{Instalarea și pornirea bazei de date}
 \bigskip
 
 \begin{enumerate}
@@ -1446,11 +1444,151 @@ Toate fișierele ce sunt necesare pentru instalarea locală a aplicației se gă
 \end{adjustbox}
 \caption*{}
 \end{figure}
+
+   
+  Se pot urmări pașii de instalare din acest videoclip pentru sistemul de operare Windows:
+  
+  \url{https://www.youtube.com/watch?v=RSbhmVF_ccs}
   
   
-  \item The numbers start at 1 with each use of the \texttt{enumerate} environment.
-  \item Another entry in the list
+  \item Importarea bazei de date
+  
+  Fișierele necesare ce vor fi importate se regăsesc în directorul \emph{dumps}. Aceste fișiere sunt următoarele: neo4j.dump și system.dump.
+  
+  Înainte de a fi importate aceste fișiere, se va crea un nou proiect, apăsând butonul \emph{New} și secțiunea \emph{Create project}:
+  
+\begin{figure}[H]
+\centering
+\caption{}
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+\includegraphics[scale=1]{exemplu_42_new_project}
+\end{adjustbox}
+\caption*{}
+\end{figure}
+
+  După ce s-a creat acest proiect, pentru început numele acestuia poate fi schimbat. Pentru conveniență, se poate redenumi proiectul în \emph{Gemixque}.
+  
+  În cadrul acestui proiect, se va adăuga o nouă bază de date prin apăsarea butonului \emph{Add} și a secțiunii \emph{Local DBMS}.
+  
+\begin{figure}[H]
+\centering
+\caption{}
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+\includegraphics[scale=1]{exemplu_43_new_database}
+\end{adjustbox}
+\caption*{}
+\end{figure}
+
+\newpage
+  După acest pas, se vor introduce următoarele informații:
+  
+  \begin{figure}[H]
+\centering
+\caption{}
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+\includegraphics[scale=1]{exemplu_44_add_database}
+\end{adjustbox}
+\caption*{Numele: \emph{Gemixque}, parola dorită și versiunea 4.4.2}
+\end{figure}
+
+  Se apasă pe butonul \emph{Create} și se va aștepta până când baza de date va fi creată.
+  
+  Urmează importarea acelor fișiere \emph{dump} anterior menționate. Pentru a realiza acest lucru, se va deschide un terminal în felul următor:
+  
+    \begin{figure}[H]
+\centering
+\caption{}
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+\includegraphics[scale=1]{exemplu_45_terminal}
+\end{adjustbox}
+\caption*{}
+\end{figure}
+  
+  După deschiderea terminalului, se va executa următoarea comandă pentru importarea acelor fișiere:
+  
+      \begin{figure}[H]
+\centering
+\caption{}
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+\includegraphics[scale=1]{exemplu_46_load_command}
+\end{adjustbox}
+\caption*{În opțiunea \emph{from} se va introduce calea către fișierul \emph{dump} corespunzător. În mod analog se va executa comanda și pentru fișierul system.dump}
+\end{figure}
+  
+  
+  
+  \item Verificarea importării bazei de date
+  
+  Pentru a verifica dacă baza de date s-a importat corect, în primul rând se va apăsa pe butonul de \emph{Start} pentru a porni baza de date.
+  
+  După acest pas, se va deschide panoul de comandă pentru a verifica dacă datele sunt existente conform schemei bazei de date. Se va apăsa butonul \emph{Open} $\rightarrow$ \emph{Neo4j Browser} :
+  
+        \begin{figure}[H]
+\centering
+\caption{}
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+\includegraphics[scale=1]{exemplu_47_open}
+\end{adjustbox}
+\caption*{}
+\end{figure}
+
+\newpage
+În panoul de comandă, ar trebui să se regăsească următoarele date:
+
+        \begin{figure}[H]
+\centering
+\caption{}
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+\includegraphics[scale=1]{exemplu_48_verificare}
+\end{adjustbox}
+\caption*{}
+\end{figure}
+  
+  
 \end{enumerate}
+
+\bigskip
+\textbf{Pornirea serverului de back-end}
+\bigskip
+
+Fișierele corespunzătoare serverului de \emph{back-end} se regăsesc în directorul \emph{gemixque-api}
+
+Pentru a facilita pornirea serverului, am folosit un IDE pentru a deschide proiectul. Am folosit IDE-ul Intellij IDEA varianta Community, însă oricare IDE poate fi ales care să suporte aplicații implementate în Java.
+
+Pentru a porni acest server local, se va apăsa click-dreapta pe fișierul \emph{GemixqueApiApplication} și se va apăsa secțiunea următoare:
+
+        \begin{figure}[H]
+\centering
+\caption{}
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+\includegraphics[scale=0.6]{exemplu_49_open_backend}
+\end{adjustbox}
+\caption*{Prima executare s-ar putea să dureze un timp relativ semnificativ, deoarece se descarcă dependențele necesare proiectului.}
+\end{figure}
+
+\bigskip
+\textbf{Pornirea serverului de front-end}
+\bigskip
+
+Fișierele corespunzătoare serverului de \emph{front-end} se regăsesc în directorul \emph{gemixque-ui}.
+
+Pentru început, trebuie descărcat \emph{NodeJs}, care vine la pachet cu utilitarul npm utilizat pentru gestionarea dependențelor unui proiect implementat în Javascript.
+
+\url{https://nodejs.org/en/download/}
+
+După aceea, se deschide un terminal în interiorul directorului \emph{gemixque-ui}. Se va executa următoarea comandă pentru a instala inițial dependențele necesare:
+
+        \begin{figure}[H]
+\centering
+\caption{}
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+\includegraphics[scale=0.8]{exemplu_50_npm}
+\end{adjustbox}
+\caption*{}
+\end{figure}
+
+După ce s-au instalat dependențele, se poate executa comanda \emph{npm start} pentru a porni serverul de \emph{front-end}. Dacă totul s-a efectuat cu succes, atunci ar trebui să se deschidă automat un nou \emph{tab} în \emph{browser-ul} implicit cu pagina de acasă a aplicației.
+
 
 \section{Concluzii și direcții viitoare}
 
