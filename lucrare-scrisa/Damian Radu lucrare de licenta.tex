@@ -195,13 +195,13 @@ Sunt profund recunoscător pentru sprijinul necondiționat oferit de părinții 
 \hfill \break
 \hfill \break
 \begin{flushright}
-Îi mulțumesc Monicăi pentru faptul că m-a ajutat să-mi gestionez trăirile și să privesc provocările pe care le-am întâmpinat cu o atitudine sănătoasă.
-\hfill \break
-\hfill \break
-\hfill \break
+Îi mulțumesc Monicăi pentru faptul că m-a ajutat să-mi gestionez trăirile, emoțiile, și să privesc provocările pe care le-am întâmpinat cu o atitudine sănătoasă.
 \end{flushright}
+\hfill \break
+\hfill \break
+\hfill \break
 \begin{flushright}
-De asemenea, îi mulțumesc domnului prof. dr Frăsinaru Cristian, îndrumător al lucrării de licență, pentru sfaturile, resursele, și încrederea oferită de-a lungul perioadei în care am lucrat pentru licență.
+De asemenea, îi mulțumesc domnului prof. dr Frăsinaru Cristian, îndrumător al lucrării de licență, pentru sfaturile, resursele, și încrederea oferită.
 \end{flushright}
 
 \newpage
@@ -217,29 +217,34 @@ De asemenea, îi mulțumesc domnului prof. dr Frăsinaru Cristian, îndrumător 
 	{\scshape\large \textbf{Introducere} \par}
 	\end{center}
 	
-	Această lucrare de licență propune prezentarea implementării unui sistem de recomandare, sub forma unei aplicații web.
+	Această lucrare de licență propune prezentarea implementării unui sistem de recomandare de jocuri video, sub forma unei aplicații web. Problema ce trebuie rezolvată este reprezentată de oferirea unor recomandări unui utilizator, în contextul în care utilizatorii oferă note jocurilor video prin intermediul unor recenzii. 
 	
-	În următoarele capitole vor fi ilustrate următoarele: problema ce trebuie rezolvată, tehnologiile folosite, modelarea bazei de date, modul în care au fost generate datele de intrare ale problemei, server-ul de back-end, algoritmul implementat și server-ul de front-end.
+	Soluția implementată implică utilizarea bazei de date nerelaționale de tip graf numită Neo4j pentru stocarea datelor, un \emph{server} de \emph{back-end} ce folosește limbajul Java împreună cu \emph{framework-ul} Spring Boot pentru a procesa datele și a implementa algoritmul de recomandare, și un \emph{server} de \emph{front-end} ce utilizează \emph{framework-ul} Angular împreună cu limbajul \emph{Typescript} pentru a afișa într-un mod interactiv rezultatele algoritmului de recomandare. 
 	
-	\begin{center}
-	{\scshape\large \textbf{Motivație} \par}
-	\end{center}
+	În următoarele capitole vor fi ilustrate următoarele: problema ce trebuie rezolvată, tehnologiile folosite, modelarea bazei de date, modul în care au fost generate datele de intrare ale problemei, server-ul de back-end, algoritmul de recomandare și server-ul de front-end.
+	
+	\bigskip
 
-	Ideea de bază a lucrării de licență a venit oarecum din întâmplare. Când eram student în semestrul II din anul 2 de facultate, mă uitasem într-o zi obișnuită la acest site: \href{https://simkl.com/}{https://simkl.com}, pe care-l foloseam pentru a nu uita la ce episod am rămas dintr-un anumit serial. Acest site poate oferi și recomandări de filme/seriale în funcție de datele din profilul meu.
+	{\scshape\normalsize \textbf{Motivație} \par}
+	
+	\bigskip
+
+	Ideea de bază a lucrării de licență a venit oarecum din întâmplare. Când eram student în semestrul II din anul 2 de facultate, mă uitasem într-o zi obișnuită la acest site: \href{https://simkl.com/}{https://simkl.com}, pe care-l foloseam pentru a nu uita la ce episod am rămas dintr-un\\ anumit serial. De asemenea, acest site poate oferi și recomandări de filme/seriale în funcție de ce a văzut utilizatorul.
 	
 	Fiind un amator de jocuri video pe PC, mi-a venit ideea de a face un astfel de site, însă care să recomande, bineînțeles, jocuri video.
 	
 	O observație importantă este faptul că aș fi putut alege orice resursă ce poate fi recomandată(de exemplu: periuțe de dinți, telefoane, picturi etc.), așadar problema în speță poate fi privită într-un mod mai general. Motivul pentru care am ales jocurile video este dat de pasiunea mea pentru acestea.
 	
-	De asemenea, eram curios în acea perioadă, printre altele, legat de cum aș putea implementa o soluție pentru acest sistem de recomandare pe care mi l-am propus să-l realizez.
+	De asemenea, eram curios în acea perioadă legat de cum aș putea implementa o soluție pentru acest sistem de recomandare pe care mi l-am propus să-l realizez.
 	
 	Așadar, am avut inspirație, dar și noroc, deoarece această idee mi-a venit relativ repede, lucru ce a reprezentat un punct de pornire important în realizarea efectivă a acestei lucrări.
 	
 	\newpage
 	
-	\begin{center}
-	{\scshape\large \textbf{Aplicații similare} \par}
-	\end{center}
+
+	{\scshape\normalsize \textbf{Aplicații similare} \par}
+	
+	\bigskip
 	
 	Din aplicațiile similare căutate, am identificat următoarele pe care le-am considerat mai notabile:
 	
@@ -252,15 +257,15 @@ De asemenea, îi mulțumesc domnului prof. dr Frăsinaru Cristian, îndrumător 
 \end{itemize}
 
 
-Încercând să caut informații legate de modul concret de implementare al recomandărilor care se regăsesc în aceste aplicații, mi-am dat seama că acest lucru este în zadar, din cauza aspectului comercial al aplicațiilor.
+Încercând să caut informații legate de modul concret de implementare al recomandărilor care se regăsesc în aceste aplicații, mi-am dat seama că acest lucru este în zadar, nu îmi va aduce rezultate, din cauza aspectului comercial al acestora.
 
 Chiar și așa, aplicația ce va fi prezentată în această lucrare de licență are un algoritm de recomandare ce a necesitat o documentare în prealabil, și utilizează de asemenea o bază de date nerelațională de tip graf.
 
-Așadar, aplicația propusă s-ar putea descrie mai degrabă ca o tentativă de a îmi răspunde la următoarea întrebare care nu mi-a fost răspunsă consultând aplicațiile similare: Cum se poate implementa un algoritm de recomandare?
+Așadar, aplicația propusă s-ar putea descrie dintr-un anumit punct de vedere ca o tentativă de a îmi răspunde la următoarea întrebare care nu mi-a fost răspunsă consultând aplicațiile similare: Cum se poate implementa un algoritm de recomandare?
 
 Bineînțeles că răspunsul nu este unul universal, ci propun o variantă(din nenumăratele care pot exista, căci este loc de inovații și contribuții semnificative în a ataca această problemă) care a fost șlefuită folosind resurse proprii.
 
-În timpul implementării aplicației, mi-am dat seama că răspunsul meu poate fi privit doar ca un punct de pornire pentru a dezvolta în continuare partea de recomandare a aplicației. Aceste reflecții pot fi regăsite în capitolul \textbf{Concluzii și direcții viitoare}.
+În timpul implementării aplicației, mi-am dat seama că răspunsul meu poate fi privit doar ca un punct de pornire pentru a dezvolta în continuare partea de recomandare a aplicației. Această idee este dezvoltată mai mult în capitolul \textbf{Concluzii și direcții viitoare}.
 	
 	
 \newpage
@@ -288,7 +293,7 @@ Scopul acestui document este de a ilustra modul în care funcționează un siste
 \textbf{Publicul țintă}
 \bigskip
 
-Acest document este destinat atât cititorilor avizați(e.g. profesori universitari) pentru a afla de exemplu soluțiile utilizate în cadrul capitolelor 4, 5 sau 6, \textbf{Baza de date}, \textbf{Back-end} respectiv \textbf{Algoritmul de recomandare}, cât și cititorilor neavizați(utilizatori obișnuiți), care se pot informa în legătură cu modul în care pot interacționa cu site-ul în capitolul 8 \textbf{Manual de utilizare}.
+Acest document este destinat atât cititorilor avizați(e.g. profesori universitari) pentru a afla de exemplu soluțiile utilizate în cadrul capitolelor 4, 5 sau 6, \textbf{Baza de date}, \textbf{Back-end} respectiv \textbf{Algoritmul de recomandare}, cât și cititorilor neavizați(utilizatori obișnuiți), care se pot informa în legătură cu pașii de instalare necesari pentru a utiliza aplicația din capitolul 8 \textbf{Manual de utilizare}.
 
 \bigskip
 \textbf{Scopul aplicației}
@@ -300,7 +305,7 @@ Scopul acestei aplicații este de a oferi o soluție în a contracara cantitatea
 \textbf{Contribuții}
 \bigskip  
 
-Generarea datelor de intrare ale problemei a fost realizată de mine, în sensul că nu am folosit în mod direct seturi de date externe(de exemplu: Kaggle), ci am implementat un modul în Java care generează fișiere tip csv.
+Generarea datelor de intrare ale problemei a fost realizată de mine, în sensul că nu am folosit în mod direct seturi de date externe(de exemplu: Kaggle), ci am implementat un modul în Java care generează fișiere cu extensia csv.
 
 De asemenea, implementarea algoritmului a fost făcută fără utilizarea unei librării externe(cum s-ar fi putut face de exemplu cu Python). Motivația acestei decizii este reprezentată de a avea o perspectivă mai profundă a unui posibil algoritm de recomandare.
 
@@ -346,7 +351,7 @@ Arhitectura sistemului ce propune rezolvarea problemei este următoarea:
 
 Se poate observa în ansamblu suita de tehnologii folosite: Neo4j pentru baza de date, Spring Boot pentru back-end și Angular pentru front-end.
 
-Schema bazei de date va fi reprezentată în capitolul următor, deoarece înțelegerea acesteia presupune o scurtă inițiere în ceea ce propune Neo4j.
+Schema bazei de date va fi reprezentată în capitolul următor, deoarece înțelegerea acesteia presupune o scurtă inițiere în  Neo4j.
 
 \newpage
 
@@ -395,6 +400,8 @@ Un alt aspect important de precizat este faptul că între două entități pot 
 Având în vedere faptul că în această aplicație este prezentă o rețea socială în care mai mulți utilizatori pot interacționa între ei și pot oferi recenzii jocurilor video, o bază de date de tip graf este o alegere inspirată.
 
 În ceea ce privește limbajul utilizat pentru a efectua interogări pe baza de date, avem în vedere următorul studiu de caz:
+
+\bigskip
 
 Să presupunem că dorim să modelăm ceea ce se întâmplă în cadrul unei facultăți, pe scurt: gestionarea studenților, a notelor pe care le iau aceștia la cursuri, și a profesorilor.
 Exemplul ce urmează a fi ilustrat se bazează pe schema bazei de date ce a fost utilizată în cadrul materiei Baze de date din anul II semestrul I. \cite{7}
@@ -472,7 +479,7 @@ Această entitate reprezintă punctul central al aplicației, deoarece utilizato
 
 Nodul corespunzător acestei entități este cel din \textbf{Figura 5}.
 
-Printre proprietățile alese pentru a reprezenta un utilizator, două dintre acestea reflectă activitatea lui în sistemul de recomandare, anume \emph{average\underline{ }score} și \emph{nr\underline{ }reviews\underline{ }made}, care semnifică numărul total de recenzii făcute de utilizator, respectiv scorul mediu al acestuia(media tuturor scorurilor oferite).
+Printre proprietățile alese pentru a reprezenta un utilizator, două dintre acestea reflectă activitatea lui în sistemul de recomandare, anume \emph{average\underline{ }score} și \emph{nr\underline{ }reviews\underline{ }made}, care semnifică scorul mediu al recenziilor utilizatorului, respectiv numărul total de recenzii făcute.
 
 \bigskip
 \textbf{Recenzia}
@@ -579,7 +586,7 @@ Prin urmare, fiind introdusă această formulă, se poate prezenta codul ce va f
 \begin{figure}[h]
 \centering
 \begin{BVerbatim}
- UNWIND \$createdRelationships AS r 
+ UNWIND createdRelationships AS r 
     MATCH (review:Review)-[r:ON]->(game:Game)
     MATCH (game)-[:HAS]->(average:Average)
     MATCH (u:User)-[:MAKES]->(review)-[:ON]->(game)
@@ -592,7 +599,7 @@ Prin urmare, fiind introdusă această formulă, se poate prezenta codul ce va f
     ) / (u.nr_reviews_made + 1),
     u.nr_reviews_made = u.nr_reviews_made + 1
 \end{BVerbatim}
-\caption*{A se ignora simbolul \textbackslash{ } înainte de createdRelationships}
+\caption*{}
 \end{figure}
 
 Așadar, de fiecare dată după ce se creează o relație de tipul \texttt{ON} între nodurile \emph{Review} și \emph{Game}, atunci vom interoga nodurile \emph{Average} și \emph{User} pe care dorim să le actualizăm folosind formula anterioară.
@@ -619,9 +626,9 @@ O observație importantă este că atât pentru utilizator, cât și pentru cele
 
 Pentru a-mi procura jocurile, m-am folosit de API-ul oferit de cătrei cei de la IGDB.
 
-Pentru a putea utiliza acest API, a fost necesară crearea unui cont pe Twitch, iar prin intermediul acestui cont, mi-am generat un \emph{Client ID} și un \emph{Client Secret}. Cu aceste credențiale, am generat un \emph{token} pe care l-am folosit ca să pot accesa după API-ul menționat. Mai multe detalii pot fi regăsite aici. \cite{16}
+Pentru a putea utiliza acest API, a fost necesară crearea unui cont pe Twitch, iar prin intermediul acestui cont, mi-am generat un \emph{Client ID} și un \emph{Client Secret}. Cu aceste credențiale, am generat un \emph{token} pe care l-am folosit ca să pot accesa ulterior API-ul menționat. Mai multe detalii pot fi regăsite aici. \cite{16}
 
-În figura următoare, am atașat o bucată de cod prin care se poate observa cum utilizez acest API pentru a procura jocurile.
+În figura următoare, am atașat o secvență de cod prin care se poate observa cum utilizez acest API pentru a procura jocurile.
 
 \begin{figure}[H]
 \centering
@@ -672,7 +679,7 @@ Acest fișier arată în felul următor:
 
 În această secțiune, am folosit atât API-ul oferit de Steam pentru a obține recenziile unui joc, dar și fișiere salvate local pentru a încerca să optimizez cât mai mult timpul necesar pentru a fi generate toate fișierele.
 
-Primul pas a fost să salvez într-un fișier local în format JSON jocurile oferite de Steam, sub forma unei liste de obiecte, în care fiecare obiect are două proprietăți:  \emph{appid}(un identificator unic folosit de Steam pentru jocurile sale) și \emph{name}(numele jocului). Scopul acestui fișier este de a încerca să identific dacă jocul procurat inițial de la IGDB API poate fi identificat ca un joc din platforma Steam ca să pot extrage ulterior recenzii relevante acestui joc. (prin intermediul API-ului oferit de Steam). În caz contrar, voi extrage o recenzie aleatoare dintr-un fișier salvat local de tip csv dintr-un set de date oferit de Kaggle. \cite{17}
+Primul pas a fost să salvez într-un fișier local în format JSON jocurile oferite de Steam, sub forma unei liste de obiecte, în care fiecare obiect are două proprietăți:  \emph{appid}(un identificator unic folosit de Steam pentru jocurile sale) și \emph{name}(numele jocului). Scopul acestui fișier este de a încerca să identific dacă jocul procurat inițial de la IGDB API poate fi identificat ca un joc din platforma Steam ca să pot extrage ulterior recenzii relevante acestui joc. În caz contrar, voi extrage o recenzie aleatoare dintr-un fișier salvat local de tip csv dintr-un set de date oferit de Kaggle. \cite{17}
 
 Al doilea pas a fost să asociez fiecărui utilizator un număr de recenzii pe care le poate oferi din acele jocuri pe care le-am repartizat. Acest număr de recenzii a fost deasemenea generat la întâmplare.
 
@@ -710,7 +717,6 @@ Codul implementat în Java arată în felul următor:
 \caption*{Se poate observa folosirea proprietății \emph{votedUp}, pusă la dispoziție de către API-ul responsabil de recenzii de la Steam, prin care verific dacă acea recenzie a fost pozitivă sau negativă. În funcție de acest verdict, încerc să generez un scor care să reflecte cât mai mult realitatea.}
 \end{figure}
 
-Așadar, acesta este submodulul care se ocupă de generarea fișierelor CSV necesare pentru a putea importa conținutul acestora în baza de date.
 
 \subsection{Importarea conținutului fișierelor CSV în baza de date}
 
@@ -742,9 +748,13 @@ Practic, mi-am salvat o serie de coduri în secțiunea de favorite pe care le po
 \begin{figure}[H]
 \centering
 \caption{}
-\includegraphics[scale = 0.8]{exemplu_15_favorites}
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+\includegraphics[scale = 0.75]{exemplu_15_favorites}
+\end{adjustbox}
 \caption*{}
 \end{figure}
+
+\newpage
 
 În ceea ce privește ștergerea întregului conținut al bazei de date, aceasta trebuie făcută cu grijă. Neo4j recomandă mai multe alternative prin care acest procedeu poate fi făcut utilizându-se cele mai bune practici, pentru a evita efecte secundare neplăcute. \cite{19}
 
@@ -760,12 +770,12 @@ CALL apoc.periodic.iterate(
 )
 YIELD batches, total RETURN batches, total
 \end{BVerbatim}
-\caption*{Practic, prin intermediul librăriei APOC, șterg toate nodurile(cu tot cu relațiile asociate) în grupuri de câte 10000 de noduri.}
+\caption*{Practic, prin intermediul librăriei APOC, șterg toate nodurile(cu tot cu relațiile asociate) în grupuri de câte 10000 de noduri și relații.}
 \end{figure}
 
-După ce am importat datele, putem interacționa cu acestea prin intermediul panoului de comandă ca să se poată verifica dacă datele au fost întradevăr, introduse corect.
+După ce am importat datele, putem interacționa cu acestea prin intermediul panoului de comandă ca să se poată verifica dacă au fost introduse corect.
 
-Una din modalitățile interesante prin care putem verifica asta este dacă schema bazei de date care a fost descrisă în subcapitolul \textbf{4.3 Modelarea bazei de date } se potrivește cu cea pe care o putem vizualiza în mod interactiv prin intermediul comenzii \texttt{CALL db.schema.visualization()}
+Una din modalitățile interesante prin care putem verifica acest lucru este dacă schema bazei de date care a fost descrisă în subcapitolul \textbf{4.3 Modelarea bazei de date } se potrivește cu cea pe care o putem vizualiza în mod interactiv prin intermediul comenzii \texttt{CALL db.schema.visualization()}
 
 Rezultatul acestei comenzi este reprezentat în figura de mai jos:
 
@@ -782,7 +792,7 @@ Rezultatul acestei comenzi este reprezentat în figura de mai jos:
 
 \subsection{De ce Java? De ce Spring Boot?}
 
-Soluția aleasă pentru a stoca datele este una relativ de nișă, având în vedere caracteristica de NoSql a bazei de date Neo4j, dar și de faptul că are la bază o reprezentare de tip graf. Așadar, studiind soluțile oferite din această documentație \cite{20} legată de limbajele suportate de Neo4j, am observat că Java este singurul limbaj în care Neo4j oferă capabilitatea de a mapa nodurile ce se regăsesc în baza de date în entități, ceea ce oferă un mod de lucru facil cu o perspectivă de ansamblu mult mai mare, în comparație cu un \emph{driver} în care modul de lucru este unul mult mai elaborat. Această soluție se numește \emph{Spring Data Neo4j}. \cite{21}
+Soluția aleasă pentru a stoca datele este una relativ de nișă, având în vedere caracteristica de NoSql a bazei de date Neo4j, dar și de faptul că are la bază o reprezentare de tip graf. Așadar, studiind soluțile oferite din această documentație \cite{20} legată de limbajele suportate de Neo4j, am observat că Java este singurul limbaj în care se oferă capabilitatea de a mapa nodurile ce se regăsesc în baza de date în entități, ceea ce oferă un mod de lucru facil cu o perspectivă de ansamblu mult mai mare, în comparație cu un \emph{driver} în care modul de lucru este unul mult mai elaborat. Această soluție se numește \emph{Spring Data Neo4j}. \cite{21}
 
 Având în vedere faptul că capabilitățile de a lucra mult mai facil cu baza de date se regăsesc în suita Spring, am ales să utilizez Spring Boot pentru a implementa serverul de back-end. Faptul că am avut o introducere în acest \emph{framework} în cadrul materiei \emph{Programare avansată} din anul 2 semestrul 2 de studiu mi-a dat un punct de pornire consistent pentru a dezvolta această parte de back-end.
 
@@ -816,7 +826,7 @@ Pentru a avea mai mult control asupra datelor ce se doresc a fi obținute, va fi
 
 \subsection{Interfața Repository și conceptul de Interface Projection}
 
-Scopul interfeței Repository este de a oferi un mod abstract și facil prin intermediul căruia este implementat un strat de acces care poate fi utilizat pentru a reduce în mod semnificativ codul implementat în interacționarea cu datele. \cite{22}
+Scopul interfeței Repository este de a oferi un mod abstract și facil prin intermediul căruia este implementat un strat de acces care poate fi utilizat pentru a reduce în mod semnificativ codul scris utilizat în interacționarea cu datele. \cite{22}
 
 Această interfață este definită în mod generic, luând doi parametrii: numele entității care va fi prelucrată și tipul de date al identificatorului(în cazul de față \emph{String})
 
@@ -837,7 +847,7 @@ Se oferă suport și pentru definirea unor metode \emph{custom} în cazul în ca
 
 De asemenea, se poate observa apariția conceptului de \emph{Interface Projection}, prin care se poate preciza prin intermediul unei interfețe ce date să fie prelucrate dintr-o entitate. 
 
-În cazul de față, să presupunem că dorim să avem pentru entiatea \emph{GameEntity} și acele date care extind nodul \emph{Game} aferent din baza de date (\emph{Visuals}, \emph{Details} și \emph{Average}). Așadar, putem să ne definim o interfață(de exemplu cu numele de \emph{GameInterfaceProjection}) care precizează datele de care avem nevoie. Aceasta arată în felul următor:
+În cazul de față, să presupunem că dorim să avem pentru \emph{GameEntity} și acele date care extind nodul \emph{Game} aferent din baza de date (\emph{Visuals}, \emph{Details} și \emph{Average}). Așadar, putem să ne definim o interfață(de exemplu cu numele de \emph{GameInterfaceProjection}) care precizează datele de care avem nevoie. Aceasta arată în felul următor:
 
 \begin{figure}[H]
 \centering
@@ -886,7 +896,7 @@ Se poate observa că implementarea propriu-zisă este aproape trivială în aces
 
    Acest modul are un scop relativ simplu, fiind reprezentat de valorificarea fișierului csv în care sunt reținute parolele convertite de funcția hash, dar și de a persista starea de logare a utilizatorului pe partea de front-end a aplicației, prin intermediul unui JWT token. \cite{24}
 
-Implementarea acestuia reprezintă doar un punct de pornire, căci poate fi extins și prin introducerea autorizării, în care anumite \emph{request-uri} din API pot fi autorizate în funcție de rolul pe care îl are utilizatorul prin intermediul token-ului menționat anterior. Totuși, pentru scopul în mare al proiectului, acela de a observa cum se poate rezolva problema recomandării unor jocuri video, acest aspect de autentificare/autorizare nu a fost atins foarte în detaliu.
+Implementarea acestuia reprezintă doar un punct de pornire, căci poate fi extins și prin introducerea autorizării, în care anumite \emph{request-uri} din API pot fi autorizate în funcție de rolul pe care îl are utilizatorul prin intermediul token-ului menționat anterior. Totuși, pentru scopul principal al proiectului, acela de a observa cum se poate rezolva problema recomandării unor jocuri video, acest aspect de autentificare/autorizare nu a fost atins foarte în detaliu.
 
 Pentru a implementa acest modul, am utilizat funcționalitățile oferite de \emph{Spring Security}. \cite{25}
 
@@ -929,7 +939,7 @@ De menționat faptul că acel secret care este pus manual pentru a fi folosit î
 
 \section{Algoritmul de recomandare}
 
-Documentația pe care am consultat-o în scopul implementării acestui algoritm constă într-un curs de pe Udemy. \cite{27} Chiar dacă în acest curs noțiunile sunt prezentate având ca limbaj suport Python, intenția mea a fost de a înțelege mai degrabă conceptele și de a le implementa utilizând limbajul Java și baza de date Neo4j.
+Documentația pe care am consultat-o în scopul implementării acestui algoritm constă într-un curs de pe Udemy. \cite{27} Chiar dacă în acest curs noțiunile sunt prezentate având ca limbaj suport Python, intenția mea a fost de a înțelege conceptele și de a le implementa utilizând limbajul Java și baza de date Neo4j.
 
 \subsection{Introducere}
 
@@ -993,11 +1003,11 @@ La prima vedere, acest lucru nu ar putea fi considerat unul benefic, însă să 
 
 \bigskip
 
-Fie platforma de jocuri video pentru PC numită Steam. În momentul scrierii acestei lucrări, există aproximativ \( 50 000 \) jocuri pe această platformă. \cite{29} Nu am găsit un număr concret legat de câți utilizatori ar exista, însă estimativ în jur de 60 de milioane de utilizatori folosesc Steam zilnic, și sunt 120 de milioane de utilizatori activi într-o lună, așadar, numărul este considerabil mai mare. Este cert mult mai mare decât numărul de jocuri existente.
+Fie platforma de jocuri video pentru PC numită Steam. În momentul scrierii acestei lucrări, există aproximativ \( 50 000 \) jocuri pe această platformă. \cite{29} Nu am găsit un număr concret legat de câți utilizatori ar exista, însă estimativ în jur de 60 de milioane de utilizatori folosesc Steam zilnic, și sunt 120 de milioane de utilizatori activi într-o lună, așadar, numărul este considerabil mai mare.
 
 În mod intuitiv, matricea asociată este una rară. Ca să explic mai bine această intuiție, am încercat să găsesc statistici legate de numărul de jocuri în medie deținute de un utilizator. Neoficial, un utilizator deține în jur de 11 jocuri. Acest aspect este îndeajuns pentru a motiva faptul că matricea este întradevăr rară.
 
-Dacă matricea ar fi plină, atunci înseamnă practic că utilizatorii în mare au oferit recenzii majorității jocurilor existente, ceea ce înseamnă că nu se mai observă rostul de a oferi recomandări, de vreme ce matricea este plină. Așadar, este un lucru benefic faptul că matricea este rară, căci aceasta este problema pe care o încearcă un sistem de recomandări să o rezolve: să prezică scoruri pentru elementele lipsă din matrice.
+Dacă matricea ar fi plină, atunci înseamnă practic că utilizatorii au oferit recenzii majorității jocurilor existente, ceea ce înseamnă că nu se mai observă rostul de a oferi recomandări, de vreme ce matricea este plină. Așadar, este un lucru benefic faptul că matricea este rară, căci aceasta este problema pe care o încearcă un sistem de recomandări să o rezolve: să prezică scoruri pentru elementele lipsă din matrice.
 
 \bigskip
 
@@ -1207,7 +1217,7 @@ Această parte este responsabilă de prelucrarea soluției finale. Practic, vor 
 
 Angular este un \emph{framework} ce permite dezvoltarea de aplicații web la nivel de client, numite \emph{single-page}. \cite{31}.
 
-Am ales să dezvolt partea de front-end a aplicației utilizând această tehnologie deoarece, maniera generală de lucru este realizată prin intermediul programării orientate obiect.
+Am ales să dezvolt partea de front-end a aplicației utilizând această tehnologie deoarece maniera generală de lucru este realizată prin intermediul programării orientate obiect.
 
 În această manieră, obiectele pot fi asociate cu componentele, iar o componentă în Angular este alcătuită din trei elemente principale:
 
@@ -1414,7 +1424,7 @@ După câteva generări, graficul ar putea arăta astfel:
 \caption*{}
 \end{figure}
 
-Rezultatele din grafic au fost generate în această manieră ca utilizatorul să poată tragă concluzii mult mai ușor legat de ce jocuri să aleagă. Cu alte cuvinte, utilizatorul poate mult mai ușor să analizeze rezultatele după mai multe schimbări ale parametrului k.
+Rezultatele din grafic au fost generate în această manieră ca utilizatorul să poată tragă concluzii mult mai ușor legat de ce jocuri să aleagă. Cu alte cuvinte, utilizatorul poate analiza în mod facil rezultatele după mai multe schimbări ale parametrului k.
 
 
 \section{Manual de utilizare}
@@ -1603,6 +1613,26 @@ După ce s-au instalat dependențele, se poate executa comanda \emph{npm start} 
 
 \section{Concluzii și direcții viitoare}
 
+În introducere am menționat în secțiunea de \textbf{Aplicații similare} legat de faptul că una din intențiile mele pentru a dezvolta această aplicație este de a a îmi răspunde la întrebarea: "Cum se poate implementa un algoritm de recomandare?"
+
+Răspunsul ar putea fi că am învățat să implementez un tip de algoritm colaborativ, în care să țin cont de notele date de utilizatori jocurilor, însă bineînțeles că nu se termină aici răspunsul. Rândurile următoare vor motiva acest aspect.
+
+Baza de date Neo4j pe care am utilizat-o reprezintă un punct de interes, datorită abordării NoSql și a caracterului său de tip graf. Am învățat multe lucruri interesante, însă cel mai important mi se pare faptul că am câștigat o nouă perspectivă în a decide cum aș putea modela schema unei baze de date. Asta nu înseamnă că de acum încolo voi folosi doar baze de date NoSql în aplicațiile viitoare pe care le voi dezvolta în alte contexte, ci cred că ar fi bine ca, în general, un inginer \emph{software} să aibă următoarea întrebare în minte atunci când dorește să rezolve o problemă și caută o anumită soluție de stocare: "Am problema X cu anumite cerințe, specificații, constrângeri. Care ar fi soluția de stocare cea mai potrivită pentru a rezolva această problemă?", în detrimentul întrebării: "Știu să lucrez în Cypher și Neo4j. Ce probleme pot rezolva cu acestea?". 
+
+Bineînțeles că la acest tip de întrebare, nici răspunsul nu este unul direct. În funcție de avantajele și dezavantajele oferite de fiecare soluție în parte, se va putea lua o decizie cât mai cântărită.
+
+Direcțiile de dezvoltare în cadrul bazei de date ale acestei aplicații le-aș considera ca fiind următoarele: folosirea unor indecși pentru a crește performanța interogărilor în Cypher, remodelarea bazei de date astfel încât proprietățile jocurilor să poată fi folosite în cadrul unui algoritm de recomandare bazat pe conținut și extinderea schemei bazei de date cu alte entități care pot aduce un aspect de rețea socială a întregii aplicații(de exemplu, posibilitatea de a adăuga comentarii la recenzii, de a "urmări" un utilizator etc.)
+
+În cadrul soluției de \emph{back-end} am apreciat faptul că am reușit să combin interogări în limbajul Cypher cu tehnici de programare în limbajul Java pentru a implementa un algoritm de recomandare colaborativ. Din punct de vedere algoritmic, s-ar putea considera ca puncte de dezvoltare implementarea mai multor tipuri de algoritmi de recomandare prin mai multe tehnici posibile(de exemplu un algoritm ce folosește tehnici de învățare automată, sau un algoritm hibrid ce combină aspecte de filtrare colaborativă cu cele bazate pe conținut). De asemenea, aș avea în vedere și compararea acestor algoritmi, putându-se obține diverse metrici cu ajutorul cărora s-ar putea analiza rezultatele obținute și ar facilita compararea algoritmilor.
+
+În ceea ce privește funcționalitățile API-ului implementat, acesta s-ar putea extinde prin adăugarea unor \emph{request-uri} care permit adăugarea, editarea sau ștergerea resurselor(de exemplu, editarea unei recenzii sau a profilului utilizatorului). De asemenea, s-ar putea stabili mai multe roluri pentru utilizatori, iar \emph{request-urile} ar putea fi autorizate în funcție de rolul acestora. Se poate lua în considerare și integrarea cu servicii externe(de exemplu, importarea anumitor statistici ale utilizatorului din diverse platforme de \emph{gaming}, precum Steam sau Playstation).
+
+Soluția de \emph{front-end} poate avea un plus de valoare printr-o alegere mai inspirată în ceea ce privește schema generală de culori. De asemenea, se poate îmbunătăți experiența utilizatorului prin adăugarea funcționalităților aferente unei rețele sociale, dar și prin optimizarea părții de responsivitate pentru a permite utilizarea aplicației pe mai multe rezoluții, chiar și pe cele mobile.
+
+În încheiere, aș menționa faptul că această reușită de a dezvolta o aplicație web de la cap la coadă m-a făcut să realizez care îmi sunt calitățile și defectele, ce aș putea îmbunătăți și ce aș putea aprofunda în viitor. Am trecut prin diverse obstacole tehnice, însă fără acestea nu mi-aș fi putut dezvolta cunoștințele cu adevărat. Cunoștințele dobândite mi-au redat o perspectivă mult mai amplă în ceea ce privește ingineria aplicațiilor \emph{software}.
+
+
+
 
 
 \renewcommand\bibname{Bibliografie}
@@ -1658,9 +1688,9 @@ După ce s-au instalat dependențele, se poate executa comanda \emph{npm start} 
   
   \bibitem{8}
   
-  \textit{Neo4j Training - Querying with Cypher In Neo4j 4.x}
+  \textit{Cypher Query Language}
   
-  \url{https://neo4j.com/graphacademy/training-querying-40/01-querying40-introduction-to-cypher/}
+  \url{https://neo4j.com/developer/cypher/}
   
   \bibitem{9}
   
