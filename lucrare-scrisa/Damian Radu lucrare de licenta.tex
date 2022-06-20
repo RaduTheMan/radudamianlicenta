@@ -12,6 +12,7 @@
 \usepackage{amsmath}
 \usepackage{float}
 \usepackage{listings}
+\usepackage{adjustbox}
 \addbibresource{sample.bib}
 
 \geometry{
@@ -654,7 +655,7 @@ O variantă de implementare a algoritmului în limbajul Java ar putea arăta în
 \textbf{Repartizarea jocurilor jucate către fiecare utilizator}
 \bigskip
 
-În această secțiune se poate observa deja utilitatea algoritmului menționat anterior. Pentru fiecare utilizator, am ales la întâmplare 20 de jocuri din cele 300 generate, iar aceste asocieri le-am salvat în fișierul plays.csv
+În această secțiune se poate observa deja utilitatea algoritmului menționat anterior. Pentru fiecare utilizator, am ales la întâmplare un număr de jocuri din cele 300 generate, iar aceste asocieri le-am salvat în fișierul plays.csv
 
 Acest fișier arată în felul următor:
 
@@ -673,17 +674,9 @@ Acest fișier arată în felul următor:
 
 Primul pas a fost să salvez într-un fișier local în format JSON jocurile oferite de Steam, sub forma unei liste de obiecte, în care fiecare obiect are două proprietăți:  \emph{appid}(un identificator unic folosit de Steam pentru jocurile sale) și \emph{name}(numele jocului). Scopul acestui fișier este de a încerca să identific dacă jocul procurat inițial de la IGDB API poate fi identificat ca un joc din platforma Steam ca să pot extrage ulterior recenzii relevante acestui joc. (prin intermediul API-ului oferit de Steam). În caz contrar, voi extrage o recenzie aleatoare dintr-un fișier salvat local de tip csv dintr-un set de date oferit de Kaggle. \cite{17}
 
-Al doilea pas a fost să asociez fiecărui utilizator un număr de recenzii pe care le poate oferi din cele 20 de jocuri pe care le-am repartizat. Inițial am extras din cele 20 de jocuri un număr din acestea stabilit în felul următor:
+Al doilea pas a fost să asociez fiecărui utilizator un număr de recenzii pe care le poate oferi din acele jocuri pe care le-am repartizat. Acest număr de recenzii a fost deasemenea generat la întâmplare.
 
-\bigskip
-
-Voi genera un număr întreg în intervalul \([0, 5) \) cu probabilitate de \(0.2 \), și cu probabilitate de \( 0.8 \) un număr în intervalul \([5, 20] \). Motivul pentru care am procedat astfel este ca să sporesc șansele ca doi utilizatori să aibă cât mai multe jocuri în comun la care au făcut recenzii. Am sporit aceste șanse pentru algoritmul de recomandare ce va fi descris într-un capitol ulterior.
-
-În mod intuitiv, acest procedeu poate fi asociat prin alegerea unei urne din 2 disponibile. O urnă are probabilitate \( 0.2 \) de a fi aleasă, iar cealaltă urnă are probabilitate \( 0.8 \). În fiecare urnă, bilele(în cazul nostru numerele întregi) au aceeași probabilitate de a fi alese.(adică urmează o distribuție uniformă).
-
-\bigskip
-
-După ce am determinat acest număr, voi extrage acel număr de jocuri propriu-zis, după care voi încerca să asociez pentru fiecare joc câte o recenzie. 
+După ce am determinat acest număr, voi extrage acele jocuri ce urmează a fi recenzate, după care voi încerca să asociez pentru fiecare joc câte o recenzie. 
 
 Pentru a fi mai ușor de explicat, următorii pași îi voi ilustra sub forma unui pseudocod, iar după acest pseudocod va fi prezentat codul propriu-zis în Java, pentru a fi mai ușor de înțeles.
 
@@ -694,7 +687,7 @@ Pentru a fi mai ușor de explicat, următorii pași îi voi ilustra sub forma un
 \caption*{La o primă vedere, acest procedeu nu este complicat, însă dificultatea constă în extragerea unei recenzii pentru un joc aflat pe platforma Steam, deoarece trebuie gestionată frecvența \emph{request}-urilor care se fac către API-ul care ne oferă recenziile în acest caz. De menționat faptul că acest procedeu se realizează pentru fiecare utilizator.}
 \end{figure}
 
-O modalitate naivă este de a face un \emph{request} de fiecare dată când dorim să asociem o recenzie unui joc, însă numărul de \emph{request-uri} crește cu cât mărim numărul de utilizatori și de jocuri recenzate de fiecare utilizator. În cazul de față, avem \(500\) de utilizatori, iar în cel mai rău caz, pentru fiecare utilizator avem \(20\) de recenzii, deci în total \(10 000 \) de \emph{request}-uri.
+O modalitate naivă este de a face un \emph{request} de fiecare dată când dorim să asociem o recenzie unui joc, însă numărul de \emph{request-uri} crește cu cât mărim numărul de utilizatori și de jocuri recenzate de fiecare utilizator. În cazul de față, avem \(500\) de utilizatori, și să presupunem că pentru fiecare utilizator avem în medie \(20\) de recenzii, deci în total \(10 000 \) de \emph{request}-uri.
 
 Să presupunem că timpul mediu în care s-ar face un request este de \( 20 \) milisecunde.(un timp foarte bun în practică) În total ar dura \( 10 000 \cdot 20 = 200000 \approx 3 \) minute, ceea ce este un timp deloc neglijabil în acest context.
 
@@ -964,7 +957,7 @@ Sistemele de recomandări bazate pe \textbf{conținut} pun mai mult accent pe me
 \subsection{Recomandări bazate pe filtrare colaborativă}
 
 
-   Înainte de a fi explicat algoritmul propriu-zis, vor fi introduse notații care vor facilita prezentarea algoritmului. Aceste notații au fost prezentate în cadrul cursului de pe Udemy.
+   Înainte de a fi explicat algoritmul propriu-zis, vor fi introduse notații care vor facilita prezentarea algoritmului. 
 
 \bigskip
 \bigskip
@@ -1206,9 +1199,226 @@ Pentru fiecare joc, se calculează numărătorul și numitorul conform formulei 
 \caption*{}
 \end{figure}
 
-Această parte este responsabilă de prelucrarea soluției finale. Practic, vor fi furnizate jocurile ordonate descrescător după scorul obținut și crescător după titlul jocului.
+Această parte este responsabilă de prelucrarea soluției finale. Practic, vor fi furnizate maxim 10 jocuri ordonate descrescător după scorul obținut și crescător după titlul jocului.
 
 \section{Front-end}
+
+\subsection{De ce Angular?}
+
+Angular este un \emph{framework} ce permite dezvoltarea de aplicații web la nivel de client, numite \emph{single-page}. \cite{31}.
+
+Am ales să dezvolt partea de front-end a aplicației utilizând această tehnologie deoarece, maniera generală de lucru este realizată prin intermediul programării orientate obiect.
+
+În această manieră, obiectele pot fi asociate cu componentele, iar o componentă în Angular este alcătuită din trei elemente principale:
+
+\begin{enumerate}
+  \item cod HTML ce reprezintă șablonul(\emph{template-ul}) componentei
+  \item unul sau mai multe fișiere CSS pentru stilizarea componentei
+  \item cod Typescript pentru implementarea logicii componentei(o componentă poate fi asociată intuitiv unei clase) 
+\end{enumerate}
+
+Am apreciat separarea acestor trei elemente, fiecare având un scop bine definit.
+
+De asemenea, limbajul de programare utilizat este Typescript. Acesta este un superset al limbajului Javascript, ce adaugă suport pentru tipizare statică, aspect care permite scrierea mult mai riguroasă a codului.
+
+\subsection{Paginile aplicației}
+
+\bigskip
+\textbf{Pagina de acasă}
+\bigskip
+
+\begin{figure}[H]
+\centering
+\caption{}
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+\includegraphics{exemplu_30_home_page}
+\end{adjustbox}
+
+\caption*{}
+\end{figure}
+
+În această pagină, utilizatorul este întâmpinat cu un mesaj de bun venit și cu scurte indicații legat de ce ar putea să facă în acest site. Poate ori să se logheze, pentru a-și  vedea profilul și a cere recomandări, sau poate să vizualizeze catalogul de jocuri existente.
+
+\bigskip
+\textbf{Catalogul de jocuri}
+\bigskip
+
+Această pagină poate fi accesată prin intermediul barei de navigare, mai concret prin opțiunea \emph{View Games}, și arată în felul următor:
+
+\begin{figure}[H]
+\centering
+\caption{}
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+\includegraphics{exemplu_31_games_catalog}
+\end{adjustbox}
+
+\caption*{}
+\end{figure}
+
+Jocurile sunt aduse de pe \emph{back-end} prin intermediul unui \emph{request} ce suportă paginare. Acestea sunt afișate câte 8 pe  pagină(2 rânduri a câte 4 jocuri).
+
+Înainte de a fi prezentată următoarea pagină, vor fi descrise anumite concepte din \emph{framework-ul} Angular care au facilitat atât crearea acestei pagini, cât și a celor care vor urma a fi ilustrate.
+
+\bigskip
+\textbf{Servicii, observabile și tratarea acestora}
+\bigskip
+
+În primul rând, pentru a utiliza \emph{request-urile} ce au fost implementate pe \emph{back-end}, am implementat servicii pe partea de \emph{front-end}. Un serviciu este o clasă separată de componentă, și are în general rolul de a efectua anumite funcționalități specifice. \cite{32}
+
+De exemplu, pentru pagina anterior menționată, am implementat un serviciu care se ocupă de obținerea jocurilor prin paginare. Acesta arată în felul următor:
+
+\begin{figure}[H]
+\centering
+\caption{}
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+\includegraphics{exemplu_32_games_paginated_service}
+\end{adjustbox}
+
+\caption*{}
+\end{figure}
+
+În primul rând se observă folosirea adnotării \emph{Injectable}, care indică faptul că instanța clasei poate fi injectată. Acest serviciu va fi instanțiat automat atunci când este folosit ca parametru în cadrul unui constructor.
+
+De asemenea, se observă alte două servicii injectate în constructorul acestui serviciu, anume \emph{ConfigurationService} și \emph{HttpClient}. Primul este implementat de mine, și are ca scop extragerea \emph{url-ului} corespunzător dintr-un fișier în format JSON în care am reținut toate \emph{url-urile} asociate \emph{request-urilor} de pe \emph{back-end}.
+
+Al doilea serviciu este oferit de Angular, și este responsabil de efectuarea \emph{request-urilor} prin intermediul protocolului Http.
+
+În metoda \emph{getGamesPaginated}, se extrage url-ul corespunzător \emph{request-ului} care va furniza jocurile prin paginare, se setează \emph{query parameters} corespunzători și se va returna un observabil.
+
+Acest observabil face o trimitere la \emph{design pattern-ul} numit \emph{observer}, în care un obiect(subiect) emite anumite evenimente, iar unul sau mai mulți ascultători(observatori) vor fi notificați de către subiect. \cite{33}
+
+Scopul folosirii acestui \emph{design pattern} în Angular este de a rezolva problema tratării evenimentelor asincrone. De menționat faptul că returnarea observabilului de către serviciu nu implică și efectuarea \emph{request-lui} corespunzător. Acest observabil este consumat doar atunci când se va apela metoda \emph{subscribe}.
+
+Serviciul anterior menționat va fi consumat în cadrul paginii ce afișează catalogul de jocuri. Mai concret, în cadrul clasei \emph{GamesComponent}, în felul următor:
+
+\begin{figure}[H]
+\centering
+\caption{}
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+\includegraphics{exemplu_33_subscribe}
+\end{adjustbox}
+
+\caption*{}
+\end{figure}
+
+În cadrul acestei componente, se observă implementarea interfeței funcționale \emph{OnInit} prin implementarea metodei \emph{ngOnInit}. 
+
+În general, o componentă are o serie de evenimente prin care cu ajutorul implementării unor anumite interfețe funcționale, se pot efectua acțiuni atunci când se declanșează aceste evenimente.  \cite{34}
+
+În exemplul din figură, se dorește obținerea jocurilor prin paginare atunci când se inițializează componenta. În primul rând, pentru a trata în mod asincron schimbarea paginii curente, se folosește un \emph{BehaviorSubject}, prin care se pot emite evenimente prin apelarea metodei \emph{next}.
+
+În general, înainte ca un observabil să fie consumat, se pot folosi operatori care vor prelucra datele emise de acel observabil înainte să ajungă să fie consumate. Acești operatori sunt înlănțuiți în cadrul metodei \emph{pipe}. Librăria RxJS \cite{35} vine la pachet cu Angular și oferă o gamă variată de operatori.
+
+În cadrul metodei \emph{ngOnInit}, acel \emph{BehaviorSubject} menționat anterior este convertit într-un observabil. Pentru a putea obține jocurile atunci când s-a schimbat pagina, se poate folosi operatorul \emph{switchMap}, care schimbă observabilul anterior în acel observabil care este responsabil de obținerea de jocuri. De asemenea, operatorul \emph{untilDestroyed} este folosit pentru a asigura faptul că atunci când se va ieși de pe pagina cu catalogul de jocuri(adică atunci când se distruge instanța clasei \emph{GamesComponent}), nu se vor mai asculta alte evenimente, deci observabilul va fi completat.
+
+În cadrul metodei \emph{subscribe}, se vor prelua datele și vor fi reținute pentru a putea fi afișate eventual în șablonul componentei.
+
+\bigskip
+\textbf{Pagina unui joc}
+\bigskip
+
+Atunci când utilizatorul vizualizează catalogul și dorește să vadă în detaliu informații despre un anumit joc, va fi întâmpinat cu următoarea pagină:
+
+\begin{figure}[H]
+\centering
+\caption{}
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+\includegraphics{exemplu_34_game_details}
+\end{adjustbox}
+
+\caption*{}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\caption{}
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+\includegraphics{exemplu_35_game_details_2}
+\end{adjustbox}
+
+\caption*{}
+\end{figure}
+
+\bigskip
+\textbf{Profilul unui utilizator}
+\bigskip
+
+În stadiul actual, un utilizator care nu este logat poate să privească profilul altui utilizator(de exemplu, cel care a făcut o anumită recenzie), însă ca să poată să primească recomandări, trebuie să se logheze în aplicație.
+
+În cazul în care credențialele introduse de utilizator sunt incorecte, atunci o notificare va fi afișată care să sugereze acest lucru. În caz contrar, \emph{request-ul} de pe \emph{back-end} va furniza un \emph{token} care va fi reținut în \emph{local storage-ul} \emph{browser-ului} pentru a persista starea de logare.
+ 
+ După o logare efectuată cu succes, profilul arată după cum urmează:
+
+\begin{figure}[H]
+\centering
+\caption{}
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+\includegraphics{exemplu_36_profile}
+\end{adjustbox}
+
+\caption*{}
+\end{figure}
+
+\bigskip
+\textbf{Afișarea rezultatelor algoritmului de recomandare}
+\bigskip
+
+Prin apăsarea butonului \emph{Get game recommendations}, o nouă fereastră va fi deschisă prin care utilizatorul va putea seta parametrul \( k \) pentru a controla precizia algoritmului. Inițial, înainte de afișarea rezultatelor, fereastra arată în felul următor:
+
+\begin{figure}[H]
+\centering
+\caption{}
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+\includegraphics{exemplu_37_modal_1}
+\end{adjustbox}
+
+\caption*{Acel \emph{icon} plasat în fața lui k are rol informativ. Atunci când utilizatorul va acoperi acel \emph{icon} cu \emph{mouse-ul}, un text va apărea, prin care este precizat intervalul prin care poate fi setat k(adică între 1 și 50). De reamintit faptul că acest parametru indică numărul de utilizatori care vor fi luați în considerare în generarea rezultatelor. Cu alte cuvinte, cu cât k este mai mare, cu atât mai multe jocuri vor fi luate în considerare.}
+\end{figure}
+
+După aceea, prin apăsarea butonului \emph{Get recommendations}, se vor încărca datele și inițial vor apărea rezultatele sub forma unui tabel:
+
+\begin{figure}[H]
+\centering
+\caption{}
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+\includegraphics[scale=0.55]{exemplu_38_modal_2}
+\end{adjustbox}
+
+\end{figure}
+
+\emph{Request-ul} de pe back-end oferă deja sortate descrescător jocurile după valoarea calculată. Acest tabel arată jocurile obținute pentru un anumit parametru k.
+
+Însă, dacă se dorește schimbarea opțiunii de vizualizare a rezultatelor, se poate selecta opțiunea \emph{Chart}.
+
+Inițial, după o primă generare, graficul arată în felul următor:
+
+\begin{figure}[H]
+\centering
+\caption{}
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+\includegraphics[scale=0.7]{exemplu_39_modal_3}
+\end{adjustbox}
+\caption*{Pentru a genera acest grafic, am folosit librăria \emph{ng2-charts} \cite{36} }
+\end{figure}
+
+Acest grafic are scopul de a arăta care jocuri apar de cele mai multe ori în tabel cu cât se generează mai multe rezultate prin schimbarea parametrului k. Dacă se încearcă generarea cu același parametru k, atunci nu are rost ca acest grafic să fie actualizat, căci rezultatele sunt aceleași. (în teorie, rezultatele ar putea să fie schimbate pentru același k dacă unul din cei k utilizatori va modifica nota unei recenzii, sau va adăuga o nouă recenzie înainte ca utilizatorul să declanșeze execuția algoritmului)
+
+După câteva generări, graficul ar putea arăta astfel:
+
+\begin{figure}[H]
+\centering
+\caption{}
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+\includegraphics[scale=1]{exemplu_40_modal_4}
+\end{adjustbox}
+\caption*{}
+\end{figure}
+
+Rezultatele din grafic au fost generate în această manieră ca utilizatorul să poată tragă concluzii mult mai ușor legat de ce jocuri să aleagă. Cu alte cuvinte, utilizatorul poate mult mai ușor să analizeze rezultatele după mai multe schimbări ale parametrului k.
+
+
+
+
 \section{Manual de utilizare}
 \section{Concluzii și direcții viitoare}
 
@@ -1400,6 +1610,42 @@ Această parte este responsabilă de prelucrarea soluției finale. Practic, vor 
   \textit{Pearson correlation coefficient}
   
   \url{https://en.wikipedia.org/wiki/Pearson_correlation_coefficient}
+  
+  \bibitem{31}
+  
+  \textit{Introduction to the Angular Docs}
+  
+  \url{https://angular.io/docs}
+  
+   \bibitem{32}
+  
+  \textit{Introduction to services and dependency injection}
+  
+  \url{https://angular.io/guide/architecture-services}
+  
+  \bibitem{33}
+  
+  \textit{Observer}
+  
+  \url{https://refactoring.guru/design-patterns/observer}
+  
+  \bibitem{34}
+  
+  \textit{Lifecycle hooks}
+  
+  \url{https://angular.io/guide/lifecycle-hooks}
+  
+  \bibitem{35}
+  
+  \textit{RxJS}
+  
+  \url{https://rxjs.dev/}
+  
+  \bibitem{36}
+  
+  \textit{ng2-charts}
+  
+  \url{https://www.npmjs.com/package/ng2-charts}
 
 
 \end{thebibliography}

@@ -92,43 +92,53 @@
       </div>
     </div>
   </div>
-  
+
   <div class="row mt-3 ms-3">
     <h2>Screenshots</h2>
     <hr class="w-25" />
   </div>
-  
-  <ngb-carousel class="mx-auto" *ngIf="screenshots" style="width: 50rem;">
+
+  <ngb-carousel class="mx-auto" *ngIf="screenshots" style="width: 50rem">
     <ng-template ngbSlide *ngFor="let screenshot of screenshots">
       <div class="picsum-img-wrapper">
-        <img [src]="screenshot">
+        <img [src]="screenshot" />
       </div>
     </ng-template>
   </ngb-carousel>
-  
 
   <div class="row mt-3 ms-3">
     <h2>Reviews</h2>
     <hr class="w-25" />
 
+    <ngb-pagination
+      *ngIf="reviews"
+      [collectionSize]="reviews.length"
+      [(page)]="page"
+      [pageSize]="pageSize"
+    ></ngb-pagination>
+
     <div *ngIf="reviews" class="d-flex flex-column mb-3">
-      <div  *ngFor="let review of reviews | slice: (page - 1) * pageSize:page * pageSize" class="card mb-3" style="width: 50rem; height: auto">
+      <div
+        *ngFor="
+          let review of reviews | slice: (page - 1) * pageSize:page * pageSize
+        "
+        class="card mb-3"
+        style="width: 50rem; height: auto"
+      >
         <div class="card-body">
-          <h5><a class="card-title" [routerLink]="['/profile', review.userEntity?.uuid]">{{ review.userEntity?.username }}</a></h5>
+          <h5>
+            <a
+              class="card-title"
+              [routerLink]="['/profile', review.userEntity?.uuid]"
+              >{{ review.userEntity?.username }}</a
+            >
+          </h5>
           <ngb-rating [readonly]="true" [rate]="+review.score"></ngb-rating>
           <p class="card-text">
-            {{review.content}}
+            {{ review.content }}
           </p>
         </div>
       </div>
     </div>
-
-    <ngb-pagination
-        *ngIf="reviews"
-        [collectionSize]="reviews.length"
-        [(page)]="page"
-        [pageSize]="pageSize"
-      ></ngb-pagination>
   </div>
 </div>
-

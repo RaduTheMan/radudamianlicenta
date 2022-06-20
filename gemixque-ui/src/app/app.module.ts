@@ -17,14 +17,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { RecommendationsModalComponent } from './pages/profile/recommendations-modal';
 import { NgChartsModule } from 'ng2-charts';
-
+import { NgIconsModule } from '@ng-icons/core';
+import { IconoirLinkedin, IconoirGithub, IconoirInfoEmpty } from '@ng-icons/iconoir';
 
 const pages = [
   SignUpComponent,
   HomeComponent,
   ProfileComponent,
   GamesComponent,
-  GameDetailsComponent,
+  GameDetailsComponent
 ];
 
 @NgModule({
@@ -37,7 +38,8 @@ const pages = [
     BrowserAnimationsModule,
     NgbModule,
     NgChartsModule,
-    SharedModule,
+    NgIconsModule.withIcons({ IconoirLinkedin, IconoirGithub, IconoirInfoEmpty }),
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent],

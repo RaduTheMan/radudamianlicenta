@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NgbModal, NgbModalRef } from '@ng-bootstrap/ng-bootstrap';
 import { forkJoin, take } from 'rxjs';
+import { AuthService } from 'src/app/services/auth.service';
 import { Review } from 'src/app/shared/types';
 import { RecommendationsModalComponent } from './recommendations-modal';
 import { UserService } from './services';
@@ -28,7 +29,9 @@ export class ProfileComponent implements OnInit, OnDestroy {
   constructor(
     private readonly service: UserService, 
     private readonly activatedRoute: ActivatedRoute, 
-    private readonly modalService: NgbModal) {
+    private readonly modalService: NgbModal,
+    readonly authService: AuthService
+  ) {
     this.uuid = this.activatedRoute.snapshot.params['id'];
   }
   
