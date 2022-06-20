@@ -1,1 +1,2 @@
 .\bin\neo4j-admin.bat load --from=E:\radudamianlicenta\dumps\neo4j.dump --database=neo4j --force
+.\bin\neo4j-admin.bat load --from=E:\radudamianlicenta\dumps\system.dump --database=system --force
