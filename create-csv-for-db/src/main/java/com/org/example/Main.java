@@ -16,7 +16,7 @@ public class Main {
             e.printStackTrace();
         }
 
-       GameProvider gameProvider = new GameProvider("/igdb-api-config.json");
+        GameProvider gameProvider = new GameProvider("/igdb-api-config.json");
         try {
             PlaysProvider.generatePlaysFile(users, gameProvider.getGamePrototypes());
             ReviewProvider reviewProvider = new ReviewProvider(users);
@@ -29,5 +29,3 @@ public class Main {
     }
 
 }
-
-
