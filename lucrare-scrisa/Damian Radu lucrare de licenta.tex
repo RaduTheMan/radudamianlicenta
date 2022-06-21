@@ -1461,11 +1461,11 @@ Toate fișierele ce sunt necesare pentru instalarea locală a aplicației se gă
   \url{https://www.youtube.com/watch?v=RSbhmVF_ccs}
   
   
-  \item Importarea bazei de date
+  \item Crearea bazei de date
   
-  Fișierele necesare ce vor fi importate se regăsesc în directorul \emph{dumps}. Aceste fișiere sunt următoarele: neo4j.dump și system.dump.
+  Datele ce vor fi importate în baza de date vor fi generate de modulul care creează fișiere csv. Acest modul se poate găsi în directorul \emph{create-csv-for-db}.
   
-  Înainte de a fi importate aceste fișiere, se va crea un nou proiect, apăsând butonul \emph{New} și secțiunea \emph{Create project}:
+  Înainte de a fi generate datele, se va crea un nou proiect, apăsând butonul \emph{New} și secțiunea \emph{Create project}:
   
 \begin{figure}[H]
 \centering
@@ -1503,53 +1503,90 @@ Toate fișierele ce sunt necesare pentru instalarea locală a aplicației se gă
 
   Se apasă pe butonul \emph{Create} și se va aștepta până când baza de date va fi creată.
   
-  Urmează importarea acelor fișiere \emph{dump} anterior menționate. Pentru a realiza acest lucru, se va deschide un terminal în felul următor:
+  Urmează instalarea \emph{plugin-ului} APOC care se poate găsi ca în figura atașată:
   
     \begin{figure}[H]
 \centering
 \caption{}
 \begin{adjustbox}{max size={\textwidth}{\textheight}}
-\includegraphics[scale=1]{exemplu_45_terminal}
+\includegraphics[scale=1]{exemplu_52_apoc}
 \end{adjustbox}
 \caption*{}
 \end{figure}
   
-  După deschiderea terminalului, se va executa următoarea comandă pentru importarea acelor fișiere:
+  Înainte de a porni baza de date, se vor modifica anumite setări ale acesteia pentru a permite folosirea anumitor funcționalități din librăria APOC. Pentru a accesa setările, se vor apăsa acele puncte de lângă butonul \emph{Open} și se va accesa secțiunea \emph{Settings}.
+  
+  În acel fișier se vor introduce următoarele setări:
+  
+  \begin{figure}[H]
+\begin{BVerbatim}
+dbms.security.procedures.allowlist=apoc.coll.*,
+apoc.load.*,gds.*, apoc.trigger.*, apoc.uuid.*, apoc.import.*,
+apoc.periodic.*, apoc.text.*, apoc.agg.*
+apoc.uuid.enabled=true
+apoc.trigger.enabled=true
+\end{BVerbatim}
+\end{figure}  
+  
+  Se va porni baza de date prin apăsarea butonului de \emph{Start}.
+  
+  În directorul \emph{scripts\_database} se găsesc toate interogările și comenzile necesare pentru importarea datelor.
+  
+  Pentru început, vor fi adăugate constrângerile. Acestea se găsesc în directorul \emph{constraints} și sunt separate pentru fiecare entitate în parte în fișiere .txt
+  
+  Se va lua fiecare comandă pe rând și va fi introdusă în panoul de comandă, în felul următor:
   
       \begin{figure}[H]
 \centering
 \caption{}
 \begin{adjustbox}{max size={\textwidth}{\textheight}}
-\includegraphics[scale=1]{exemplu_46_load_command}
-\end{adjustbox}
-\caption*{În opțiunea \emph{from} se va introduce calea către fișierul \emph{dump} corespunzător. În mod analog se va executa comanda și pentru fișierul system.dump}
-\end{figure}
-  
-  
-  
-  \item Verificarea importării bazei de date
-  
-  Pentru a verifica dacă baza de date s-a importat corect, în primul rând se va apăsa pe butonul de \emph{Start} pentru a porni baza de date.
-  
-  După acest pas, se va deschide panoul de comandă pentru a verifica dacă datele sunt existente conform schemei bazei de date. Se va apăsa butonul \emph{Open} $\rightarrow$ \emph{Neo4j Browser} :
-  
-        \begin{figure}[H]
-\centering
-\caption{}
-\begin{adjustbox}{max size={\textwidth}{\textheight}}
-\includegraphics[scale=1]{exemplu_47_open}
+\includegraphics[scale=1]{exemplu_53_panou}
 \end{adjustbox}
 \caption*{}
 \end{figure}
 
-\newpage
+În mod analog vor fi introduse comenzile din directoarele \emph{automatic\_uuid} și \emph{trigger}.
+
+După aceea, vor fi adăugate pe rând interogările responsabile pentru importarea datelor în baza de date. Aceste interogări ce se găsesc în directorul \emph{load\_scripts} vor fi adăugate în secțiunea de favorite, ca în figura următoare:
+
+      \begin{figure}[H]
+\centering
+\caption{}
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+\includegraphics[scale=0.6]{exemplu_54_add_favorites}
+\end{adjustbox}
+\caption*{}
+\end{figure}
+
+Următorul pas este de a genera fișiere csv prin intermediul modulului ce se află în directorul \emph{create-csv-for-db}. Acest modul poate fi deschis pentru simplitate prin intermediul unui IDE, iar fișierul Main.java va fi executat. De menționat faptul că timpul în care vor fi create aceste fișiere depinde de performanța calculatorului.
+
+Fișierele csv vor fi regăsite în același director și se numesc: average.csv, details.csv, games.csv, plays.csv, reviews.csv, users\_hashed.csv, users\_original.csv și visuals.csv
+
+Aceste fișiere vor fi adăugate în directorul de \emph{Import} al bazei de date. Acest director se poate accesa astfel:
+
+      \begin{figure}[H]
+\centering
+\caption{}
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+\includegraphics[scale=0.6]{exemplu_55_import}
+\end{adjustbox}
+\caption*{}
+\end{figure}
+
+Ultimul pas pentru importarea datelor este reprezentat de executarea pe rând a interogărilor adăugate în secțiunea de favorite.
+  
+  
+  \item Verificarea importării bazei de date
+  
+  Pentru a verifica dacă baza de date s-a importat corect, se poate executa comanda \texttt{CALL db.schema.visualization()} pentru a observa dacă schema bazei de date corespunde cu cea ilustrată în capitolul 4 \textbf{Baza de date}.
+
 În panoul de comandă, ar trebui să se regăsească următoarele date:
 
         \begin{figure}[H]
 \centering
 \caption{}
 \begin{adjustbox}{max size={\textwidth}{\textheight}}
-\includegraphics[scale=1]{exemplu_48_verificare}
+\includegraphics[scale=0.6]{exemplu_48_verificare}
 \end{adjustbox}
 \caption*{}
 \end{figure}
@@ -1563,7 +1600,7 @@ Toate fișierele ce sunt necesare pentru instalarea locală a aplicației se gă
 
 Fișierele corespunzătoare serverului de \emph{back-end} se regăsesc în directorul \emph{gemixque-api}
 
-Pentru a facilita pornirea serverului, am folosit un IDE pentru a deschide proiectul. Am folosit IDE-ul Intellij IDEA varianta Community, însă oricare IDE poate fi ales care să suporte aplicații implementate în Java.
+Pentru a facilita pornirea serverului, am folosit un IDE pentru a deschide proiectul. Am utilizat IDE-ul Intellij IDEA varianta Community, însă oricare IDE poate fi ales care să suporte aplicații implementate în Java.
 
 Înainte de a se porni serverul, trebuie setată parola ce a fost introdusă anterior în crearea bazei de date în fișierul application.properties. Acesta ar trebui să arate în felul următor:
 
@@ -1576,16 +1613,7 @@ Pentru a facilita pornirea serverului, am folosit un IDE pentru a deschide proie
 \caption*{}
 \end{figure}
 
-Pentru a porni acest server local, se va apăsa click-dreapta pe fișierul \emph{GemixqueApiApplication} și se va apăsa secțiunea următoare:
-
-        \begin{figure}[H]
-\centering
-\caption{}
-\begin{adjustbox}{max size={\textwidth}{\textheight}}
-\includegraphics[scale=0.6]{exemplu_49_open_backend}
-\end{adjustbox}
-\caption*{Prima executare s-ar putea să dureze un timp relativ semnificativ, deoarece se descarcă dependențele necesare proiectului.}
-\end{figure}
+Pentru a porni acest server local, se va executa fișierul \emph{GemixqueApiApplication}.
 
 \bigskip
 \textbf{Pornirea serverului de front-end}
