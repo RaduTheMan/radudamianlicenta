@@ -1,17 +1,46 @@
 \documentclass{beamer}
+\usetheme{Copenhagen}
+\usecolortheme{default}
 %Information to be included in the title page:
-\title{Sample title}
-\author{Anonymous}
-\institute{Overleaf}
-\date{2021}
+\title[Gemixque - sistem de recomandări de jocuri video]{Gemixque}
+\subtitle{Sistem de recomandări de jocuri video}
+\author[Radu Damian]{Radu Damian \and \\[9mm] Dr. Cristian Frăsinaru}
 
+\institute{Facultatea de Informatică}
+\date{2022}
+
+\setbeamertemplate{headline}{}
 \begin{document}
 
 \frame{\titlepage}
 
+
 \begin{frame}
-\frametitle{Sample frame title}
-This is some text in the first frame. This is some text in the first frame. This is some text in the first frame.
+  \frametitle{Cuprins}
+  \tableofcontents
+\end{frame}
+
+\section{Neo4j}
+\frame{\tableofcontents[currentsection]}
+\begin{frame}{Primul slide}
+    test
+\end{frame}
+
+\begin{frame}{Al doilea slide}
+    test2
+\end{frame}
+
+\section{Algoritmul de recomandare}
+%Contents with current section highlighted
+\frame{\tableofcontents[currentsection]}
+\begin{frame}{Second section slide}
+    test3
+\end{frame}
+
+\section{Concluzii}
+\frame{\tableofcontents[currentsection]}
+\begin{frame}{Concluzii}
+	concluzie
 \end{frame}
 
 \end{document}
