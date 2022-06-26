@@ -4,6 +4,9 @@
 \usepackage{adjustbox}
 \usepackage{fancyvrb}
 \usepackage{float}
+\usepackage{algpseudocode}
+\usepackage{amsmath}
+\DeclareMathOperator*{\argmax}{argmax}
 
 %Information to be included in the title page:
 \title[Gemixque - sistem de recomandări de jocuri video]{Gemixque}
@@ -14,6 +17,12 @@
 \date{2022}
 
 \setbeamertemplate{headline}{}
+\addtobeamertemplate{navigation symbols}{}{%
+    \usebeamerfont{footline}%
+    \usebeamercolor[fg]{footline}%
+    \hspace{1em}%
+    \insertframenumber/\inserttotalframenumber
+}
 \begin{document}
 
 \frame{\titlepage}
@@ -70,10 +79,14 @@
     
     \begin{itemize}
         \item Reprezintă obiecte/entități
-        \item Pot fi etichetate
-        \item Pot avea proprietăți
+        \item Poate fi etichetat
+        \item Poate avea proprietăți
     \end{itemize}
     
+    
+\end{frame}
+
+\begin{frame}{Caracteristici}
     O muchie(relație) este caracterizată de:
     
     \begin{itemize}
@@ -152,7 +165,7 @@ RETURN p.nume, p.prenume
 
 \end{frame}
 
-\begin{frame}[fragile]{Cypher vs. SQL}
+\begin{frame}[fragile]{Exemplu}
     \begin{figure}[H]
         \centering
         \begin{adjustbox}{max size={\textwidth}{\textheight}}
@@ -173,14 +186,110 @@ RETURN p.nume, p.prenume
 \section{Algoritmul de recomandare}
 %Contents with current section highlighted
 \frame{\tableofcontents[currentsection]}
-\begin{frame}{Second section slide}
-    test3
+\begin{frame}{Introducere}
+ 
+    \begin{itemize}
+        \item Ipoteză: cantitate masivă de informații
+        \item Problemă: filtrarea acestor informații
+        \item Solutțe: sistem de recomandare ce oferă conținut personalizat utilizatorilor
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Sistem de recomandări bazat pe filtrare colaborativă}
+    \begin{itemize}
+        \item resurse ce nu pot fi descrise prin metadate cu ușurință
+        \item matrice de scoruri utilizator-resursă
+        \item calcularea unei predicții pentru elementele lipsă din matrice
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Exemplu}
+\begin{center}
+\begin{adjustbox}{max size={\textwidth}{\textheight}}
+\begin{tabular}{||c c c c c c||} 
+ \hline
+ & DOOM Eternal & Battlefield & Call of Duty & The Witcher 3: Wild Hunt & Dark Souls III \\ [0.5ex] 
+ \hline\hline
+ Ion & 9 & 8 & 10 & 3 & 6 \\ 
+ \hline
+ Gigel & 8 & 9 & ? & 4 & 5  \\
+ \hline
+ Alex & 5 & 7 & 4 & 10 & 9 \\
+ \hline
+\end{tabular}
+\end{adjustbox}
+\end{center}
+    
+\end{frame}
+
+\begin{frame}{Formule}
+    \[ s(u, g) = \dfrac{ \sum\limits_{u' \epsilon \Omega_{g} } w_{uu'} \cdot r_{u'g} }{\sum\limits_{u' \epsilon \Omega_{g}} w_{uu'}}  \]
+    
+    \( \Omega_{g}\) - mulțimea utilizatorilor care au atribuit un scor jocului \( g \)
+    
+    \( r_{ug} \) - nota oferită de utilizatorul \( u \) jocului g
+    
+    \( w_{uu'}\) - gradul desimilaritate între doi utilizatori
+\end{frame}
+
+\begin{frame}{Formule}
+    \[ dev(u,g) = r_{ug} - \overline{r_{u}} \]
+    
+    \[ \hat{dev(u,g)} = \frac{1}{|\Omega_{g}|} \cdot \sum\limits_{u' \epsilon \Omega_{g} } dev(u', g) \] 
+    
+    \( \overline{r_{u}}\) - media scorurilor utilizatorului \( u \)
+    
+\end{frame}
+
+\begin{frame}{Formule}
+    \[ \hat{w\_dev(u,g)} = \dfrac{ \sum\limits_{u' \epsilon \Omega_{g} } w_{uu'} \cdot dev(u', g) }{\sum\limits_{u' \epsilon \Omega_{g}} |w_{uu'}|} \]
+    
+    \[  \hat{s}(u,g) = \overline{r_u} + \hat{w\_dev(u,g)} \;\;\; (1)  \]
+\end{frame}
+
+\begin{frame}{Coeficientul lui Pearson}
+\[ w_{uu'} = \dfrac{ \sum\limits_{g \epsilon \Psi_{uu'} } dev(u, g) \cdot dev(u', g) }{
+\sqrt{\sum\limits_{g \epsilon \Psi_{uu'} } dev(u, g)^2} \cdot \sqrt{\sum\limits_{g \epsilon \Psi_{uu'} } dev(u', g)^2} }\]
+
+\( \Psi_{uu'}\) - mulțimea jocurilor în comun recenzate de utilizatorii \( u \) și \( u' \)
+\( \Psi_{u}\) - mulțimea jocurilor recenzate de utilizatorul \( u \)
+
+\( \Psi_{uu'} = \Psi_{u} \cap \Psi_{u'} \) 
+
+    
+\end{frame}
+
+\begin{frame}[fragile]{Algoritm - pseudocod}
+    \( u \in U, k \in \mathbb{N} \)
+    
+    getRecommendations(\(u, k \))
+    \begin{algorithmic}
+\State $S \gets \varnothing $
+
+\State \textit{ submulțime de k utilizatori similari cu u ordonați descrescător după pondere:}
+\State \( |U|^k \) = \( \{ X  \; | \; X \subseteq U \land |X| = k \land \argmax_{X} \sum_{x \in X} w_{ux}  \} \)
+
+\For{\( u' \in |U|^k\)}
+    \State \textit{jocuri recenzate de u' care nu sunt în comun cu jocurile recenzate de u:}
+    \State \( G' = \Psi_{u'} \setminus \Psi_{uu'}  \)
+    \For{\( g' \in G'\)}
+        \State \( S = S \cup \{ g' \}\)
+        \State actualizare scor \( g' \) utilizând formula \( (1) \)
+
+    \EndFor
+
+\EndFor
+
+\end{algorithmic}
 \end{frame}
 
 \section{Concluzii}
 \frame{\tableofcontents[currentsection]}
 \begin{frame}{Concluzii}
-	concluzie
+	\begin{itemize}
+	    \item cu ajutorul Neo4j se pot rezolva probleme în care relațiile dintre entități au o importanță semnificativă
+	    \item algoritmul de recomandare prezentat reprezintă un punct de pornire în dezvoltarea în amănunt a unui sistem de recomandare
+	\end{itemize}
 \end{frame}
 
 \end{document}
