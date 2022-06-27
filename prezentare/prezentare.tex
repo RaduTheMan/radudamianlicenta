@@ -47,13 +47,11 @@
 
 \begin{frame}{Specificații}
     Fie  \(U \)  mulțimea de utilizatori și \( G \) mulțimea de  jocuri. 
-     \[ \forall  u  \in  U,  \;  \exists \; G_u \subseteq  G  \] 
+     \[ \forall  u  \in  U,  \;  \exists \; G_u \subseteq  G \;\; a.i. \] 
      
      \[ \forall g \in G_u, \; s(u, g) = r_{ug}\]
      
-     \[ 1 \leq r_{ug} \leq 10\]
-     
-    
+     \[ 1 \leq r_{ug} \leq 10, \;  r_{ug} \in \mathbb{N} \]
     
 \end{frame}
 
@@ -107,8 +105,8 @@
 
 \begin{frame}{Limbajul de interogare Cypher}
     \begin{itemize}
-        \item inspirat din SQL
-        \item prezintă un mod intuitiv de reprezenta noduri și relații prin intermediul unei sintaxe tip ASCII-art
+        \item Inspirat din SQL
+        \item Prezintă un mod intuitiv de reprezenta noduri și relații prin intermediul unei sintaxe tip ASCII-art
     \end{itemize}
 \end{frame}
 
@@ -190,16 +188,16 @@ RETURN p.nume, p.prenume
  
     \begin{itemize}
         \item Ipoteză: cantitate masivă de informații
-        \item Problemă: filtrarea acestor informații
-        \item Solutțe: sistem de recomandare ce oferă conținut personalizat utilizatorilor
+        \item Problemă: filtrarea acestora
+        \item Soluție: sistem de recomandare ce oferă conținut personalizat utilizatorilor
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Sistem de recomandări bazat pe filtrare colaborativă}
     \begin{itemize}
-        \item resurse ce nu pot fi descrise prin metadate cu ușurință
-        \item matrice de scoruri utilizator-resursă
-        \item calcularea unei predicții pentru elementele lipsă din matrice
+        \item Resurse ce nu pot fi descrise prin metadate cu ușurință
+        \item Matrice de scoruri utilizator-resursă
+        \item Calcularea unei predicții pentru elementele lipsă din matrice
     \end{itemize}
 \end{frame}
 
@@ -227,9 +225,9 @@ RETURN p.nume, p.prenume
     
     \( \Omega_{g}\) - mulțimea utilizatorilor care au atribuit un scor jocului \( g \)
     
-    \( r_{ug} \) - nota oferită de utilizatorul \( u \) jocului g
+    \( r_{ug} \) - scorul oferit de utilizatorul \( u \) jocului g
     
-    \( w_{uu'}\) - gradul desimilaritate între doi utilizatori
+    \( w_{uu'}\) - gradul de similaritate între doi utilizatori
 \end{frame}
 
 \begin{frame}{Formule}
@@ -287,8 +285,8 @@ RETURN p.nume, p.prenume
 \frame{\tableofcontents[currentsection]}
 \begin{frame}{Concluzii}
 	\begin{itemize}
-	    \item cu ajutorul Neo4j se pot rezolva probleme în care relațiile dintre entități au o importanță semnificativă
-	    \item algoritmul de recomandare prezentat reprezintă un punct de pornire în dezvoltarea în amănunt a unui sistem de recomandare
+	    \item Cu ajutorul Neo4j se pot rezolva probleme în care relațiile dintre entități au o importanță semnificativă
+	    \item Algoritmul de recomandare prezentat reprezintă un punct de pornire în dezvoltarea în amănunt a unui sistem de recomandare
 	\end{itemize}
 \end{frame}
 
