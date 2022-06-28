@@ -6,6 +6,7 @@
 \usepackage{float}
 \usepackage{algpseudocode}
 \usepackage{amsmath}
+\usepackage{comment}
 \DeclareMathOperator*{\argmax}{argmax}
 
 %Information to be included in the title page:
@@ -33,34 +34,6 @@
   \tableofcontents
 \end{frame}
 
-\section{Descrierea problemei}
-\frame{\tableofcontents[currentsection]}
-
-\begin{frame}{Privirea în ansamblu a problemei}
-   Trei elemente principale:
-   \begin{itemize}
-  \item Utilizatorul
-  \item Jocul video
-  \item Recenzia
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Specificații}
-    Fie  \(U \)  mulțimea de utilizatori și \( G \) mulțimea de  jocuri. 
-     \[ \forall  u  \in  U,  \;  \exists \; G_u \subseteq  G \;\; a.i. \] 
-     
-     \[ \forall g \in G_u, \; s(u, g) = r_{ug}\]
-     
-     \[ 1 \leq r_{ug} \leq 10, \;  r_{ug} \in \mathbb{N} \]
-    
-\end{frame}
-
-\begin{frame}{Obiectiv}
-\begin{itemize}
-  \item Fie \( u \in U \), \(g \notin G_u \) 
-  \item \( \hat{s}(u, g) = ?\)
-  \end{itemize}
-\end{frame}
 
 \section{Neo4j}
 \frame{\tableofcontents[currentsection]}
@@ -116,7 +89,6 @@
         \item modelarea situației din cadrul unei facultăți(studenți, cursuri, profesori)
         \item exemplu interogare în SQL
         \item exemplu interogare în Cypher
-        \item conceptul de \emph{pattern-matching}
     \end{itemize}
 \end{frame}
 
@@ -152,15 +124,6 @@ WHERE id(s) = 0
 RETURN p.nume, p.prenume
 \end{BVerbatim}
 \end{figure}
-\end{frame}
-
-\begin{frame}{Pattern-matching}
-    
-\begin{itemize}
-    \item Conceptul de \emph{pattern-matching} este introdus prin intermediul clauzei \texttt{MATCH}
-    \item În funcție de cum este definit \emph{pattern}-ul în interogare, graful va fi parcurs într-un anumit mod
-\end{itemize}
-
 \end{frame}
 
 \begin{frame}[fragile]{Exemplu}
@@ -220,6 +183,7 @@ RETURN p.nume, p.prenume
     
 \end{frame}
 
+\begin{comment}
 \begin{frame}{Formule}
     \[ s(u, g) = \dfrac{ \sum\limits_{u' \epsilon \Omega_{g} } w_{uu'} \cdot r_{u'g} }{\sum\limits_{u' \epsilon \Omega_{g}} w_{uu'}}  \]
     
@@ -229,6 +193,7 @@ RETURN p.nume, p.prenume
     
     \( w_{uu'}\) - gradul de similaritate între doi utilizatori
 \end{frame}
+\end{comment}
 
 \begin{frame}{Formule}
     \[ dev(u,g) = r_{ug} - \overline{r_{u}} \]
@@ -237,12 +202,18 @@ RETURN p.nume, p.prenume
     
     \( \overline{r_{u}}\) - media scorurilor utilizatorului \( u \)
     
+    \( \Omega_{g}\) - mulțimea utilizatorilor care au atribuit un scor jocului \( g \)
+    
+    \( r_{ug} \) - scorul oferit de utilizatorul \( u \) jocului g
+    
+    \( w_{uu'}\) - gradul de similaritate între doi utilizatori
+    
 \end{frame}
 
 \begin{frame}{Formule}
-    \[ \hat{w\_dev(u,g)} = \dfrac{ \sum\limits_{u' \epsilon \Omega_{g} } w_{uu'} \cdot dev(u', g) }{\sum\limits_{u' \epsilon \Omega_{g}} |w_{uu'}|} \]
+    \[ \hat{w\_dev(u,g)} = \dfrac{ \sum\limits_{u' \epsilon \Omega_{g} } w_{uu'} \cdot dev(u', g) }{\sum\limits_{u' \epsilon \Omega_{g}} |w_{uu'}|} \;\;\; (1) \]
     
-    \[  \hat{s}(u,g) = \overline{r_u} + \hat{w\_dev(u,g)} \;\;\; (1)  \]
+    \[  \hat{s}(u,g) = \overline{r_u} + \hat{w\_dev(u,g)} \]
 \end{frame}
 
 \begin{frame}{Coeficientul lui Pearson}
